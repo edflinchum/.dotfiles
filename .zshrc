@@ -52,7 +52,7 @@ alias t='tail -f'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias dot='/usr/bin/git --git-dir=$HOME/git-repos/.dotfiles/ --work-tree=$HOME'
+alias dotgit='/usr/bin/git --git-dir=$HOME/git-repos/.dotfiles/ --work-tree=$HOME'
 
 # Source Powerlevel10k
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

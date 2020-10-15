@@ -95,7 +95,7 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
-alias dot='/usr/bin/git --git-dir=$HOME/git-repos/.dotfiles/ --work-tree=$HOME'
+alias dotgit='/usr/bin/git --git-dir=$HOME/git-repos/.dotfiles/ --work-tree=$HOME'
 
 xhost +local:root > /dev/null 2>&1
 
