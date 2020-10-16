@@ -1,12 +1,9 @@
 # ------------------------------------------------------------------ #
-#  Alacritty configuration
-#  All customized config settings follow the color schemes section
+#                      Alacritty configuration                       #
 # ------------------------------------------------------------------ #
 
 ######################################################################
-#                                                                    #
 #                       Start of color schemes                       #
-#                                                                    #
 ######################################################################
 
 schemes:
@@ -1906,9 +1903,9 @@ schemes:
       blue:    '#1296be'
       magenta: '#ff4dff'
       cyan:    '#54ccef'
-      white:   '#ffffff'
+      white:   '#e5e5e5'
     bright:
-      black:   '#363636'
+      black:   '#7f7f7f'
       red:     '#ff8080'
       green:   '#18ed93'
       yellow:  '#ffff80'
@@ -1918,21 +1915,13 @@ schemes:
       white:   '#ffffff'
 
 ######################################################################
-#                                                                    #
 #                        End of color schemes                        #
-#                                                                    #
 ######################################################################
-
 
 # ------------------------------------------------------------------ #
-
-
-######################################################################
-#                                                                    #
-#                  Start of Alacritty configuration                  #
+#                       Alacritty configuration                      #
 #                   (Set any custom settings below)                  #
-#                                                                    #
-######################################################################
+# ------------------------------------------------------------------ #
 
 window:
   decorations: full
@@ -1964,7 +1953,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: 0.75
+background_opacity: 0.95
 
 draw_bold_text_with_bright_colors: false
 
@@ -1974,4 +1963,4 @@ key_bindings:
   - { key: F, mods: Control|Shift, command: {program: "set_colorscheme_back.py"} }
   
 # Press <Ctrl-F> or <Ctrl-Shift-F> to cycle through color schemes
-colors: *rigel
+colors: *darkside
