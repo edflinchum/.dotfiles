@@ -138,5 +138,6 @@ ex ()
   fi
 }
 
-# Dotfile backups
+# Backup dotfiles with bare git repo
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dots='dot status'

@@ -30,9 +30,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ######################################################################
-#                           Alias section                            #
+#                          Function section                          #
 ######################################################################
 
+#
 # ex - archive extractor
 # usage: ex <file>
 ex ()
@@ -58,25 +59,30 @@ ex ()
   fi
 }
 
-# List files
-alias ls='ls --color=auto'                                                                 # colorful listing
-alias la='ls -lAhp --group-directories-first'                                              # long listing
-alias ll='exa -laFgh --color-scale --group-directories-first --time-style=long-iso'        # my preferred listing
-alias lg='exa -laFgh --color-scale --group-directories-first --time-style=long-iso --grid' # grid listing
-alias lt='exa -aFT --color-scale --group-directories-first'                                # tree listing
+######################################################################
+#                           Alias section                            #
+######################################################################
 
-# Grep
-alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
+# List files
+alias ls='ls --color=auto'                                                            # ls short listing
+alias la='ls -Ahlp --color=auto --group-directories-first'                            # ls  long listing
+alias ll='exa -aFghl --color-scale --group-directories-first --time-style=long-iso'   # exa long listing
+alias lg='exa -aFGghl --color-scale --group-directories-first --time-style=long-iso'  # exa grid listing
+alias lt='exa -aFT --color-scale --group-directories-first'                           # exa tree listing
+
+# Grep color
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Tail
 alias t='tail -f'
 
-# Confirm on overwrites
-alias rm='rm -i'
+# Confirm before overwriting files
 alias cp='cp -i'
 alias mv='mv -i'
+alias rm='rm -i'
 
-# Dotfile backups
+# Backup dotfiles with bare git repo
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dots='dot status'
