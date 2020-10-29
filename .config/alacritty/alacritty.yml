@@ -1925,7 +1925,7 @@ schemes:
 
 window:
   decorations: full
-  startup_mode: Windowed
+  startup_mode: Maximized
   title: Alacritty
   dynamic_title: true
   padding:
@@ -1953,7 +1953,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: 0.95
+background_opacity: 0.85
 
 draw_bold_text_with_bright_colors: false
 
@@ -1963,4 +1963,4 @@ key_bindings:
   - { key: F, mods: Control|Shift, command: {program: "set_colorscheme_back.py"} }
   
 # Press <Ctrl-F> or <Ctrl-Shift-F> to cycle through color schemes
-colors: *darkside
+colors: *custom_1
