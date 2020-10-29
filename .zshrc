@@ -1,5 +1,5 @@
 ######################################################################
-#                      Manjaro defaults section                      #
+#                          Manjaro defaults                          #
 ######################################################################
 
 # Source manjaro-zsh-configuration
@@ -13,7 +13,7 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
 fi
 
 ######################################################################
-#                       Powerlevel10k section                        #
+#                           Add-ons section                          #
 ######################################################################
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -23,17 +23,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Source Powerlevel10k
+# Powerlevel10k
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Fuzzy finder
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 ######################################################################
-#                          Function section                          #
+#                           Alias section                            #
 ######################################################################
 
-#
 # ex - archive extractor
 # usage: ex <file>
 ex ()
@@ -44,7 +46,7 @@ ex ()
       *.tar.gz)    tar xzf $1   ;;
       *.tar.xz)    tar xJf $1   ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
@@ -58,10 +60,6 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-######################################################################
-#                           Alias section                            #
-######################################################################
 
 # List files
 alias ls='ls --color=auto'                                                            # ls short listing
