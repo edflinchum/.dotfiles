@@ -34,18 +34,20 @@ alias ll='exa -aFghl --color-scale --group-directories-first --time-style=long-i
 alias lg='exa -aFGghl --color-scale --group-directories-first --time-style=long-iso'  # exa grid listing
 alias lt='exa -aFT --color-scale --group-directories-first'                           # exa tree listing
 
-# Grep color
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-# Tail
-alias t='tail -f'
-
 # Confirm before overwriting files
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+
+# Utilities 
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias t='tail -f'
+
+# Grep color
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Backup dotfiles with bare git repo
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
