@@ -2661,12 +2661,21 @@ font:
     y: 0
 
 key_bindings:
-  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: Right, mods: Control, command: {program: "colorscheme_next.py"} }
-  - { key: Left, mods: Control, command: {program: "colorscheme_previous.py"} }
-  - { key: Up, mods: Control, command: {program: "opacity_increase.py"} }
-  - { key: Down, mods: Control, command: {program: "opacity_decrease.py"} }
+  - { key: N, mods: Control|Shift,
+        action: SpawnNewInstance }
+  - { key: Right, mods: Control|Shift,
+        command: {program: "python",
+        args: [".config/alacritty/colorscheme_next.py"]} }
+  - { key: Left, mods: Control|Shift,
+        command: {program: "python",
+        args: [".config/alacritty/colorscheme_previous.py"]} }
+  - { key: Up, mods: Control|Shift,
+        command: {program: "python",
+        args: [".config/alacritty/opacity_increase.py"]} }
+  - { key: Down, mods: Control|Shift,
+        command: {program: "python",
+        args: [".config/alacritty/opacity_decrease.py"]} }
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 background_opacity: 0.925
-colors: *rigel
+colors: *darkside
