@@ -2668,5 +2668,5 @@ key_bindings:
   - { key: Down, mods: Control, command: {program: "opacity_decrease.py"} }
 
 draw_bold_text_with_bright_colors: true
-background_opacity: 0.825
+background_opacity: 0.925
 colors: *rigel
