@@ -29,10 +29,13 @@ setopt appendhistory                                            # Immediately ap
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
+setopt complete_aliases
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' menu select
+zstyle ':completion::complete:*' gain-privileges 1
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
@@ -75,7 +78,7 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 # Theming section  
-autoload -U compinit colors zcalc
+autoload -Uz compinit colors zcalc
 compinit -d
 colors
 
@@ -126,7 +129,9 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Use Powerlevel10k prompt
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+if [[ -r "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -136,6 +141,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 ######################################################################
 
 # Load aliases
-if [[ -e "$HOME/.aliasrc" ]]; then
+if [[ -r "$HOME/.aliasrc" ]]; then
   source "$HOME/.aliasrc"
 fi
