@@ -2632,7 +2632,7 @@ schemes:
 
 window:
   decorations: full
-  startup_mode: Maximized
+  startup_mode: Windowed
   title: Alacritty
   dynamic_title: true
   padding:
@@ -2677,5 +2677,5 @@ key_bindings:
         args: [".config/alacritty/opacity_decrease.py"]} }
 
 draw_bold_text_with_bright_colors: false
-background_opacity: 0.925
+background_opacity: 0.625
 colors: *tomorrow_night_bright
