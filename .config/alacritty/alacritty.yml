@@ -2652,10 +2652,10 @@ font:
   bold_italic:
     family: MesloLGS NF
     style: Bold Italic
-  size: 13
+  size: 12
   offset:
-    x: 0
-    y: 0
+    x: -1
+    y: 1
   glyph_offset:
     x: 0
     y: 0
@@ -2677,5 +2677,5 @@ key_bindings:
         args: [".config/alacritty/opacity_decrease.py"]} }
 
 draw_bold_text_with_bright_colors: false
-background_opacity: 0.625
-colors: *tomorrow_night_bright
+background_opacity: 0.875
+colors: *rigel
