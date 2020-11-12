@@ -5,7 +5,7 @@ import os
 import re
 
 
-CONFIG_FILE_NAME = "alacritty.yml"
+CONFIG_FILE_NAME = "alacritty-colors.yml"
 CONFIG_FILE_DIR = os.path.expanduser("~/.config/alacritty/")
 CONFIG_FILE_PATH = os.path.join(CONFIG_FILE_DIR, CONFIG_FILE_NAME)
 
