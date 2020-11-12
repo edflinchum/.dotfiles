@@ -1,11 +1,6 @@
 # .dotfiles repo
 Backup of configuration files using a bare git repo
 
-## Git config
-```sh
-git config --global user.name "DiscFlyer"
-git config --global user.email ed@flinchum.net
-```
 
 ## Setup
 ```sh
@@ -30,7 +25,7 @@ dot remote set-url origin git@github.com:DiscFlyer/.dotfiles.git
 ## Usage
 ```sh
 dot status
-dot add .zshrc
-dot commit -m 'Add zshrc'
+dot add .filename
+dot commit -m 'Add .filename'
 dot push
 ```
