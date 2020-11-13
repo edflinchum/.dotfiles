@@ -3,7 +3,7 @@
 ######################################################################
 
 # Print some system information when the shell is first started
-# echo \\n $USER@$HOST  $(uname -srm) $(lsb_release -rcs) \\n
+# echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
 neofetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -113,13 +113,11 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-
 ## Set variables
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
-
 
 ## Keybindings section
 bindkey -e
@@ -147,7 +145,6 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
-
 
 ## Modules section  
 autoload -Uz compinit colors zcalc
@@ -204,6 +201,21 @@ command_not_found_handler() {
 	fi
 	return 127
 }
+
+# Terminal window title bar prompt
+autoload -Uz add-zsh-hook
+function xterm_title_precmd () {
+	print -Pn -- '\e]2;%n@%m: %~\a'
+	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
+}
+function xterm_title_preexec () {
+	print -Pn -- '\e]2;%n@%m: %~ %# ' && print -n -- "${(q)1}\a"
+	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
+}
+if [[ "$TERM" == (alacritty*|gnome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
+fi
 
 # Use Fuzzy finder
 source /usr/share/fzf/key-bindings.zsh
