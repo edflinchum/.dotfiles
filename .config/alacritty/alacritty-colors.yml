@@ -4,9 +4,8 @@
 ######################################################################
 
 # ------------------------------------------------------------------ #
-#                       Start of color schemes                       #
+# Start of color schemes
 # ------------------------------------------------------------------ #
-
 schemes:
   afterglow: &afterglow
     primary:
@@ -1916,7 +1915,7 @@ schemes:
       white:   '#ffffff'
 
 # ------------------------------------------------------------------ #
-#                        End of color schemes                        #
+# End of color schemes
 # ------------------------------------------------------------------ #
 
 
@@ -1924,26 +1923,8 @@ schemes:
 #                     Alacritty theming options                      #
 ######################################################################
 
-
-# Change themes with the following key bindings
-# - Use <Ctrl-Shift> with Left or Right arrows to cycle color schemes
-# - Use <Ctrl-Shift> with Up or Down arrows to set background opacity
-key_bindings:
-  - { key: Right, mods: Control|Shift,
-        command: {program: "python",
-        args: [".config/alacritty/colorscheme_next.py"]} }
-  - { key: Left, mods: Control|Shift,
-        command: {program: "python",
-        args: [".config/alacritty/colorscheme_previous.py"]} }
-  - { key: Up, mods: Control|Shift,
-        command: {program: "python",
-        args: [".config/alacritty/opacity_increase.py"]} }
-  - { key: Down, mods: Control|Shift,
-        command: {program: "python",
-        args: [".config/alacritty/opacity_decrease.py"]} }
-
 # Set the desired Alacritty color scheme
-colors: *snazzy
+colors: *thelovelace
 
 # Set the desired background opacity
-background_opacity: 0.925
+background_opacity: 0.875
