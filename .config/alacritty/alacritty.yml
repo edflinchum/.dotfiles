@@ -3,8 +3,8 @@
 ######################################################################
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
-# Refer to the default Alacritty configuration example file for options:
-#   - /usr/share/doc/alacritty/example/alacritty.yml
+# Refer to the default Alacritty configuration example file located
+#   at "/usr/share/doc/alacritty/example/alacritty.yml" for options.
 
 import:
 # Import my Alacritty color schemes
@@ -19,44 +19,39 @@ window:
     x: 10
     y: 10
 
+draw_bold_text_with_bright_colors: true
+
 font:
   normal:
-    family: MesloLGS NF 
+    family: MesloLGS Nerd Font
     style: Regular
   bold:
-    family: MesloLGS NF
+    family: MesloLGS Nerd Font
     style: Bold
   italic:
-    family: MesloLGS NF
+    family: MesloLGS Nerd Font
     style: Italic
   bold_italic:
-    family: MesloLGS NF
+    family: MesloLGS Nerd Font
     style: Bold Italic
   size: 14
   offset:
     x: 0
-    y: 1
+    y: 0
   glyph_offset:
     x: 0
     y: 0
 
-draw_bold_text_with_bright_colors: true
-
 key_bindings:
 # - Use <Ctrl-Shift> with Left or Right arrows to cycle color schemes
-  - { key: Right, mods: Control|Shift,
-        command: {program: "python",
+  - { key: Right, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/colorscheme_next.py"]} }
-  - { key: Left, mods: Control|Shift,
-        command: {program: "python",
+  - { key: Left, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/colorscheme_previous.py"]} }
 # - Use <Ctrl-Shift> with Up or Down arrows to change background opacity +/- 0.25
-  - { key: Up, mods: Control|Shift,
-        command: {program: "python",
+  - { key: Up, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/opacity_increase.py"]} }
-  - { key: Down, mods: Control|Shift,
-        command: {program: "python",
+  - { key: Down, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/opacity_decrease.py"]} }
 # - Use <Ctrl-Shift> with 'N' to spawn a new terminal instance
-  - { key: N, mods: Control|Shift,
-        action: SpawnNewInstance }
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
