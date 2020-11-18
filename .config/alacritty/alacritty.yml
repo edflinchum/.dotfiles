@@ -7,19 +7,32 @@
 #   at "/usr/share/doc/alacritty/example/alacritty.yml" for options.
 
 import:
-# Import my Alacritty color schemes
+  # Import Alacritty color schemes
   - ".config/alacritty/alacritty-colors.yml"
 
+#env:
+#  TERM: alacritty
+#  WINIT_UNIX_BACKEND: x11
+
 window:
-  decorations: full
-  startup_mode: Maximized
-  title: Alacritty
-  dynamic_title: true
+  dimensions:
+    columns: 96
+    lines: 48
+  position:
+    x: 0
+    y: 0
   padding:
     x: 10
     y: 10
+  dynamic_padding: true
+  decorations: full
+  startup_mode: Windowed
+  title: Alacritty
+  dynamic_title: true
 
-draw_bold_text_with_bright_colors: true
+scrolling:
+  history: 10000
+  multiplier: 3
 
 font:
   normal:
@@ -34,7 +47,7 @@ font:
   bold_italic:
     family: MesloLGS Nerd Font
     style: Bold Italic
-  size: 14
+  size: 13
   offset:
     x: 0
     y: 0
@@ -42,16 +55,16 @@ font:
     x: 0
     y: 0
 
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+  thickness: 0.15
+
 key_bindings:
-# - Use <Ctrl-Shift> with Left or Right arrows to cycle color schemes
-  - { key: Right, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/colorscheme_next.py"]} }
-  - { key: Left, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/colorscheme_previous.py"]} }
-# - Use <Ctrl-Shift> with Up or Down arrows to change background opacity +/- 0.25
-  - { key: Up, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/opacity_increase.py"]} }
-  - { key: Down, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/opacity_decrease.py"]} }
-# - Use <Ctrl-Shift> with 'N' to spawn a new terminal instance
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
