@@ -1,11 +1,7 @@
 ######################################################################
-#                          Alacritty themes                          #
-#                     (set options at the bottom)                    #
+#                       Alacritty color schemes                      #
 ######################################################################
 
-# ------------------------------------------------------------------ #
-# Start of color schemes
-# ------------------------------------------------------------------ #
 schemes:
   afterglow: &afterglow
     primary:
@@ -1147,7 +1143,7 @@ schemes:
       cyan:    '0x56b6c2'
       white:   '0xffffff'
 
-  one_dark2: &one_dark2
+  one_dark_2: &one_dark_2
     primary:
       background: '#282c34'
       foreground: '#abb2bf'
@@ -1745,13 +1741,59 @@ schemes:
       cyan:    '0x3FDCEE'
       white:   '0xBEBEC1'
 
+  #Tomorrow Night (Alacritty default)
   tomorrow_night: &tomorrow_night
     primary:
       background: '0x1d1f21'
       foreground: '0xc5c8c6'
+      dim_foreground: '#828482'
+      bright_foreground: '#eaeaea'
     cursor:
-      text: '0x1d1f21'
-      cursor: '0xffffff'
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    selection:
+      text: CellBackground
+      background: CellForeground
+    search:
+      matches:
+        foreground: '#000000'
+        background: '#ffffff'
+      bar:
+        background: '#c5c8c6'
+        foreground: '#1d1f21'
+    normal:
+      black:   '#1d1f21'
+      red:     '#cc6666'
+      green:   '#b5bd68'
+      yellow:  '#f0c674'
+      blue:    '#81a2be'
+      magenta: '#b294bb'
+      cyan:    '#8abeb7'
+      white:   '#c5c8c6'
+    bright:
+      black:   '#666666'
+      red:     '#d54e53'
+      green:   '#b9ca4a'
+      yellow:  '#e7c547'
+      blue:    '#7aa6da'
+      magenta: '#c397d8'
+      cyan:    '#70c0b1'
+      white:   '#eaeaea'
+    dim:
+      black:   '#131415'
+      red:     '#864343'
+      green:   '#777c44'
+      yellow:  '#9e824c'
+      blue:    '#556a7d'
+      magenta: '#75617b'
+      cyan:    '#5b7d78'
+      white:   '#828482'
+
+  #Tomorrow Night - alternate colors found online
+  tomorrow_night_2: &tomorrow_night_2
     normal:
       black:   '0x1d1f21'
       red:     '0xcc6666'
@@ -1914,17 +1956,23 @@ schemes:
       cyan:    '#8eddf4'
       white:   '#ffffff'
 
-# ------------------------------------------------------------------ #
-# End of color schemes
-# ------------------------------------------------------------------ #
-
 
 ######################################################################
-#                     Alacritty theming options                      #
+#                         Alacritty theming                          #
 ######################################################################
 
-# Set the desired Alacritty color scheme
-colors: *thelovelace
-
-# Set the desired background opacity
+key_bindings:
+# - Use <Ctrl-Shift> with Up or Down arrows to change background opacity +/- 0.025
+  - { key: Up, mods: Control|Shift, command: {program: "python",
+        args: [".config/alacritty/opacity_increase.py"]} }
+  - { key: Down, mods: Control|Shift, command: {program: "python",
+        args: [".config/alacritty/opacity_decrease.py"]} }
+# - Use <Ctrl-Shift> with Left or Right arrows to cycle color schemes
+  - { key: Right, mods: Control|Shift, command: {program: "python",
+        args: [".config/alacritty/colorscheme_next.py"]} }
+  - { key: Left, mods: Control|Shift, command: {program: "python",
+        args: [".config/alacritty/colorscheme_previous.py"]} }
+                
 background_opacity: 0.875
+
+colors: *night_owl
