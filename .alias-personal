@@ -108,8 +108,8 @@ alias cls="clear"
 
 # list files
 alias ls="ls --color=auto"                                                            # ls short listing
-alias la="ls -AFhl --color=auto --group-directories-first"                            # ls  long listing
-alias l.="ls -A | egrep '^\.'"                                                        # ls  hidden files
+alias la="ls -AFhl --color=auto --group-directories-first"                            # ls long listing
+alias l.="ls -A | egrep '^\.'"                                                        # ls hidden files
 alias ll="exa -aFghl --color-scale --group-directories-first --time-style=long-iso"   # exa long listing
 alias lg="exa -aFGghl --color-scale --group-directories-first --time-style=long-iso"  # exa grid listing
 alias lt="exa -aFT --color-scale --group-directories-first"                           # exa tree listing
@@ -172,10 +172,10 @@ alias upall="yay -Syu --noconfirm"
 # skip integrity check
 alias yayskip="yay -S --mflags --skipinteg"
 # get fastest mirrors in your neighborhood
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias mirror="sudo reflector  -c US -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector -c US --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector -c US --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector -c US --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 # cleanup orphaned packages
 alias cleanup="sudo pacman -Rns $(pacman -Qtdq)"
 
