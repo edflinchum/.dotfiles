@@ -1,7 +1,4 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+### Sway config
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -18,7 +15,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show drun
+set $menu wofi -IS drun | xargs swaymsg exec --
 set $altmenu dmenu_path | dmenu | xargs swaymsg exec --
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -32,7 +29,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-    
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -48,10 +45,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -116,14 +113,17 @@ floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
+# Not working with Sway
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 #bindsym $mod+Shift+r restart
 
 # Lock screen
 #bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec swaylock -f -c 000000
 
+# Replaced exit screen with swaynagmode in mode section below
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 #
 # Moving around:
@@ -238,8 +238,8 @@ for_window [urgent=latest] focus
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+b splith #;exec notify-send 'tile horizontally'
-bindsym $mod+v splitv #;exec notify-send 'tile vertically'
+bindsym $mod+b splith; exec notify-send 'tile horizontally'
+bindsym $mod+v splitv; exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # Switch the current container between different layout styles
@@ -272,7 +272,52 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+#
+# Media controls:
+#
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 ### Modes
+#
+# Swaynagmode for keyboard control of swaynag:
+#
+# nag
+set {
+  $nag         exec swaynagmode
+  $nag_exit    $nag --exit
+  $nag_confirm $nag --confirm
+  $nag_select  $nag --select
+}
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+    Ctrl+c    $nag_exit
+    q         $nag_exit
+    Escape    $nag_exit
+    Return    $nag_confirm
+    Tab       $nag_select prev
+    Shift+Tab $nag_select next
+    Left      $nag_select next
+    Right     $nag_select prev
+    Up        $nag_select next
+    Down      $nag_select prev
+  }
+}
+bindsym {
+  $mod+Shift+e $nag -t "warning" -m "You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session." -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
+}
+# -R is recommended for swaynag_command so that, upon a syntax error in your sway config, the
+# 'Reload Sway' option will be initially selected instead of the 'Exit Sway' option
+swaynag_command $nag -R
+
 #
 # Resizing containers:
 #
@@ -404,15 +449,14 @@ mode "$mode_gaps_outer" {
 #    }
 #}
 
-#bar {
-#    status_command waybar
-#}
+bar {
+    swaybar_command waybar
+}
 
 # hide/unhide status bar
 bindsym $mod+m bar mode toggle
 
 #autostart
-exec waybar
 exec dex -ae sway
 
 #
