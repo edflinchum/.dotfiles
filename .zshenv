@@ -2,8 +2,12 @@
 # ~/.zshenv
 #
 
-## Variables
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
+## Variables
 typeset -U PATH path
 path=("$HOME/.local/bin" "$path[@]")
 export PATH
