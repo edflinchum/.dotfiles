@@ -10,10 +10,6 @@ import:
   # Import Alacritty color schemes
   - ".config/alacritty/alacritty-colors.yml"
 
-#env:
-#  TERM: alacritty
-#  WINIT_UNIX_BACKEND: x11
-
 window:
   dimensions:
     columns: 96
