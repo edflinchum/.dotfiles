@@ -18,21 +18,15 @@ set $term alacritty
 set $menu wofi -IS drun | xargs swaymsg exec --
 set $altmenu dmenu_path | dmenu | xargs swaymsg exec --
 
-
 ### Key bindings
-#
-# Basics:
 #
 # Start a terminal
 bindsym $mod+Return exec $term
-
 # Kill focused window
 bindsym $mod+Shift+q kill
-
 # Start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+d exec $altmenu
-
 # Media controls:
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -44,11 +38,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-
 ### Autostart
 exec dex -ae sway
 
 ### Include other configs
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
-include ~/.config/sway/config-$(hostname).d/*
+#include ~/.config/sway/config-$(hostname).d/*
