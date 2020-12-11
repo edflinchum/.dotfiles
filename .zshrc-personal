@@ -174,14 +174,13 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-# Offer to install missing package if command is not found
-if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
-  source /usr/share/zsh/functions/command-not-found.zsh
-  export PKGFILE_PROMPT_INSTALL_MISSING=1
-fi
-
-# The pacman "command not found" handler
-command_not_found_handler() {
+# Arch Linux "command not found" support, you must have pkgfile installed
+# https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
+if [[ -r "/usr/share/doc/pkgfile/command-not-found.zsh" ]]; then
+  source "/usr/share/doc/pkgfile/command-not-found.zsh"
+else
+  # Use the pacman "command not found" handler
+  command_not_found_handler() {
 	local pkgs cmd="$1" files=()
 	printf 'zsh: command not found: %s' "$cmd" # print command not found asap, then search for packages
 	files=(${(f)"$(pacman -F --machinereadable -- "/usr/bin/${cmd}")"})
@@ -200,7 +199,8 @@ command_not_found_handler() {
 		printf '\n'
 	fi
 	return 127
-}
+  }
+fi
 
 # Terminal window title bar prompt
 autoload -Uz add-zsh-hook
