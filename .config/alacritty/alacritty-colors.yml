@@ -1973,6 +1973,6 @@ key_bindings:
   - { key: Left, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/colorscheme_previous.py"]} }
                 
-background_opacity: 0.775
+background_opacity: 0.8
 
-colors: *nightfly
+colors: *iterm_default
