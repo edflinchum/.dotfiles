@@ -115,9 +115,9 @@ alias lg="exa -aFGghl --color-scale --group-directories-first --time-style=long-
 alias lt="exa -aFT --color-scale --group-directories-first"                           # exa tree listing
 
 # confirm before overwriting files
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -Iv"
 
 # grep
 alias grep="grep --color=auto"
