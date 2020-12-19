@@ -122,16 +122,16 @@
         "format-icons": {
             "wifi": ["睊", "直" ,""],
             "ethernet": [""],
-            "disconnected": [""]
+            "disconnected": [""] // Icon: 
         },
         //"format": "{icon} {ifname}",
-        "format-alt": "{icon} {bandwidthDownBits}",
+        "format-alt": "{icon} {ifname}: {ipaddr}/{cidr}",
         "format-alt-click": "click-right",
         "format-wifi": "{icon} {essid} ({signalStrength}%)", // Icon: wifi
         //"format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-ethernet": "{icon} {ifname}",
-        "format-disconnected": "{icon} Disconnected", // Icon: 
-        "tooltip-format": "{icon} {ifname}: {ipaddr}/{cidr}", // Icon:  
+        "format-disconnected": "{icon} Disconnected",
+        "tooltip-format": " Up: {bandwidthUpBits}\n Dn: {bandwidthDownBits}", // Icon: 
         "tooltip": true
         //"on-click": "cmst"
     },
@@ -143,7 +143,7 @@
 
     "sway/window": {
         "format": "{}",
-        "max-length": 30,
+        //"max-length": 50,
 	    "tooltip": false
     },
 

@@ -41,21 +41,22 @@
 
 /* Rigel */
 @define-color light #e6e6dc;
-@define-color dark #00384d;
+@define-color dark #002635;
 @define-color warning #ffcc1b;
 @define-color critical #c43061;
 @define-color mode #ff5a67;
 @define-color workspaces #1c8db2;
-@define-color workspacesfocused #7eb2dd;
-@define-color sound #c694ff;
-@define-color network #1c8db2;
-@define-color memory #b7cff9;
-@define-color cpu #517f8d;
-@define-color temp #c694ff;
-@define-color layout #1c8db2;
-@define-color battery #517f8d;
+@define-color workspacesfocused #9cf087;
+@define-color sound #7fc06e;
+@define-color network #00384d;
+@define-color memory #517f8d;
+@define-color cpu #1c8db2;
+@define-color temp #7fc06e;
+@define-color layout #00384d;
+@define-color battery #1c8db2;
 @define-color date #00384d;
 @define-color time #b7cff9;
+@define-color window #c43061;
 
 /* Nord */
 /*
@@ -202,7 +203,7 @@
 }*/
 
 #window {
-    background: @dark;
+    background: @window;
     color: @light;
     padding-left: 40px;
     padding-right: 40px;
@@ -340,12 +341,12 @@
 
 #custom-arrow11 {
     font-size: larger;
-    color: @dark;
+    color: @window;
     background: transparent;
 }
 
 #custom-arrow12 {
     font-size: larger;
-    color: @dark;
+    color: @window;
     background: transparent;
 }
