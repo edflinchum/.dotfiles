@@ -28,6 +28,7 @@ set $altmenu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Start a terminal
 bindsym $mod+Return exec $term
+bindsym F12 exec guake-toggle
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -271,40 +272,42 @@ bindsym $mod+r mode "resize"
 #
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
+  # for_window [title="alsamixer"] floating enable border pixel 1
+  # for_window [class="calamares"] floating enable border normal
+  # for_window [class="Clipgrab"] floating enable
+  # for_window [title="File Transfer*"] floating enable
+  # for_window [class="fpakman"] floating enable
+  # for_window [class="Galculator"] floating enable border pixel 1
+  # for_window [class="GParted"] floating enable border normal
+  # for_window [title="i3_help"] floating enable sticky enable border normal
+  # for_window [class="Lightdm-settings"] floating enable
+  # for_window [class="Lxappearance"] floating enable sticky enable border normal
+  # for_window [class="Manjaro-hello"] floating enable
+  # for_window [class="Manjaro Settings Manager"] floating enable border normal
+  # for_window [title="MuseScore: Play Panel"] floating enable
+  # for_window [class="Nitrogen"] floating enable sticky enable border normal
+  # for_window [class="Oblogout"] fullscreen enable
+  # for_window [class="octopi"] floating enable
+  # for_window [title="About Pale Moon"] floating enable
+  # for_window [class="Pamac-manager"] floating enable
+  # for_window [class="Pavucontrol"] floating enable
+  # for_window [class="qt5ct"] floating enable sticky enable border normal
+  # for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+  # for_window [class="Simple-scan"] floating enable border normal
+  # for_window [class="(?i)System-config-printer.py"] floating enable border normal
+  # for_window [class="Skype"] floating enable border normal
+  # for_window [class="Timeset-gui"] floating enable border normal
+  # for_window [class="(?i)virtualbox"] floating enable border normal
+  # for_window [class="Xfburn"] floating enable
+for_window [app_id="guake"] move window to scratchpad, scratchpad show
+for_window [app_id="pavucontrol"] floating enable
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
-assign [class="Chromium"] $ws5
+  # assign [class="Thunderbird"] $ws1
+  # assign [class="Pale moon"] $ws2
+  # assign [class="Pcmanfm"] $ws3
+  # assign [class="Skype"] $ws5
+assign [class="Chromium"] $ws4
 
 
 
