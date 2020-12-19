@@ -39,7 +39,26 @@
 
 /* COLORS */
 
+/* Rigel */
+@define-color light #e6e6dc;
+@define-color dark #00384d;
+@define-color warning #ffcc1b;
+@define-color critical #c43061;
+@define-color mode #ff5a67;
+@define-color workspaces #1c8db2;
+@define-color workspacesfocused #7eb2dd;
+@define-color sound #c694ff;
+@define-color network #1c8db2;
+@define-color memory #b7cff9;
+@define-color cpu #517f8d;
+@define-color temp #c694ff;
+@define-color layout #1c8db2;
+@define-color battery #517f8d;
+@define-color date #00384d;
+@define-color time #b7cff9;
+
 /* Nord */
+/*
 @define-color light #eceff4;
 @define-color dark #2e3440;
 @define-color warning #ebcb8b;
@@ -56,6 +75,7 @@
 @define-color battery #88c0d0;
 @define-color date #2e3440;
 @define-color time #eceff4;
+*/
 
 /* Gruvbox */
 /*
@@ -260,44 +280,44 @@
 
 #custom-arrow1 {
     font-size: larger;
-    color: @sound;
+    color: @network;
     background: transparent;
 }
 
 #custom-arrow2 {
     font-size: larger;
-    color: @network;
-    background: @sound;
+    color: @temp;
+    background: @network;
 }
 
 #custom-arrow3 {
     font-size: larger;
-    color: @memory;
-    background: @network;
+    color: @cpu;
+    background: @temp;
 }
 
 #custom-arrow4 {
     font-size: larger;
-    color: @cpu;
-    background: @memory;
+    color: @memory;
+    background: @cpu;
 }
 
 #custom-arrow5 {
     font-size: larger;
-    color: @temp;
-    background: @cpu;
+    color: @layout;
+    background: @memory;
 }
 
 #custom-arrow6 {
     font-size: larger;
-    color: @layout;
-    background: @temp;
+    color: @sound;
+    background: @layout;
 }
 
 #custom-arrow7 {
     font-size: larger;
     color: @battery;
-    background: @layout;
+    background: @sound;
 }
 
 #custom-arrow8 {

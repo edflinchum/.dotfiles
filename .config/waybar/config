@@ -31,17 +31,17 @@
 
     "modules-right": [
         "custom/arrow1",
-        "pulseaudio",
-        "custom/arrow2",
         "network",
-        "custom/arrow3",
-        "memory",
-        "custom/arrow4",
-        "cpu",
-        "custom/arrow5",
+        "custom/arrow2",
         "temperature",
-        "custom/arrow6",
+        "custom/arrow3",
+        "cpu",
+        "custom/arrow4",
+        "memory",
+        "custom/arrow5",
         "custom/layout",
+        "custom/arrow6",
+        "pulseaudio",
         "custom/arrow7",
         "battery",
         "custom/arrow8",
@@ -118,17 +118,20 @@
     },
 
     "network": {
-        "interval": 5,
+        "interval": 1,
         "format-icons": {
             "wifi": ["睊", "直" ,""],
             "ethernet": [""],
             "disconnected": [""]
         },
-        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        //"format": "{icon} {ifname}",
+        "format-alt": "{icon} {bandwidthDownBits}",
+        "format-alt-click": "click-right",
+        "format-wifi": "{icon} {essid} ({signalStrength}%)", // Icon: wifi
         //"format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-        "format-ethernet": " {ifname}",
-        "format-disconnected": " Disconnected", // Icon: 
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}", // Icon:  
+        "format-ethernet": "{icon} {ifname}",
+        "format-disconnected": "{icon} Disconnected", // Icon: 
+        "tooltip-format": "{icon} {ifname}: {ipaddr}/{cidr}", // Icon:  
         "tooltip": true
         //"on-click": "cmst"
     },
@@ -147,6 +150,16 @@
     "sway/workspaces": {
         "all-outputs": false,
         "disable-scroll": false,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": []
+        },
         "format": "{name} {icon} ",
         "format-icons": {
             "1": "",
