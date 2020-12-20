@@ -19,7 +19,8 @@
         "custom/power",
         "sway/mode",
     	"sway/workspaces",
-        "custom/arrow10",
+        //"custom/arrow10",
+        "custom/arrow-right",
         "custom/media"
     ],
 
@@ -28,25 +29,27 @@
     ],
 
     "modules-right": [
-        "custom/arrow1",
+        "network#speed",
+        "custom/arrow-left",
+        //"custom/arrow1",
         "network",
-        "custom/arrow2",
+        //"custom/arrow2",
         "temperature",
-        "custom/arrow3",
+        //"custom/arrow3",
         "cpu",
-        "custom/arrow4",
+        //"custom/arrow4",
         "memory",
-        "custom/arrow5",
-        "custom/layout",
+        //"custom/arrow5",
+        //"custom/layout",
         //"sway/language",
-        "custom/arrow6",
+        //"custom/arrow6",
         "pulseaudio",
-        "custom/arrow7",
+        //"custom/arrow7",
         "battery",
-        "custom/arrow8",
+        //"custom/arrow8",
         "tray",
         "clock#date",
-        "custom/arrow9",
+        //"custom/arrow9",
         "clock#time"
     ],
 
@@ -77,14 +80,14 @@
     },
 
     "clock#time": {
-        "interval": 10,
-        "format": "{:%l:%M %p}",
+        "interval": 1,
+        "format": " {:%l:%M:%S %p}",
         "tooltip": false
     },
 
     "clock#date": {
         "interval": 20,
-        "format": " {:%a %b %e %Y}", // Icon: calendar-alt
+        "format": " {:%a %b %e}", // Icon: calendar-alt
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
@@ -139,6 +142,12 @@
         //"on-click": "cmst"
     },
 
+    "network#speed": {
+        "interval": 1,
+        "format": "{bandwidthDownBits} ",
+        "tooltip": false
+    },
+
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
         "critical-threshold": 90,
@@ -167,8 +176,9 @@
     },
 
     "sway/mode": {
-        "format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
+        //"format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
         //"format": " {}",
+        "format": " {}",
         "tooltip": false
     },
 
@@ -253,62 +263,61 @@
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 100,
+        "max-length": 50,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "default": ""
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
 
     // Arrow icons:  , Rounded: \uE0B6 \uE0B4
+    "custom/arrow-left": {
+        "format": "\uE0B6",
+        "tooltip": false
+    },
+    "custom/arrow-right": {
+        "format": "\uE0B4",
+        "tooltip": false
+    },
     "custom/arrow1": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow2": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow3": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow4": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow5": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow6": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow7": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow8": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow9": {
         "format": "",
         "tooltip": false
     },
-
     "custom/arrow10": {
         "format": "",
         "tooltip": false

@@ -6,40 +6,37 @@
  *
  * =========================================================================== */
 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-    70% {
-        color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @warning;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @critical;
-    }
-}
-
 
 /* -----------------------------------------------------------------------------
  * Colors
  * -------------------------------------------------------------------------- */
 
-/* COLORS */
+/* Simple Custom */
+@define-color bright #e6e6dc;
+@define-color light #7eb2dd;
+@define-color dark #002635;
+@define-color warning #f08e48;
+@define-color critical #ff5a67;
+@define-color mode #ff5a67;
+@define-color workspaces #00384d;
+@define-color workspacesfocused #9cf087;
+@define-color sound #00384d;
+@define-color cpu #00384d;
+@define-color memory #00384d;
+@define-color network #00384d;
+@define-color temp #00384d;
+@define-color layout #00384d;
+@define-color battery #00384d;
+@define-color tray #7eb2dd;
+@define-color date #002635;
+@define-color time #77929e;
+@define-color media #7fc06e;
+@define-color power #c43061;
+@define-color window #00384d;
+@define-color border #ffcc1b;
 
 /* Rigel */
+/*
 @define-color light #e6e6dc;
 @define-color dark #002635;
 @define-color bright #7eb2dd;
@@ -49,20 +46,24 @@
 @define-color workspaces #00384d;
 @define-color workspacesfocused #9cf087;
 @define-color sound #1c8db2;
-@define-color power #00cccc;
 @define-color cpu #77929e;
 @define-color memory #b7cff9;
 @define-color network #7fc06e;
 @define-color temp #1c8db2;
 @define-color layout #7fc06e;
 @define-color battery #77929e;
+@define-color tray #00384d;
 @define-color date #00384d;
 @define-color time #00cccc;
+@define-color media #7fc06e;
+@define-color power #00cccc;
 @define-color window #00384d;
 @define-color border #c694ff;
+*/
 
 /* Nord */
 /*
+@define-color bright #eceff4;
 @define-color light #eceff4;
 @define-color dark #2e3440;
 @define-color warning #ebcb8b;
@@ -77,12 +78,18 @@
 @define-color temp #d8dee9;
 @define-color layout #5e81ac;
 @define-color battery #88c0d0;
+@define-color tray #2e3440;
 @define-color date #2e3440;
 @define-color time #eceff4;
+@define-color media #81a1c1;
+@define-color power #d08770;
+@define-color window #5e81ac;
+@define-color border #d08770;
 */
 
 /* Gruvbox */
 /*
+@define-color bright #ebdbb2;
 @define-color light #ebdbb2;
 @define-color dark #282828;
 @define-color warning #fabd2f;
@@ -97,12 +104,43 @@
 @define-color temp #b8bb26;
 @define-color layout #689d6a;
 @define-color battery #fabd2f;
+@define-color tray #282828;
 @define-color date #282828;
 @define-color time #ebdbb2;
+@define-color media #83a598;
+@define-color power #cc241d;
+@define-color window #458588;
+@define-color border #cc241d;
 */
 
+
 /* -----------------------------------------------------------------------------
- * Styles
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+    70% {
+        color: @bright;
+    }
+    to {
+        color: @bright;
+        background-color: @warning;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @bright;
+    }
+    to {
+        color: @bright;
+        background-color: @critical;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
  * -------------------------------------------------------------------------- */
 
 /* Reset all styles */
@@ -114,26 +152,34 @@
     margin: 0;
     padding: 0;
 }
-
+/* The whole bar */
+#waybar {
+    background-color: alpha(@window,0.6);
+    color: @bright;
+    /*opacity: 0.85;*/
+    /*font-family: Iosevka, xos4 Terminus, FiraCode, Noto Sans;*/
+    font-family: DroidSansMono Nerd Font;
+    font-size: 11pt;
+    font-weight: bold;
+}
 /* Each module */
 #battery,
 #clock,
 #cpu,
+#custom-alsa,
 #custom-layout,
+#custom-power,
+#custom-media,
 #language,
 #memory,
 #mode,
 #network,
 #pulseaudio,
 #temperature,
-#custom-alsa,
-#custom-power,
-#custom-media,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
 }
-
 /* Each module that should blink */
 #mode,
 #memory,
@@ -143,7 +189,6 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-
 /* Each critical module */
 #memory.critical,
 #cpu.critical,
@@ -151,7 +196,6 @@
 #battery.critical {
     color: @critical;
 }
-
 /* Each critical that should blink */
 #mode,
 #memory.critical,
@@ -160,7 +204,6 @@
     animation-name: blink-critical;
     animation-duration: 2s;
 }
-
 /* Each warning */
 #network.disconnected,
 #memory.warning,
@@ -169,47 +212,135 @@
 #battery.warning {
     color: @warning;
 }
-
 /* Each warning that should blink */
 #battery.warning.discharging {
     animation-name: blink-warning;
     animation-duration: 3s;
 }
 
-/* The whole bar */
-window#waybar {
-    background-color: alpha(@window,0.6);
-    color: @light;
-    opacity: 0.85;
-    /*font-family: Iosevka, xos4 Terminus, FiraCode, Noto Sans;*/
-    font-family: DroidSansMono Nerd Font;
-    font-size: 11pt;
-    font-weight: bold;
-}
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
 
+#battery {
+    background-color: @battery;
+    color: @light;    
+}
+#clock.date {
+    background-color: @date;
+    color: @time;    
+}
+#clock.time {
+    background-color: @time;
+    color: @date;    
+}
+#cpu {
+    background-color: @cpu;
+    color: @light;    
+}
+#language {
+    background-color: @layout;
+    color: @light;    
+}
+#memory {
+    background-color: @memory;
+    color: @light;    
+}
+#mode { /* Show current Sway mode (resize etc.) */
+	color: @dark;
+    background-color: @mode;
+    font-style: italic;
+}
+#network {
+    background-color: @network;
+    color: @light;    
+}
+#network.speed {
+    background-color: transparent;
+    color: @light;
+    font-size: smaller;
+}
+#pulseaudio {
+    background-color: @sound;
+    color: @light;    
+}
+#pulseaudio.muted {    
+    background-color: @critical;
+    color: @light;
+}
+#temperature {
+    background-color: @temp;
+    color: @light;    
+}
+#tray {
+    background-color: @tray;
+    color: @bright;   
+}
 window#waybar.solo {
     background-color: @window;
 }
-
 window#waybar.empty {
     background-color: transparent;
 }
-
 window#waybar.hidden {
     opacity: 0.2;
 }
-
 #window {
-    /*background-color: @window;*/
-    color: @light;
-    /*border: 1px solid @border;
+    color: @bright;
+    /*background-color: @window;    
+    border: 1px solid @border;
     border-radius: 20px;*/
     padding-left: 20px;
-    padding-right: 20px;    
+    padding-right: 20px;
     margin-right: 50px;
     margin-left: 50px; 
 }
+#workspaces button {
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: @light;
+    background-color: @workspaces;   
+}
+#workspaces button.persistent {
+    color: @dark;
+}
+#workspaces button.focused {
+    /*background-color: @workspacesfocused;*/
+    color: @light;
+    border: 2px solid @workspacesfocused;
+}
+#workspaces button:hover { /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    background-color: alpha(@workspacesfocused, 0.6);
+    color: @bright;
+    box-shadow: inset 0 -3px @border;
+}
+#workspaces button.urgent {
+    color: @critical;
+}
 
+/* -----------------------------------------------------------------------------
+ * Custom Module styles
+ * -------------------------------------------------------------------------- */
+#custom-alsa {
+	background-color: @sound;
+    color: @light;    
+}
+#custom-layout {
+    background-color: @layout;
+    color: @light;    
+}
+#custom-media {
+    background-color: @media;
+    color: @sound;
+    min-width: 300px;
+    font-size: smaller;
+    font-style: italic;
+    border: 2px solid @border;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 #custom-power {
 	font-weight: bold;
 	padding-left: 10px;
@@ -218,168 +349,67 @@ window#waybar.hidden {
     background-color: @power;    
 }
 
-#mode { /* Shown current Sway mode (resize etc.) */
-	color: @light;
-    background-color: @mode;
-}
-
-/* Workspaces stuff */
-#workspaces button {
-	font-weight: bold;
-	padding-left: 5px;
-	padding-right: 10px;
-	color: @bright;
-    background-color: @workspaces;   
-}
-
-#workspaces button.focused {
-    background-color: @workspacesfocused;
+/* -----------------------------------------------------------------------------
+ * Arrow Module styles
+ * -------------------------------------------------------------------------- */
+#custom-arrow-left {
+    font-size: larger;
     color: @workspaces;
-}
-
-#workspaces button.urgent {
-    color: @critical;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background-color: alpha(@workspacesfocused, 0.6);
-    box-shadow: inset 0 -3px @border;
-}
-
-#custom-alsa {
-	background-color: @sound;
-    color: @dark;    
-}
-
-#network {
-    background-color: @network;
-    color: @dark;    
-}
-
-#memory {
-    background-color: @memory;
-    color: @dark;    
-}
-
-#cpu {
-    background-color: @cpu;
-    color: @dark;    
-}
-
-#temperature {
-    background-color: @temp;
-    color: @light;    
-}
-
-#custom-layout {
-    background-color: @layout;
-    color: @dark;    
-}
-
-#language {
-    background-color: @layout;
-    color: @dark;    
-}
-
-#battery {
-    background-color: @battery;
-    color: @dark;    
-}
-
-#tray {
-    background-color: @date;    
-}
-
-#clock.date {
-    background-color: @date;
-    color: @light;    
-}
-
-#clock.time {
-    background-color: @time;
-    color: @dark;    
-}
-
-#pulseaudio {
-    background-color: @sound;
-    color: @light;
-    
-}
-
-#pulseaudio.muted {    
-    background-color: @critical;
-    color: @light;
-}
-
-#custom-media {
     background-color: transparent;
-    color: @light;
-    min-width: 100px;
-    font-size: smaller;
-    font-style: italic;
-    /*border: 2px solid @border;
-    border-radius: 20px;
-    padding: 2 20 0 20;*/
-    box-shadow: inset 0 -3px @border;
 }
-
+#custom-arrow-right {
+    font-size: larger;
+    color: @workspaces;
+    background-color: transparent;
+}
 #custom-arrow1 {
     font-size: larger;
     color: @network;
     background-color: transparent;
 }
-
 #custom-arrow2 {
     font-size: larger;
     color: @temp;
     background-color: @network;
 }
-
 #custom-arrow3 {
     font-size: larger;
     color: @cpu;
     background-color: @temp;
 }
-
 #custom-arrow4 {
     font-size: larger;
     color: @memory;
     background-color: @cpu;
 }
-
 #custom-arrow5 {
     font-size: larger;
     color: @layout;
     background-color: @memory;
 }
-
 #custom-arrow6 {
     font-size: larger;
     color: @sound;
     background-color: @layout;
 }
-
 #custom-arrow7 {
     font-size: larger;
     color: @battery;
     background-color: @sound;
 }
-
 #custom-arrow8 {
     font-size: larger;
     color: @date;
     background-color: @battery;
 }
-
 #custom-arrow9 {
     font-size: larger;
     color: @time;
     background-color: @date;
 }
-
 #custom-arrow10 {
     font-size: larger;
     color: @workspaces;
     background-color: transparent;
 }
+
