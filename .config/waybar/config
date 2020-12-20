@@ -19,14 +19,12 @@
         "custom/power",
         "sway/mode",
     	"sway/workspaces",
-        "custom/arrow10"
-	    //"sway/window"
+        "custom/arrow10",
+        "custom/media"
     ],
 
     "modules-center": [
-        "custom/arrow11",
-        "sway/window",
-        "custom/arrow12"
+        "sway/window"
     ],
 
     "modules-right": [
@@ -40,6 +38,7 @@
         "memory",
         "custom/arrow5",
         "custom/layout",
+        //"sway/language",
         "custom/arrow6",
         "pulseaudio",
         "custom/arrow7",
@@ -56,20 +55,24 @@
     // -------------------------------------------------------------------------
 
     "battery": {
-        "interval": 1,
+        //"bat": "BAT0",
+        "interval": 10,
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": " {capacity}%", // Icon: bolt
+        //"format-charging": " {capacity}%",
+        "format": " {capacity}%", // Icon:  bolt
         "format-discharging": "{icon} {capacity}%",
-        "format-icons": [
+        /*"format-icons": [
             "", // Icon: battery-full
             "", // Icon: battery-three-quarters
             "", // Icon: battery-half
             "", // Icon: battery-quarter
             ""  // Icon: battery-empty
-        ],
+        ],*/
+        "format-icons": ["", "", "", "", ""],
+        "format-alt": "{icon} {time}",
         "tooltip": false
     },
 
@@ -81,9 +84,9 @@
 
     "clock#date": {
         "interval": 20,
-        "format": "{:%a %b %e %Y}", // Icon: calendar-alt
-        //"tooltip-format": "{:%e %B %Y}"
-        "tooltip": false
+        "format": " {:%a %b %e %Y}", // Icon: calendar-alt
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip": true
     },
 
     "cpu": {
@@ -122,9 +125,9 @@
         "format-icons": {
             "wifi": ["睊", "直" ,""],
             "ethernet": [""],
-            "disconnected": [""] // Icon: 
+            "disconnected": [""] // Icon: , ⚠
         },
-        //"format": "{icon} {ifname}",
+        //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
         "format-alt": "{icon} {ifname}: {ipaddr}/{cidr}",
         "format-alt-click": "click-right",
         "format-wifi": "{icon} {essid} ({signalStrength}%)", // Icon: wifi
@@ -136,16 +139,48 @@
         //"on-click": "cmst"
     },
 
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
+        "critical-threshold": 90,
+        "interval": 5,
+        //"tooltip": false,
+        "format": "{icon} {temperatureC}°C",
+	    //"format": "{icon} {temperatureC}°",
+        "format-icons": [
+            "", // Icon: temperature-empty
+            "", // Icon: temperature-quarter
+            "", // Icon: temperature-half
+            "", // Icon: temperature-three-quarters
+            ""  // Icon: temperature-full
+        ]
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
     "sway/mode": {
-        //"format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
-        "format": " {}",
+        "format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
+        //"format": " {}",
         "tooltip": false
     },
 
     "sway/window": {
         "format": "{}",
         //"max-length": 50,
-	    //"tooltip": false
+	    "tooltip": false
+    },
+
+    "sway/language": {
+        "format": "{}",
+        "max-length": 50
     },
 
     "sway/workspaces": {
@@ -161,7 +196,7 @@
             "7": [],
             "8": []
         },
-        "format": "{name} {icon}",
+        "format": "{value} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
             "1": "",
             "2": "",
@@ -181,33 +216,28 @@
         "scroll-step": 1,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": "",
+        "format-muted": " MUTE", /*alt icon:  */
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
+            "headphone": "",
+            "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
     },
 
-    "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
-        "critical-threshold": 90,
-        "interval": 5,
-        "format": "{icon} {temperatureC}°C",
-	    //"format": "{icon} {temperatureC}°",
-        "format-icons": [
-            "", // Icon: temperature-empty
-            "", // Icon: temperature-quarter
-            "", // Icon: temperature-half
-            "", // Icon: temperature-three-quarters
-            ""  // Icon: temperature-full
-        ],
-        "tooltip": false
+    "pulseaudio#source": {
+        "format": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%"
     },
 
     "custom/alsa": {
@@ -219,18 +249,21 @@
         "interval": 10,
         "tooltip": false
     },
-
-    "tray": {
-        "icon-size": 18
-        //"spacing": 10
+    
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 100,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
 
-    "custom/power": {
-        "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
-
+    // Arrow icons:  , Rounded: \uE0B6 \uE0B4
     "custom/arrow1": {
         "format": "",
         "tooltip": false
@@ -277,16 +310,6 @@
     },
 
     "custom/arrow10": {
-        "format": "",
-        "tooltip": false
-    },
-
-    "custom/arrow11": {
-        "format": "",
-        "tooltip": false
-    },
-
-    "custom/arrow12": {
         "format": "",
         "tooltip": false
     }
