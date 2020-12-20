@@ -266,7 +266,7 @@
 }
 #pulseaudio.muted {    
     background-color: @critical;
-    color: @light;
+    color: @bright;
 }
 #temperature {
     background-color: @temp;
