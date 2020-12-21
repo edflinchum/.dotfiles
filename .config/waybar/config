@@ -47,10 +47,10 @@
         //"custom/arrow7",
         "battery",
         //"custom/arrow8",
-        "tray",
         "clock#date",
         //"custom/arrow9",
-        "clock#time"
+        "clock#time",
+        "tray"
     ],
 
     // -------------------------------------------------------------------------
@@ -98,7 +98,7 @@
         //"tooltip-format": "{load}",
         "format": " {usage}%", // Icon: microchip
         "states": {
-          "warning": 70,
+          "warning": 60,
           "critical": 90
         }
     },
@@ -150,7 +150,7 @@
 
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
-        "critical-threshold": 90,
+        "critical-threshold": 70,
         "interval": 5,
         //"tooltip": false,
         "format": "{icon} {temperatureC}°C",
@@ -176,9 +176,7 @@
     },
 
     "sway/mode": {
-        //"format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
-        //"format": " {}",
-        "format": " {}",
+        "format": " {}", // Icon: expand-arrows-alt
         "tooltip": false
     },
 
@@ -209,16 +207,17 @@
         "format": "{value} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
-            "4": "", /*"",*/
-            "5": "",
-            "6": "",
-            "7": "", /*"",*/
-            "8": "華",
+            "2": "", //    
+            "3": "", // 
+            "4": "",
+            "5": "華", 
+            "6": "",
+            "7": "",
+            "8": "", // 
             "urgent": "",
             "focused": "",
             "default": ""
+            // other icons:    
         }
     },
 
@@ -226,9 +225,9 @@
         "scroll-step": 1,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": " MUTE", /*alt icon:  */
+        "format-muted": " MUTE", //alt icon:  
         "format-icons": {
-            "headphone": "",
+            "headphone": "", //
             "hands-free": "",
             "headset": "",
             "phone": "",
@@ -263,10 +262,11 @@
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 50,
+        //"max-length": 50,
         "format-icons": {
             "spotify": "",
-            "default": ""
+            "Lollypop": "",
+            "default": "" // 
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"

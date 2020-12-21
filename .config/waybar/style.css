@@ -27,9 +27,9 @@
 @define-color temp #00384d;
 @define-color layout #00384d;
 @define-color battery #00384d;
-@define-color tray #7eb2dd;
+@define-color tray #c43061;
 @define-color date #002635;
-@define-color time #77929e;
+@define-color time #7fc06e;
 @define-color media #7fc06e;
 @define-color power #c43061;
 @define-color window #00384d;
@@ -308,7 +308,7 @@ window#waybar.hidden {
 #workspaces button.focused {
     /*background-color: @workspacesfocused;*/
     color: @light;
-    border: 2px solid @workspacesfocused;
+    border: 3px solid @workspacesfocused;
 }
 #workspaces button:hover { /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
     background-color: alpha(@workspacesfocused, 0.6);
@@ -333,7 +333,7 @@ window#waybar.hidden {
 #custom-media {
     background-color: @media;
     color: @sound;
-    min-width: 300px;
+    /*min-width: 300px;*/
     font-size: smaller;
     font-style: italic;
     border: 2px solid @border;
@@ -345,7 +345,7 @@ window#waybar.hidden {
 	font-weight: bold;
 	padding-left: 10px;
     padding-right: 15px;
-	color: @dark;
+	color: @bright;
     background-color: @power;    
 }
 
@@ -353,12 +353,12 @@ window#waybar.hidden {
  * Arrow Module styles
  * -------------------------------------------------------------------------- */
 #custom-arrow-left {
-    font-size: larger;
+    font-size: 20px;
     color: @workspaces;
     background-color: transparent;
 }
 #custom-arrow-right {
-    font-size: larger;
+    font-size: 20px;
     color: @workspaces;
     background-color: transparent;
 }

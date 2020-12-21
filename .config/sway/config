@@ -272,48 +272,25 @@ bindsym $mod+r mode "resize"
 #
 
 ### Open specific applications in floating mode
-  # for_window [title="alsamixer"] floating enable border pixel 1
-  # for_window [class="calamares"] floating enable border normal
-  # for_window [class="Clipgrab"] floating enable
-  # for_window [title="File Transfer*"] floating enable
-  # for_window [class="fpakman"] floating enable
-  # for_window [class="Galculator"] floating enable border pixel 1
-  # for_window [class="GParted"] floating enable border normal
-  # for_window [title="i3_help"] floating enable sticky enable border normal
-  # for_window [class="Lightdm-settings"] floating enable
-  # for_window [class="Lxappearance"] floating enable sticky enable border normal
-  # for_window [class="Manjaro-hello"] floating enable
-  # for_window [class="Manjaro Settings Manager"] floating enable border normal
-  # for_window [title="MuseScore: Play Panel"] floating enable
-  # for_window [class="Nitrogen"] floating enable sticky enable border normal
-  # for_window [class="Oblogout"] fullscreen enable
-  # for_window [class="octopi"] floating enable
-  # for_window [title="About Pale Moon"] floating enable
-  # for_window [class="Pamac-manager"] floating enable
-  # for_window [class="Pavucontrol"] floating enable
-  # for_window [class="qt5ct"] floating enable sticky enable border normal
-  # for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-  # for_window [class="Simple-scan"] floating enable border normal
-  # for_window [class="(?i)System-config-printer.py"] floating enable border normal
-  # for_window [class="Skype"] floating enable border normal
-  # for_window [class="Timeset-gui"] floating enable border normal
-  # for_window [class="(?i)virtualbox"] floating enable border normal
-  # for_window [class="Xfburn"] floating enable
-
+for_window [app_id="pamac-manager"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="firefox" title="Library"] floating enable
+for_window [app_id="thunderbird" title=".*Reminder"] floating enable
 for_window [app_id="guake"] move window to scratchpad, scratchpad show
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="calculator"] floating enable
+for_window [instance="lxappearance"] floating enable
+for_window [title="File Operation Progress"] floating enable
 
 ### Open applications on specific workspaces
-  # assign [class="Thunderbird"] $ws1
-  # assign [class="Pale moon"] $ws2
-  # assign [class="Pcmanfm"] $ws3
-  # assign [class="Skype"] $ws5
-
-# assign [class="Chromium"] $ws4
-assign [window_role="^browser$"] $ws4
+assign [window_role="^browser$"] $ws2
+assign [instance="code-oss"] $ws3
+assign [app_id="org.gnome.Nautilus"] $ws4
+assign [app_id="lollypop"] $ws8
 
 ### Change window settings
-#for_window [window_role="browser"] layout tabbed
+# for_window [window_role="browser"] layout tabbed
 
 
 
@@ -499,7 +476,6 @@ bindsym $mod+0 mode "$mode_system"
 #
 
 # Read `man 5 sway-bar` for more information about this section.
-
 bar {
 #
 #    position top
@@ -516,7 +492,6 @@ bar {
 #
     swaybar_command waybar
 }
-
 # hide/unhide status bar
 # bindsym $mod+m bar mode toggle
 
@@ -526,8 +501,16 @@ bar {
 # Autostart
 #
 
-exec dex -ae sway
+# autostart background applications
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec dex -ae sway
+#exec mako
+#exec pamac-tray-appindicator
+#exec blueman-applet
+#exec mntray
+#exec $help --autostart
+#exec_always killall nm-applet
+exec nm-applet --indicator &
 
 
 
