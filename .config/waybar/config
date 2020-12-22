@@ -11,26 +11,25 @@
     // Global configuration
     // -------------------------------------------------------------------------
 
-    "layer": "top",
-    "position": "top",
-    //"height": 21,
+    "layer": "top",       // Waybar at top layer
+    "position": "top",    // Waybar position (top|bottom|left|right)
+    // "height": 24,      // Waybar height (to be removed for auto height)
+    // "width": 1280,     // Waybar width
 
+    // Choose the order of the modules
     "modules-left": [
-        "custom/power",
         "sway/mode",
     	"sway/workspaces",
         //"custom/arrow10",
-        "custom/arrow-right",
+        //"custom/arrow-R",
         "custom/media"
     ],
-
     "modules-center": [
         "sway/window"
     ],
-
     "modules-right": [
         "network#speed",
-        "custom/arrow-left",
+        //"custom/arrow-L",
         //"custom/arrow1",
         "network",
         //"custom/arrow2",
@@ -50,7 +49,8 @@
         "clock#date",
         //"custom/arrow9",
         "clock#time",
-        "tray"
+        "tray",
+        "custom/power"
     ],
 
     // -------------------------------------------------------------------------
@@ -78,20 +78,17 @@
         "format-alt": "{icon} {time}",
         "tooltip": false
     },
-
-    "clock#time": {
-        "interval": 1,
-        "format": " {:%l:%M:%S %p}",
-        "tooltip": false
-    },
-
     "clock#date": {
         "interval": 20,
         "format": " {:%a %b %e}", // Icon: calendar-alt
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
-
+    "clock#time": {
+        "interval": 1,
+        "format": " {:%l:%M:%S %p}",
+        "tooltip": false
+    },
     "cpu": {
         "interval": 5,
         //"tooltip": true,
@@ -102,17 +99,6 @@
           "critical": 90
         }
     },
-
-    "custom/layout": {
-      //"exec": "~/.config/waybar/layout.sh",
-      "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*$//; s/ (US)//'",
-      //"interval": 5,
-      "format": " {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      //"signal": 1, // SIGHUP
-      "tooltip": false
-    },
-
     "memory": {
         "interval": 5,
         "format": " {percentage}%", // Icon: memory  
@@ -122,7 +108,6 @@
             "critical": 90
         }
     },
-
     "network": {
         "interval": 1,
         "format-icons": {
@@ -137,90 +122,16 @@
         //"format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
-        "tooltip-format": " Up: {bandwidthUpBits}\n Dn: {bandwidthDownBits}", // Icon: 
+        "tooltip-format": "{icon} {ifname}: {ipaddr}/{cidr}", // Icon: 
         "tooltip": true
         //"on-click": "cmst"
     },
-
     "network#speed": {
         "interval": 1,
         "format": "{bandwidthDownBits} ",
-        "tooltip": false
+        "tooltip-format": " Up: {bandwidthUpBits}\n Dn: {bandwidthDownBits}",
+        "tooltip": true
     },
-
-    "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
-        "critical-threshold": 70,
-        "interval": 5,
-        //"tooltip": false,
-        "format": "{icon} {temperatureC}°C",
-	    //"format": "{icon} {temperatureC}°",
-        "format-icons": [
-            "", // Icon: temperature-empty
-            "", // Icon: temperature-quarter
-            "", // Icon: temperature-half
-            "", // Icon: temperature-three-quarters
-            ""  // Icon: temperature-full
-        ]
-    },
-
-    "tray": {
-        "icon-size": 18,
-        "spacing": 5
-    },
-
-    "custom/power": {
-        "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
-
-    "sway/mode": {
-        "format": " {}", // Icon: expand-arrows-alt
-        "tooltip": false
-    },
-
-    "sway/window": {
-        "format": "{}",
-        //"max-length": 50,
-	    "tooltip": false
-    },
-
-    "sway/language": {
-        "format": "{}",
-        "max-length": 50
-    },
-
-    "sway/workspaces": {
-        "all-outputs": false,
-        "disable-scroll": false,
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": []
-        },
-        "format": "{value} {icon}", // options: {value}{icon}{name}{index}
-        "format-icons": {
-            "1": "",
-            "2": "", //    
-            "3": "", // 
-            "4": "",
-            "5": "華", 
-            "6": "",
-            "7": "",
-            "8": "", // 
-            "urgent": "",
-            "focused": "",
-            "default": ""
-            // other icons:    
-        }
-    },
-
     "pulseaudio": {
         "scroll-step": 1,
         "format": "{icon} {volume}%",
@@ -238,7 +149,6 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol"
     },
-
     "pulseaudio#source": {
         "format": "{format_source}",
         "format-source": "{volume}% ",
@@ -248,6 +158,79 @@
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%"
     },
+    "sway/language": {
+        "format": "{}",
+        "max-length": 50
+    },
+    "sway/mode": {
+        "format": " {}", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+    "sway/window": {
+        "format": "{}",
+        //"max-length": 50,
+	    "tooltip": false
+    },
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": false,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": []
+        },
+        "format": "{value} {icon}", // options: {value}{icon}{name}{index}
+        "format-icons": {
+            "1": "",
+            "2": "", //   
+            "3": "", // 
+            "4": "",
+            "5": "華",
+            "6": "",
+            "7": "",
+            "8": "", // 
+            "urgent": "",
+            "focused": "",
+            "default": ""
+            // other icons:    
+        }
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
+        "critical-threshold": 70,
+        "interval": 5,
+        //"tooltip": false,
+        "format": "{icon} {temperatureC}°C",
+	    //"format": "{icon} {temperatureC}°",
+        "format-icons": [
+            "", // Icon: temperature-empty
+            "", // Icon: temperature-quarter
+            "", // Icon: temperature-half
+            "", // Icon: temperature-three-quarters
+            ""  // Icon: temperature-full
+        ]
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 5
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        //"icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+
+    // -------------------------------------------------------------------------
+    // Custom Modules
+    // -------------------------------------------------------------------------
 
     "custom/alsa": {
         "exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/ muted/p; s/.*\\[(.*%)\\].*/ \\1/p'",
@@ -258,11 +241,19 @@
         "interval": 10,
         "tooltip": false
     },
-    
+    "custom/layout": {
+        //"exec": "~/.config/waybar/layout.sh",
+        "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*$//; s/ (US)//'",
+        //"interval": 5,
+        "format": " {}", // Icon: keyboard
+        // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+        //"signal": 1, // SIGHUP
+        "tooltip": false
+    },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        //"max-length": 50,
+        "max-length": 60,
         "format-icons": {
             "spotify": "",
             "Lollypop": "",
@@ -272,54 +263,27 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+    // -------------------------------------------------------------------------
+    // Arrow Modules
+    // -------------------------------------------------------------------------
 
     // Arrow icons:  , Rounded: \uE0B6 \uE0B4
-    "custom/arrow-left": {
-        "format": "\uE0B6",
-        "tooltip": false
-    },
-    "custom/arrow-right": {
-        "format": "\uE0B4",
-        "tooltip": false
-    },
-    "custom/arrow1": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow2": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow3": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow4": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow5": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow6": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow7": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow8": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow9": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow10": {
-        "format": "",
-        "tooltip": false
-    }
+    "custom/arrow-L": { "format": "\uE0B6", "tooltip": false },
+    "custom/arrow-R": { "format": "\uE0B4", "tooltip": false },
+    "custom/arrow1" : { "format": ""     , "tooltip": false },
+    "custom/arrow2" : { "format": ""     , "tooltip": false },
+    "custom/arrow3" : { "format": ""     , "tooltip": false },
+    "custom/arrow4" : { "format": ""     , "tooltip": false },
+    "custom/arrow5" : { "format": ""     , "tooltip": false },
+    "custom/arrow6" : { "format": ""     , "tooltip": false },
+    "custom/arrow7" : { "format": ""     , "tooltip": false },
+    "custom/arrow8" : { "format": ""     , "tooltip": false },
+    "custom/arrow9" : { "format": ""     , "tooltip": false },
+    "custom/arrow10": { "format": ""     , "tooltip": false }
 }

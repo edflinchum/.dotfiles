@@ -139,7 +139,7 @@ schemes:
       magenta: '#FFEE99'
       cyan: '#95E6CB'
       white: '#FFFFFF'
-      
+
   base16_dark: &base16_dark
     primary:
       background: '0x181818'
@@ -988,7 +988,7 @@ schemes:
       magenta: '#E1A6F2'
       cyan: '#76D4D6'
       white: '#FFFFFF'
-        
+
   nightfly: &nightfly
     primary:
       background: '#011627'
@@ -1071,7 +1071,7 @@ schemes:
     nova: &nova
     primary:
       background: '#3C4C55'
-      foreground: '#C5D4DD'   
+      foreground: '#C5D4DD'
     cursor:
       text: '#212121'
       cursor: '#C0C5CE'
@@ -1093,7 +1093,7 @@ schemes:
       magenta: '#D18EC2'
       cyan:    '#7FC1CA'
       white:   '#E6EEF3'
-  
+
   oceanic_next: &oceanic_next
     primary:
       background: '#1b2b34'
@@ -1162,7 +1162,7 @@ schemes:
       magenta:    '#c678dd'
       cyan:       '#56b6c2'
       white:      '#828997' # mono-2
-      
+
   one_light: &one_light
     primary:
       background: '#fafafa'
@@ -1181,7 +1181,7 @@ schemes:
       blue:       '#4078f2'
       magenta:    '#a626a4'
       cyan:       '#0184bc'
-      white:      '#a0a1a7' # mono-3    
+      white:      '#a0a1a7' # mono-3
 
   oxide: &oxide
     primary:
@@ -1233,7 +1233,7 @@ schemes:
       magenta: '#FF9AC1'
       cyan:    '#67d3c2'
       white:   '#ffffff'
-      
+
   papercolor_light: &papercolor_light
     primary:
       background: '0xeeeeee'
@@ -1423,7 +1423,7 @@ schemes:
       magenta: '#ffafaf'
       cyan:    '#87d7d7'
       white:   '#e4e4e4'
-      
+
   shades_of_purple: &shades_of_purple
     primary:
       background: '#1E1E3F'
@@ -1479,7 +1479,7 @@ schemes:
       foreground: '0x839496'
     cursor:
       text:   '#002b36' # base03
-      cursor: '#839496' # base0  
+      cursor: '#839496' # base0
     normal:
       black:   '0x073642'
       red:     '0xdc322f'
@@ -1598,7 +1598,7 @@ schemes:
       blue:    '#a0b9d8'
       magenta: '#c6aed7'
       cyan:    '#7dc2c7'
-      white:   '#f0ecfe'    
+      white:   '#f0ecfe'
 
   taerminal: &taerminal
     primary:
@@ -1648,7 +1648,7 @@ schemes:
       magenta: '#ad7fa8'
       cyan:    '#34e2e2'
       white:   '#eeeeec'
-      
+
   tango_light: &tango_light
     primary:
       background: '#EEEEEC'
@@ -1858,7 +1858,7 @@ schemes:
       magenta: '#ad7fa8'
       cyan:    '#34e2e2'
       white:   '#eeeeec'
-  
+
   wombat: &wombat
     primary:
       background: '0x1f1f1f'
@@ -1904,16 +1904,16 @@ schemes:
       magenta: '0xff00ff'
       cyan:    '0x00ffff'
       white:   '0xffffff'
-    
+
   zenburn: &zenburn
     primary:
       background: '#333333'
-      foreground: '#ffffff'     
+      foreground: '#ffffff'
       bright_foreground: '#ffffff'
-      bright_background: '#555555'  
+      bright_background: '#555555'
     cursor:
       text:    '#000000'
-      cursor:  '#00ff00' 
+      cursor:  '#00ff00'
     normal:
       black:   '#4d4d4d'
       red:     '#bb0000'
@@ -1972,7 +1972,7 @@ key_bindings:
         args: [".config/alacritty/colorscheme_next.py"]} }
   - { key: Left, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/colorscheme_previous.py"]} }
-                
+
 background_opacity: 0.6
 
 colors: *rigel

@@ -17,7 +17,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -IS drun | xargs swaymsg exec --
+set $menu wofi -IS drun
 set $altmenu dmenu_path | dmenu | xargs swaymsg exec --
 
 
@@ -381,8 +381,8 @@ bindsym $mod+Shift+c reload
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaylock -f -c 000000' \
          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -504,13 +504,7 @@ bar {
 # autostart background applications
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec dex -ae sway
-#exec mako
-#exec pamac-tray-appindicator
-#exec blueman-applet
-#exec mntray
-#exec $help --autostart
-#exec_always killall nm-applet
-exec nm-applet --indicator &
+exec_always sleep 1s && killall nm-applet && nm-applet --indicator &
 
 
 
