@@ -21,7 +21,7 @@
         "sway/mode",
     	"sway/workspaces",
         //"custom/arrow10",
-        //"custom/arrow-R",
+        "custom/arrow-R",
         "custom/media"
     ],
     "modules-center": [
@@ -29,7 +29,7 @@
     ],
     "modules-right": [
         "network#speed",
-        //"custom/arrow-L",
+        "custom/arrow-L",
         //"custom/arrow1",
         "network",
         //"custom/arrow2",
@@ -46,10 +46,10 @@
         //"custom/arrow7",
         "battery",
         //"custom/arrow8",
+        "tray",
         "clock#date",
         //"custom/arrow9",
         "clock#time",
-        "tray",
         "custom/power"
     ],
 
@@ -274,16 +274,16 @@
     // -------------------------------------------------------------------------
 
     // Arrow icons:  , Rounded: \uE0B6 \uE0B4
-    "custom/arrow-L": { "format": "\uE0B6", "tooltip": false },
-    "custom/arrow-R": { "format": "\uE0B4", "tooltip": false },
-    "custom/arrow1" : { "format": ""     , "tooltip": false },
-    "custom/arrow2" : { "format": ""     , "tooltip": false },
-    "custom/arrow3" : { "format": ""     , "tooltip": false },
-    "custom/arrow4" : { "format": ""     , "tooltip": false },
-    "custom/arrow5" : { "format": ""     , "tooltip": false },
-    "custom/arrow6" : { "format": ""     , "tooltip": false },
-    "custom/arrow7" : { "format": ""     , "tooltip": false },
-    "custom/arrow8" : { "format": ""     , "tooltip": false },
-    "custom/arrow9" : { "format": ""     , "tooltip": false },
-    "custom/arrow10": { "format": ""     , "tooltip": false }
+    "custom/arrow-L": { "format": "", "tooltip": false },
+    "custom/arrow-R": { "format": "", "tooltip": false },
+    "custom/arrow1" : { "format": "", "tooltip": false },
+    "custom/arrow2" : { "format": "", "tooltip": false },
+    "custom/arrow3" : { "format": "", "tooltip": false },
+    "custom/arrow4" : { "format": "", "tooltip": false },
+    "custom/arrow5" : { "format": "", "tooltip": false },
+    "custom/arrow6" : { "format": "", "tooltip": false },
+    "custom/arrow7" : { "format": "", "tooltip": false },
+    "custom/arrow8" : { "format": "", "tooltip": false },
+    "custom/arrow9" : { "format": "", "tooltip": false },
+    "custom/arrow10": { "format": "", "tooltip": false }
 }

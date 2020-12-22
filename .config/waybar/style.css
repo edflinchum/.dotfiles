@@ -13,7 +13,7 @@
 
 /* Simple Custom */
 @define-color bright #e6e6dc;
-@define-color light #7eb2dd;
+@define-color light #1c8db2;
 @define-color dark #002635;
 @define-color warning #f08e48;
 @define-color critical #ff5a67;
@@ -28,11 +28,11 @@
 @define-color temp #00384d;
 @define-color layout #00384d;
 @define-color battery #00384d;
-@define-color tray #000000;
-@define-color date #7eb2dd;
-@define-color time #1c8db2;
+@define-color tray #002635;
+@define-color date #77929e;
+@define-color time #517f8d;
 @define-color media #9cf087;
-@define-color power #517f8d;
+@define-color power #c43061;
 @define-color window #00384d;
 @define-color border #00ffff;
 
@@ -219,7 +219,7 @@
 }
 #clock.date {
     background-color: @date;
-    color: @dark;
+    color: @bright;
 }
 #clock.time {
     background-color: @time;
@@ -245,6 +245,7 @@
 #network {
     background-color: @network;
     color: @light;
+    padding: 0 10;
 }
 #network.speed {
     background-color: transparent;
@@ -270,6 +271,7 @@
 #tray {
     background-color: @tray;
     color: @bright;
+    /* border-left: 1px solid @border; */
 }
 window#waybar {
     background-color: alpha(@window, 0.5);
@@ -298,11 +300,11 @@ window#waybar.hidden {
 }
 #workspaces button.focused {
     background-color: @workspacesfocused;
-    color: @dark;
+    color: @bright;
     box-shadow: inset 0 -3px @border;
 }
 #workspaces button:hover {
-    background-color: alpha(@workspacesfocused, 0.5);
+    background-color: alpha(@workspacesfocused, 0.6);
     color: @bright;
     box-shadow: inset 0 -3px @border;
 }
