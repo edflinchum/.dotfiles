@@ -73,7 +73,7 @@ input * xkb_numlock enabled
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -295,7 +295,7 @@ assign [app_id="lollypop"] $ws8
 
 
 #
-# Settings for gaps: 
+# Settings for gaps:
 #
 
 # Set inner/outer gaps
@@ -310,7 +310,7 @@ gaps outer 10
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders no_gaps
 
@@ -333,16 +333,16 @@ mode "$mode_gaps_inner" {
         bindsym KP_Add            gaps inner current plus 5
         bindsym KP_Subtract       gaps inner current minus 5
         bindsym KP_0              gaps inner current set 0
-        
+
         bindsym Shift+plus        gaps inner all plus 5
         bindsym Shift+minus       gaps inner all minus 5
         bindsym Shift+0           gaps inner all set 0
         bindsym Shift+KP_Add      gaps inner current plus 5
         bindsym Shift+KP_Subtract gaps inner current minus 5
         bindsym Shift+KP_0        gaps inner current set 0
-        
+
         bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Escape mode "$mode_gaps"
 }
 mode "$mode_gaps_outer" {
         bindsym plus              gaps outer current plus 5
@@ -360,7 +360,7 @@ mode "$mode_gaps_outer" {
         bindsym Shift+KP_0        gaps outer current set 0
 
         bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Escape mode "$mode_gaps"
 }
 
 
@@ -381,8 +381,8 @@ bindsym $mod+Shift+c reload
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         timeout 600 'swaylock -f -c 000000' \
+         timeout  600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 1800 'swaylock -f -c 000000' \
          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -393,7 +393,7 @@ exec swayidle -w \
 #bindsym $mod+9 exec --no-startup-id blurlock
 bindsym $mod+9 exec swaylock -f -c 000000
 
-# WLogout Menu
+# Wlogout Menu
 bindsym $mod+Escape exec wlogout
 
 # Replaced exit screen with swaynagmode in mode section below
