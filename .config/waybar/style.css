@@ -251,10 +251,11 @@
     background-color: transparent;
     color: @speed;
     font-size: smaller;
-    box-shadow: inset 0 -3px @speed;
-    margin-left: 10;
-    margin-right: 10;
-    padding: 0 5 0 0;
+    /* box-shadow: inset 0 -3px @speed; */
+    border: 1px solid @speed;
+    border-radius: 24;
+    margin: 0 10;
+    padding: 0 15 0 10;
 }
 #pulseaudio {
     background-color: @sound;
@@ -328,9 +329,11 @@ window#waybar.hidden {
     color: @media;
     font-size: smaller;
     font-style: italic;
-    box-shadow: inset 0 -3px @media;
-    margin-left: 10;
-    margin-right: 10;
+    /* box-shadow: inset 0 -3px @media; */
+    border: 1px solid @media;
+    border-radius: 24;
+    margin: 0 10;
+    padding: 0 10;
 }
 #custom-power {
     background-color: @power;
