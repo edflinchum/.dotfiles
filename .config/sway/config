@@ -282,6 +282,7 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="calculator"] floating enable
 for_window [instance="lxappearance"] floating enable
 for_window [title="File Operation Progress"] floating enable
+for_window [app_id="polkit-gnome-authentication-agent-1"] floating enable border none
 
 ### Open applications on specific workspaces
 assign [window_role="^browser$"] $ws2

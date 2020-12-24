@@ -1973,6 +1973,6 @@ key_bindings:
   - { key: Left, mods: Control|Shift, command: {program: "python",
         args: [".config/alacritty/colorscheme_previous.py"]} }
 
-background_opacity: 0.6
+background_opacity: 0.675
 
 colors: *rigel
