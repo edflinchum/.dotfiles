@@ -285,9 +285,9 @@ for_window [title="File Operation Progress"] floating enable
 for_window [app_id="polkit-gnome-authentication-agent-1"] floating enable border none
 
 ### Open applications on specific workspaces
-assign [window_role="^browser$"] $ws2
-assign [instance="code-oss"] $ws3
+assign [window_role="^browser$"] $ws1
 assign [app_id="org.gnome.Nautilus"] $ws4
+assign [instance="code-oss"] $ws3
 assign [app_id="lollypop"] $ws8
 
 ### Change window settings
