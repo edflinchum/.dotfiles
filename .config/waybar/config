@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Waybar configuration (https://hg.sr.ht/~begs/dotfiles)
+// Waybar configuration
 //
 // Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
 //
@@ -31,30 +31,30 @@
     "modules-right": [
         "network#speed",
         // "custom/arrow-L",
-        "custom/arrow1",
+        // "custom/arrow1",
         "network",
-        "custom/arrow2",
+        // "custom/arrow2",
         "temperature",
-        "custom/arrow3",
+        // "custom/arrow3",
         "cpu",
-        "custom/arrow4",
+        // "custom/arrow4",
         "memory",
-        "custom/arrow5",
+        // "custom/arrow5",
         "disk",
-        "custom/arrow6",
+        // "custom/arrow6",
         "pulseaudio",
         "pulseaudio#source",
-        "custom/arrow7",
+        // "custom/arrow7",
         "battery",
         // "custom/layout",
         "sway/language",
         "idle_inhibitor",
+        "custom/pacman",
+        "tray",
         "custom/arrow8",
         "clock#date",
         "custom/arrow9",
         "clock#time",
-        "tray",
-        "custom/pacman",
         "custom/power"
     ],
 
@@ -90,7 +90,7 @@
     },
     "clock#date": {
         "format": " {:%a %b %e}", // Icon: calendar-alt
-        "format-alt": " {:%m/%e/%y}", // Alt Icon: ·
+        "format-alt": " {:%m·%d·%y}", // Alt Icon: ·
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
@@ -168,16 +168,17 @@
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
-        "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        // "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        "format-alt": "{icon} {ipaddr}",
         "tooltip-format": "{icon} {ipaddr}\n {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },
     "network#speed": {
         "interval": 1,
-        "format": " {bandwidthDownBits}",
-        "format-alt": " {bandwidthUpBits}",
-        "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
-        "tooltip": true
+        "format-alt": " {bandwidthDownBits}",
+        "format": " {bandwidthUpBits}\n {bandwidthDownBits}",
+        // "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip": false
     },
     "pulseaudio": {
         "scroll-step": 1,
@@ -211,7 +212,7 @@
         "tooltip": false
     },
     "sway/mode": {
-        "format": " {}", // Icon: expand-arrows-alt
+        "format": " {}", // Icon: expand-arrows-alt 
         "tooltip": false
     },
     "sway/window": {
@@ -314,8 +315,9 @@
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "alacritty -e sudo pacman -Syu; pkill -SIGRTMIN+8 waybar", // update system
-        "on-click-right":   "alacritty -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system and AUR
+        // "on-click": "alacritty -e sudo pacman -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "on-click":     "pamac-manager --updates; pkill -SIGRTMIN+8 waybar", // update system
+        "on-click-right": "alacritty -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system and AUR
         "signal": 8,
         "tooltip": false
     },

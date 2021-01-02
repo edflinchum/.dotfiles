@@ -11,91 +11,8 @@
  * Colors
  * -------------------------------------------------------------------------- */
 
-/* Rigel */
-
-@define-color bright #e6e6dc;
-@define-color light #b7cff9;
-@define-color dark #002635;
-@define-color warning #f08e48;
-@define-color critical #ff5a67;
-@define-color mode #f08e48;
-@define-color workspaces #002635;
-@define-color focused #1c8db2;
-@define-color sound #00384d;
-@define-color cpu #002635;
-@define-color memory #00384d;
-@define-color network #002635;
-@define-color speed #00cccc;
-@define-color temp #00384d;
-@define-color layout #002635;
-@define-color battery #002635;
-@define-color tray #002635;
-@define-color date #1c8db2;
-@define-color time #7eb2dd;
-@define-color media #9cf087;
-@define-color power #517f8d;
-@define-color idle #002635;
-@define-color window #00384d;
-@define-color border #ffcc1b;
-
-
-/* Nord */
-/*
-@define-color bright #eceff4;
-@define-color light #eceff4;
-@define-color dark #2e3440;
-@define-color warning #ebcb8b;
-@define-color critical #d08770;
-@define-color mode #4c566a;
-@define-color workspaces #5e81ac;
-@define-color focused #81a1c1;
-@define-color sound #d8dee9;
-@define-color network #4c566a;
-@define-color speed #eceff4;
-@define-color memory #88c0d0;
-@define-color cpu #434c5e;
-@define-color temp #d8dee9;
-@define-color layout #5e81ac;
-@define-color battery #88c0d0;
-@define-color tray #2e3440;
-@define-color date #2e3440;
-@define-color time #eceff4;
-@define-color media #81a1c1;
-@define-color power #d08770;
-@define-color idle #88c0d0;
-@define-color window #5e81ac;
-@define-color border #d08770;
- */
-
-/* Gruvbox */
-/*
-@define-color bright #ebdbb2;
-@define-color light #ebdbb2;
-@define-color dark #282828;
-@define-color warning #fabd2f;
-@define-color critical #cc241d;
-@define-color mode #a89984;
-@define-color workspaces #458588;
-@define-color focused #83a598;
-@define-color sound #d3869b;
-@define-color network #b16286;
-@define-color speed #ebdbb2;
-@define-color memory #8ec07c;
-@define-color cpu #98971a;
-@define-color temp #b8bb26;
-@define-color layout #689d6a;
-@define-color battery #fabd2f;
-@define-color tray #282828;
-@define-color date #282828;
-@define-color time #ebdbb2;
-@define-color media #83a598;
-@define-color power #cc241d;
-@define-color idle #fabd2f;
-@define-color window #458588;
-@define-color border #cc241d;
- */
-
-
+/* import css definitions for current theme */
+@import url("colors.css");
 
 /* -----------------------------------------------------------------------------
  * Animations
@@ -113,7 +30,6 @@
     to { color: @dark; background-color: @bright; }
 }
 
-
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
@@ -128,9 +44,10 @@
     padding: 0px;
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: DroidSansMono Nerd Font, Ubuntu Nerd Font, MesloLGS Nerd Font, RobotoMono Nerd Font;
+    /* font-family: "Noto Sans Mono", "FontAwesome 5 Free Solid", "font-logos", sans-serif; */
+    font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "Ubuntu Nerd Font", "RobotoMono Nerd Font";
     font-size: 10pt;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 /* Each module */
 #backlight,
@@ -148,12 +65,14 @@
 #memory,
 #mode,
 #mpd,
-#network,
+#network:not(.speed),
 #pulseaudio,
 #taskbar,
-#temperature,
-#tray {
-    padding: 0px 10px 0px 0px;
+#temperature/* ,
+#tray */ {
+    padding: 0px 10px;
+    /* border-radius: 24px; */
+    /* border-right: 1px solid @border; */
 }
 /* #workspaces, */
 #window {
@@ -206,8 +125,6 @@
     animation-duration: 3s;
 }
 
-
-
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
@@ -219,10 +136,14 @@
 #clock.date {
     background-color: @date;
     color: @bright;
+    padding: 0px 10px;
+    border: none;
 }
 #clock.time {
     background-color: @time;
     color: @dark;
+    padding: 0px 10px;
+    border: none;
 }
 #cpu {
     background-color: @cpu;
@@ -234,7 +155,7 @@
 }
 #idle_inhibitor {
     background-color: @idle;
-    color: @light;
+    color: alpha(@light, 0.25);
     padding: 0px 15px 0px 10px;
 }
 #language {
@@ -253,18 +174,18 @@
 #network {
     background-color: @network;
     color: @light;
-    /* border-radius: 24px 0px 0px 24px; */
+    /* border-radius: 24px 0px 0px 25px; */
     /* padding: 0px 10px; */
 }
 #network.speed {
     background-color: @speed;
     color: @dark;
     font-size: smaller;
-    /* border: 2px solid @border; */
-    border-radius: 24;
-    margin: 0px 10px;
+    /* margin: 0px 10px; */
     padding: 0px 5px 0px 10px;
     min-width: 80px;
+    border-radius: 24px 0px 0px 25px;
+    border-right:  2px solid @border;
 }
 #pulseaudio {
     background-color: @sound;
@@ -279,8 +200,7 @@
     color: @bright;
     border-radius: 0px 24px 24px 0px;
     padding: 0px 10px;
-    border-left :  3px solid @border;
-    /* border-right:  3px solid @border; */
+    border-left :  2px solid @border;
 }
 #temperature {
     background-color: @temp;
@@ -307,6 +227,8 @@ window#waybar.hidden {
 }
 #window {
     color: @bright;
+    font-weight: bold;
+    font-style: italic;
 }
 #workspaces button {
     background-color: @workspaces;
@@ -314,7 +236,7 @@ window#waybar.hidden {
     padding: 0px 10px 0px 5px;
 }
 #workspaces button.persistent {
-    color: alpha(@light, 0.25);;
+    color: alpha(@light, 0.25);
 }
 #workspaces button.focused {
     background-color: @focused;
@@ -350,30 +272,30 @@ window#waybar.hidden {
     margin: 0px 10px;
 }
 #custom-pacman {
-    background-color: @power;
+    background-color: @tray;
     color: @bright;
-    border: 1px solid @tray;
+    /* border-left: 1px solid @border; */
+    /* border-right: 1px solid @border; */
     padding: 0px 10px;
 }
 #custom-power {
     background-color: @power;
     color: @bright;
-    padding: 0px 10px;
     padding: 0px 12px 0px 10px;
 }
 
 /* -----------------------------------------------------------------------------
  * Arrow Module styles
  * -------------------------------------------------------------------------- */
-#custom-arrow-L {font-size:18pt; color:@workspaces; background-color:transparent;}
-#custom-arrow-R {font-size:18pt; color:@workspaces; background-color:transparent;}
-#custom-arrow1  {font-size:18pt; color:@network;    background-color:transparent;}
-#custom-arrow2  {font-size:18pt; color:@temp;       background-color:@network;   }
-#custom-arrow3  {font-size:18pt; color:@cpu;        background-color:@temp;      }
-#custom-arrow4  {font-size:18pt; color:@memory;     background-color:@cpu;       }
-#custom-arrow5  {font-size:18pt; color:@layout;     background-color:@memory;    }
-#custom-arrow6  {font-size:18pt; color:@sound;      background-color:@layout;    }
-#custom-arrow7  {font-size:18pt; color:@battery;    background-color:@sound;     }
-#custom-arrow8  {font-size:18pt; color:@date;       background-color:@battery;   }
-#custom-arrow9  {font-size:18pt; color:@time;       background-color:@date;      }
-#custom-arrow10 {font-size:18pt; color:@workspaces; background-color:transparent;}
+#custom-arrow-L {font-size:200%; color:@workspaces; background-color:transparent;}
+#custom-arrow-R {font-size:200%; color:@workspaces; background-color:transparent;}
+#custom-arrow1  {font-size:200%; color:@network;    background-color:transparent;}
+#custom-arrow2  {font-size:200%; color:@temp;       background-color:@network;   }
+#custom-arrow3  {font-size:200%; color:@cpu;        background-color:@temp;      }
+#custom-arrow4  {font-size:200%; color:@memory;     background-color:@cpu;       }
+#custom-arrow5  {font-size:200%; color:@disk;       background-color:@memory;    }
+#custom-arrow6  {font-size:200%; color:@sound;      background-color:@disk;      }
+#custom-arrow7  {font-size:200%; color:@battery;    background-color:@sound;     }
+#custom-arrow8  {font-size:200%; color:@date;       background-color:@tray;      }
+#custom-arrow9  {font-size:200%; color:@time;       background-color:@date;      }
+#custom-arrow10 {font-size:200%; color:@workspaces; background-color:transparent;}

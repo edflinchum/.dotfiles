@@ -218,7 +218,7 @@ for_window [urgent=latest] focus
  default_floating_border normal
 
 # Hide borders
-# hide_edge_borders none
+hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
@@ -282,7 +282,7 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="calculator"] floating enable
 for_window [instance="lxappearance"] floating enable
 for_window [title="File Operation Progress"] floating enable
-for_window [app_id="polkit-gnome-authentication-agent-1"] floating enable border none
+for_window [app_id="polkit-gnome-authentication-agent-1"] border none
 
 ### Open applications on specific workspaces
 assign [window_role="^browser$"] $ws1
@@ -505,6 +505,8 @@ bar {
 # autostart background applications
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec dex -ae sway
+exec autotiling
+exec flashfocus
 exec_always sleep 1s && killall nm-applet && nm-applet --indicator &
 
 
