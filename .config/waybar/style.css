@@ -144,7 +144,7 @@
 
 #battery {
     background-color: @battery;
-    color: @bright;
+    color: @dark;
 }
 #clock.date {
     background-color: @date;
@@ -160,11 +160,11 @@
 }
 #cpu {
     background-color: @cpu;
-    color: @dark;
+    color: @bright;
 }
 #disk {
     background-color: @disk;
-    color: @dark;
+    color: @bright;
 }
 #idle_inhibitor {
     background-color: @idle;
@@ -173,12 +173,12 @@
 }
 #language {
     background-color: @language;
-    color: @bright;
+    color: @dark;
     min-width: 32px;
 }
 #memory {
     background-color: @memory;
-    color: @bright;
+    color: @dark;
 }
 #mode {
     background-color: @mode;
@@ -187,7 +187,7 @@
 }
 #network {
     background-color: @network;
-    color: @dark;
+    color: @bright;
 }
 #network.speed {
     background-color: @speed;
@@ -201,7 +201,7 @@
 }
 #pulseaudio {
     background-color: @sound;
-    color: @dark;
+    color: @bright;
 }
 #pulseaudio.muted:not(.source) {
     background-color: @critical;
@@ -216,7 +216,7 @@
 }
 #temperature {
     background-color: @temp;
-    color: @bright;
+    color: @dark;
 }
 #tray {
     background-color: @tray;
