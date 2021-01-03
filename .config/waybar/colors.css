@@ -35,13 +35,13 @@
 @define-color power #c43061;
 @define-color sound #77929e;
 @define-color speed #00ffff;
-@define-color taskbar #002635;
+@define-color taskbar #00384d;
 @define-color temp #7eb2dd;
 @define-color time #7eb2dd;
 @define-color tray #002635;
 @define-color updates #002635;
-@define-color window #000000;
-@define-color workspaces #00384d;
+@define-color window #002635;
+@define-color workspaces #002635;
 
 
 /* Nord */
