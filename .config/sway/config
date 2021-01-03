@@ -277,12 +277,12 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="firefox" title="Library"] floating enable
 for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [app_id="guake"] move window to scratchpad, scratchpad show
+for_window [app_id="guake"] move window to scratchpad, scratchpad show, sticky enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="calculator"] floating enable
 for_window [instance="lxappearance"] floating enable
 for_window [title="File Operation Progress"] floating enable
-for_window [app_id="polkit-gnome-authentication-agent-1"] border none
+for_window [app_id="polkit-gnome-authentication-agent-1"] floating enable, border none
 
 ### Open applications on specific workspaces
 assign [window_role="^browser$"] $ws1
@@ -315,10 +315,12 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders no_gaps
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps.
+# Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace).
+# If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -495,7 +497,7 @@ bar {
 }
 # hide/unhide status bar
 # bindsym $mod+m bar mode toggle
-
+bindsym $mod+m exec killall -SIGUSR1 waybar
 
 
 #
@@ -505,7 +507,7 @@ bar {
 # autostart background applications
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec dex -ae sway
-exec autotiling
+# exec autotiling
 exec flashfocus
 exec_always sleep 1s && killall nm-applet && nm-applet --indicator &
 

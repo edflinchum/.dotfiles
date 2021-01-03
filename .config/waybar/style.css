@@ -49,9 +49,11 @@
     font-size: 10pt;
     /* font-weight: bold; */
 }
+
 /* Each module */
 #backlight,
 #battery,
+#bluetooth,
 #clock,
 #cpu,
 #custom-alsa,
@@ -65,19 +67,23 @@
 #memory,
 #mode,
 #mpd,
-#network:not(.speed),
+#network,
 #pulseaudio,
 #taskbar,
-#temperature/* ,
-#tray */ {
+#temperature,
+#tray {
     padding: 0px 10px;
-    /* border-radius: 24px; */
-    /* border-right: 1px solid @border; */
 }
+
+#custom-media,
+/* #mode, */
+/* #network.speed, */
+/* #taskbar, */
 /* #workspaces, */
 #window {
     margin: 0px 10px;
 }
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0px;
@@ -86,6 +92,7 @@
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0px;
 }
+
 /* Each module that should blink */
 #battery,
 #memory,
@@ -95,13 +102,16 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+
 /* Each critical module */
 #battery.critical,
 #cpu.critical,
+#custom-pacman,
 #memory.critical,
 #temperature.critical {
     color: @critical;
 }
+
 /* Each critical that should blink */
 #battery.critical.discharging,
 #memory.critical,
@@ -110,8 +120,10 @@
     animation-name: blink-critical;
     animation-duration: 2s;
 }
+
 /* Each warning module*/
 #battery.warning,
+#bluetooth.disabled,
 #cpu.warning,
 #idle_inhibitor.activated,
 #memory.warning,
@@ -119,6 +131,7 @@
 #temperature.warning {
     color: @warning;
 }
+
 /* Each warning that should blink */
 #battery.warning.discharging {
     animation-name: blink-warning;
@@ -131,40 +144,41 @@
 
 #battery {
     background-color: @battery;
-    color: @light;
+    color: @bright;
 }
 #clock.date {
     background-color: @date;
     color: @bright;
-    padding: 0px 10px;
-    border: none;
+    border-radius: 24px 0px 0px 24px;
+    font-weight: bold;
 }
 #clock.time {
     background-color: @time;
     color: @dark;
-    padding: 0px 10px;
-    border: none;
+    border-radius: 0px 24px 24px 0px;
+    font-weight: bold;
 }
 #cpu {
     background-color: @cpu;
-    color: @light;
+    color: @dark;
 }
 #disk {
-    background-color: @layout;
-    color: @light;
+    background-color: @disk;
+    color: @dark;
 }
 #idle_inhibitor {
     background-color: @idle;
-    color: alpha(@light, 0.25);
+    color: @bright;
     padding: 0px 15px 0px 10px;
 }
 #language {
-    background-color: @layout;
-    color: @light;
+    background-color: @language;
+    color: @bright;
+    min-width: 32px;
 }
 #memory {
     background-color: @memory;
-    color: @light;
+    color: @bright;
 }
 #mode {
     background-color: @mode;
@@ -173,43 +187,46 @@
 }
 #network {
     background-color: @network;
-    color: @light;
-    /* border-radius: 24px 0px 0px 25px; */
-    /* padding: 0px 10px; */
+    color: @dark;
 }
 #network.speed {
     background-color: @speed;
     color: @dark;
     font-size: smaller;
-    /* margin: 0px 10px; */
     padding: 0px 5px 0px 10px;
     min-width: 80px;
-    border-radius: 24px 0px 0px 25px;
-    border-right:  2px solid @border;
+    /* border-radius: 24px; */
+    border-radius: 24px 0px 0px 24px;
+    border-right: 1px solid @border;
 }
 #pulseaudio {
     background-color: @sound;
-    color: @light;
+    color: @dark;
 }
 #pulseaudio.muted:not(.source) {
     background-color: @critical;
     color: @bright;
 }
 #taskbar {
-    background-color: @focused;
+    background-color: @taskbar;
     color: @bright;
     border-radius: 0px 24px 24px 0px;
-    padding: 0px 10px;
-    border-left :  2px solid @border;
+    /* border-radius: 24px; */
+    border-left: 1px solid @border;
 }
 #temperature {
     background-color: @temp;
-    color: @light;
+    color: @bright;
 }
 #tray {
     background-color: @tray;
     color: @bright;
-    padding: 0px 10px;
+}
+#window {
+    color: @bright;
+    font-weight: bold;
+    /* font-style: italic; */
+    font-size: smaller;
 }
 window#waybar {
     background-color: alpha(@window, 0.5);
@@ -225,18 +242,17 @@ window#waybar.empty {
 window#waybar.hidden {
     opacity: 0.2;
 }
-#window {
-    color: @bright;
-    font-weight: bold;
-    font-style: italic;
-}
 #workspaces button {
     background-color: @workspaces;
     color: @light;
     padding: 0px 10px 0px 5px;
 }
+/* #workspaces button:last-child {
+    border-radius: 0px 24px 24px 0px;
+    padding: 0px 10px;
+} */
 #workspaces button.persistent {
-    color: alpha(@light, 0.25);
+    color: alpha(@bright, 0.2);
 }
 #workspaces button.focused {
     background-color: @focused;
@@ -259,43 +275,37 @@ window#waybar.hidden {
     color: @light;
 }
 #custom-layout {
-    background-color: @layout;
+    background-color: @language;
     color: @light;
 }
 #custom-media {
     background-color: @media;
     color: @dark;
     font-size: smaller;
-    /* border: 2px solid @border; */
+    /* border: 1px solid @border; */
     border-radius: 24;
-    padding: 0px 10px;
-    margin: 0px 10px;
 }
 #custom-pacman {
-    background-color: @tray;
-    color: @bright;
-    /* border-left: 1px solid @border; */
-    /* border-right: 1px solid @border; */
-    padding: 0px 10px;
+    background-color: @updates;
 }
 #custom-power {
     background-color: @power;
     color: @bright;
-    padding: 0px 12px 0px 10px;
+    /* padding: 0px 12px 0px 10px; */
 }
 
 /* -----------------------------------------------------------------------------
  * Arrow Module styles
  * -------------------------------------------------------------------------- */
-#custom-arrow-L {font-size:200%; color:@workspaces; background-color:transparent;}
-#custom-arrow-R {font-size:200%; color:@workspaces; background-color:transparent;}
-#custom-arrow1  {font-size:200%; color:@network;    background-color:transparent;}
-#custom-arrow2  {font-size:200%; color:@temp;       background-color:@network;   }
-#custom-arrow3  {font-size:200%; color:@cpu;        background-color:@temp;      }
-#custom-arrow4  {font-size:200%; color:@memory;     background-color:@cpu;       }
-#custom-arrow5  {font-size:200%; color:@disk;       background-color:@memory;    }
-#custom-arrow6  {font-size:200%; color:@sound;      background-color:@disk;      }
-#custom-arrow7  {font-size:200%; color:@battery;    background-color:@sound;     }
-#custom-arrow8  {font-size:200%; color:@date;       background-color:@tray;      }
-#custom-arrow9  {font-size:200%; color:@time;       background-color:@date;      }
-#custom-arrow10 {font-size:200%; color:@workspaces; background-color:transparent;}
+#custom-arrow-R {font-size:20px; color:@workspaces; background-color:transparent;}
+#custom-arrow-L {font-size:20px; color:@network;    background-color:transparent;}
+#custom-arrow01 {font-size:20px; color:@temp;       background-color:@network;   }
+#custom-arrow02 {font-size:20px; color:@cpu;        background-color:@temp;      }
+#custom-arrow03 {font-size:20px; color:@memory;     background-color:@cpu;       }
+#custom-arrow04 {font-size:20px; color:@disk;       background-color:@memory;    }
+#custom-arrow05 {font-size:20px; color:@language;   background-color:@disk;      }
+#custom-arrow06 {font-size:20px; color:@sound;      background-color:@language;  }
+#custom-arrow07 {font-size:20px; color:@battery;    background-color:@sound;     }
+#custom-arrow08 {font-size:20px; color:@tray;       background-color:@battery;   }
+#custom-arrow09 {font-size:20px; color:@date;       background-color:@tray;      }
+#custom-arrow10 {font-size:20px; color:@time;       background-color:@date;      }
