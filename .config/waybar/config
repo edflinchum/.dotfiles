@@ -111,8 +111,8 @@
     },
     "clock#time": {
         "interval": 1,
-        "format": " {:%l·%M·%S %p}",
         "format-alt": " {:%H·%M}",  // Alt Icon: ·
+        "format": " {:%l·%M·%S %p}",
         "tooltip-format": "{: %I:%M:%S %p}",
         "tooltip": true
     },
