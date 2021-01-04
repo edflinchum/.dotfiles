@@ -61,6 +61,7 @@
 #custom-media,
 #custom-pacman,
 #custom-power,
+#custom-weather,
 #disk,
 #idle_inhibitor,
 #language,
@@ -293,6 +294,10 @@ window#waybar.hidden {
     color: @bright;
     /* padding: 0px 12px 0px 10px; */
 }
+#custom-weather {
+    background-color: @weather;
+    color: @dark;
+}
 
 /* -----------------------------------------------------------------------------
  * Arrow Module styles
@@ -305,7 +310,7 @@ window#waybar.hidden {
 #custom-arrow04 {font-size:20px; color:@disk;       background-color:@memory;    }
 #custom-arrow05 {font-size:20px; color:@language;   background-color:@disk;      }
 #custom-arrow06 {font-size:20px; color:@sound;      background-color:@language;  }
-#custom-arrow07 {font-size:20px; color:@battery;    background-color:@sound;     }
-#custom-arrow08 {font-size:20px; color:@tray;       background-color:@battery;   }
+#custom-arrow07 {font-size:20px; color:@weather;    background-color:@sound;     }
+#custom-arrow08 {font-size:20px; color:@tray;       background-color:@weather;   }
 #custom-arrow09 {font-size:20px; color:@date;       background-color:@tray;      }
 #custom-arrow10 {font-size:20px; color:@time;       background-color:@date;      }

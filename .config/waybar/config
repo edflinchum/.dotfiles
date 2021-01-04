@@ -48,7 +48,8 @@
         "pulseaudio",
         "pulseaudio#source",
         "custom/arrow07",
-        "battery",
+        // "battery",
+        "custom/weather",
         "custom/arrow08",
         "tray",
         // "custom/arrow09",
@@ -228,7 +229,7 @@
         "tooltip": true
     },
     "sway/mode": {
-        "format": " {}", // Icon: expand-arrows-alt 
+        "format": "{}", // Icon: expand-arrows-alt  
         "tooltip": false
     },
     "sway/window": {
@@ -344,7 +345,17 @@
         "on-click": "wlogout",
         "tooltip": false
     },
-
+    /* "custom/weather": {
+        "exec": "curl 'https://wttr.in/?format=1'",
+        "interval": 3600
+    }, */
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 900,
+        "exec": "$HOME/.config/waybar/weather.py",
+        "return-type": "json"
+    },
     // -------------------------------------------------------------------------
     // Arrow Modules
     // -------------------------------------------------------------------------
