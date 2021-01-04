@@ -29,45 +29,6 @@ set $chat .
 set $games .
 
 
-#
-# Key bindings
-#
-
-# Start a terminal
-bindsym $mod+Return exec $term
-bindsym $mod+KP_Enter exec $term
-
-# Kill focused window
-bindsym $mod+Shift+q kill
-bindsym $mod+q kill
-
-# Start your launcher
-bindsym $mod+d exec $menu
-bindsym $mod+Shift+d exec $altmenu
-
-# Media controls:
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# Applications:
-bindsym $mod+F1 workspace --no-auto-back-and-forth $ws1, exec $browser
-bindsym $mod+F2 workspace --no-auto-back-and-forth $ws2, exec $term
-bindsym $mod+F3 workspace --no-auto-back-and-forth $ws3, exec $editor
-bindsym $mod+F4 workspace --no-auto-back-and-forth $ws4, exec $files
-bindsym $mod+F5 workspace --no-auto-back-and-forth $ws5, exec $email
-bindsym $mod+F6 workspace --no-auto-back-and-forth $ws6, exec $chat
-bindsym $mod+F7 workspace --no-auto-back-and-forth $ws7, exec $games
-bindsym $mod+F8 workspace --no-auto-back-and-forth $ws8, exec $music
-bindsym F12 exec guake-toggle
-
-
 
 #
 # Input/Output Devices:
@@ -291,6 +252,71 @@ assign [app_id="lollypop"] $ws8
 
 
 #
+# Key bindings
+#
+
+# Start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+KP_Enter exec $term
+bindsym F12 exec guake-toggle
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+d exec $altmenu
+
+# Media controls:
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Application key bindings:
+bindsym $mod+F1 workspace --no-auto-back-and-forth $ws1, exec $browser
+bindsym $mod+F2 workspace --no-auto-back-and-forth $ws2, exec $term
+bindsym $mod+F3 workspace --no-auto-back-and-forth $ws3, exec $editor
+bindsym $mod+F4 workspace --no-auto-back-and-forth $ws4, exec $files
+bindsym $mod+F5 workspace --no-auto-back-and-forth $ws5, exec $email
+bindsym $mod+F6 workspace --no-auto-back-and-forth $ws6, exec $chat
+bindsym $mod+F7 workspace --no-auto-back-and-forth $ws7, exec $games
+bindsym $mod+F8 workspace --no-auto-back-and-forth $ws8, exec $music
+
+
+
+#
+# Screenshots:
+#
+
+set $mode_screenshot   (E)verything, (W)indow, (S)creen
+mode "$mode_screenshot" {
+    # screen = all outputs
+    bindsym e exec grimshot --notify copy screen
+    bindsym Shift+e exec grimshot --notify save screen
+
+    bindsym w exec grimshot --notify copy window
+    bindsym Shift+w exec grimshot --notify save window
+
+    # output = currently active output
+    bindsym s exec grimshot --notify copy output
+    bindsym Shift+s exec grimshot --notify save output
+
+    # Return to default mode.
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+s mode "$mode_screenshot"
+
+
+
+#
 # Resizing and gaps:
 #
 
@@ -403,31 +429,6 @@ bindsym $mod+r mode "$mode_resize"
 
 
 #
-# Screenshots:
-#
-
-set $mode_screenshot   (E)verything, (W)indow, (S)creen
-mode "$mode_screenshot" {
-    # screen = all outputs
-    bindsym e exec grimshot --notify copy screen
-    bindsym Shift+e exec grimshot --notify save screen
-
-    bindsym w exec grimshot --notify copy window
-    bindsym Shift+w exec grimshot --notify save window
-
-    # output = currently active output
-    bindsym s exec grimshot --notify copy output
-    bindsym Shift+s exec grimshot --notify save output
-
-    # Return to default mode.
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-bindsym $mod+Shift+s mode "$mode_screenshot"
-
-
-
-#
 # Session:
 #
 
@@ -439,30 +440,23 @@ bindsym $mod+Shift+c reload
 #bindsym $mod+Shift+r restart
 
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle -w \
          timeout  600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          timeout 1800 'swaylock -f -c 000000' \
          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
-# Lock screen
+### Lock screen
 #bindsym $mod+9 exec --no-startup-id blurlock
 bindsym $mod+9 exec swaylock -f -c 000000
 
-# Wlogout Menu
+### Wlogout Menu
 bindsym $mod+Escape exec wlogout
 
 # Replaced exit screen with swaynagmode below
 # Exit sway (logs you out of your Wayland session)
 #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-# Swaynagmode for keyboard control of swaynag
+### Swaynagmode for keyboard control of swaynag
 # nag
 set {
   $nag         exec swaynagmode
@@ -492,16 +486,15 @@ bindsym {
 # 'Reload Sway' option will be initially selected instead of the 'Exit Sway' option
 swaynag_command $nag -R
 
-#
-# Set shut down, restart and locking features:
+### Set shut down, restart and locking features:
 #
 #set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 set $mode_system System menu: (l)ock, (e)xit, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id swaylock --color "#000000", mode "default"
-#    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym e exec --no-startup-id swaymsg exit, mode "default"
-#    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
