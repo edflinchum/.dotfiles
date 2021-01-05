@@ -14,51 +14,50 @@
 
 /* Rigel */
 
-@define-color bright #e6e6dc;
-@define-color light #b7cff9;
-@define-color dark #002635;
-@define-color warning #ffcc1b;
-@define-color critical #ff5a67;
-@define-color battery #00cccc;
+@define-color battery #7fc06e;
 @define-color border #ffcc1b;
-@define-color cpu #517f8d;
-@define-color date #1c8db2;
+@define-color bright #00ffff;
+@define-color cpu #77929e;
+@define-color critical #ff5a67;
+@define-color dark #002635;
+@define-color date #517f8d;
 @define-color disk #c694ff;
 @define-color focused #f08e48;
 @define-color idle #002635;
-@define-color language #fb94ff;
+@define-color language #00cccc;
+@define-color light #e6e6dc;
 @define-color media #9cf087;
-@define-color memory #7fc06e;
+@define-color memory #fb94ff;
 @define-color mode #002635;
 @define-color network #1c8db2;
 @define-color power #ff5a67;
 @define-color sound #c43061;
-@define-color speed #00ffff;
+@define-color speed #b7cff9;
 @define-color taskbar #00384d;
-@define-color temp #7eb2dd;
-@define-color time #b7cff9;
+@define-color temp #00ffff;
+@define-color time #7eb2dd;
 @define-color tray #00384d;
 @define-color updates #002635;
-@define-color weather #00cccc;
+@define-color warning #ffcc1b;
+@define-color weather #7fc06e;
 @define-color window #002635;
 @define-color workspaces #002635;
 
 
 /* Nord */
 /*
-@define-color bright #eceff4;
-@define-color light #eceff4;
-@define-color dark #2e3440;
-@define-color warning #ebcb8b;
-@define-color critical #d08770;
 @define-color battery #88c0d0;
 @define-color border #d08770;
+@define-color bright #eceff4;
 @define-color cpu #434c5e;
+@define-color critical #d08770;
+@define-color dark #2e3440;
 @define-color date #2e3440;
 @define-color disk #2e3440;
 @define-color focused #81a1c1;
 @define-color idle #88c0d0;
 @define-color language #d8dee9;
+@define-color light #eceff4;
 @define-color media #81a1c1;
 @define-color memory #88c0d0;
 @define-color mode #4c566a;
@@ -71,6 +70,7 @@
 @define-color time #eceff4;
 @define-color tray #2e3440;
 @define-color updates #2e3440;
+@define-color warning #ebcb8b;
 @define-color weather #88c0d0;
 @define-color window #5e81ac;
 @define-color workspaces #5e81ac;
@@ -78,19 +78,18 @@
 
 /* Gruvbox */
 /*
-@define-color bright #ebdbb2;
-@define-color light #ebdbb2;
-@define-color dark #282828;
-@define-color warning #fabd2f;
-@define-color critical #cc241d;
 @define-color battery #fabd2f;
 @define-color border #cc241d;
+@define-color bright #ebdbb2;
 @define-color cpu #98971a;
+@define-color critical #cc241d;
+@define-color dark #282828;
 @define-color date #282828;
 @define-color disk #282828;
 @define-color focused #83a598;
 @define-color idle #282828;
 @define-color language #689d6a;
+@define-color light #ebdbb2;
 @define-color media #83a598;
 @define-color memory #8ec07c;
 @define-color mode #a89984;
@@ -103,6 +102,7 @@
 @define-color time #ebdbb2;
 @define-color tray #282828;
 @define-color updates #282828;
+@define-color warning #fabd2f;
 @define-color weather #fabd2f;
 @define-color window #458588;
 @define-color workspaces #458588;

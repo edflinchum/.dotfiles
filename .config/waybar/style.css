@@ -19,15 +19,15 @@
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
-    70% { color: @bright; }
-     to { color: @bright; background-color: @warning; }
+    70% { color: @light; }
+     to { color: @light; background-color: @warning; }
 }
 @keyframes blink-critical {
-    70% { color: @bright; }
-     to { color: @bright; background-color: @critical; }
+    70% { color: @light; }
+     to { color: @light; background-color: @critical; }
 }
 @keyframes blink {
-    to { color: @dark; background-color: @bright; }
+    to { color: @dark; background-color: @light; }
 }
 
 /* -----------------------------------------------------------------------------
@@ -72,15 +72,14 @@
 #pulseaudio,
 #taskbar,
 #temperature,
-#tray,
-#workspaces {
+#tray {
     padding: 0px 10px;
 }
 .modules-left > widget:first-child > #workspaces {
-    padding-left: 0px;
+    margin-left: 0px;
 }
 .modules-right > widget:last-child > #workspaces {
-    padding-right: 0px;
+    margin-right: 0px;
 }
 .modules-center > widget:last-child *,
 .modules-left   > widget:nth-last-child(2) * {
@@ -93,6 +92,7 @@
 
 /* Each module that should blink */
 #battery,
+#cpu,
 #memory,
 #mode,
 #temperature {
@@ -112,6 +112,7 @@
 
 /* Each critical that should blink */
 #battery.critical.discharging,
+#cpu.critical,
 #memory.critical,
 #mode,
 #temperature.critical {
@@ -146,7 +147,7 @@
 }
 #clock.date {
     background-color: @date;
-    color: @bright;
+    color: @light;
 }
 #clock.time {
     background-color: @time;
@@ -154,15 +155,15 @@
 }
 #cpu {
     background-color: @cpu;
-    color: @bright;
+    color: @light;
 }
 #disk {
     background-color: @disk;
-    color: @bright;
+    color: @light;
 }
 #idle_inhibitor {
     background-color: @idle;
-    color: @bright;
+    color: @light;
     padding: 0px 15px 0px 10px;
 }
 #language {
@@ -176,12 +177,12 @@
 }
 #mode {
     background-color: @mode;
-    color: @bright;
+    color: @light;
     font-style: italic;
 }
 #network {
     background-color: @network;
-    color: @bright;
+    color: @light;
 }
 #network.speed {
     background-color: @speed;
@@ -192,15 +193,15 @@
 }
 #pulseaudio {
     background-color: @sound;
-    color: @bright;
+    color: @light;
 }
 #pulseaudio.muted:not(.source) {
     background-color: @critical;
-    color: @bright;
+    color: @light;
 }
 #taskbar {
     background-color: @taskbar;
-    color: @bright;
+    color: @light;
     /* border-left: 3px solid @border; */
 }
 #temperature {
@@ -209,7 +210,7 @@
 }
 #tray {
     background-color: @tray;
-    color: @bright;
+    color: @light;
 }
 #window {
     color: @bright;
@@ -232,26 +233,23 @@ window#waybar.hidden {
 }
 #workspaces {
     background-color: @workspaces;
-    color: @light;
+    color: @bright;
 }
 #workspaces button {
     padding: 0px 10px 0px 5px;
+    color: @bright;
 }
-/* #workspaces button:last-child {
-    border-radius: 0px 24px 24px 0px;
-    padding: 0px 10px;
-} */
 #workspaces button.persistent {
     color: alpha(@bright, 0.2);
 }
 #workspaces button.focused {
     background-color: @focused;
-    color: @bright;
+    color: @light;
     box-shadow: inset 0px -3px @border;
 }
 #workspaces button:hover {
     background-color: alpha(@focused, 0.5);
-    color: @bright;
+    color: @light;
 }
 #workspaces button.urgent {
     color: @critical;
@@ -280,7 +278,7 @@ window#waybar.hidden {
 }
 #custom-power {
     background-color: @power;
-    color: @bright;
+    color: @light;
     /* padding: 0px 12px 0px 10px; */
 }
 #custom-weather {
