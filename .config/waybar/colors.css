@@ -19,28 +19,28 @@
 @define-color dark #002635;
 @define-color warning #ffcc1b;
 @define-color critical #ff5a67;
-@define-color battery #c694ff;
+@define-color battery #00cccc;
 @define-color border #ffcc1b;
 @define-color cpu #517f8d;
-@define-color date #c43061;
+@define-color date #1c8db2;
 @define-color disk #c694ff;
-@define-color focused #77929e;
+@define-color focused #f08e48;
 @define-color idle #002635;
 @define-color language #fb94ff;
 @define-color media #9cf087;
 @define-color memory #7fc06e;
 @define-color mode #002635;
-@define-color network #ff5a67;
-@define-color power #c43061;
-@define-color sound #1c8db2;
+@define-color network #1c8db2;
+@define-color power #ff5a67;
+@define-color sound #c43061;
 @define-color speed #00ffff;
-@define-color taskbar #f08e48;
+@define-color taskbar #00384d;
 @define-color temp #7eb2dd;
-@define-color time #ffcc1b;
+@define-color time #b7cff9;
 @define-color tray #00384d;
 @define-color updates #002635;
 @define-color weather #00cccc;
-@define-color window #00384d;
+@define-color window #002635;
 @define-color workspaces #002635;
 
 

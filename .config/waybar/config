@@ -19,7 +19,6 @@
     // Choose the order of the modules
     "modules-left": [
     	"sway/workspaces",
-        "sway/mode",
         // "custom/arrow-R",
         "wlr/taskbar",
         "sway/window"
@@ -27,6 +26,7 @@
     "modules-center": [
         // "sway/window"
         "clock#date",
+        "sway/mode",
         "clock#time"
     ],
     "modules-right": [
@@ -34,23 +34,23 @@
         "network#speed",
         // "custom/arrow-L",
         "network",
-        "custom/arrow01",
+        // "custom/arrow01",
         "temperature",
-        "custom/arrow02",
+        // "custom/arrow02",
         "cpu",
-        "custom/arrow03",
+        // "custom/arrow03",
         "memory",
-        "custom/arrow04",
+        // "custom/arrow04",
         "disk",
-        "custom/arrow05",
+        // "custom/arrow05",
         "sway/language",
-        "custom/arrow06",
+        // "custom/arrow06",
         "pulseaudio",
         "pulseaudio#source",
-        "custom/arrow07",
-        // "battery",
+        // "custom/arrow07",
+        "battery",
         "custom/weather",
-        "custom/arrow08",
+        // "custom/arrow08",
         "tray",
         // "custom/arrow09",
         // "clock#date",
@@ -106,7 +106,7 @@
     "clock#date": {
         "format-alt": " {:%b·%d}", // Icon: calendar-alt
         "format": " {:%a·%b·%d}",
-        "tooltip-format": "{:<small> %A %m/%d/%y</small>\n<big>%Y %B</big>}\n<small>{calendar}</small>",
+        "tooltip-format": "{:<small> %A %m/%d/%y</small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
@@ -134,7 +134,7 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
-            // Alt Icons: "", ""
+            // Alt Icons:    
         }
     },
     "memory": {
@@ -252,18 +252,18 @@
         },
         "format": "{value} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
-            "1": "", //   
-            "2": "",
+            "1": "",
+            "2": "", //   
             "3": "", // 
             "4": "",
             "5": "", //  
-            "6": "",
+            "6": "", // 
             "7": "",
             "8": "", //  ﱘ 
             "urgent": "",
             "focused": "",
             "default": ""
-            // other icons:            華 
+            // other icons:            華       
         }
     },
     "temperature": {
@@ -332,11 +332,11 @@
     },
     "custom/pacman": {
         "format": " {}",
-        "interval": 3600,                                                    // every hour
-        "exec": "pamac checkupdates -q --aur --devel | wc -l",               // # of updates
-        "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",                      // only show if updates are needed
-        "on-click": "pamac-manager --updates; pkill -SIGRTMIN+8 waybar",     // update system
-        "on-click-right": "alacritty -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system and AUR
+        "interval": 3600,                                                                 // run once every hour
+        "exec": "pamac checkupdates -aq --devel | wc -l",                                 // show # of updates available
+        "exec-if": "[ $(pamac checkupdates -aq | wc -l) -gt 0 ]",                         // only show if updates are needed
+        "on-click": "pamac-manager --updates; pkill -SIGRTMIN+8 waybar",                  // update system with pamac
+        "on-click-right": "alacritty -e yay -Syu --noconfirm; pkill -SIGRTMIN+8 waybar",  // update system with terminal
         "signal": 8,
         "tooltip": false
     },

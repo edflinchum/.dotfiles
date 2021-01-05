@@ -48,18 +48,20 @@ set $games .
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 #
+
 input * xkb_numlock enabled
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+#
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 
 
@@ -241,9 +243,9 @@ for_window [title="File Operation Progress"] floating enable
 for_window [app_id="polkit-gnome-authentication-agent-1"] floating enable, border none
 
 ### Open applications on specific workspaces
-assign [window_role="^browser$"] $ws1
-assign [app_id="org.gnome.Nautilus"] $ws4
+assign [window_role="^browser$"] $ws2
 assign [instance="code-oss"] $ws3
+assign [app_id="org.gnome.Nautilus"] $ws4
 assign [app_id="lollypop"] $ws8
 
 ### Change window settings
@@ -280,14 +282,14 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Application key bindings:
-bindsym $mod+F1 workspace --no-auto-back-and-forth $ws1, exec $browser
-bindsym $mod+F2 workspace --no-auto-back-and-forth $ws2, exec $term
-bindsym $mod+F3 workspace --no-auto-back-and-forth $ws3, exec $editor
-bindsym $mod+F4 workspace --no-auto-back-and-forth $ws4, exec $files
-bindsym $mod+F5 workspace --no-auto-back-and-forth $ws5, exec $email
-bindsym $mod+F6 workspace --no-auto-back-and-forth $ws6, exec $chat
-bindsym $mod+F7 workspace --no-auto-back-and-forth $ws7, exec $games
-bindsym $mod+F8 workspace --no-auto-back-and-forth $ws8, exec $music
+bindsym $mod+KP_1 workspace --no-auto-back-and-forth $ws1, exec $term
+bindsym $mod+KP_2 workspace --no-auto-back-and-forth $ws2, exec $browser
+bindsym $mod+KP_3 workspace --no-auto-back-and-forth $ws3, exec $editor
+bindsym $mod+KP_4 workspace --no-auto-back-and-forth $ws4, exec $files
+bindsym $mod+KP_5 workspace --no-auto-back-and-forth $ws5, exec $email
+bindsym $mod+KP_6 workspace --no-auto-back-and-forth $ws6, exec $chat
+bindsym $mod+KP_7 workspace --no-auto-back-and-forth $ws7, exec $games
+bindsym $mod+KP_8 workspace --no-auto-back-and-forth $ws8, exec $music
 
 
 
