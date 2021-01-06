@@ -34,7 +34,7 @@
  * Base styles
  * -------------------------------------------------------------------------- */
 
-/* Reset all styles and set bar defaults */
+/* Reset all styles */
 * {
     border: none;
     border-radius: 0px;
@@ -42,52 +42,34 @@
     min-width: 0px;
     margin: 0px;
     padding: 0px;
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    /* font-family: "Noto Sans Mono", "FontAwesome 5 Free Solid", "font-logos", sans-serif; */
-    font-family: "DroidSansMono Nerd Font", "MesloLGS Nerd Font", "RobotoMono Nerd Font";
-    font-size: 10pt;
-    font-weight: bold;
 }
 
 /* Each module */
-#backlight,
-#battery,
-#bluetooth,
-#clock,
-#cpu,
-#custom-alsa,
-#custom-layout,
-#custom-media,
-#custom-pacman,
-#custom-power,
-#custom-weather,
-#disk,
-#idle_inhibitor,
-#language,
-#memory,
-#mode,
-#mpd,
-#network,
-#pulseaudio,
-#taskbar,
-#temperature,
-#tray {
-    padding: 0px 10px;
+window > * > * > * > * {
+    padding: 4px 6px;
+    /* margin: 4px 2px; */
+    /* `otf-font-awesome` is required to be installed for icons */
+    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
+    font-family: "DroidSansMono Nerd Font", "MesloLGS Nerd Font", "RobotoMono Nerd Font";
+    font-size: 10pt;
+    font-weight: bold;
+    border: 2px solid transparent;
 }
+.modules-left > widget:first-child > #custom-power,
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0px;
 }
+.modules-right > widget:last-child > #custom-power,
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0px;
 }
-.modules-center > widget:last-child *,
-.modules-left   > widget:nth-last-child(2) * {
-    border-radius: 0px 24px 24px 0px;
+.modules-center > widget:last-child > *,
+.modules-left   > widget:nth-last-child(2) > * {
+    border-radius: 0px 40px 40px 0px;
 }
-.modules-center > widget:first-child *,
-.modules-right  > widget:first-child * {
-    border-radius: 24px 0px 0px 24px;
+.modules-center > widget:first-child > *,
+.modules-right  > widget:first-child > * {
+    border-radius: 40px 0px 0px 40px;
 }
 
 /* Each module that should blink */
@@ -164,7 +146,7 @@
 #idle_inhibitor {
     background-color: @idle;
     color: @light;
-    padding: 0px 15px 0px 10px;
+    padding: 0px 10px 0px 5px;
 }
 #language {
     background-color: @language;
@@ -187,9 +169,7 @@
 #network.speed {
     background-color: @speed;
     color: @dark;
-    font-size: smaller;
     min-width: 80px;
-    /* border-right: 3px solid @border; */
 }
 #pulseaudio {
     background-color: @sound;
@@ -201,8 +181,15 @@
 }
 #taskbar {
     background-color: @taskbar;
-    color: @light;
-    /* border-left: 3px solid @border; */
+}
+#taskbar button {
+    background-color: @taskbar;
+    padding: 0px 2px;
+    border: 2px solid transparent;
+}
+#taskbar button.active {
+    background-color: @border;
+    border: 2px solid @border;
 }
 #temperature {
     background-color: @temp;
@@ -212,18 +199,15 @@
     background-color: @tray;
     color: @light;
 }
-#window {
-    color: @bright;
-    font-size: smaller;
-    margin: 0px 10px;
-}
 window#waybar {
-    background-color: alpha(@window, 0.5);
-    transition-property: background-color;
+    background-color: alpha(@window, 0.7);
+    border: 10px solid transparent;
+    transition-property: all;
     transition-duration: 2s;
 }
 window#waybar.solo {
     background-color: @window;
+    border-color: @window;
 }
 window#waybar.empty {
     background-color: transparent;
@@ -231,13 +215,19 @@ window#waybar.empty {
 window#waybar.hidden {
     opacity: 0.2;
 }
+#window {
+    color: @bright;
+    font-style: italic;
+}
 #workspaces {
     background-color: @workspaces;
-    color: @bright;
+    padding: 0px;
 }
 #workspaces button {
-    padding: 0px 10px 0px 5px;
+    background-color: @workspaces;
     color: @bright;
+    padding: 0px 10px 0px 5px;
+    border: 2px solid transparent;
 }
 #workspaces button.persistent {
     color: alpha(@bright, 0.2);
@@ -245,11 +235,10 @@ window#waybar.hidden {
 #workspaces button.focused {
     background-color: @focused;
     color: @light;
-    box-shadow: inset 0px -3px @border;
+    font-weight: bolder;
 }
 #workspaces button:hover {
-    background-color: alpha(@focused, 0.5);
-    color: @light;
+    border: 2px solid @border;
 }
 #workspaces button.urgent {
     color: @critical;
@@ -269,9 +258,6 @@ window#waybar.hidden {
 #custom-media {
     background-color: @media;
     color: @dark;
-    font-size: smaller;
-    /* border: 1px solid @border; */
-    /* border-radius: 24; */
 }
 #custom-pacman {
     background-color: @updates;
@@ -279,7 +265,7 @@ window#waybar.hidden {
 #custom-power {
     background-color: @power;
     color: @light;
-    /* padding: 0px 12px 0px 10px; */
+    padding: 0px 12px 0px 10px;
 }
 #custom-weather {
     background-color: @weather;

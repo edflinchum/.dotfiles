@@ -23,7 +23,7 @@
 @define-color date #517f8d;
 @define-color disk #c694ff;
 @define-color focused #f08e48;
-@define-color idle #002635;
+@define-color idle #00384d;
 @define-color language #00cccc;
 @define-color light #e6e6dc;
 @define-color media #9cf087;
@@ -37,11 +37,11 @@
 @define-color temp #00ffff;
 @define-color time #7eb2dd;
 @define-color tray #00384d;
-@define-color updates #002635;
+@define-color updates #00384d;
 @define-color warning #ffcc1b;
 @define-color weather #7fc06e;
 @define-color window #002635;
-@define-color workspaces #002635;
+@define-color workspaces #00384d;
 
 
 /* Nord */
