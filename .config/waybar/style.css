@@ -169,7 +169,7 @@ window > * > * > * > * {
 #network.speed {
     background-color: @speed;
     color: @dark;
-    font-size: smaller;
+    font-weight: lighter;
     min-width: 80px;
 }
 #pulseaudio {
@@ -218,7 +218,6 @@ window#waybar.hidden {
 }
 #window {
     color: @bright;
-    font-size: smaller;
     font-style: italic;
 }
 #workspaces {
@@ -260,7 +259,7 @@ window#waybar.hidden {
 #custom-media {
     background-color: @media;
     color: @dark;
-    font-size: smaller;
+    font-weight: normal;
 }
 #custom-pacman {
     background-color: @updates;

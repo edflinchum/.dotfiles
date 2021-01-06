@@ -106,14 +106,14 @@
     "clock#date": {
         "format-alt": " {:%b·%d}", // Icon: calendar-alt
         "format": " {:%a·%b·%d}",
-        "tooltip-format": "{:<small> %A %m/%d/%y</small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "{:<small>%A - %m/%d/%y</small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
         "interval": 1,
         "format-alt": " {:%H·%M}",  // Alt Icon: ·
         "format": " {:%l·%M·%S %p}",
-        "tooltip-format": "{: %I:%M:%S %p}",
+        "tooltip-format": "{:%I:%M:%S %p}",
         "tooltip": true
     },
     "cpu": {
