@@ -46,11 +46,11 @@
 
 /* Each module */
 window > * > * > * > * {
-    padding: 4px 6px;
+    padding: 0px 6px;
     /* margin: 4px 2px; */
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "DroidSansMono Nerd Font", "MesloLGS Nerd Font", "RobotoMono Nerd Font";
+    font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "RobotoMono Nerd Font";
     font-size: 10pt;
     font-weight: bold;
     border: 2px solid transparent;
@@ -184,11 +184,11 @@ window > * > * > * > * {
 }
 #taskbar button {
     background-color: @taskbar;
-    padding: 0px 2px;
+    padding: 2px;
     border: 2px solid transparent;
 }
 #taskbar button.active {
-    background-color: @border;
+    border-radius: 40px;
     border: 2px solid @border;
 }
 #temperature {
@@ -201,7 +201,7 @@ window > * > * > * > * {
 }
 window#waybar {
     background-color: alpha(@window, 0.7);
-    border: 10px solid transparent;
+    border: 6px solid transparent;
     transition-property: all;
     transition-duration: 2s;
 }
@@ -218,6 +218,7 @@ window#waybar.hidden {
 #window {
     color: @bright;
     font-style: italic;
+    font-size: smaller;
 }
 #workspaces {
     background-color: @workspaces;
@@ -258,6 +259,7 @@ window#waybar.hidden {
 #custom-media {
     background-color: @media;
     color: @dark;
+    font-size: smaller;
 }
 #custom-pacman {
     background-color: @updates;

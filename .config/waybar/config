@@ -180,13 +180,13 @@
             "disconnected": [""] // Icon: , ⚠
         },
         //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
-        // Icons:   
+        // Icons:     
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
         // "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "format-alt": "{icon} {ipaddr}",
-        "tooltip-format": "{icon} {ipaddr}\n {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip-format": "{icon} {ipaddr}\n {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },
     "network#speed": {
@@ -194,7 +194,7 @@
         "format": " {bandwidthDownBits}",
         "format-alt": " {bandwidthUpBits}",
         // "format-alt": " {bandwidthUpBits}\n {bandwidthDownBits}",
-        "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },
     "pulseaudio": {
@@ -282,13 +282,13 @@
         ]
     },
     "tray": {
-        "icon-size": 20,
+        "icon-size": 18,
         "spacing": 4
     },
     "wlr/taskbar": {
         "all-outputs": false,
         "format": "{icon}",
-        "icon-size": 20,
+        "icon-size": 18,
         "icon-theme": "Numix-Circle",
         "tooltip-format": "{title}",
         "on-click": "activate",
