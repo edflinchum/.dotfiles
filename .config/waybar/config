@@ -201,7 +201,7 @@
         "scroll-step": 1,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": " MUTE", //alt icon:  
+        "format-muted": " {volume}%", //alt icon:  
         "format-icons": {
             "headphone": "", //
             "hands-free": "",
