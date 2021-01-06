@@ -47,7 +47,7 @@
 /* Each module */
 window > * > * > * > * {
     padding: 0px 6px;
-    /* margin: 4px 2px; */
+    margin: 0px 1px;
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
     font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "RobotoMono Nerd Font";
@@ -169,6 +169,7 @@ window > * > * > * > * {
 #network.speed {
     background-color: @speed;
     color: @dark;
+    font-size: smaller;
     min-width: 80px;
 }
 #pulseaudio {
@@ -217,8 +218,8 @@ window#waybar.hidden {
 }
 #window {
     color: @bright;
-    font-style: italic;
     font-size: smaller;
+    font-style: italic;
 }
 #workspaces {
     background-color: @workspaces;
