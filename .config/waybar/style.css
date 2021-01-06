@@ -231,7 +231,7 @@ window#waybar.hidden {
     border: 2px solid transparent;
 }
 #workspaces button.persistent {
-    color: alpha(@bright, 0.2);
+    color: @dark;
 }
 #workspaces button.focused {
     background-color: @focused;
