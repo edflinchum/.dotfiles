@@ -19,12 +19,10 @@
     // Choose the order of the modules
     "modules-left": [
     	"sway/workspaces",
-        // "custom/arrow-R",
         "wlr/taskbar",
         "sway/window"
     ],
     "modules-center": [
-        // "sway/window"
         "clock#date",
         "sway/mode",
         "clock#time"
@@ -32,30 +30,17 @@
     "modules-right": [
         "custom/media",
         "network#speed",
-        // "custom/arrow-L",
         "network",
-        // "custom/arrow01",
         "temperature",
-        // "custom/arrow02",
         "cpu",
-        // "custom/arrow03",
         "memory",
-        // "custom/arrow04",
         "disk",
-        // "custom/arrow05",
         "sway/language",
-        // "custom/arrow06",
         "pulseaudio",
         "pulseaudio#source",
-        // "custom/arrow07",
         "battery",
         "custom/weather",
-        // "custom/arrow08",
         "tray",
-        // "custom/arrow09",
-        // "clock#date",
-        // "custom/arrow10",
-        // "clock#time",
         "custom/pacman",
         "idle_inhibitor",
         "custom/power"
@@ -80,7 +65,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": " {capacity}%", // Icon:  bolt
+        "format-charging": " {capacity}%", // Icon:  bolt
         //"format-charging": "{capacity}% ",
         //"format-plugged": "{capacity}% ",
         "format-discharging": "{icon} {capacity}%",
@@ -118,7 +103,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": " {usage}%", // Icon: microchip
+        "format": " {usage}%", // Icon:  microchip
         "states": {
           "warning": 60,
           "critical": 90
@@ -139,7 +124,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": " {percentage}%", // Icon: memory  
+        "format": " {percentage}%", // Icon: memory 
         "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
         "states": {
             "warning": 70,
@@ -186,7 +171,7 @@
         "format-disconnected": "{icon} Disconnected",
         // "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "format-alt": "{icon} {ipaddr}",
-        "tooltip-format": "{icon} {ipaddr}\n {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip-format": "{icon} {ipaddr}/{cidr}",
         "tooltip": true
     },
     "network#speed": {
