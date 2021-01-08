@@ -185,7 +185,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Move focus with mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

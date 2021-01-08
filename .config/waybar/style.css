@@ -11,111 +11,50 @@
  * Colors
  * -------------------------------------------------------------------------- */
 
-/* import css definitions for current theme */
-@import url("colors.css");
+/* import css color definitions for current theme */
+    @import url("colors.css");
 
-/* -----------------------------------------------------------------------------
- * Animations
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-    70% { color: @light; }
-     to { color: @light; background-color: @warning; }
-}
-@keyframes blink-critical {
-    70% { color: @light; }
-     to { color: @light; background-color: @critical; }
-}
-@keyframes blink {
-    to { color: @dark; background-color: @light; }
-}
 
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
 
 /* Reset all styles */
-* {
-    border: none;
-    border-radius: 0px;
-    min-height: 0px;
-    min-width: 0px;
-    margin: 0px;
-    padding: 0px;
-}
+    * {
+        border: none;
+        border-radius: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
 
 /* Each module */
-window > * > * > * > * { /* includes all modules */
-    padding: 0px 6px;
-    margin: 0px 2px;
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "RobotoMono Nerd Font";
-    font-size: 10pt;
-    font-weight: bold;
-    border: 2px solid transparent;
-}
-.modules-left > widget:first-child > * {
-    margin-left: 0px;
-}
-.modules-right > widget:last-child > * {
-    margin-right: 0px;
-}
-.modules-center > widget:last-child > *,
-.modules-left   > widget:nth-last-child(2) > * { /* ignores window title module */
-    border-radius: 0px 40px 40px 0px;
-}
-.modules-center > widget:first-child > *,
-.modules-right  > widget:first-child > * {
-    border-radius: 40px 0px 0px 40px;
-}
+    window > * > * > * > * {  /* includes all modules */
+        /* `otf-font-awesome` is required to be installed for icons unless using nerd fonts */
+        font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "RobotoMono Nerd Font";
+        font-size: 10pt;
+        font-weight: normal;
+        margin: 0px 1px;
+        padding: 0px 6px;
+    }
+/* No margins at sides of the monitor */
+    .modules-left > widget:first-child > * {
+        margin-left: 0px;
+    }
+    .modules-right > widget:last-child > * {
+        margin-right: 0px;
+    }
+/* Round the ends of each module section */
+    .modules-center > widget:last-child > *,
+    .modules-left   > widget:nth-last-child(2) > * {  /* ignores last module (window title) */
+        border-radius: 0px 40px 40px 0px;
+    }
+    .modules-center > widget:first-child > *,
+    .modules-right  > widget:first-child > * {
+        border-radius: 40px 0px 0px 40px;
+    }
 
-/* Each module that should blink */
-#battery,
-#cpu,
-#memory,
-#mode,
-#temperature {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-/* Each critical module */
-#battery.critical,
-#cpu.critical,
-#custom-pacman,
-#memory.critical,
-#temperature.critical {
-    color: @critical;
-}
-
-/* Each critical that should blink */
-#battery.critical.discharging,
-#cpu.critical,
-#memory.critical,
-#mode,
-#temperature.critical {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-/* Each warning module*/
-#battery.warning,
-#bluetooth.disabled,
-#cpu.warning,
-#idle_inhibitor.activated,
-#memory.warning,
-#network.disconnected,
-#temperature.warning {
-    color: @warning;
-}
-
-/* Each warning that should blink */
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
 
 /* -----------------------------------------------------------------------------
  * Module styles
@@ -145,6 +84,8 @@ window > * > * > * > * { /* includes all modules */
     background-color: @idle;
     color: @light;
     padding: 0px 10px 0px 5px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 #language {
     background-color: @language;
@@ -175,11 +116,9 @@ window > * > * > * > * { /* includes all modules */
     color: @light;
 }
 #pulseaudio:not(.source) {
-    border-right: none;
     margin-right: 0px;
 }
 #pulseaudio.source {
-    border-left: none;
     margin-left: 0px;
 }
 #pulseaudio.muted:not(.source) {
@@ -192,9 +131,9 @@ window > * > * > * > * { /* includes all modules */
     background-color: @taskbar;
     padding: 2px;
     border: 2px solid transparent;
+    border-radius: 40px;
 }
 #taskbar button.active {
-    border-radius: 40px;
     border: 2px solid @border;
 }
 #temperature {
@@ -204,6 +143,7 @@ window > * > * > * > * { /* includes all modules */
 #tray {
     background-color: @tray;
     color: @light;
+    margin-right: 0px;
 }
 window#waybar {
     background-color: alpha(@window, 0.7);
@@ -226,14 +166,13 @@ window#waybar.hidden {
     font-style: italic;
 }
 #workspaces {
-    background-color: @workspaces;
     padding: 0px;
 }
 #workspaces button {
     background-color: @workspaces;
     color: @bright;
     padding: 0px 10px 0px 5px;
-    border: 2px solid transparent;
+    border: 2px solid @workspaces;
 }
 #workspaces button.persistent {
     color: @dark;
@@ -242,9 +181,10 @@ window#waybar.hidden {
     background-color: @focused;
     color: @light;
     font-weight: bolder;
+    border-color: @border;
 }
 #workspaces button:hover {
-    border: 2px solid @border;
+    border-color: @border;
 }
 #workspaces button.urgent {
     color: @critical;
@@ -253,12 +193,9 @@ window#waybar.hidden {
 /* -----------------------------------------------------------------------------
  * Custom Module styles
  * -------------------------------------------------------------------------- */
+
 #custom-alsa {
     background-color: @sound;
-    color: @light;
-}
-#custom-layout {
-    background-color: @language;
     color: @light;
 }
 #custom-media {
@@ -268,6 +205,8 @@ window#waybar.hidden {
 }
 #custom-pacman {
     background-color: @updates;
+    color: @light;
+    margin-left: 0px;
 }
 #custom-power {
     background-color: @power;
@@ -279,18 +218,78 @@ window#waybar.hidden {
     color: @dark;
 }
 
+
 /* -----------------------------------------------------------------------------
- * Arrow Module styles
+ * Animations and Notifications
  * -------------------------------------------------------------------------- */
-#custom-arrow-R {font-size:200%; color:@workspaces; background-color:transparent;}
-#custom-arrow-L {font-size:200%; color:@network;    background-color:transparent;}
-#custom-arrow01 {font-size:200%; color:@temp;       background-color:@network;   }
-#custom-arrow02 {font-size:200%; color:@cpu;        background-color:@temp;      }
-#custom-arrow03 {font-size:200%; color:@memory;     background-color:@cpu;       }
-#custom-arrow04 {font-size:200%; color:@disk;       background-color:@memory;    }
-#custom-arrow05 {font-size:200%; color:@language;   background-color:@disk;      }
-#custom-arrow06 {font-size:200%; color:@sound;      background-color:@language;  }
-#custom-arrow07 {font-size:200%; color:@weather;    background-color:@sound;     }
-#custom-arrow08 {font-size:200%; color:@tray;       background-color:@weather;   }
-#custom-arrow09 {font-size:200%; color:@date;       background-color:@tray;      }
-#custom-arrow10 {font-size:200%; color:@time;       background-color:@date;      }
+
+@keyframes blink-warning {
+    70% { color: @light; }
+     to { color: @light; background-color: @warning; }
+}
+@keyframes blink-critical {
+    70% { color: @light; }
+     to { color: @light; background-color: @critical; }
+}
+@keyframes blink-notify {
+    70% { color: @dark; }
+     to { color: @dark; background-color: @light; }
+}
+
+/* Each module that should blink */
+    #battery,
+    #cpu,
+    #custom-pacman,
+    #memory,
+    #mode,
+    #pulseaudio.muted:not(.source),
+    #temperature {
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+/* Each critical module */
+    #battery.critical,
+    #cpu.critical,
+    #memory.critical,
+    #temperature.critical {
+        color: @critical;
+    }
+
+/* Each critical that should blink */
+    #battery.critical.discharging,
+    #cpu.critical,
+    #memory.critical,
+    #mode,
+    #temperature.critical {
+        animation-name: blink-critical;
+        animation-duration: 2s;
+    }
+
+/* Each warning module*/
+    #battery.warning,
+    #bluetooth.disabled,
+    #cpu.warning,
+    #custom-pacman,
+    #idle_inhibitor.activated,
+    #memory.warning,
+    #network.disconnected,
+    /* #pulseaudio.muted:not(.source), */
+    #temperature.warning {
+        color: @warning;
+    }
+
+/* Each warning that should blink */
+    #battery.warning.discharging {
+        animation-name: blink-warning;
+        animation-duration: 3s;
+    }
+
+/* Each module that should flash when activated */
+    #pulseaudio.muted:not(.source),
+    #custom-pacman {
+        animation-name: blink-notify;
+        animation-duration: 0.3s;
+        animation-iteration-count: 6;
+    }
