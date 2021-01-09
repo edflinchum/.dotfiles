@@ -89,9 +89,9 @@
         "tooltip": true
    },
     "clock#date": {
-        "format-alt": " {:%b·%d}", // Icon: calendar-alt
-        "format": " {:%a·%b·%d}",
-        "tooltip-format": "{:<small>Today is %A %m/%d/%y</small>\n\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%b %e}", // Icon: calendar-alt
+        "format": " {:%a %b %d}",
+        "tooltip-format": " {:<small><u>%A %B %e, %Y</u></small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
@@ -103,7 +103,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": " {usage}%", // Icon:  microchip
+        "format": " {usage}%", // Icon:  microchip, 
         "states": {
           "warning": 60,
           "critical": 90
@@ -162,7 +162,7 @@
         "format-icons": {
             "wifi": ["睊", "直" ,""],
             "ethernet": [""],
-            "disconnected": [""] // Icon: , ⚠
+            "disconnected": [""] // Icon: , ⚠ 
         },
         //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
         // Icons:     
@@ -242,7 +242,7 @@
             "4": "",
             "5": "",
             "6": "",
-            "7": "",
+            "7": "",
             "8": "",
             "urgent": "",
             "focused": "",

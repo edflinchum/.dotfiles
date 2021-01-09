@@ -31,14 +31,13 @@
 
 /* Each module */
     window > * > * > * > * {  /* includes all modules */
-        /* `otf-font-awesome` is required to be installed for icons unless using nerd fonts */
-        font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "RobotoMono Nerd Font";
-        font-size: 10pt;
-        font-weight: normal;
-        margin: 0px 1px;
+        font-family: "DroidSansMono Nerd Font", "MesloLGS Nerd Font", "DejaVuSansMono Nerd Font", "RobotoMono Nerd Font", monospace, "FontAwesome";
+        font-size: 9pt;
+        font-weight: bold;
+        margin: 0px 2px;
         padding: 0px 6px;
     }
-/* No margins at sides of the monitor */
+/* No margins on the ends of the bar */
     .modules-left > widget:first-child > * {
         margin-left: 0px;
     }
@@ -108,7 +107,6 @@
 #network.speed {
     background-color: @speed;
     color: @dark;
-    font-weight: lighter;
     min-width: 80px;
 }
 #pulseaudio {
@@ -201,7 +199,6 @@ window#waybar.hidden {
 #custom-media {
     background-color: @media;
     color: @dark;
-    font-weight: normal;
 }
 #custom-pacman {
     background-color: @updates;
@@ -220,7 +217,7 @@ window#waybar.hidden {
 
 
 /* -----------------------------------------------------------------------------
- * Animations and Notifications
+ * Animations and Alerts
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
