@@ -127,7 +127,6 @@
 }
 #taskbar button {
     background-color: @taskbar;
-    padding: 2px;
     border: 2px solid transparent;
     border-radius: 40px;
 }
