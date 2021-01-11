@@ -89,7 +89,7 @@
         "tooltip": true
    },
     "clock#date": {
-        "format-alt": " {:%b %e}", // Icon: calendar-alt
+        "format-alt": " {:%m·%d}", // Icon: calendar-alt
         "format": " {:%a %b %d}",
         "tooltip-format": " {:<small><u>%A %B %e, %Y</u></small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
