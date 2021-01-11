@@ -18,8 +18,11 @@ rm --recursive my-dotfiles-tmp
 
 ## Configuration
 ```sh
-dot config --local status.showUntrackedFiles no
 dot remote set-url origin git@github.com:DiscFlyer/.dotfiles.git
+dot config --local status.showUntrackedFiles no
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global init.defaultBranch main
 ```
 
 ## Usage
