@@ -8,27 +8,16 @@
 
 import:
   # Import Alacritty color schemes
-  - ".config/alacritty/alacritty-colors.yml"
+  - "~/.config/alacritty/alacritty-colors.yml"
 
 window:
   dimensions:
     columns: 96
     lines: 48
-  position:
-    x: 0
-    y: 0
   padding:
     x: 10
     y: 10
   dynamic_padding: true
-  decorations: full
-  startup_mode: Windowed
-  title: Alacritty
-  dynamic_title: true
-
-scrolling:
-  history: 10000
-  multiplier: 3
 
 font:
   normal:
@@ -54,13 +43,7 @@ font:
 draw_bold_text_with_bright_colors: true
 
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
-
-cursor:
-  style: Block
-  unfocused_hollow: true
-  thickness: 0.15
 
 key_bindings:
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
