@@ -301,7 +301,8 @@
         // "max-length": 60,
         "format-icons": {
             "spotify": "",
-            "Lollypop": "",
+            "Lollypop": "",
+            "chromium": "",
             "default": "" //  ♪ 
         },
         "escape": true,

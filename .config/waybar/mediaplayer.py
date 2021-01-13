@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 
 def write_output(text, player):
     logger.info('Writing output')
-
-    output = {'text': text,
+    text_no_topic = text.replace(' - Topic','')
+    output = {'text': text_no_topic,
               'class': 'custom-' + player.props.player_name,
               'alt': player.props.player_name}
 
@@ -79,7 +79,7 @@ def signal_handler(sig, frame):
 def parse_arguments():
     parser = argparse.ArgumentParser()
 
-    # Increase verbosity with every occurance of -v
+    # Increase verbosity with every occurence of -v
     parser.add_argument('-v', '--verbose', action='count', default=0)
 
     # Define for which player we're listening
@@ -125,4 +125,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
