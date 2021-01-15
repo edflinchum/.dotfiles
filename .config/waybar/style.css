@@ -31,7 +31,7 @@
 
 /* Each module */
     window > * > * > * > * {  /* includes all modules */
-        font-family: "DroidSansMono Nerd Font", "MesloLGS Nerd Font", "DejaVuSansMono Nerd Font", "RobotoMono Nerd Font", monospace, "FontAwesome";
+        font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "DejaVuSansMono Nerd Font", "RobotoMono Nerd Font", monospace, "FontAwesome";
         font-size: 9pt;
         font-weight: bold;
         margin: 0px 2px;
