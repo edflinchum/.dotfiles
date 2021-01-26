@@ -131,7 +131,7 @@ alias histg="history | grep"
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
-# utilities 
+# utilities
 alias df="df -hT"                                                # Human-readable sizes
 alias du="du -ach | sort -h"
 alias free="free -mt"                                            # Show sizes in MB
@@ -167,10 +167,8 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 # pacman
 alias pm="sudo pacman --color auto"
 alias update="sudo pacman -Syyu"
-# yay as aur helper - updates everything
-alias upall="yay -Syu --noconfirm"
-# skip integrity check
-alias yayskip="yay -S --mflags --skipinteg"
+# aur helper - updates everything
+alias upall="paru -Syu --noconfirm"
 # get fastest mirrors in your neighborhood
 alias mirror="sudo reflector  -c US -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector -c US --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
