@@ -28,11 +28,11 @@
     ],
     "modules-right": [
         "network#speed",
+        "network",
         "memory",
-        "disk",
         "cpu",
         "temperature",
-        "network",
+        "disk",
         "idle_inhibitor",
         "sway/language",
         "pulseaudio",
@@ -41,8 +41,8 @@
         "custom/weather",
         "clock#date",
         "clock#time",
-        "tray",
         "custom/pacman",
+        "tray",
         "custom/power"
     ],
 
