@@ -34,15 +34,15 @@
         "temperature",
         "disk",
         "idle_inhibitor",
-        "sway/language",
         "pulseaudio",
         "pulseaudio#source",
         "battery",
+        "sway/language",
         "custom/weather",
-        "clock#date",
-        "clock#time",
         "custom/pacman",
         "tray",
+        "clock#date",
+        "clock#time",
         "custom/power"
     ],
 
@@ -175,9 +175,9 @@
     },
     "network#speed": {
         "interval": 1,
-        "format": " {bandwidthDownBits}",
+        "format-alt": " {bandwidthDownBits}",
         // "format-alt": " {bandwidthUpBits}",
-        "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        "format": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },

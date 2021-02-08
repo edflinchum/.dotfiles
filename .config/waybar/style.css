@@ -74,7 +74,7 @@
 }
 #clock.time {
     background-color: @time;
-    color: @bright;
+    color: @dark;
     margin-left: 0px;
     border-left: none;
 }
@@ -124,9 +124,9 @@
 #pulseaudio.source {
     margin-left: 0px;
 }
-#pulseaudio.muted:not(.source) {
+/* #pulseaudio.muted:not(.source) {
     background-color: @critical;
-}
+} */
 #taskbar {
     background-color: @taskbar;
 }
@@ -214,7 +214,7 @@ window#waybar.hidden {
 }
 #custom-weather {
     background-color: @weather;
-    color: @dark;
+    color: @light;
 }
 
 
@@ -253,6 +253,7 @@ window#waybar.hidden {
     #cpu.critical,
     #idle_inhibitor.activated,
     #memory.critical,
+    #pulseaudio.muted:not(.source),
     #temperature.critical {
         color: @critical;
     }
@@ -274,7 +275,6 @@ window#waybar.hidden {
     #custom-pacman,
     #memory.warning,
     #network.disconnected,
-    /* #pulseaudio.muted:not(.source), */
     #temperature.warning {
         color: @warning;
     }
