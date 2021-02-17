@@ -20,25 +20,26 @@
     "modules-left": [
     	"sway/workspaces",
         "wlr/taskbar",
-        "custom/media",
-        "sway/mode"
-    ],
-    "modules-center": [
+        "sway/mode",
         "sway/window"
     ],
+    "modules-center": [
+
+    ],
     "modules-right": [
+        "custom/media",
         "network#speed",
         "network",
         "memory",
         "cpu",
         "temperature",
         "disk",
-        "idle_inhibitor",
+        "sway/language",
         "pulseaudio",
         "pulseaudio#source",
         "battery",
-        "sway/language",
         "custom/weather",
+        "idle_inhibitor",
         "custom/pacman",
         "tray",
         "clock#date",
@@ -89,15 +90,15 @@
         "tooltip": true
    },
     "clock#date": {
-        "format-alt": " {:%m·%d}", // Icon: calendar-alt
+        "format-alt": " {:%m/%d}", // Icon: calendar-alt
         "format": " {:%a %b %d}",
         "tooltip-format": " {:<small><u>%A %B %e, %Y</u></small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
         "interval": 1,
-        "format-alt": " {:%H·%M}",  // Alt Icon: ·
-        "format": " {:%l·%M·%S %p}",
+        "format-alt": " {:%H:%M}",  // Alt Icon: ·
+        "format": " {:%l:%M:%S %p}",
         "tooltip-format": "{:%I:%M:%S %p}",
         "tooltip": true
     },

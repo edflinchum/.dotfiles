@@ -46,7 +46,8 @@
     }
 /* Round the ends of each module section */
     .modules-center > widget:last-child > *,
-    .modules-left   > widget:last-child > * {
+    /* .modules-left   > widget:last-child > * { */
+    .modules-left   > widget:nth-last-child(2) > * {
         border-radius: 0px 40px 40px 0px;
     }
     .modules-center > widget:first-child > *,
@@ -68,15 +69,15 @@
 }
 #clock.date {
     background-color: @date;
-    color: @light;
-    margin-right: 0px;
-    border-right: none;
+    color: @dark;
+    /* margin-right: 0px; */
+    /* border-right: none; */
 }
 #clock.time {
     background-color: @time;
     color: @dark;
-    margin-left: 0px;
-    border-left: none;
+    /* margin-left: 0px; */
+    /* border-left: none; */
 }
 #cpu {
     background-color: @cpu;
@@ -88,7 +89,7 @@
 }
 #idle_inhibitor {
     background-color: @idle;
-    color: @dark;
+    color: @light;
     padding: 0px 10px 0px 5px;
 }
 #language {
@@ -214,7 +215,7 @@ window#waybar.hidden {
 }
 #custom-weather {
     background-color: @weather;
-    color: @light;
+    color: @dark;
 }
 
 
@@ -251,9 +252,7 @@ window#waybar.hidden {
 /* Each critical module */
     #battery.critical,
     #cpu.critical,
-    #idle_inhibitor.activated,
     #memory.critical,
-    #pulseaudio.muted:not(.source),
     #temperature.critical {
         color: @critical;
     }
@@ -273,8 +272,10 @@ window#waybar.hidden {
     #bluetooth.disabled,
     #cpu.warning,
     #custom-pacman,
+    #idle_inhibitor.activated,
     #memory.warning,
     #network.disconnected,
+    #pulseaudio.muted:not(.source),
     #temperature.warning {
         color: @warning;
     }

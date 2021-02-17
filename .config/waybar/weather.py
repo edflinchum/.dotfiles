@@ -110,7 +110,7 @@ for i, day in enumerate(weather['weather']):
                 continue
         data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['tempF'])} {hour['weatherDesc'][0]['value']}"
         if len(format_chances(hour)) > 0:
-            data['tooltip'] += f" - <i>Chance of {format_chances(hour)}</i>"
+            data['tooltip'] += f" (Chance of {format_chances(hour)})"
         data['tooltip'] += "\n"
 
 
