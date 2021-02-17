@@ -20,11 +20,12 @@
     "modules-left": [
     	"sway/workspaces",
         "wlr/taskbar",
-        "sway/mode",
         "sway/window"
     ],
     "modules-center": [
-
+        "clock#date",
+        "sway/mode",
+        "clock#time"
     ],
     "modules-right": [
         "custom/media",
@@ -42,8 +43,6 @@
         "idle_inhibitor",
         "custom/pacman",
         "tray",
-        "clock#date",
-        "clock#time",
         "custom/power"
     ],
 
