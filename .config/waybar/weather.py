@@ -71,14 +71,14 @@ def format_temp(temp):
 
 def format_chances(hour):
     chances = {
-        "chanceoffog": "Fog",
-        "chanceoffrost": "Frost",
-        "chanceofovercast": "Overcast",
+        # "chanceoffog": "Fog",
+        # "chanceoffrost": "Frost",
+        # "chanceofovercast": "Overcast",
         "chanceofrain": "Rain",
         "chanceofsnow": "Snow",
-        "chanceofsunshine": "Sunshine",
+        # "chanceofsunshine": "Sunshine",
         "chanceofthunder": "Thunder",
-        "chanceofwindy": "Wind"
+        # "chanceofwindy": "Wind"
     }
 
     conditions = []
@@ -91,9 +91,9 @@ def format_chances(hour):
 data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
     " "+weather['current_condition'][0]['temp_F']+"°"
 
-data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_F']}°</b>\n"
+data['tooltip'] = f"<b>{WEATHER_CODES[weather['current_condition'][0]['weatherCode']]} {weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_F']}°</b>\n"
 data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeF']}°\n"
-data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedMiles']}mph\n"
+data['tooltip'] += f"Wind: {weather['current_condition'][0]['winddir16Point']} {weather['current_condition'][0]['windspeedMiles']}mph\n"
 data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
 for i, day in enumerate(weather['weather']):
     data['tooltip'] += f"\n<b>"
@@ -108,7 +108,10 @@ for i, day in enumerate(weather['weather']):
         if i == 0:
             if int(format_time(hour['time'])) < datetime.now().hour-2:
                 continue
-        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['tempF'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['tempF'])} {hour['weatherDesc'][0]['value']}"
+        if len(format_chances(hour)) > 0:
+            data['tooltip'] += f" - <i>Chance of {format_chances(hour)}</i>"
+        data['tooltip'] += "\n"
 
 
 print(json.dumps(data))
