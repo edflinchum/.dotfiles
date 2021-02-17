@@ -30,11 +30,11 @@
     }
 
 /* Each module */
-    window > * > * > * > * {  /* includes all modules */
+    window > * > * > * > * {   /* includes all modules */
         font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "DejaVuSansMono Nerd Font", "RobotoMono Nerd Font", monospace, "FontAwesome";
         font-size: 9pt;
         font-weight: bold;
-        margin: 0px 1px;
+        margin: 0px 2px;
         padding: 0px 6px;
     }
 /* No margins on the ends of the bar */
@@ -46,8 +46,8 @@
     }
 /* Round the ends of each module section */
     .modules-center > widget:last-child > *,
-    /* .modules-left   > widget:last-child > * { */
-    .modules-left   > widget:nth-last-child(2) > * {
+    .modules-left   > widget:nth-last-child(2) > *,   /* include this line if sway/window is the last left module */
+    .modules-left   > widget:last-child > * {
         border-radius: 0px 40px 40px 0px;
     }
     .modules-center > widget:first-child > *,
@@ -65,11 +65,11 @@
     color: @dark;
 }
 #clock {
-    border: 2px solid @border;
+    /* border: 2px solid @border; */
 }
 #clock.date {
     background-color: @date;
-    color: @dark;
+    color: @light;
     /* margin-right: 0px; */
     /* border-right: none; */
 }
@@ -91,6 +91,7 @@
     background-color: @idle;
     color: @light;
     padding: 0px 10px 0px 5px;
+    margin-right: 0px;
 }
 #language {
     background-color: @language;
@@ -125,9 +126,9 @@
 #pulseaudio.source {
     margin-left: 0px;
 }
-/* #pulseaudio.muted:not(.source) {
+#pulseaudio.muted:not(.source) {
     background-color: @critical;
-} */
+}
 #taskbar {
     background-color: @taskbar;
 }
@@ -146,6 +147,7 @@
 #tray {
     background-color: @tray;
     color: @light;
+    margin-left: 0px;
 }
 window#waybar {
     background-color: alpha(@window, 0.7);
@@ -207,6 +209,8 @@ window#waybar.hidden {
 #custom-pacman {
     background-color: @updates;
     color: @light;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 #custom-power {
     background-color: @power;
