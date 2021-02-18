@@ -91,7 +91,7 @@
     "clock#date": {
         "format-alt": " {:%m/%d}", // Icon: calendar-alt
         "format": " {:%a %b %d}",
-        "tooltip-format": " {:<small><u>%A %B %e, %Y</u></small>\n<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "{:<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
@@ -112,7 +112,11 @@
     "disk": {
         "interval": 30,
         "format": " {percentage_free}%",
-        "path": "/"
+        "path": "/",
+        "states": {
+            "warning": 85,
+            "critical": 95
+        }
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -255,9 +259,7 @@
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
         "critical-threshold": 70,
         "interval": 5,
-        //"tooltip": false,
         "format": "{icon} {temperatureC}°C",
-	    //"format": "{icon} {temperatureC}°",
         "format-icons": [
             "", // Icon: temperature-empty
             "", // Icon: temperature-quarter

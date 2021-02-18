@@ -126,9 +126,9 @@
 #pulseaudio.source {
     margin-left: 0px;
 }
-#pulseaudio.muted:not(.source) {
+/* #pulseaudio.muted:not(.source) {
     background-color: @critical;
-}
+} */
 #taskbar {
     background-color: @taskbar;
 }
@@ -228,8 +228,8 @@ window#waybar.hidden {
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
-    70% { color: @light; }
-     to { color: @light; background-color: @warning; }
+    70% { color: @dark; }
+     to { color: @dark; background-color: @warning; }
 }
 @keyframes blink-critical {
     70% { color: @light; }
@@ -244,6 +244,8 @@ window#waybar.hidden {
     #battery,
     #cpu,
     #custom-pacman,
+    #disk,
+    #idle_inhibitor,
     #memory,
     #mode,
     #pulseaudio.muted:not(.source),
@@ -256,6 +258,7 @@ window#waybar.hidden {
 /* Each critical module */
     #battery.critical,
     #cpu.critical,
+    #disk.critical,
     #memory.critical,
     #temperature.critical {
         color: @critical;
@@ -264,6 +267,7 @@ window#waybar.hidden {
 /* Each critical that should blink */
     #battery.critical.discharging,
     #cpu.critical,
+    #disk.critical,
     #memory.critical,
     #mode,
     #temperature.critical {
@@ -276,23 +280,27 @@ window#waybar.hidden {
     #bluetooth.disabled,
     #cpu.warning,
     #custom-pacman,
+    #disk.warning,
     #idle_inhibitor.activated,
     #memory.warning,
     #network.disconnected,
-    #pulseaudio.muted:not(.source),
-    #temperature.warning {
+    #pulseaudio.muted:not(.source) {
         color: @warning;
     }
 
 /* Each warning that should blink */
-    #battery.warning.discharging {
+    #battery.warning.discharging,
+    #cpu.warning,
+    #disk.warning,
+    #memory.warning {
         animation-name: blink-warning;
         animation-duration: 3s;
     }
 
 /* Each module that should flash when activated */
-    #pulseaudio.muted:not(.source),
-    #custom-pacman {
+    #custom-pacman,
+    #idle_inhibitor.activated,
+    #pulseaudio.muted:not(.source) {
         animation-name: blink-notify;
         animation-duration: 0.3s;
         animation-iteration-count: 6;
