@@ -229,7 +229,7 @@
         "disable-scroll": false,
         "persistent_workspaces": {
             "1": [],
-            "2": [],
+            "2": []
         //     "3": [],
         //     "4": [],
         //     "5": [],
@@ -315,7 +315,7 @@
         "format": " {}",
         "interval": 3600,                                                                 // run once every hour
         "exec": "pamac checkupdates -aq --devel | wc -l",                                 // show # of updates available
-        "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",                                   // only show if updates are needed
+        "exec-if": "[ $((checkupdates; paru -Qu) | wc -l) -gt 0 ]",                       // only show if updates are needed
         "on-click": "pamac-manager --updates; pkill -SIGRTMIN+8 waybar",                  // update system with pamac
         "on-click-right": "alacritty -e paru -Syu --noconfirm; pkill -SIGRTMIN+8 waybar", // update system with terminal
         "signal": 8,
