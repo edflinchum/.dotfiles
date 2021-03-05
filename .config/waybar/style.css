@@ -65,7 +65,7 @@
     color: @dark;
 }
 #clock {
-    border: 1px solid @border;
+    border: 2px solid @border;
 }
 #clock.date {
     background-color: @date;
@@ -106,6 +106,9 @@
     background-color: @mode;
     color: @light;
     font-style: italic;
+    border: 2px solid @border;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 #network {
     background-color: @network;
@@ -131,8 +134,9 @@
 }
 #taskbar button {
     background-color: @taskbar;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 40px;
+    padding: 0px 2px;
 }
 #taskbar button.active {
     border-color: @border;
