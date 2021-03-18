@@ -21,7 +21,7 @@ set $menu wofi -IS drun
 set $altmenu dmenu_path | dmenu | xargs swaymsg exec --
 # Workspace default applications
 set $app1 alacritty
-set $app2 chromium
+set $app2 google-chrome-stable
 set $app3 code
 set $app4 nautilus
 set $app5 .
