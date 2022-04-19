@@ -20,3 +20,4 @@ export HOSTNAME="$(hostname)"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 export MOZ_ENABLE_WAYLAND=1
+#export WLR_DRM_NO_MODIFIERS=1

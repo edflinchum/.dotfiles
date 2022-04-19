@@ -446,7 +446,7 @@ bindsym $mod+Shift+c reload
 
 # Not working with Sway
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
 
 ### Idle configuration
 exec swayidle -w \

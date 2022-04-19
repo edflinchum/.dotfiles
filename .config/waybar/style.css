@@ -65,7 +65,7 @@
     color: @dark;
 }
 #clock {
-    border: 2px solid @border;
+    border: 1px solid @border;
 }
 #clock.date {
     background-color: @date;
