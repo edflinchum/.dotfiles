@@ -9,8 +9,8 @@ CONFIG_FILE_NAME = "alacritty-colors.yml"
 CONFIG_FILE_DIR = os.path.expanduser("~/.config/alacritty/")
 CONFIG_FILE_PATH = os.path.join(CONFIG_FILE_DIR, CONFIG_FILE_NAME)
 
-OPACITY_LINE_SEARCH = "background_opacity: (\S+)"
-OPACITY_LINE_TEMPLATE = "background_opacity: {}\n"
+OPACITY_LINE_SEARCH = "  opacity: (\S+)"
+OPACITY_LINE_TEMPLATE = "  opacity: {}\n"
 
 with open(CONFIG_FILE_PATH, "r") as config_file:
     config = yaml.safe_load(config_file)
