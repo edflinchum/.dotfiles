@@ -2,14 +2,14 @@
 Backup of configuration files using a bare git repo
 
 
-## Setup
+## First-time Setup
 ```sh
 git init --bare $HOME/.dotfiles
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dot remote add origin git@github.com:DiscFlyer/.dotfiles.git
 ```
 
-## Replication
+## Replicate Setup on a New PC
 ```sh
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DiscFlyer/.dotfiles.git my-dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
