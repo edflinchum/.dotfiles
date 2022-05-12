@@ -3,8 +3,6 @@
 ######################################################################
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
-# Refer to the default Alacritty configuration example file located
-#   at "/usr/share/doc/alacritty/example/alacritty.yml" for options.
 
 import:
   # Import Alacritty color schemes
@@ -18,6 +16,8 @@ window:
     x: 10
     y: 10
   dynamic_padding: true
+  decorations: none
+  startup_mode: Maximized
 
 font:
   normal:
@@ -47,3 +47,4 @@ selection:
 
 key_bindings:
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: W, mods: Control|Shift, action: Quit }
