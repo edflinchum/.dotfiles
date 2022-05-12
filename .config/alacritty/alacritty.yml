@@ -21,16 +21,16 @@ window:
 
 font:
   normal:
-    family: MesloLGS Nerd Font
+    family: Cascadia Mono PL
     style: Regular
   bold:
-    family: MesloLGS Nerd Font
+    family: Cascadia Mono PL
     style: Bold
   italic:
-    family: MesloLGS Nerd Font
+    family: Cascadia Mono PL
     style: Italic
   bold_italic:
-    family: MesloLGS Nerd Font
+    family: Cascadia Mono PL
     style: Bold Italic
   size: 13
   offset:
