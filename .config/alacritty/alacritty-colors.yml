@@ -1974,6 +1974,6 @@ key_bindings:
         args: [".config/alacritty/colorscheme_previous.py"]} }
 
 window:
-  opacity: 0.95
+  opacity: 0.9
 
-colors: *nightfly
+colors: *pop_os
