@@ -1976,4 +1976,4 @@ key_bindings:
 window:
   opacity: 0.9
 
-colors: *pop_os
+colors: *breeze
