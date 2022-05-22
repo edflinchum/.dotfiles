@@ -186,7 +186,10 @@ source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.
 source /usr/share/fzf/shell/key-bindings.zsh
 # source /usr/share/fzf/completion.zsh
 
-# Starship prompt
+# Use Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Use Starship prompt
 eval "$(starship init zsh)"
 
 
