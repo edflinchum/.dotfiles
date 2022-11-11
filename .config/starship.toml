@@ -3,9 +3,10 @@
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
-format = '''$all$directory
+format = '''$all
+$directory
 $character'''
-right_format = '$battery$cmd_duration$time'
+right_format = '$battery$time'
 
 [[battery.display]]
 threshold = 100
@@ -20,23 +21,9 @@ only_with_files = false
 [kubernetes]
 disabled = false
 format = '[$symbol$context( \($namespace\))]($style) '
-style = 'cyan'
 
 [kubernetes.context_aliases]
 '.*cluster/(.*)' = '$1'
-
-[line_break]
-disabled = true
-
-# [terraform]
-# disabled = true
-# format = '[$symbol$version $workspace]($style) '  #add version
-# detect_extensions = [
-    # 'tf',
-    # 'tfplan',
-    # 'tfstate',
-    # 'hcl',                                        #add terragrunt files
-# ]
 
 [time]
 disabled = false
