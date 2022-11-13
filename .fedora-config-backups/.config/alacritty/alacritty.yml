@@ -1,0 +1,50 @@
+######################################################################
+#                      Alacritty configuration                       #
+######################################################################
+
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+import:
+  # Import Alacritty color schemes
+  - "~/.config/alacritty/alacritty-colors.yml"
+
+window:
+  dimensions:
+    columns: 96
+    lines: 48
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: true
+  decorations: none
+  startup_mode: Maximized
+
+font:
+  normal:
+    family: Cascadia Mono PL
+    style: Regular
+  bold:
+    family: Cascadia Mono PL
+    style: Bold
+  italic:
+    family: Cascadia Mono PL
+    style: Italic
+  bold_italic:
+    family: Cascadia Mono PL
+    style: Bold Italic
+  size: 13
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+selection:
+  save_to_clipboard: true
+
+key_bindings:
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: W, mods: Control|Shift, action: Quit }
