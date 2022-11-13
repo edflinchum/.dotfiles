@@ -107,12 +107,12 @@ alias cd..="cd .."
 alias cls="clear"
 
 # list files
-alias ls="ls --color=auto"                                                            # ls short listing
-alias la="ls -AFhl --color=auto --group-directories-first"                            # ls long listing
-alias l.="ls -A | egrep '^\.'"                                                        # ls hidden files
-alias ll="exa -aFghl --color-scale --group-directories-first --time-style=long-iso"   # exa long listing
-alias lg="exa -aFGghl --color-scale --group-directories-first --time-style=long-iso"  # exa grid listing
-alias lt="exa -aFT --color-scale --group-directories-first"                           # exa tree listing
+alias ls="ls --color=auto"                                                                    # ls short listing
+alias la="ls -AFhl --color=auto --group-directories-first"                                    # ls long listing
+alias l.="ls -A | egrep '^\.'"                                                                # ls hidden files
+alias ll="exa -aFghl --color-scale --group-directories-first --time-style=long-iso --icons"   # exa long listing
+alias lg="exa -aFGghl --color-scale --group-directories-first --time-style=long-iso --icons"  # exa grid listing
+alias lt="exa -aFT --color-scale --group-directories-first --icons"                           # exa tree listing
 
 # confirm before overwriting files
 alias cp="cp -iv"
@@ -149,33 +149,13 @@ alias userlist="cut -d: -f1 /etc/passwd"
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
-# #copy/paste all content of /etc/skel over to home folder - backup of config created - beware
-# alias skel="cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~"
-# #backup contents of /etc/skel to hidden backup folder in home/user
-# alias bupskel="cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)"
-
-#grub update
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
 #shutdown or reboot
 alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
-## Aliases for software management
-# # pacman unlock
-# alias unlock="sudo rm /var/lib/pacman/db.lck"
-# # pacman
-# alias pm="sudo pacman --color auto"
-# alias update="sudo pacman -Syyu"
-# # aur helper - updates everything
-# alias upall="paru -Syu --noconfirm"
-# # get fastest mirrors in your neighborhood
-# alias mirror="sudo reflector  -c US -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-# alias mirrord="sudo reflector -c US --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-# alias mirrors="sudo reflector -c US --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-# alias mirrora="sudo reflector -c US --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
-# # cleanup orphaned packages
-# alias cleanup="sudo pacman -Rns $(pacman -Qtdq)"
+# Aliases for software management
+alias update="sudo apt update && sudo apt upgrade"
+alias upall="update && brew upgrade"
 
 # Backup dotfiles with bare git repo
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
