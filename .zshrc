@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
 #
 # Add-ons
 #
@@ -123,10 +122,4 @@ eval "$(starship init zsh)"
 # Aliases
 #
 
-alias ll="exa -aFghl --color-scale --group-directories-first --time-style=long-iso --icons"
-# Updates
-alias update="sudo apt update && sudo apt upgrade"
-alias upall="update && brew upgrade"
-# Backup dotfiles with bare git repo
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias dots="dot status"
+[[ -f ~/.alias-personal ]] && source ~/.alias-personal

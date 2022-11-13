@@ -1,0 +1,16 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+ /* -----------------------------------------------------------------------------
+  * Colors
+  *   -Uncomment the desired theme below to set waybar color definitions
+  * -------------------------------------------------------------------------- */
+
+/* @import url("colors/gruvbox.css"); */
+/* @import url("colors/nord.css"); */
+@import url("colors/rigel.css");
