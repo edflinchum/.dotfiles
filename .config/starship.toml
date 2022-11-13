@@ -3,10 +3,32 @@
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
-format = '''$all
-$directory
-$character'''
-right_format = '$battery$time'
+# format = "$all$kubernetes$cmd_duration$line_break$status$character"
+# right_format = "$battery$time"
+
+format = """
+$all\
+$line_break\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$line_break\
+$status\
+$character\
+"""
+right_format = """
+$battery\
+$time\
+"""
+
+[aws]
+disabled = false
+
+[azure]
+disabled = true
 
 [[battery.display]]
 threshold = 100
@@ -18,12 +40,37 @@ truncation_symbol = '…/'
 [docker_context]
 only_with_files = false
 
+[gcloud]
+disabled = false
+# format = "[$symbol$active]($style) "
+# format = 'on [$symbol(\($project\))]($style) '
+format = 'on [$symbol$account(@$domain)[( \($project\))]($style dimmed)]($style) '
+
+[hostname]
+# ssh_only = false
+
 [kubernetes]
 disabled = false
-format = '[$symbol$context( \($namespace\))]($style) '
+format = '[$symbol$context[( \($namespace\))]($style dimmed)]($style) '
+# format = '[$symbol$context( \($namespace\))]($style) '
+# format = 'on [$symbol ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+style = 'green'
+symbol = '⎈ '
+# symbol = 'ﴱ '
 
 [kubernetes.context_aliases]
 '.*cluster/(.*)' = '$1'
 
+[localip]
+ssh_only = true
+disabled = false
+
+[status]
+disabled = false
+
 [time]
 disabled = false
+# format = '[$time]($style)'
+
+[username]
+# show_always = true
