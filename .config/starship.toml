@@ -1,76 +1,148 @@
+# -----------------------
 # ~/.config/starship.toml
+# -----------------------
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+# add_newline = false      # Inserts blank line between shell prompts. Default = true
+# command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
+# scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
-# format = "$all$kubernetes$cmd_duration$line_break$status$character"
-# right_format = "$battery$time"
-
-format = """
-$all\
+format="""
+$fill\
+[($username$hostname )](bgcolor)\
+[($localip )](bgcolor)\
+[($battery$time )](bgcolor)\
 $line_break\
+[  ](ubuntu_orange)\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$all\
 $line_break\
+$shell\
+$cmd_duration\
 $status\
 $character\
 """
 right_format = """
-$battery\
-$time\
+$kubernetes\
+$aws$\
+gcloud\
+$azure\
 """
+
+
+# -----------------------
+# COLOR PALETTE
+# -----------------------
+palette = "custom1"
+
+[palettes.custom1]
+# white = '#ffffff'
+# black = '#000000'
+bgcolor = 'black'
+ubuntu_orange = '#E95420'
+ubuntu_light_aubergine = '#77216F'
+ubuntu_mid_aubergine = '#5E2750'
+ubuntu_dark_aubergine = '#2C001E'
+ubuntu_warm_grey = '#AEA79F'
+ubuntu_cool_grey = '#333333'
+ubuntu_text_grey = '#111111'
+canonical_aubergine = '#772953'
+
+# -----------------------
+# MODULES
+# -----------------------
 
 [aws]
 disabled = false
+format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
+# format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
+# style = 'bold yellow bg:bgcolor'
+symbol = ' '
 
 [azure]
 disabled = true
+# format = '([$symbol($subscription)]($style) )'
+# format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
+# style = 'bold blue bg:bgcolor'
+symbol = ' '
 
+[battery]
+format = '[$symbol$percentage ]($style bg:bgcolor)'
 [[battery.display]]
 threshold = 100
 
+[character]
+format = '$symbol '
+# success_symbol = '[❯](bold green)'
+# error_symbol = '[❯](bold red)'
+
 [directory]
-truncation_length = 8
+# truncation_length = 8
 truncation_symbol = '…/'
+style = 'bold cyan italic'
+# home_symbol = ' ~'
 
 [docker_context]
 only_with_files = false
 
+[fill]
+symbol = ' '
+style= 'dimmed white'
+
 [gcloud]
-disabled = false
-# format = "[$symbol$active]($style) "
-# format = 'on [$symbol(\($project\))]($style) '
-format = 'on [$symbol$account(@$domain)[( \($project\))]($style dimmed)]($style) '
+disabled = true
+format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
+# format = 'on [$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style) '
+# format = '([](bgcolor)[$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style)[](bgcolor) )'
+# style = 'bold blue bg:bgcolor'
+symbol = ' '
 
 [hostname]
-# ssh_only = false
+ssh_only = false
+format = '[[@](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
 
 [kubernetes]
 disabled = false
-format = '[$symbol$context[( \($namespace\))]($style dimmed)]($style) '
-# format = '[$symbol$context( \($namespace\))]($style) '
-# format = 'on [$symbol ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-style = 'green'
-symbol = '⎈ '
-# symbol = 'ﴱ '
-
+format = '([$symbol$context[( \($namespace\))]($style dimmed)]($style) )'
+# format = '([](bgcolor)[$symbol$context[( \($namespace\))]($style dimmed bg:bgcolor)]($style)[](bgcolor) )'
+# style = 'bold green bg:bgcolor'
+style = 'bold green'
+# symbol = '⎈ '
+symbol = 'ﴱ '
+# symbol = '☸️'
 [kubernetes.context_aliases]
 '.*cluster/(.*)' = '$1'
 
 [localip]
-ssh_only = true
+ssh_only = false
 disabled = false
+# format = '([ $localipv4]($style) )'
+# format = '([](bgcolor)[ $localipv4]($style bg:bgcolor)[](bgcolor) )'
+format = '[ $localipv4]($style bg:bgcolor)'
+# style = 'bold ubuntu_warm_grey'
+
+[shell]
+disabled = false
+fish_indicator = '🐟'
+bash_indicator = ' '
+zsh_indicator = '🚀'
+powershell_indicator = ' '
+unknown_indicator = ' '
 
 [status]
 disabled = false
+symbol = ' '
+map_symbol = true
+pipestatus = true
 
 [time]
 disabled = false
-# format = '[$time]($style)'
+format = '[ $time]($style bg:bgcolor)'
 
 [username]
-# show_always = true
+show_always = true
+format = '[$user]($style bg:bgcolor)'
