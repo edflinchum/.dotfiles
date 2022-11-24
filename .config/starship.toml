@@ -33,7 +33,6 @@ gcloud\
 $azure\
 """
 
-
 # -----------------------
 # COLOR PALETTE
 # -----------------------
@@ -72,6 +71,7 @@ symbol = ' '
 
 [battery]
 format = '[$symbol$percentage ]($style bg:bgcolor)'
+
 [[battery.display]]
 threshold = 100
 
@@ -103,7 +103,7 @@ symbol = ' '
 
 [hostname]
 ssh_only = false
-format = '[[@](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
+format = '[[:](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
 
 [kubernetes]
 disabled = false
@@ -114,16 +114,17 @@ style = 'bold green'
 # symbol = '⎈ '
 symbol = 'ﴱ '
 # symbol = '☸️'
+
 [kubernetes.context_aliases]
 '.*cluster/(.*)' = '$1'
 
 [localip]
 ssh_only = false
 disabled = false
-# format = '([ $localipv4]($style) )'
-# format = '([](bgcolor)[ $localipv4]($style bg:bgcolor)[](bgcolor) )'
-format = '[ $localipv4]($style bg:bgcolor)'
-# style = 'bold ubuntu_warm_grey'
+# format = '([$localipv4]($style) )'
+# format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
+format = '[$localipv4]($style bg:bgcolor)'
+# style = 'bold bright-yellow'
 
 [shell]
 disabled = false
@@ -141,7 +142,7 @@ pipestatus = true
 
 [time]
 disabled = false
-format = '[ $time]($style bg:bgcolor)'
+format = '[ $time]($style bg:bgcolor)'
 
 [username]
 show_always = true
