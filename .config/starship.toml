@@ -7,30 +7,30 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$fill\
+[  ](ubuntu_orange)\
 [($username$hostname )](bgcolor)\
 [($localip )](bgcolor)\
-[($battery$time )](bgcolor)\
+$cmd_duration\
+$fill\
+$all\
+$kubernetes\
+$aws$\
+gcloud\
+$azure\
 $line_break\
-[  ](ubuntu_orange)\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$all\
 $line_break\
-$shell\
-$cmd_duration\
 $status\
 $character\
 """
 right_format = """
-$kubernetes\
-$aws$\
-gcloud\
-$azure\
+$shell\
+[($battery$time)](bgcolor)\
 """
 
 # -----------------------
@@ -103,7 +103,8 @@ symbol = ' '
 
 [hostname]
 ssh_only = false
-format = '[[:](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
+format = '[[@](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
+style = 'green'
 
 [kubernetes]
 disabled = false
