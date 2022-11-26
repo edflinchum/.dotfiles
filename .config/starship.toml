@@ -8,30 +8,48 @@
 
 format="""
 [  ](ubuntu_orange)\
-[($username$hostname )](bgcolor)\
-[($localip )](bgcolor)\
-$cmd_duration\
+[($username$hostname$localip )](bgcolor2)\
 $fill\
-$all\
 $kubernetes\
-$aws$\
-gcloud\
-$azure\
+[($battery$time )](bgcolor1)\
 $line_break\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
+$all\
 $line_break\
+$shell\
 $status\
 $character\
 """
-right_format = """
-$shell\
-[($battery$time)](bgcolor)\
+
+right_format="""
+$aws\
+$gcloud\
+$azure\
 """
+
+# format="""
+# [  ](ubuntu_orange)\
+# [($battery$time )](bgcolor1)\
+# [($username$hostname$localip )](bgcolor2)\
+# $all\
+# $line_break\
+# $shell\
+# $directory\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $fill\
+# $kubernetes\
+# $line_break\
+# $status\
+# $character\
+# """
+# right_format = """
+# $aws\
+# $gcloud\
+# $azure\
+# """
 
 # -----------------------
 # COLOR PALETTE
@@ -41,7 +59,8 @@ palette = "custom1"
 [palettes.custom1]
 # white = '#ffffff'
 # black = '#000000'
-bgcolor = 'black'
+bgcolor1 = '#111111'
+bgcolor2 = '#333333'
 ubuntu_orange = '#E95420'
 ubuntu_light_aubergine = '#77216F'
 ubuntu_mid_aubergine = '#5E2750'
@@ -63,14 +82,14 @@ format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])](
 symbol = ' '
 
 [azure]
-disabled = true
-# format = '([$symbol($subscription)]($style) )'
+disabled = false
+format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
 symbol = ' '
 
 [battery]
-format = '[$symbol$percentage ]($style bg:bgcolor)'
+format = '[$symbol$percentage ]($style bg:bgcolor1)'
 
 [[battery.display]]
 threshold = 100
@@ -81,10 +100,10 @@ format = '$symbol '
 # error_symbol = '[❯](bold red)'
 
 [directory]
-# truncation_length = 8
+truncation_length = 8
 truncation_symbol = '…/'
 style = 'bold cyan italic'
-# home_symbol = ' ~'
+home_symbol = '  ~'
 
 [docker_context]
 only_with_files = false
@@ -94,7 +113,7 @@ symbol = ' '
 style= 'dimmed white'
 
 [gcloud]
-disabled = true
+disabled = false
 format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 # format = 'on [$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style) '
 # format = '([](bgcolor)[$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style)[](bgcolor) )'
@@ -103,8 +122,8 @@ symbol = ' '
 
 [hostname]
 ssh_only = false
-format = '[[@](bg:bgcolor)$ssh_symbol$hostname]($style bg:bgcolor)'
-style = 'green'
+format = '[[@](bg:bgcolor2)$ssh_symbol$hostname]($style bg:bgcolor2)'
+# style = 'green'
 
 [kubernetes]
 disabled = false
@@ -124,7 +143,7 @@ ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
-format = '[$localipv4]($style bg:bgcolor)'
+format = '[[ \[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 # style = 'bold bright-yellow'
 
 [shell]
@@ -143,8 +162,8 @@ pipestatus = true
 
 [time]
 disabled = false
-format = '[ $time]($style bg:bgcolor)'
+format = '[ $time]($style bg:bgcolor1)'
 
 [username]
 show_always = true
-format = '[$user]($style bg:bgcolor)'
+format = '[$user]($style bg:bgcolor2)'
