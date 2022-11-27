@@ -8,14 +8,15 @@
 
 format="""
 [  ](ubuntu_orange)\
+[($battery$time )](bgcolor1)\
 [($username$hostname$localip )](bgcolor2)\
 $fill\
 $kubernetes\
-[($battery$time )](bgcolor1)\
 $line_break\
 $all\
 $line_break\
 $shell\
+$cmd_duration\
 $status\
 $character\
 """
@@ -25,31 +26,6 @@ $aws\
 $gcloud\
 $azure\
 """
-
-# format="""
-# [  ](ubuntu_orange)\
-# [($battery$time )](bgcolor1)\
-# [($username$hostname$localip )](bgcolor2)\
-# $all\
-# $line_break\
-# $shell\
-# $directory\
-# $git_branch\
-# $git_commit\
-# $git_state\
-# $git_metrics\
-# $git_status\
-# $fill\
-# $kubernetes\
-# $line_break\
-# $status\
-# $character\
-# """
-# right_format = """
-# $aws\
-# $gcloud\
-# $azure\
-# """
 
 # -----------------------
 # COLOR PALETTE

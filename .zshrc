@@ -123,3 +123,4 @@ eval "$(starship init zsh)"
 #
 
 [[ -f ~/.alias-personal ]] && source ~/.alias-personal
+[[ -f ~/.functions-personal ]] && source ~/.functions-personal
