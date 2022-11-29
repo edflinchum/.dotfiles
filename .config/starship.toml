@@ -9,15 +9,23 @@
 format="""
 [  ](ubuntu_orange)\
 [($battery$time )](bgcolor1)\
+$all\
+$fill\
 [($username$hostname$localip )](bgcolor2)\
+$line_break\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
 $fill\
 $kubernetes\
-$line_break\
-$all\
 $line_break\
 $shell\
 $cmd_duration\
 $status\
+$shlvl\
 $character\
 """
 
@@ -58,7 +66,7 @@ format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])](
 symbol = ' '
 
 [azure]
-disabled = false
+disabled = true
 format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
@@ -76,7 +84,7 @@ format = '$symbol '
 # error_symbol = '[❯](bold red)'
 
 [directory]
-truncation_length = 8
+truncation_length = 4
 truncation_symbol = '…/'
 style = 'bold cyan italic'
 home_symbol = '  ~'
@@ -89,7 +97,7 @@ symbol = ' '
 style= 'dimmed white'
 
 [gcloud]
-disabled = false
+disabled = true
 format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 # format = 'on [$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style) '
 # format = '([](bgcolor)[$symbol($account(@$domain) )[(\($region\) \($project\))]($style dimmed)]($style)[](bgcolor) )'
@@ -129,6 +137,12 @@ bash_indicator = ' '
 zsh_indicator = '🚀'
 powershell_indicator = ' '
 unknown_indicator = ' '
+
+[shlvl]
+disabled = false
+format = '[$symbol]($style)'
+symbol = '❯'
+repeat = true
 
 [status]
 disabled = false
