@@ -7,10 +7,11 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-[  ](ubuntu_orange)\
+$shell\
 [($battery$time )](bgcolor1)\
 $all\
 $fill\
+[  ](ubuntu_orange)\
 [($username$hostname$localip )](bgcolor2)\
 $line_break\
 $directory\
@@ -22,7 +23,6 @@ $git_status\
 $fill\
 $kubernetes\
 $line_break\
-$shell\
 $cmd_duration\
 $status\
 $shlvl\
