@@ -1,31 +1,30 @@
-# .dotfiles repo
+# DiscFlyer's .dotfiles repo
 Backup of configuration files using a bare git repo
 
 
-## First-time Setup
+## First-time Setup (One time only)
 ```sh
 git init --bare $HOME/.dotfiles
 alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dot remote add origin git@github.com:DiscFlyer/.dotfiles.git
 ```
 
-## Replicate Setup on a New PC
+## Replicate Setup on Another Computer
 ```sh
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DiscFlyer/.dotfiles.git my-dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
 rm --recursive my-dotfiles-tmp
 ```
 
-## Configuration
+## Additional Configuration
 ```sh
 dot remote set-url origin git@github.com:DiscFlyer/.dotfiles.git
 dot config --local status.showUntrackedFiles no
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-git config --global init.defaultBranch main
+dot config --local user.name "John Doe"
+dot config --local user.email johndoe@example.com
 ```
 
-## Usage
+## Example Usage
 ```sh
 dot status
 dot add .filename

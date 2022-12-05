@@ -1,9 +1,5 @@
-[user]
-	email = 72924227+DiscFlyer@users.noreply.github.com
-	name = DiscFlyer
 [init]
 	defaultBranch = main
-	
 [credential "https://github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
