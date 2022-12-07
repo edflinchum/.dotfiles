@@ -59,7 +59,7 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = false
+disabled = true
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
