@@ -1,0 +1,67 @@
+######################################################################
+#                          ZSH configuration                         #
+######################################################################
+
+# Print some system information when the shell is first started
+echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+
+
+######################################################################
+#                        Additional features                         #
+######################################################################
+  
+# Use zsh syntax highlighting
+if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Use zsh autosuggestions
+if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+fi
+
+# Use zsh history substring search
+if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+  source /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  # bind UP and DOWN arrow keys to history substring search
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
+
+# Use kubectl autocompletions
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Use helm autocompletions
+# [[ $commands[helm] ]] && source <(helm completion zsh)
+
+# Use saml2aws autocompletions
+[[ $commands[saml2aws] ]] && eval "$(saml2aws --completion-script-zsh)"
+
+# Use azure cli autocompletions
+# autoload -U +X bashcompinit && bashcompinit
+[[ $commands[az] ]] && source $(brew --prefix)/etc/bash_completion.d/az
+
+# Use fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use starship prompt
+[[ $commands[starship] ]] && eval "$(starship init zsh)"
+
+# Use keychain ssh agent
+if [[ $commands[keychain] ]]; then
+  /usr/bin/keychain --nogui --quiet $HOME/.ssh/id_ed25519
+  source $HOME/.keychain/$HOSTNAME-sh
+fi
+
+
+######################################################################
+#                              Aliases                               #
+######################################################################
+
+# Load aliases
+[[ -f ~/.alias-personal ]] && source ~/.alias-personal
+[[ -f ~/.functions-personal ]] && source ~/.functions-personal
