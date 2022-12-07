@@ -1,8 +1,16 @@
-[init]
-	defaultBranch = main
 [credential "https://github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[diff]
+	colorMoved = zebra
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+
+# Store machine specific settings in .gitconfig_local
+[include]
+	path = .gitconfig_local
