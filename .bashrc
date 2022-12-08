@@ -116,12 +116,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+######################################################################
+#                              Personal                              #
+######################################################################
+
+# Load fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Load starship prompt
 eval "$(starship init bash)"
 
-#
-# Aliases
-#
-
+# Load aliases
 [[ -f ~/.alias-personal ]] && source ~/.alias-personal
+[[ -f ~/.functions-personal ]] && source ~/.functions-personal
