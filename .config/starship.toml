@@ -7,30 +7,30 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+[  ](ubuntu_orange)\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$fill\
 $all\
+$fill\
+$kubernetes\
 $aws\
 $gcloud\
 $azure\
-$kubernetes\
 $line_break\
+$shell\
 $cmd_duration\
 $status\
 $shlvl\
 $character\
 """
 
-# [  ](ubuntu_orange)\
 right_format="""
 [($username$hostname$localip )](bgcolor2)\
 [($battery$time )](bgcolor1)\
-$shell\
 """
 
 # -----------------------
@@ -78,8 +78,8 @@ threshold = 100
 
 [character]
 format = '$symbol '
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+# success_symbol = '[](bold green)'
+# error_symbol = '[](bold red)'
 # success_symbol = '[❯](bold green)'
 # error_symbol = '[❯](bold red)'
 
