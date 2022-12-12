@@ -54,7 +54,7 @@ fi
 # Use keychain ssh agent
 if [[ $commands[keychain] ]]; then
   /usr/bin/keychain --nogui --quiet $HOME/.ssh/id_ed25519
-  source $HOME/.keychain/$HOSTNAME-sh
+  source $HOME/.keychain/$(hostname)-sh
 fi
 
 
