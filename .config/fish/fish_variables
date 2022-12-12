@@ -5,6 +5,15 @@ SETUVAR __git_plugin_abbreviations:g\x1ega\x1egaa\x1egau\x1egapa\x1egap\x1egb\x1
 SETUVAR __git_plugin_initialized:Tue\x20Nov\x2029\x2018\x3a24\x3a41\x20EST\x202022
 SETUVAR __kubectl_plugin_abbreviations:k\x1ekaf\x1eketi\x1ekcuc\x1ekcsc\x1ekcdc\x1ekccc\x1ekcgc\x1ekdel\x1ekdelf\x1ekgp\x1ekgpa\x1ekgpw\x1ekgpwide\x1ekep\x1ekdp\x1ekdelp\x1ekgpl\x1ekgpn\x1ekgs\x1ekgsa\x1ekgsw\x1ekgswide\x1ekes\x1ekds\x1ekdels\x1ekgi\x1ekgia\x1ekei\x1ekdi\x1ekdeli\x1ekgns\x1ekens\x1ekdns\x1ekdelns\x1ekgcm\x1ekgcma\x1ekecm\x1ekdcm\x1ekdelcm\x1ekgsec\x1ekgseca\x1ekdsec\x1ekdelsec\x1ekgd\x1ekgda\x1ekgdw\x1ekgdwide\x1eked\x1ekdd\x1ekdeld\x1eksd\x1ekrsd\x1ekgrs\x1ekrh\x1ekru\x1ekrr\x1ekgss\x1ekgssa\x1ekgssw\x1ekgsswide\x1ekess\x1ekdss\x1ekdelss\x1eksss\x1ekrsss\x1ekpf\x1ekga\x1ekgaa\x1ekl\x1ekl1h\x1ekl1m\x1ekl1s\x1eklf\x1eklf1h\x1eklf1m\x1eklf1s\x1ekcp\x1ekgno\x1ekeno\x1ekdno\x1ekdelno\x1ekgpvc\x1ekgpvca\x1ekgpvcw\x1ekepvc\x1ekdpvc\x1ekdelpvc
 SETUVAR __kubectl_plugin_initialized:Tue\x20Nov\x2029\x2018\x3a24\x3a41\x20EST\x202022
+SETUVAR _fish_abbr_cd_2E_2E_:cd\x20\x2e\x2e
+SETUVAR _fish_abbr_cls:clear
+SETUVAR _fish_abbr_cp:cp\x20\x2div
+SETUVAR _fish_abbr_df:df\x20\x2dhT
+SETUVAR _fish_abbr_dots:dot\x20status
+SETUVAR _fish_abbr_du:du\x20\x2dach\x20\x7c\x20sort\x20\x2dh
+SETUVAR _fish_abbr_egrep:egrep\x20\x2d\x2dcolor\x3dauto
+SETUVAR _fish_abbr_fgrep:fgrep\x20\x2d\x2dcolor\x3dauto
+SETUVAR _fish_abbr_free:free\x20\x2dmt
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2d\x2dall
@@ -158,6 +167,7 @@ SETUVAR _fish_abbr_gwtmv:git\x20worktree\x20move
 SETUVAR _fish_abbr_gwtpr:git\x20worktree\x20prune
 SETUVAR _fish_abbr_gwtrm:git\x20worktree\x20remove
 SETUVAR _fish_abbr_gwtulo:git\x20worktree\x20unlock
+SETUVAR _fish_abbr_jctl:journalctl\x20\x2dp\x203\x20\x2dxb
 SETUVAR _fish_abbr_k:kubectl
 SETUVAR _fish_abbr_kaf:kubectl\x20apply\x20\x2df
 SETUVAR _fish_abbr_kccc:kubectl\x20config\x20current\x2dcontext
@@ -165,6 +175,8 @@ SETUVAR _fish_abbr_kcdc:kubectl\x20config\x20delete\x2dcontext
 SETUVAR _fish_abbr_kcgc:kubectl\x20config\x20get\x2dcontexts
 SETUVAR _fish_abbr_kcp:kubectl\x20cp
 SETUVAR _fish_abbr_kcsc:kubectl\x20config\x20set\x2dcontext
+SETUVAR _fish_abbr_kctx:kubectx
+SETUVAR _fish_abbr_kcu:kubectl\x20config\x20unset\x20current\x2dcontext
 SETUVAR _fish_abbr_kcuc:kubectl\x20config\x20use\x2dcontext
 SETUVAR _fish_abbr_kdcm:kubectl\x20describe\x20configmap
 SETUVAR _fish_abbr_kdd:kubectl\x20describe\x20deployment
@@ -238,6 +250,7 @@ SETUVAR _fish_abbr_klf:kubectl\x20logs\x20\x2df
 SETUVAR _fish_abbr_klf1h:kubectl\x20logs\x20\x2d\x2dsince\x201h\x20\x2df
 SETUVAR _fish_abbr_klf1m:kubectl\x20logs\x20\x2d\x2dsince\x201m\x20\x2df
 SETUVAR _fish_abbr_klf1s:kubectl\x20logs\x20\x2d\x2dsince\x201s\x20\x2df
+SETUVAR _fish_abbr_kns:kubens
 SETUVAR _fish_abbr_kpf:kubectl\x20port\x2dforward
 SETUVAR _fish_abbr_krh:kubectl\x20rollout\x20history
 SETUVAR _fish_abbr_krr:kubectl\x20rollout\x20restart
@@ -246,6 +259,16 @@ SETUVAR _fish_abbr_krsss:kubectl\x20rollout\x20status\x20statefulset
 SETUVAR _fish_abbr_kru:kubectl\x20rollout\x20undo
 SETUVAR _fish_abbr_ksd:kubectl\x20scale\x20deployment
 SETUVAR _fish_abbr_ksss:kubectl\x20scale\x20statefulset
+SETUVAR _fish_abbr_mkdir:mkdir\x20\x2dpv
+SETUVAR _fish_abbr_mv:mv\x20\x2div
+SETUVAR _fish_abbr_psa:ps\x20auxf
+SETUVAR _fish_abbr_rm:rm\x20\x2dIv
+SETUVAR _fish_abbr_sr:sudo\x20reboot
+SETUVAR _fish_abbr_ssn:sudo\x20shutdown\x20now
+SETUVAR _fish_abbr_t:tail\x20\x2df
+SETUVAR _fish_abbr_upall:sudo\x20apt\x20update\x3b\x20sudo\x20apt\x20upgrade\x3b\x20brew\x20upgrade
+SETUVAR _fish_abbr_update:sudo\x20apt\x20update\x3b\x20sudo\x20apt\x20upgrade
+SETUVAR _fish_abbr_wget:wget\x20\x2dc
 SETUVAR _fisher_blackjid_2F_plugin_2D_kubectl_files:\x7e/\x2econfig/fish/functions/__kubectl\x2edestroy\x2efish\x1e\x7e/\x2econfig/fish/functions/__kubectl\x2einit\x2efish\x1e\x7e/\x2econfig/fish/functions/__kubectl\x2ereset\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/kubectl\x2efish
 SETUVAR _fisher_jhillyerd_2F_plugin_2D_git_files:\x7e/\x2econfig/fish/functions/__git\x2ebranch_has_wip\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2ecurrent_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edefault_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edestroy\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2einit\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2ereset\x2efish\x1e\x7e/\x2econfig/fish/functions/gbage\x2efish\x1e\x7e/\x2econfig/fish/functions/gbda\x2efish\x1e\x7e/\x2econfig/fish/functions/gdt\x2efish\x1e\x7e/\x2econfig/fish/functions/gdv\x2efish\x1e\x7e/\x2econfig/fish/functions/ggl\x2efish\x1e\x7e/\x2econfig/fish/functions/ggp\x2efish\x1e\x7e/\x2econfig/fish/functions/ggpnp\x2efish\x1e\x7e/\x2econfig/fish/functions/ggsup\x2efish\x1e\x7e/\x2econfig/fish/functions/ggu\x2efish\x1e\x7e/\x2econfig/fish/functions/gignored\x2efish\x1e\x7e/\x2econfig/fish/functions/glp\x2efish\x1e\x7e/\x2econfig/fish/functions/gpoat\x2efish\x1e\x7e/\x2econfig/fish/functions/grename\x2efish\x1e\x7e/\x2econfig/fish/functions/grt\x2efish\x1e\x7e/\x2econfig/fish/functions/gtl\x2efish\x1e\x7e/\x2econfig/fish/functions/gunwip\x2efish\x1e\x7e/\x2econfig/fish/functions/gwip\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/git\x2efish
 SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_changed_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_diff_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_processes\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e\x7e/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
