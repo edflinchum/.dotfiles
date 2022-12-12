@@ -56,3 +56,20 @@ alias upall="update && brew upgrade"
 # Backup dotfiles with bare git repo
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias dots="dot status"
+
+# kubernetes
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
+alias kcu="kubectl config unset current-context"
+# short alias to set/show context/namespace (only works for bash and bash-compatible shells, current context to be set before using kn to set namespace)
+alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
+alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
+
+# starship
+alias spta="starship toggle aws"
+alias sptz="starship toggle azure"
+alias sptg="starship toggle gcloud"
+
+# alias neofetch="neofetch --block_range 0 15"
+alias gbc=git_branch_cleanup
