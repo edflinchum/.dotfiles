@@ -107,5 +107,5 @@ source $ZSH/oh-my-zsh.sh
 ######################################################################
 #                      Load Additional Configs                       #
 ######################################################################
-[[ -f ~/.zshrc_local ]] && . ~/.zshrc_local
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
+[[ -f ~/.zshrc_local ]] && . ~/.zshrc_local
