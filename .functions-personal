@@ -2,6 +2,14 @@
 #                             Functions                              #
 ######################################################################
 
+git() {
+	if [ "$PWD" = "$HOME" ]; then
+		command git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+	else
+		command git "$@"
+	fi
+}
+
 function my_ip() # Get IP address.
 {
    curl ifconfig.co

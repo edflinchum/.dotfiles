@@ -58,5 +58,5 @@ alias update="sudo apt update && sudo apt upgrade"
 alias upall="update && brew upgrade"
 
 # Backup dotfiles with bare git repo
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias dots="dot status"
+# alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# alias dots="dot status"
