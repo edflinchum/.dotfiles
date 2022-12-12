@@ -39,17 +39,13 @@ alias mkdir="mkdir -pv"
 alias t="tail -f"
 alias wget="wget -c"                                             # continue download
 
-#get the error messages from journalctl
+# get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-#userlist
+# userlist
 alias userlist="cut -d: -f1 /etc/passwd"
 
-#switch between bash and zsh
-alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
-
-#shutdown or reboot
+# shutdown or reboot
 alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
@@ -58,5 +54,5 @@ alias update="sudo apt update && sudo apt upgrade"
 alias upall="update && brew upgrade"
 
 # Backup dotfiles with bare git repo
-# alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-# alias dots="dot status"
+alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dots="dot status"
