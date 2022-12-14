@@ -6,8 +6,9 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
+# [  ](ubuntu_orange)\
 format="""
-[  ](ubuntu_orange)\
+$shell\
 $directory\
 $git_branch\
 $git_commit\
@@ -21,14 +22,13 @@ $aws\
 $gcloud\
 $azure\
 $line_break\
-$shell\
-$cmd_duration\
-$status\
 $shlvl\
 $character\
 """
 
 right_format="""
+$cmd_duration\
+$status\
 [($username$hostname$localip )](bgcolor2)\
 [($battery$time )](bgcolor1)\
 """
@@ -93,7 +93,7 @@ home_symbol = ' ~'
 only_with_files = false
 
 [fill]
-symbol = '.'
+symbol = ' '
 style= 'dimmed white'
 
 [gcloud]
@@ -144,6 +144,7 @@ format = '[$symbol]($style)'
 # symbol = ''
 symbol = '❯'
 repeat = true
+# threshold = 1
 
 [status]
 disabled = false
