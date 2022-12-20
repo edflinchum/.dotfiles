@@ -6,13 +6,12 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
-# $shlvl\
 format="""
 [  ](ubuntu_orange)\
-[($battery$time )](bgcolor1)\
-$cmd_duration\
-$fill\
 [($username$hostname$localip )](bgcolor2)\
+$all\
+$fill\
+[($battery$time )](bgcolor1)\
 $line_break\
 $directory\
 $git_branch\
@@ -20,10 +19,10 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$all\
 $fill\
 $kubernetes\
 $line_break\
+$cmd_duration\
 $status\
 $character\
 """
@@ -143,11 +142,12 @@ unknown_indicator = ' '
 
 [shlvl]
 disabled = false
-format = '[$symbol]($style) '
+# format = '[$symbol]($style) '
 # symbol = ''
-symbol = '❯'
-repeat = true
-threshold = 1
+# symbol = '❯'
+symbol = ''
+# repeat = true
+# threshold = 1
 
 [status]
 disabled = false
