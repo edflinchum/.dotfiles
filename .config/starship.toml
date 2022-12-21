@@ -13,6 +13,7 @@ $all\
 $fill\
 [($battery$time )](bgcolor1)\
 $line_break\
+$shell\
 $directory\
 $git_branch\
 $git_commit\
@@ -22,6 +23,7 @@ $git_status\
 $fill\
 $kubernetes\
 $line_break\
+$shlvl\
 $cmd_duration\
 $status\
 $character\
@@ -31,8 +33,6 @@ right_format="""
 $aws\
 $gcloud\
 $azure\
-$shlvl\
-$shell\
 """
 
 # -----------------------
