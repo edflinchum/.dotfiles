@@ -6,14 +6,15 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
+# [  ](ubuntu_orange)\
 format="""
-[  ](ubuntu_orange)\
+$shell\
+$shlvl\
 [($username$hostname$localip )](bgcolor2)\
 $all\
 $fill\
 [($battery$time )](bgcolor1)\
 $line_break\
-$shell\
 $directory\
 $git_branch\
 $git_commit\
@@ -23,7 +24,6 @@ $git_status\
 $fill\
 $kubernetes\
 $line_break\
-$shlvl\
 $cmd_duration\
 $status\
 $character\
