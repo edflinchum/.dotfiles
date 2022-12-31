@@ -7,13 +7,21 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$shell\
-[($battery$time )](bgcolor1)\
+[(\
+[  ](ubuntu_orange bg:bgcolor1)\
+$time\
+$battery\
+ )](bgcolor1)\
 $all\
 $fill\
-[($username$hostname$localip )](bgcolor2)\
+$shlvl\
+[(\
+$shell\
+$username\
+$hostname\
+$localip\
+ )](bgcolor2)\
 $line_break\
-[  ](ubuntu_orange)\
 $directory\
 $git_branch\
 $git_commit\
@@ -72,7 +80,7 @@ format = 'on [$symbol($subscription)]($style) '
 symbol = ' '
 
 [battery]
-format = '[$symbol$percentage ]($style bg:bgcolor1)'
+format = '[ $symbol$percentage]($style bg:bgcolor1)'
 
 [[battery.display]]
 threshold = 100
@@ -138,6 +146,7 @@ bash_indicator = ' '
 zsh_indicator = '🚀'
 powershell_indicator = ' '
 unknown_indicator = ' '
+format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
