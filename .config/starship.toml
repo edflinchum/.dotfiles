@@ -8,19 +8,18 @@
 
 format="""
 [(\
-[  ](ubuntu_orange bg:bgcolor1)\
-$time\
-$battery\
- )](bgcolor1)\
-$all\
-$fill\
-$shlvl\
-[(\
 $shell\
 $username\
 $hostname\
 $localip\
  )](bgcolor2)\
+$all\
+$fill\
+[(\
+$os\
+$time\
+$battery\
+ )](bgcolor1)\
 $line_break\
 $directory\
 $git_branch\
@@ -33,6 +32,7 @@ $kubernetes\
 $line_break\
 $cmd_duration\
 $status\
+$shlvl\
 $character\
 """
 
@@ -66,7 +66,7 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = true
+disabled = false
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
@@ -74,7 +74,7 @@ symbol = ' '
 
 [azure]
 disabled = true
-format = 'on [$symbol($subscription)]($style) '
+# format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
 symbol = ' '
@@ -139,22 +139,32 @@ disabled = false
 format = '[[ \[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bold bright-purple'
 
+[os]
+format = '[$symbol ]($style bg:bgcolor1)'
+style = 'bold ubuntu_orange'
+disabled = false
+
+[os.symbols]
+Windows = ' '
+Ubuntu =' '
+  
 [shell]
 disabled = false
 fish_indicator = '🐟'
 bash_indicator = ' '
 zsh_indicator = '🚀'
+# zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
 format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
-# format = '[$symbol]($style) '
+format = '[$symbol]($style)'
 # symbol = ''
-# symbol = '❯'
-symbol = ''
-# repeat = true
+symbol = '❯'
+# symbol = ''
+repeat = true
 # threshold = 1
 
 [status]
