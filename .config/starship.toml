@@ -8,18 +8,18 @@
 
 format="""
 [(\
+$os\
+$time\
+$battery\
+ )](bgcolor1)\
+$all\
+$fill\
+[(\
 $shell\
 $username\
 $hostname\
 $localip\
  )](bgcolor2)\
-$all\
-$fill\
-[(\
-$os\
-$time\
-$battery\
- )](bgcolor1)\
 $line_break\
 $directory\
 $git_branch\
@@ -83,7 +83,7 @@ symbol = ' '
 format = '[ $symbol$percentage]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
