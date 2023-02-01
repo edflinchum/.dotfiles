@@ -51,13 +51,6 @@ fi
 # Use starship prompt
 [[ $commands[starship] ]] && eval "$(starship init zsh)"
 
-# Use keychain ssh agent
-if [[ $commands[keychain] ]]; then
-  /usr/bin/keychain --nogui --quiet $HOME/.ssh/id_ed25519
-  source $HOME/.keychain/$(hostname)-sh
-fi
-
-
 ######################################################################
 #                              Aliases                               #
 ######################################################################
