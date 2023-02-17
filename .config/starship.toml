@@ -17,10 +17,10 @@ $all\
 $fill\
 [( \
 $battery\
-$shell\
 $time\
  )](bgcolor1)\
 $line_break\
+$shell\
 $directory\
 $git_branch\
 $git_commit\
@@ -83,7 +83,7 @@ symbol = ' '
 format = '[$symbol$percentage ]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -157,7 +157,7 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator ]($style bg:bgcolor1)'
+# format  = '[$indicator ]($style bg:bgcolor1)'
 
 [shlvl]
 disabled = false
