@@ -66,14 +66,14 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = false
+disabled = true
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
 symbol = ' '
 
 [azure]
-disabled = false
+disabled = true
 # format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
@@ -83,7 +83,7 @@ symbol = ' '
 format = '[$symbol$percentage ]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
