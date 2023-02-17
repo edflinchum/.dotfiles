@@ -7,7 +7,19 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$os\
+[(\
+$username\
+$hostname\
+$localip\
+ )](bgcolor2)\
 $all\
+$fill\
+[( \
+$battery\
+$shell\
+$time\
+ )](bgcolor1)\
 $line_break\
 $directory\
 $git_branch\
@@ -15,32 +27,20 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$fill\
-[(\
-$username\
-$hostname\
-$localip\
- )](bgcolor2)\
+$fill \
+$kubernetes\
 $line_break\
 $cmd_duration\
 $status\
 $shlvl\
 $character\
 """
-#$fill\
-#$kubernetes\
 
 right_format="""
-[(\
-$os\
-$time\
-$battery\
-$shell\
- )](bgcolor1)\
+$aws\
+$gcloud\
+$azure\
 """
-# $aws\
-# $gcloud\
-# $azure\
 
 # -----------------------
 # COLOR PALETTE
@@ -83,7 +83,7 @@ symbol = ' '
 format = '[$symbol$percentage ]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -114,8 +114,8 @@ format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 symbol = ' '
 
 [hostname]
-# ssh_only = false
-format = '[[@](bg:bgcolor2)$ssh_symbol$hostname]($style bg:bgcolor2)'
+ssh_only = false
+format = '[[@](bg:bgcolor2)$ssh_symbol$hostname ]($style bg:bgcolor2)'
 style = 'bold bright-green'
 
 [kubernetes]
@@ -132,15 +132,16 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-# ssh_only = false
+ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
-format = '[[ \[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
+format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bold bright-purple'
 
 [os]
-format = '[$symbol ]($style bg:bgcolor1)'
+format = '[$symbol ]($style)'
+# format = '[$symbol ]($style bg:bgcolor2)'
 style = 'bold ubuntu_orange'
 disabled = false
 
@@ -156,7 +157,7 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator]($style bg:bgcolor1)'
+format  = '[$indicator ]($style bg:bgcolor1)'
 
 [shlvl]
 disabled = false
@@ -176,10 +177,10 @@ pipestatus = true
 
 [time]
 disabled = false
-format = '[ $time ]($style bg:bgcolor1)'
+format = '[ $time]($style bg:bgcolor1)'
 # style = 'bold bright-yellow'
 
 [username]
-# show_always = true
+show_always = true
 format = '[$user]($style bg:bgcolor2)'
 style_user = 'bold bright-yellow'
