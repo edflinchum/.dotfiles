@@ -6,33 +6,33 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
-# $directory\
-# $git_branch\
-# $git_commit\
-# $git_state\
-# $git_metrics\
-# $git_status\
 format="""
-$os\
 $all\
 $fill \
-$kubernetes\
-$line_break\
-$shell\
-$cmd_duration\
-$status\
-$shlvl\
-$character\
-"""
-# $line_break\
-# $fill\
-
-right_format="""
 [(\
+$os\
 $username\
 $hostname\
 $localip\
+$shell\
 ) ](bgcolor2)\
+$line_break\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$fill\
+$line_break\
+$status\
+$character\
+"""
+# $cmd_duration\
+# $shlvl\
+# $kubernetes\
+
+right_format="""
 [(\
 $battery\
 $time\
@@ -83,7 +83,7 @@ symbol = ' '
 format = '[$symbol$percentage ]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -132,16 +132,16 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-ssh_only = false
+# ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
-format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
+format = '[[\[](bg:bgcolor2)$localipv4[\] ](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bold bright-purple'
 
 [os]
-format = '[$symbol ]($style)'
-# format = '[$symbol ]($style bg:bgcolor2)'
+# format = '[$symbol ]($style)'
+format = '[$symbol ]($style bg:bgcolor2)'
 style = 'bold ubuntu_orange'
 disabled = false
 
@@ -157,15 +157,15 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-# format  = '[$indicator ]($style bg:bgcolor1)'
+format  = '[$indicator]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
-format = '[$symbol]($style)'
+# format = '[$symbol]($style)'
 # symbol = ''
-symbol = '❯'
-# symbol = ''
-repeat = true
+# symbol = '❯'
+symbol = ''
+# repeat = true
 # threshold = 1
 
 [status]
