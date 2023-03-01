@@ -9,37 +9,37 @@
 format="""
 [(\
 $os\
+$time\
+$battery\
+) ](bgcolor1)\
+$all\
+$fill \
+$shlvl\
+[(\
+$shell\
 $username\
 $hostname\
 $localip\
-$shell\
 ) ](bgcolor2)\
-$shlvl\
-$aws\
-$gcloud\
-$azure\
+$line_break\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
 $fill \
 $kubernetes\
-$line_break\
-$all\
 $line_break\
 $cmd_duration\
 $status\
 $character\
 """
-# $directory\
-# $git_branch\
-# $git_commit\
-# $git_state\
-# $git_metrics\
-# $git_status\
-# $fill\
 
 right_format="""
-[(\
-$battery\
-$time\
-) ](bgcolor1)\
+$aws\
+$gcloud\
+$azure\
 """
 
 # -----------------------
@@ -66,7 +66,7 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = true
+disabled = false
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
@@ -80,10 +80,10 @@ disabled = true
 symbol = ' '
 
 [battery]
-format = '[$symbol$percentage ]($style bg:bgcolor1)'
+format = '[ $symbol$percentage]($style bg:bgcolor1)'
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -136,12 +136,12 @@ ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
-format = '[[\[](bg:bgcolor2)$localipv4[\] ](bg:bgcolor2)]($style bg:bgcolor2)'
+format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bold bright-purple'
 
 [os]
 # format = '[$symbol ]($style)'
-format = '[$symbol ]($style bg:bgcolor2)'
+format = '[$symbol ]($style bg:bgcolor1)'
 style = 'bold ubuntu_orange'
 disabled = false
 
@@ -157,14 +157,16 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator]($style bg:bgcolor2)'
+format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
-# disabled = false
+disabled = false
 # format = '[$symbol]($style)'
+# format = '[$symbol$shlvl]($style bg:bgcolor2)'
 # symbol = ''
 # symbol = '❯'
-symbol = ''
+# symbol = ''
+symbol = '↕'
 # repeat = true
 # threshold = 1
 
