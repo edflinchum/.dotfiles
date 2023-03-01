@@ -66,7 +66,7 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = false
+disabled = true
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
@@ -81,9 +81,14 @@ symbol = ' '
 
 [battery]
 format = '[ $symbol$percentage]($style bg:bgcolor1)'
+# full_symbol = "• "
+# charging_symbol = "⇡ "
+# discharging_symbol = "⇣ "
+# unknown_symbol = "❓ "
+# empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -116,7 +121,7 @@ symbol = ' '
 [hostname]
 ssh_only = false
 format = '[[@](bg:bgcolor2)$ssh_symbol$hostname ]($style bg:bgcolor2)'
-style = 'bold bright-green'
+style = 'bright-green'
 
 [kubernetes]
 disabled = false
@@ -137,7 +142,7 @@ disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
-style = 'bold bright-purple'
+style = 'bright-purple'
 
 [os]
 # format = '[$symbol ]($style)'
@@ -148,7 +153,7 @@ disabled = false
 [os.symbols]
 Windows = ' '
 Ubuntu =' '
-  
+
 [shell]
 disabled = false
 fish_indicator = '🐟'
@@ -169,6 +174,7 @@ disabled = false
 symbol = '↕'
 # repeat = true
 # threshold = 1
+style = 'white'
 
 [status]
 disabled = false
@@ -185,4 +191,4 @@ format = '[ $time]($style bg:bgcolor1)'
 [username]
 show_always = true
 format = '[$user]($style bg:bgcolor2)'
-style_user = 'bold bright-yellow'
+style_user = 'bright-yellow'
