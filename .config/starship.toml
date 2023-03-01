@@ -7,8 +7,6 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$all\
-$fill \
 [(\
 $os\
 $username\
@@ -16,21 +14,26 @@ $hostname\
 $localip\
 $shell\
 ) ](bgcolor2)\
-$line_break\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$line_break\
 $shlvl\
+$aws\
+$gcloud\
+$azure\
+$fill \
+$kubernetes\
+$line_break\
+$all\
+$line_break\
+$cmd_duration\
 $status\
 $character\
 """
+# $directory\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
 # $fill\
-# $cmd_duration\
-# $kubernetes\
 
 right_format="""
 [(\
@@ -38,9 +41,6 @@ $battery\
 $time\
 ) ](bgcolor1)\
 """
-# $aws\
-# $gcloud\
-# $azure\
 
 # -----------------------
 # COLOR PALETTE
@@ -132,7 +132,7 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-# ssh_only = false
+ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
