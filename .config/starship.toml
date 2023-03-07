@@ -15,8 +15,8 @@ $battery\
 $all\
 $fill \
 $shlvl\
-[(\
 $shell\
+[(\
 $username\
 $hostname\
 $localip\
@@ -88,7 +88,7 @@ format = '[ $symbol$percentage]($style bg:bgcolor1)'
 # empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -162,19 +162,19 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator ]($style bg:bgcolor2)'
+# format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
 # format = '[$symbol]($style)'
-# format = '[$symbol$shlvl]($style bg:bgcolor2)'
+# format = '[$symbol$shlvl ]($style bg:bgcolor2)'
 # symbol = ''
 # symbol = '❯'
 # symbol = ''
 symbol = '↕'
 # repeat = true
 # threshold = 1
-style = 'white'
+style = 'dimmed white'
 
 [status]
 disabled = false
@@ -186,7 +186,7 @@ pipestatus = true
 [time]
 disabled = false
 format = '[ $time]($style bg:bgcolor1)'
-# style = 'bold bright-yellow'
+style = 'bold bright-yellow'
 
 [username]
 show_always = true
