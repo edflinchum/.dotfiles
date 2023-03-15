@@ -11,6 +11,6 @@
 [init]
 	defaultBranch = main
 
-# Store machine specific settings in .gitconfig_local
+# Store machine specific settings in .gitconfig-local
 [include]
-	path = .gitconfig_local
+	path = .gitconfig-local
