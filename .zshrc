@@ -109,4 +109,12 @@ source $ZSH/oh-my-zsh.sh
 #                      Load Additional Configs                       #
 ######################################################################
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
-[[ -f ~/.zshrc_local ]] && . ~/.zshrc_local
+[[ -f ~/.zshrc-local ]] && . ~/.zshrc-local
+
+# Do not expand these aliases using omz globalias plugin
+GLOBALIAS_FILTER_VALUES=(
+  dot
+  lg
+  ll
+  lt
+)
