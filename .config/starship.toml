@@ -7,20 +7,20 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-[(\
 $os\
-$time\
-$battery\
-) ](bgcolor1)\
-$all\
-$fill \
-$shlvl\
-$shell\
 [(\
 $username\
 $hostname\
 $localip\
 ) ](bgcolor2)\
+$shlvl\
+$shell\
+$all\
+$fill \
+[(\
+$time\
+$battery\
+) ](bgcolor1)\
 $line_break\
 $directory\
 $git_branch\
@@ -28,13 +28,13 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$fill \
-$kubernetes\
 $line_break\
 $cmd_duration\
 $status\
 $character\
 """
+# $kubernetes\
+# $fill \
 
 right_format="""
 $aws\
@@ -145,8 +145,8 @@ format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bright-purple'
 
 [os]
-# format = '[$symbol ]($style)'
-format = '[$symbol ]($style bg:bgcolor1)'
+format = '[$symbol ]($style)'
+# format = '[$symbol ]($style bg:bgcolor2)'
 style = 'bold ubuntu_orange'
 disabled = false
 
