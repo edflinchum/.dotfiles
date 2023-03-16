@@ -7,21 +7,25 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$kubernetes\
+$aws\
+$gcloud\
+$azure\
+$line_break\
 $os\
+[(\
+$time\
+$battery\
+) ](bgcolor1)\
+$all\
+$fill \
 [(\
 $username\
 $hostname\
 $localip\
 ) ](bgcolor2)\
-$shlvl\
-$shell\
-$all\
-$fill \
-[(\
-$time\
-$battery\
-) ](bgcolor1)\
 $line_break\
+$shell\
 $directory\
 $git_branch\
 $git_commit\
@@ -29,17 +33,14 @@ $git_state\
 $git_metrics\
 $git_status\
 $line_break\
-$cmd_duration\
-$status\
 $character\
 """
-# $kubernetes\
 # $fill \
 
 right_format="""
-$aws\
-$gcloud\
-$azure\
+$shlvl\
+$status\
+$cmd_duration\
 """
 
 # -----------------------
@@ -66,14 +67,14 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = true
+disabled = false
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
 symbol = ' '
 
 [azure]
-disabled = true
+disabled = false
 # format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
@@ -88,7 +89,7 @@ format = '[ $symbol$percentage]($style bg:bgcolor1)'
 # empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -98,7 +99,7 @@ format = '$symbol '
 # error_symbol = '[❯](bold red)'
 
 [directory]
-truncation_length = 8
+# truncation_length = 8
 truncation_symbol = '…/'
 # style = 'bold cyan italic'
 home_symbol = ' ~'
@@ -121,13 +122,13 @@ symbol = ' '
 [hostname]
 ssh_only = false
 format = '[[@](bg:bgcolor2)$ssh_symbol$hostname ]($style bg:bgcolor2)'
+# format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
 
 [kubernetes]
 disabled = false
-format = '([$symbol$context[( \($namespace\))]($style dimmed)]($style) )'
-# format = '([](bgcolor)[$symbol$context[( \($namespace\))]($style dimmed bg:bgcolor)]($style)[](bgcolor) )'
-# style = 'bold green bg:bgcolor'
+format = '[$symbol$context[( \($namespace\))]($style dimmed)]($style) '
+# format = '[$symbol$context( \($namespace\))]($style) in '
 style = 'bold green'
 # symbol = '⎈ '
 symbol = 'ﴱ '
@@ -142,6 +143,7 @@ disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
+# format = '[\[$localipv4\]]($style) '
 style = 'bright-purple'
 
 [os]
@@ -191,4 +193,5 @@ style = 'bold bright-yellow'
 [username]
 show_always = true
 format = '[$user]($style bg:bgcolor2)'
+# format = '[$user]($style)'
 style_user = 'bright-yellow'
