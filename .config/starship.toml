@@ -7,6 +7,7 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$fill \
 $kubernetes\
 $aws\
 $gcloud\
@@ -35,7 +36,6 @@ $git_status\
 $line_break\
 $character\
 """
-# $fill \
 
 right_format="""
 $shlvl\
