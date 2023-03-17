@@ -7,38 +7,37 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$fill \
-$kubernetes\
-$aws\
-$gcloud\
-$azure\
-$line_break\
-$os\
 [(\
+$os\
 $time\
 $battery\
 ) ](bgcolor1)\
-$all\
-$fill \
 [(\
+$shell\
 $username\
 $hostname\
 $localip\
 ) ](bgcolor2)\
+$shlvl\
+$all\
+$fill \
+$aws\
+$gcloud\
+$azure\
 $line_break\
-$shell\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$fill \
+$kubernetes\
 $line_break\
 $character\
 """
 
 right_format="""
-$shlvl\
 $status\
 $cmd_duration\
 """
@@ -67,14 +66,14 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = false
+disabled = true
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
 symbol = ' '
 
 [azure]
-disabled = false
+disabled = true
 # format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
@@ -147,14 +146,27 @@ format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bright-purple'
 
 [os]
-format = '[$symbol ]($style)'
-# format = '[$symbol ]($style bg:bgcolor2)'
-style = 'bold ubuntu_orange'
+# format = '[$symbol ]($style)'
+format = '[$symbol ]($style bg:bgcolor1)'
+# style = 'bold ubuntu_orange'
 disabled = false
 
 [os.symbols]
+Alpine = ' '
+Arch = ' '
+CentOS = ' '
+Debian = ' '
+Fedora = ' '
+Gentoo = ' '
+Linux = ' '
+Macos = ' '
+Manjaro = ' '
+NixOS = ' '
+openSUSE = ' '
+Raspbian = ' '
+RedHatEnterprise = ' '
+Ubuntu = ' '
 Windows = ' '
-Ubuntu =' '
 
 [shell]
 disabled = false
@@ -164,7 +176,7 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-# format  = '[$indicator ]($style bg:bgcolor2)'
+format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
@@ -188,7 +200,7 @@ pipestatus = true
 [time]
 disabled = false
 format = '[ $time]($style bg:bgcolor1)'
-style = 'bold bright-yellow'
+# style = 'bold bright-yellow'
 
 [username]
 show_always = true
