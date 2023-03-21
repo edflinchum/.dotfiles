@@ -7,6 +7,12 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$fill \
+$kubernetes\
+$aws\
+$gcloud\
+$azure\
+$line_break\
 [(\
 $os\
 $time\
@@ -20,10 +26,6 @@ $localip\
 ) ](bgcolor2)\
 $shlvl\
 $all\
-$fill \
-$aws\
-$gcloud\
-$azure\
 $line_break\
 $directory\
 $git_branch\
@@ -31,11 +33,10 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$fill \
-$kubernetes\
 $line_break\
 $character\
 """
+# $fill \
 
 right_format="""
 $status\
@@ -107,7 +108,7 @@ home_symbol = ' ~'
 only_with_files = false
 
 [fill]
-symbol = ' '
+symbol = '-'
 style= 'dimmed white'
 
 [gcloud]
