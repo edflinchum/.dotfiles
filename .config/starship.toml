@@ -7,40 +7,40 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+[(\
+$username\
+$hostname\
+$localip\
+ )](bgcolor2)\
+$shlvl\
+$all\
 $fill \
-$kubernetes\
 $aws\
 $gcloud\
 $azure\
 $line_break\
-[(\
 $os\
-$time\
-$battery\
-) ](bgcolor1)\
-[(\
-$shell\
-$username\
-$hostname\
-$localip\
-) ](bgcolor2)\
-$shlvl\
-$all\
-$line_break\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$fill \
+$kubernetes\
 $line_break\
+$shell\
 $character\
 """
-# $fill \
+# $line_break\
 
 right_format="""
 $status\
 $cmd_duration\
+[(\
+$time\
+$battery\
+ )](bgcolor1)\
 """
 
 # -----------------------
@@ -89,7 +89,7 @@ format = '[ $symbol$percentage]($style bg:bgcolor1)'
 # empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -108,7 +108,7 @@ home_symbol = ' ~'
 only_with_files = false
 
 [fill]
-symbol = '-'
+symbol = ' '
 style= 'dimmed white'
 
 [gcloud]
@@ -147,9 +147,9 @@ format = '[[\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'bright-purple'
 
 [os]
-# format = '[$symbol ]($style)'
-format = '[$symbol ]($style bg:bgcolor1)'
-# style = 'bold ubuntu_orange'
+format = '[$symbol ]($style)'
+# format = '[$symbol ]($style bg:bgcolor1)'
+style = 'bold ubuntu_orange'
 disabled = false
 
 [os.symbols]
@@ -177,7 +177,7 @@ zsh_indicator = '🚀'
 # zsh_indicator = '🙂'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator ]($style bg:bgcolor2)'
+# format  = '[$indicator ]($style bg:bgcolor2)'
 
 [shlvl]
 disabled = false
@@ -201,7 +201,7 @@ pipestatus = true
 [time]
 disabled = false
 format = '[ $time]($style bg:bgcolor1)'
-# style = 'bold bright-yellow'
+style = 'bold bright-yellow'
 
 [username]
 show_always = true
