@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Do not expand these aliases using omz globalias plugin
 GLOBALIAS_FILTER_VALUES=(
+  cp
   dot
   egrep
   fgrep
@@ -121,4 +122,6 @@ GLOBALIAS_FILTER_VALUES=(
   ll
   ls
   lt
+  mv
+  rm
 )
