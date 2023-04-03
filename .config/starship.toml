@@ -7,6 +7,7 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -22,9 +23,8 @@ $hostname\
 $localip\
  )](bgcolor2)\
 $shlvl\
-$shell\
 $line_break\
-$os\
+$shell\
 $status\
 $cmd_duration\
 $character\
