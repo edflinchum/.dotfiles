@@ -7,16 +7,11 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$os\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$all\
-$fill \
 $kubernetes\
+$aws\
+$gcloud\
+$azure\
+$fill \
 [(\
 $username\
 $hostname\
@@ -24,19 +19,23 @@ $localip\
  )](bgcolor2)\
 $shlvl\
 $line_break\
+$os\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$fill \
+$all\
+$line_break\
 $shell\
 $status\
-$cmd_duration\
 $character\
 """
-# $fill \
-# $line_break\
-# $line_break\
 
 right_format="""
-$aws\
-$gcloud\
-$azure\
+$cmd_duration\
 [(\
 $time\
 $battery\
