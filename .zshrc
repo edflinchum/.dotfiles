@@ -71,9 +71,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
+  azure
+  fzf
   git
   globalias
   kubectl
+  starship
 )
 
 source $ZSH/oh-my-zsh.sh

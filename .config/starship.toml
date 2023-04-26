@@ -66,14 +66,14 @@ canonical_aubergine = '#772953'
 # -----------------------
 
 [aws]
-disabled = true
+disabled = false
 format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style) '
 # format = '([](bgcolor)[$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])]($style)[](bgcolor) )'
 # style = 'bold yellow bg:bgcolor'
 symbol = ' '
 
 [azure]
-disabled = true
+disabled = false
 # format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
