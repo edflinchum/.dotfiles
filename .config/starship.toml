@@ -6,8 +6,6 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
-# $shlvl\
-# $shell\
 format="""
 $kubernetes\
 $aws\
@@ -33,6 +31,8 @@ $line_break\
 $status\
 $character\
 """
+# $shlvl\
+# $shell\
 
 right_format="""
 $cmd_duration\
@@ -120,7 +120,7 @@ symbol = ' '
 
 [hostname]
 ssh_only = false
-format = '[[@](bg:bgcolor2)$ssh_symbol$hostname]($style bg:bgcolor2)'
+format = '[$ssh_symbol$hostname]($style bg:bgcolor2)'
 # format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
 
@@ -139,11 +139,10 @@ symbol = 'ﴱ '
 [localip]
 # ssh_only = false
 disabled = false
-# format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 # format = '[\[$localipv4\]]($style) '
-style = 'bright-purple'
+style = 'cyan italic'
 
 [os]
 format = '[$symbol ]($style)'
@@ -205,6 +204,6 @@ style = 'bold bright-yellow'
 
 [username]
 show_always = true
-format = '[$user]($style bg:bgcolor2)'
+format = '[$user[@](bg:bgcolor2)]($style bg:bgcolor2)'
 # format = '[$user]($style)'
 style_user = 'bright-yellow'
