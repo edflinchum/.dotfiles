@@ -6,21 +6,17 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
+# $shlvl\
+# $shell\
 format="""
-$os\
-$shlvl\
-[(\
-$username\
-$hostname\
-$localip\
- )](bgcolor2)\
-$all\
-$fill \
+$kubernetes\
 $aws\
 $gcloud\
 $azure\
-$shell\
+$fill \
+$all\
 $line_break\
+$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -28,7 +24,11 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill \
-$kubernetes\
+[(\
+$username\
+$hostname\
+$localip\
+ )](bgcolor2)\
 $line_break\
 $status\
 $character\
@@ -88,7 +88,7 @@ format = '[ $symbol$percentage]($style bg:bgcolor1)'
 # empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -137,7 +137,7 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-ssh_only = false
+# ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
