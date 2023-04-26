@@ -74,6 +74,7 @@ plugins=(
   aws
   azure
   fzf
+  gcloud
   git
   globalias
   kubectl
