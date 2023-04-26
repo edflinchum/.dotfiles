@@ -7,6 +7,7 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
+$os\
 $kubernetes\
 $aws\
 $gcloud\
@@ -14,7 +15,6 @@ $azure\
 $fill \
 $all\
 $line_break\
-$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -137,7 +137,7 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-# ssh_only = false
+ssh_only = false
 disabled = false
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
