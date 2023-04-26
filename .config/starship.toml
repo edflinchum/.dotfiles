@@ -7,18 +7,20 @@
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
 format="""
-$fill \
-$kubernetes\
-$aws\
-$gcloud\
-$azure\
+$os\
+$shlvl\
 [(\
 $username\
 $hostname\
 $localip\
  )](bgcolor2)\
+$all\
+$fill \
+$aws\
+$gcloud\
+$azure\
+$shell\
 $line_break\
-$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -26,10 +28,8 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill \
-$all\
-$shlvl\
+$kubernetes\
 $line_break\
-$shell\
 $status\
 $character\
 """
@@ -73,7 +73,7 @@ format = 'on [$symbol($profile )[(\($region\) )]($style dimmed)(\[$duration\])](
 symbol = ' '
 
 [azure]
-disabled = false
+disabled = true
 # format = 'on [$symbol($subscription)]($style) '
 # format = '([](bgcolor)[$symbol($subscription)]($style)[](bgcolor) )'
 # style = 'bold blue bg:bgcolor'
@@ -119,7 +119,7 @@ format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 symbol = ' '
 
 [hostname]
-# ssh_only = false
+ssh_only = false
 format = '[[@](bg:bgcolor2)$ssh_symbol$hostname]($style bg:bgcolor2)'
 # format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
@@ -137,7 +137,7 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-# ssh_only = false
+ssh_only = false
 disabled = false
 # format = '([$localipv4]($style) )'
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
@@ -204,7 +204,7 @@ format = '[ $time]($style bg:bgcolor1)'
 style = 'bold bright-yellow'
 
 [username]
-# show_always = true
+show_always = true
 format = '[$user]($style bg:bgcolor2)'
 # format = '[$user]($style)'
 style_user = 'bright-yellow'
