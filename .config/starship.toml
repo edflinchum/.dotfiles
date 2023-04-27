@@ -8,12 +8,18 @@
 
 format="""
 $os\
-$kubernetes\
+$shell\
+[(\
+$time\
+$battery\
+ )](bgcolor1)\
+$cmd_duration\
+$fill \
+$all\
 $aws\
 $gcloud\
 $azure\
-$fill \
-$all\
+$shlvl\
 $line_break\
 $directory\
 $git_branch\
@@ -22,24 +28,18 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill \
-[(\
-$username\
-$hostname\
-$localip\
- )](bgcolor2)\
+$kubernetes\
 $line_break\
 $status\
 $character\
 """
-# $shlvl\
-# $shell\
 
 right_format="""
-$cmd_duration\
 [(\
-$time\
-$battery\
-)](bgcolor1)\
+$username\
+$hostname\
+$localip\
+)](bgcolor2)\
 """
 
 # -----------------------
@@ -50,6 +50,8 @@ palette = "custom1"
 [palettes.custom1]
 # white = '#ffffff'
 # black = '#000000'
+# bgcolor1 = 'none'
+# bgcolor2 = 'none'
 bgcolor1 = 'black'
 bgcolor2 = 'bright-black'
 ubuntu_orange = '#E95420'
@@ -88,7 +90,7 @@ format = '[ $symbol$percentage]($style bg:bgcolor1)'
 # empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -119,7 +121,7 @@ format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 symbol = ' '
 
 [hostname]
-ssh_only = false
+# ssh_only = false
 format = '[$ssh_symbol$hostname]($style bg:bgcolor2)'
 # format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
@@ -137,7 +139,7 @@ symbol = 'ﴱ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-ssh_only = false
+# ssh_only = false
 disabled = false
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
@@ -171,8 +173,8 @@ Windows = ' '
 disabled = false
 fish_indicator = '🐟'
 bash_indicator = ' '
-zsh_indicator = '🚀'
-# zsh_indicator = '🙂'
+# zsh_indicator = '🚀'
+zsh_indicator = '💤'
 powershell_indicator = ' '
 unknown_indicator = ' '
 # format  = '[$indicator ]($style bg:bgcolor1)'
@@ -203,7 +205,7 @@ format = '[ $time]($style bg:bgcolor1)'
 style = 'bold bright-yellow'
 
 [username]
-show_always = true
+# show_always = true
 format = '[$user[@](bg:bgcolor2)]($style bg:bgcolor2)'
 # format = '[$user]($style)'
 style_user = 'bright-yellow'

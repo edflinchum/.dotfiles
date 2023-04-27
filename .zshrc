@@ -73,6 +73,7 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
   aws
   azure
+  emoji
   fzf
   gcloud
   git
