@@ -130,4 +130,5 @@ GLOBALIAS_FILTER_VALUES=(
   lt
   mv
   rm
+  which
 )
