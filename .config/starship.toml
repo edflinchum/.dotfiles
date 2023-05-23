@@ -83,11 +83,11 @@ symbol = ' '
 
 [battery]
 format = '[ $symbol$percentage]($style bg:bgcolor1)'
-# full_symbol = "• "
-# charging_symbol = "⇡ "
-# discharging_symbol = "⇣ "
-# unknown_symbol = "❓ "
-# empty_symbol = "❗ "
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
 
 [[battery.display]]
 threshold = 99
