@@ -16,22 +16,13 @@ window:
     x: 10
     y: 10
   dynamic_padding: true
-  decorations: none
-  startup_mode: Maximized
+  # decorations: none
+  # startup_mode: Maximized
 
 font:
   normal:
     family: CaskaydiaCove Nerd Font
     style: Regular
-  bold:
-    family: CaskaydiaCove Nerd Font
-    style: Bold
-  italic:
-    family: CaskaydiaCove Nerd Font
-    style: Italic
-  bold_italic:
-    family: CaskaydiaCove Nerd Font
-    style: Bold Italic
   size: 13
   offset:
     x: 0
@@ -44,11 +35,6 @@ draw_bold_text_with_bright_colors: false
 
 selection:
   save_to_clipboard: true
-
-shell:
-  program: /usr/bin/zsh
-  args:
-    - --login
 
 key_bindings:
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }

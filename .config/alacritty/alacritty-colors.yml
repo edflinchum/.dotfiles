@@ -1761,9 +1761,6 @@ schemes:
       matches:
         foreground: '#000000'
         background: '#ffffff'
-      bar:
-        background: '#c5c8c6'
-        foreground: '#1d1f21'
     normal:
       black:   '#1d1f21'
       red:     '#cc6666'
@@ -1964,16 +1961,16 @@ schemes:
 key_bindings:
 # - Use <Ctrl-Shift> with Up or Down arrows to change background opacity +/- 0.025
   - { key: Up, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/opacity_increase.py"]} }
+        args: ["/home/ed/.config/alacritty/opacity_increase.py"]} }
   - { key: Down, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/opacity_decrease.py"]} }
+        args: ["/home/ed/.config/alacritty/opacity_decrease.py"]} }
 # - Use <Ctrl-Shift> with Left or Right arrows to cycle color schemes
   - { key: Right, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/colorscheme_next.py"]} }
+        args: ["/home/ed/.config/alacritty/colorscheme_next.py"]} }
   - { key: Left, mods: Control|Shift, command: {program: "python",
-        args: [".config/alacritty/colorscheme_previous.py"]} }
+        args: ["/home/ed/.config/alacritty/colorscheme_previous.py"]} }
 
 window:
-  opacity: 0.9
+  opacity: 0.95
 
-colors: *breeze
+colors: *tender
