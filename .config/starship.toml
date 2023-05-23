@@ -129,8 +129,8 @@ disabled = false
 format = '[$symbol$context[( \($namespace\))]($style dimmed)]($style) '
 # format = '[$symbol$context( \($namespace\))]($style) in '
 style = 'bold green'
-# symbol = '⎈ '
-symbol = 'ﴱ '
+symbol = '⎈ '
+# symbol = 'ﴱ '
 # symbol = '☸️'
 
 [kubernetes.context_aliases]
@@ -147,7 +147,7 @@ style = 'cyan italic'
 [os]
 # format = '[$symbol ]($style)'
 format = '[$symbol ]($style bg:bgcolor1)'
-style = 'bold ubuntu_orange'
+# style = 'bold ubuntu_orange'
 disabled = false
 
 [os.symbols]
