@@ -8,18 +8,16 @@
 
 format="""
 [(\
-$os\
-$shell\
-$time\
-$battery\
- )](bgcolor1)\
-[(\
 $username\
 $hostname\
 $localip\
  )](bgcolor2)\
-$all\
+$kubernetes\
+$aws\
+$gcloud\
+$azure\
 $line_break\
+$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -27,17 +25,19 @@ $git_state\
 $git_metrics\
 $git_status\
 $fill \
-$kubernetes\
+$all\
 $line_break\
+$shell\
 $status\
 $cmd_duration\
 $character\
 """
 
 right_format="""
-$aws\
-$gcloud\
-$azure\
+[(\
+$time\
+$battery\
+)](bgcolor1)\
 """
 
 # -----------------------
@@ -88,7 +88,7 @@ unknown_symbol = "❓ "
 empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 100
+threshold = 99
 
 [character]
 format = '$symbol '
@@ -145,8 +145,8 @@ format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
 style = 'cyan italic'
 
 [os]
-# format = '[$symbol ]($style)'
-format = '[$symbol ]($style bg:bgcolor1)'
+format = '[$symbol ]($style)'
+# format = '[$symbol ]($style bg:bgcolor1)'
 # style = 'bold ubuntu_orange'
 disabled = false
 
@@ -175,7 +175,7 @@ bash_indicator = ' '
 zsh_indicator = '💤'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator ]($style bg:bgcolor1)'
+# format  = '[$indicator ]($style bg:bgcolor1)'
 # format  = '[$indicator]($style)'
 
 [shlvl]
