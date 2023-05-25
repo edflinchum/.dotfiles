@@ -23,6 +23,25 @@ abbr -a -g -- sptz 'starship toggle azure'
 abbr -a -g -- sr 'sudo reboot'
 abbr -a -g -- ssn 'sudo shutdown now'
 abbr -a -g -- t 'tail -f'
-abbr -a -g -- upall 'sudo apt update; and sudo apt upgrade; and brew upgrade'
-abbr -a -g -- update 'sudo apt update; and sudo apt upgrade'
 abbr -a -g -- wget 'wget -c'
+
+if type -q apt
+  abbr -a -g -- upall 'sudo apt update; and sudo apt upgrade; and brew upgrade'
+  abbr -a -g -- update 'sudo apt update; and sudo apt upgrade'
+end
+if type -q nala
+  abbr -a -g -- upall 'sudo nala upgrade; and brew upgrade'
+  abbr -a -g -- update 'sudo nala upgrade'
+end
+if type -q dnf
+  abbr -a -g -- upall 'sudo dnf upgrade; and brew upgrade'
+  abbr -a -g -- update 'sudo dnf upgrade'
+end
+if type -q pacman
+  abbr -a -g -- upall 'sudo pacman -Syyu; and brew upgrade'
+  abbr -a -g -- update 'sudo pacman -Syyu'
+end
+if type -q paru
+  abbr -a -g -- upall 'paru -Syu --noconfirm; and brew upgrade'
+  abbr -a -g -- update 'paru -Syu --noconfirm'
+end
