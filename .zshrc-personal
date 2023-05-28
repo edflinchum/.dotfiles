@@ -5,6 +5,9 @@
 # Print some system information when the shell is first started
 echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
 
+# Use micro as editor
+[[ $commands[micro] ]] && export EDITOR=$(which micro)
+
 
 ######################################################################
 #                        Additional features                         #
@@ -31,6 +34,10 @@ if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-histo
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
+
+# Use 1password cli
+[[ $commands[op] ]] && eval "$(op completion zsh)"; compdef _op op
+
 
 ######################################################################
 #                              Aliases                               #
