@@ -9,15 +9,15 @@ import:
   - "~/.config/alacritty/alacritty-colors.yml"
 
 window:
-  dimensions:
-    columns: 96
-    lines: 48
+  # dimensions:
+    # columns: 96
+    # lines: 48
   padding:
     x: 10
     y: 10
   dynamic_padding: true
   # decorations: none
-  # startup_mode: Maximized
+  startup_mode: Maximized
 
 font:
   normal:

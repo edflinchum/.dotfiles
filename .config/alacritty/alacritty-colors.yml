@@ -1971,6 +1971,6 @@ key_bindings:
         args: ["/home/ed/.config/alacritty/colorscheme_previous.py"]} }
 
 window:
-  opacity: 0.95
+  opacity: 0.9
 
 colors: *tender
