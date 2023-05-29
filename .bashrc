@@ -123,6 +123,10 @@ fi
 # Load fuzzy finder
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Load 1password
+source <(op completion bash)
+source ~/.config/op/plugins.sh
+
 # Load starship prompt
 eval "$(starship init bash)"
 

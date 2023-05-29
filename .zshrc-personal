@@ -39,7 +39,10 @@ fi
 if [[ $commands[op] ]]; then
   eval "$(op completion zsh)"; compdef _op op
   export SSH_AUTH_SOCK=~/.1password/agent.sock
-  [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+  if [[ -f ~/.config/op/plugins.sh ]]; then
+    source ~/.config/op/plugins.sh
+    setopt completealiases
+  fi
 fi
 
 
