@@ -76,7 +76,7 @@ plugins=(
   git
   globalias
   starship
- azure)
+)
 # Additional plugins for work computer only
 if [[ $(hostname) = USGNOEFLINCHUM1 ]]; then
   plugins+=(
