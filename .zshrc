@@ -71,16 +71,21 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  aws
-  azure
   colored-man-pages
   fzf
-  gcloud
   git
   globalias
-  kubectl
   starship
-)
+ azure)
+# Additional plugins for work computer only
+if [[ $(hostname) = USGNOEFLINCHUM1 ]]; then
+  plugins+=(
+    aws
+    azure
+    gcloud
+    kubectl
+  )
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,20 +121,3 @@ source $ZSH/oh-my-zsh.sh
 ######################################################################
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 [[ -f ~/.zshrc-local ]] && . ~/.zshrc-local
-
-# Do not expand these aliases using omz globalias plugin
-GLOBALIAS_FILTER_VALUES=(
-  cp
-  dot
-  egrep
-  fgrep
-  gh
-  grep
-  lg
-  ll
-  ls
-  lt
-  mv
-  rm
-  which
-)

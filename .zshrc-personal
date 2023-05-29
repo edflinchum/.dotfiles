@@ -5,17 +5,22 @@
 # Print some system information when the shell is first started
 echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
 
-# Use micro as editor
+# Use micro as default editor
 [[ $commands[micro] ]] && export EDITOR=$(which micro)
 
 
 ######################################################################
 #                        Additional features                         #
 ######################################################################
-  
-# Use zsh syntax highlighting
-if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Use 1password cli and ssh agent
+if [[ $commands[op] ]]; then
+  eval "$(op completion zsh)"; compdef _op op
+  export SSH_AUTH_SOCK=~/.1password/agent.sock
+  if [[ -f ~/.config/op/plugins.sh ]]; then
+    source ~/.config/op/plugins.sh
+    setopt completealiases
+  fi
 fi
 
 # Use zsh autosuggestions
@@ -23,6 +28,14 @@ if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestion
   source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+fi
+
+# Use zsh syntax highlighting
+if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+  source /home/linuxbrew/.linuxbrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+elif [[ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/highlighters
+  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Use zsh history substring search
@@ -35,21 +48,28 @@ if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-histo
   bindkey '^[[B' history-substring-search-down
 fi
 
-# Use 1password cli and ssh agent
-if [[ $commands[op] ]]; then
-  eval "$(op completion zsh)"; compdef _op op
-  export SSH_AUTH_SOCK=~/.1password/agent.sock
-  if [[ -f ~/.config/op/plugins.sh ]]; then
-    source ~/.config/op/plugins.sh
-    setopt completealiases
-  fi
-fi
-
 
 ######################################################################
 #                              Aliases                               #
 ######################################################################
 
-# Load aliases
+# Do not expand these aliases using omz globalias plugin
+GLOBALIAS_FILTER_VALUES=(
+  cp
+  dot
+  egrep
+  fgrep
+  gh
+  grep
+  lg
+  ll
+  ls
+  lt
+  mv
+  rm
+  which
+)
+
+# Load personal aliases
 [[ -f ~/.alias-personal ]] && source ~/.alias-personal
 [[ -f ~/.functions-personal ]] && source ~/.functions-personal
