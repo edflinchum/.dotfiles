@@ -35,8 +35,12 @@ if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-histo
   bindkey '^[[B' history-substring-search-down
 fi
 
-# Use 1password cli
-[[ $commands[op] ]] && eval "$(op completion zsh)"; compdef _op op
+# Use 1password cli and ssh agent
+if [[ $commands[op] ]]; then
+  eval "$(op completion zsh)"; compdef _op op
+  export SSH_AUTH_SOCK=~/.1password/agent.sock
+  [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+fi
 
 
 ######################################################################

@@ -123,6 +123,7 @@ GLOBALIAS_FILTER_VALUES=(
   dot
   egrep
   fgrep
+  gh
   grep
   lg
   ll
