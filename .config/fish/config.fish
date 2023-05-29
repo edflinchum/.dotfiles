@@ -13,6 +13,9 @@ if status is-interactive
     # 1password cli
     if type -q op
       op completion fish | source
+      if test -e ~/.config/op/plugins.sh
+        source ~/.config/op/plugins.sh
+      end
     end
 
     # Starship
