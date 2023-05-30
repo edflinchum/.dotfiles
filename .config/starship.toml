@@ -6,7 +6,6 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
-# $shell\
 format="""
 $os\
 [(\
@@ -27,6 +26,8 @@ $git_metrics\
 $git_status\
 $fill \
 $all\
+$shlvl\
+$shell\
 $line_break\
 $status\
 $character\
