@@ -4,7 +4,7 @@
 
 # Print some system information when the shell is first started
 # echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
-[[ $commands(fastfetch) ]] && fastfetch
+[[ $commands[fastfetch] ]] && fastfetch
 
 # Use micro as default editor
 [[ $commands[micro] ]] && export EDITOR=$(which micro)
