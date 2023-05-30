@@ -3,7 +3,8 @@
 ######################################################################
 
 # Print some system information when the shell is first started
-echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+# echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+[[ $commands(fastfetch) ]] && fastfetch
 
 # Use micro as default editor
 [[ $commands[micro] ]] && export EDITOR=$(which micro)
@@ -24,23 +25,23 @@ if [[ $commands[op] ]]; then
 fi
 
 # Use zsh autosuggestions
-if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-  source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -f $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 fi
 
 # Use zsh syntax highlighting
-if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
-  source /home/linuxbrew/.linuxbrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-elif [[ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/highlighters
-  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -f $HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+elif [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/highlighters
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Use zsh history substring search
-if [[ -f /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
-  source /home/linuxbrew/.linuxbrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ -f $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   # bind UP and DOWN arrow keys to history substring search
   bindkey "$terminfo[kcuu1]" history-substring-search-up
   bindkey "$terminfo[kcud1]" history-substring-search-down
