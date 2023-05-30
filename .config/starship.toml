@@ -6,18 +6,19 @@
 # command_timeout = 500    # Timeout for commands executed by starship (in milliseconds).
 # scan_timeout = 30        # Timeout for starship to scan files (in milliseconds).
 
+# $shell\
 format="""
+$os\
 [(\
-$username\
-$hostname\
-$localip\
- )](bgcolor2)\
+$time\
+$battery\
+ )](bgcolor1)\
+$cmd_duration\
 $kubernetes\
 $aws\
 $gcloud\
 $azure\
 $line_break\
-$os\
 $directory\
 $git_branch\
 $git_commit\
@@ -27,17 +28,16 @@ $git_status\
 $fill \
 $all\
 $line_break\
-$shell\
 $status\
-$cmd_duration\
 $character\
 """
 
 right_format="""
 [(\
-$time\
-$battery\
-)](bgcolor1)\
+$username\
+$hostname\
+$localip\
+)](bgcolor2)\
 """
 
 # -----------------------
@@ -119,7 +119,7 @@ format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 symbol = ' '
 
 [hostname]
-# ssh_only = false
+ssh_only = false
 format = '[$ssh_symbol$hostname]($style bg:bgcolor2)'
 # format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
@@ -137,7 +137,7 @@ symbol = '⎈ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-# ssh_only = false
+ssh_only = false
 disabled = false
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
@@ -203,7 +203,7 @@ format = '[ $time]($style bg:bgcolor1)'
 style = 'bold bright-yellow'
 
 [username]
-# show_always = true
+show_always = true
 format = '[$user[@](bg:bgcolor2)]($style bg:bgcolor2)'
 # format = '[$user]($style)'
 style_user = 'bright-yellow'
