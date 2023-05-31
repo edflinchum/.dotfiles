@@ -15,7 +15,9 @@ end
 # 1password cli
 if type -q op
     op completion fish | source
-    set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+    if test -e ~/.1password/agent.sock
+        set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+    end
     if test -e ~/.config/op/plugins.sh
         source ~/.config/op/plugins.sh
     end

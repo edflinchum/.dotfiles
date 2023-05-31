@@ -59,7 +59,7 @@ alias sr="sudo reboot"
 alias upall="update && brew upgrade"
 
 # Backup dotfiles with bare git repo
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias dots="dot status"
 
 # kubernetes

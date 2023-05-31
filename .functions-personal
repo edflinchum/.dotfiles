@@ -94,14 +94,13 @@ function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 
 function my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
-mcd () {
+function mcd () {
   mkdir -p $1
   cd $1
 }
 
-# # ex = EXtractor for all kinds of archives
-# # usage: ex <file>
-ex ()
+# ex = EXtractor for all kinds of archives - usage: ex <file>
+function ex ()
 {
   if [ -f $1 ] ; then
     case $1 in

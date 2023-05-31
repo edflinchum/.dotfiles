@@ -119,5 +119,9 @@ source $ZSH/oh-my-zsh.sh
 ######################################################################
 #                      Load Additional Configs                       #
 ######################################################################
-[[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
-[[ -f ~/.zshrc-local ]] && . ~/.zshrc-local
+if [[ -f ~/.zshrc-personal ]]; then
+  . ~/.zshrc-personal
+fi
+if [[ -f ~/.zshrc-local ]]; then
+  . ~/.zshrc-local
+fi
