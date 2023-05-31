@@ -12,7 +12,10 @@ $os\
 $time\
 $battery\
  )](bgcolor1)\
+$shlvl\
+$shell\
 $cmd_duration\
+$fill \
 $kubernetes\
 $aws\
 $gcloud\
@@ -26,8 +29,6 @@ $git_metrics\
 $git_status\
 $fill \
 $all\
-$shlvl\
-$shell\
 $line_break\
 $status\
 $character\
