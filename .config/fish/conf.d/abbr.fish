@@ -2,8 +2,6 @@ abbr -a -- cd.. 'cd ..'
 abbr -a -- cls clear
 abbr -a -- cp 'cp -iv'
 abbr -a -- df 'df -hT'
-abbr -a -- dot 'git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
-abbr -a -- dots 'git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" status'
 abbr -a -- du 'du -ach | sort -h'
 abbr -a -- egrep 'egrep --color=auto'
 abbr -a -- fgrep 'fgrep --color=auto'
