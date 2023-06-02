@@ -6,10 +6,10 @@
 
 # Homebrew
 if test -d "$HOMEBREW_PREFIX/share/fish/completions"
-    set -g fish_complete_path $HOMEBREW_PREFIX/share/fish/completions $fish_complete_path
+    set -g fish_complete_path $fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
 end
 if test -d "$HOMEBREW_PREFIX/share/fish/vendor_completions.d"
-    set -g fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d $fish_complete_path
+    set -g fish_complete_path $fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
 end
 
 # 1password cli
