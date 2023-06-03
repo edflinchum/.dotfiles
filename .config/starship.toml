@@ -8,12 +8,12 @@
 
 format="""
 $os\
+$shlvl\
 [(\
+$shell\
 $time\
 $battery\
  )](bgcolor1)\
-$shlvl\
-$shell\
 $cmd_duration\
 $fill \
 $kubernetes\
@@ -90,7 +90,7 @@ unknown_symbol = "❓ "
 empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 99
+threshold = 100
 
 [character]
 format = '$symbol '
@@ -177,7 +177,7 @@ bash_indicator = ' '
 zsh_indicator = '💤'
 powershell_indicator = ' '
 unknown_indicator = ' '
-# format  = '[$indicator ]($style bg:bgcolor1)'
+format  = '[$indicator ]($style bg:bgcolor1)'
 # format  = '[$indicator]($style)'
 
 [shlvl]
