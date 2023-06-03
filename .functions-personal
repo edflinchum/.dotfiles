@@ -12,8 +12,10 @@ function git() {
 }
 
 # 1password plugin - gh
-if [[ "alias | grep gh= &>/dev/null" ]]; then
+if [[ -f ~/.config/op/plugins.sh ]]; then
+  if [[ "alias | grep gh= >/dev/null" ]]; then
     unalias gh
+  fi
 fi
 function gh() {
     if [[ -f ~/.config/op/plugins.sh ]]; then

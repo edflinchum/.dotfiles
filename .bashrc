@@ -124,8 +124,13 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Load 1password
-source <(op completion bash)
-source ~/.config/op/plugins.sh
+if [[ -f ~/.config/op/plugins.sh ]]; then
+  source <(op completion bash)
+  source ~/.config/op/plugins.sh
+  if [[ -f ~/.1password/agent.sock ]]; then
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+  fi
+fi
 
 # Load starship prompt
 eval "$(starship init bash)"
