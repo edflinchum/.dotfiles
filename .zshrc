@@ -120,8 +120,8 @@ source $ZSH/oh-my-zsh.sh
 #                      Load Additional Configs                       #
 ######################################################################
 if [[ -f ~/.zshrc-personal ]]; then
-  . ~/.zshrc-personal
+  source ~/.zshrc-personal
 fi
 if [[ -f ~/.zshrc-local ]]; then
-  . ~/.zshrc-local
+  source ~/.zshrc-local
 fi
