@@ -12,7 +12,7 @@ function git() {
 }
 
 # 1password plugin - gh
-if [ "$(type -w  gh)" = 'gh: alias' ]; then
+if [[ "alias | grep gh= &>/dev/null" ]]; then
     unalias gh
 fi
 function gh() {
