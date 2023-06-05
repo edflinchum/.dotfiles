@@ -120,15 +120,19 @@ fi
 #                              Personal                              #
 ######################################################################
 
-# Load fuzzy finder
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Load 1password
-if [[ -f ~/.config/op/plugins.sh ]]; then
-  source <(op completion bash)
-  source ~/.config/op/plugins.sh
-  if [[ -f ~/.1password/agent.sock ]]; then
-    export SSH_AUTH_SOCK=~/.1password/agent.sock
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
   fi
 fi
 
@@ -136,5 +140,9 @@ fi
 eval "$(starship init bash)"
 
 # Load aliases
-[[ -f ~/.alias-personal ]] && source ~/.alias-personal
-[[ -f ~/.functions-personal ]] && source ~/.functions-personal
+if [[ -f ~/.alias-personal ]]; then
+  source ~/.alias-personal
+fi
+if [[ -f ~/.functions-personal ]]
+  source ~/.functions-personal
+fi

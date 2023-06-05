@@ -14,9 +14,6 @@ if [[ $commands[micro] ]]; then
   export EDITOR=$(which micro)
 fi
 
-setopt completealiases
-compdef dot=git
-
 
 ######################################################################
 #                        Additional features                         #
@@ -87,3 +84,6 @@ GLOBALIAS_FILTER_VALUES=(
   rm
   which
 )
+
+setopt completealiases
+compdef dot=git
