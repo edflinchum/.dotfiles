@@ -12,6 +12,7 @@ fi
 # Use micro as default editor
 if [[ $commands[micro] ]]; then
   export EDITOR=$(which micro)
+  export VISUAL=$(which micro)
 fi
 
 setopt nobeep
@@ -50,15 +51,15 @@ elif [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlightin
   source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# Use zsh history substring search
-if [[ -f $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
-  source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  # bind UP and DOWN arrow keys to history substring search
-  bindkey "$terminfo[kcuu1]" history-substring-search-up
-  bindkey "$terminfo[kcud1]" history-substring-search-down
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
+# Use zsh history substring search (moved to omz history-substring-search plugin)
+# if [[ -f $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+  # source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  # # bind UP and DOWN arrow keys to history substring search
+  # bindkey "$terminfo[kcuu1]" history-substring-search-up
+  # bindkey "$terminfo[kcud1]" history-substring-search-down
+  # bindkey '^[[A' history-substring-search-up
+  # bindkey '^[[B' history-substring-search-down
+# fi
 
 
 ######################################################################

@@ -75,6 +75,7 @@ plugins=(
   fzf
   git
   globalias
+  history-substring-search
   starship
 )
 # Additional plugins for work computer only
