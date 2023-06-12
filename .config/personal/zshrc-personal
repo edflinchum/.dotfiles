@@ -6,18 +6,17 @@
 if [[ $commands[fastfetch] ]]; then
   fastfetch
 else
-  echo $USER@$HOST  $(uname -srm) $([[ $commands[lsb_release] ]] && lsb_release -rcs)
+  echo $USER@$HOST  $(uname -srm)  $([[ $commands[lsb_release] ]] && lsb_release -rcs)
 fi
 
 # Use micro as default editor
 if [[ $commands[micro] ]]; then
   export EDITOR=$(which micro)
-  export VISUAL=$(which micro)
+  export VISUAL=$EDITOR
 fi
 
 setopt nobeep
 setopt completealiases
-
 compdef dot=git
 
 
@@ -67,11 +66,11 @@ fi
 ######################################################################
 
 # Load personal aliases and functions
-if [[ -f ~/.alias-personal ]]; then
-  source ~/.alias-personal
+if [[ -f ~/.config/personal/alias-personal ]]; then
+  source ~/.config/personal/alias-personal
 fi
-if [[ -f ~/.functions-personal ]]; then
-  source ~/.functions-personal
+if [[ -f ~/.config/personal/functions-personal ]]; then
+  source ~/.config/personal/functions-personal
 fi
 
 # Do not expand these aliases using omz globalias plugin
@@ -90,3 +89,11 @@ GLOBALIAS_FILTER_VALUES=(
   rm
   which
 )
+
+
+######################################################################
+#                        Host-Specific Config                        #
+######################################################################
+if [[ -f ~/.config/personal/zshrc-local ]]; then
+  source ~/.config/personal/zshrc-local
+fi
