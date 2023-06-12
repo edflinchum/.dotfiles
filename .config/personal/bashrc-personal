@@ -4,7 +4,7 @@
 
 # Use micro as default editor
 if type micro &>/dev/null; then
-  export EDITOR=$(which micro)
+  export EDITOR=$(command -v micro)
   export VISUAL=$EDITOR
 fi
 

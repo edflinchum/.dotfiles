@@ -11,7 +11,7 @@ fi
 
 # Use micro as default editor
 if [[ $commands[micro] ]]; then
-  export EDITOR=$(which micro)
+  export EDITOR=$(command -v micro)
   export VISUAL=$EDITOR
 fi
 
