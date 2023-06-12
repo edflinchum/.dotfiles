@@ -51,12 +51,12 @@ alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
 # Aliases for software management
-command -v apt    >/dev/null && alias update="sudo apt update && sudo apt upgrade"
-command -v nala   >/dev/null && alias update="sudo nala upgrade"
-command -v dnf    >/dev/null && alias update="sudo dnf upgrade"
-command -v zypper >/dev/null && alias update="sudo zypper update"
-command -v pacman >/dev/null && alias update="sudo pacman -Syu"
-command -v paru   >/dev/null && alias update="paru -Syu --noconfirm"
+command -v apt    &>/dev/null && alias update="sudo apt update && sudo apt upgrade"
+command -v nala   &>/dev/null && alias update="sudo nala upgrade"
+command -v dnf    &>/dev/null && alias update="sudo dnf upgrade"
+command -v zypper &>/dev/null && alias update="sudo zypper update"
+command -v pacman &>/dev/null && alias update="sudo pacman -Syu"
+command -v paru   &>/dev/null && alias update="paru -Syu --noconfirm"
 alias upall="update && brew upgrade"
 
 # Backup dotfiles with bare git repo

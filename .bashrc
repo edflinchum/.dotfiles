@@ -116,33 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 ######################################################################
-#                              Personal                              #
+#                      Load Additional Configs                       #
 ######################################################################
-
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-if type brew &>/dev/null
-then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
-  then
-    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  else
-    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
-    do
-      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
-    done
-  fi
-fi
-
-# Load starship prompt
-eval "$(starship init bash)"
-
-# Load aliases
-if [[ -f ~/.config/personal/alias-personal ]]; then
-  source ~/.config/personal/alias-personal
-fi
-if [[ -f ~/.config/personal/functions-personal ]]; then
-  source ~/.config/personal/functions-personal
+if [[ -f ~/.config/personal/bashrc-personal ]]; then
+  source ~/.config/personal/bashrc-personal
 fi
