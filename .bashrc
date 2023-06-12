@@ -140,9 +140,9 @@ fi
 eval "$(starship init bash)"
 
 # Load aliases
-if [[ -f ~/.alias-personal ]]; then
-  source ~/.alias-personal
+if [[ -f ~/.config/personal/alias-personal ]]; then
+  source ~/.config/personal/alias-personal
 fi
-if [[ -f ~/.functions-personal ]]
-  source ~/.functions-personal
+if [[ -f ~/.config/personal/functions-personal ]]; then
+  source ~/.config/personal/functions-personal
 fi
