@@ -4,7 +4,7 @@
 
 # Git wrapper for .dotfiles bare repo when in home folder unless in a different git work tree
 function git() {
-    if [[ "$PWD" =~ "$HOME" && -z "$(command git rev-parse --is-inside-work-tree &>/dev/null)" ]]; then
+    if [[ "$PWD" =~ "$HOME" && ! $(command git rev-parse --is-inside-work-tree) ]] &>/dev/null; then
         command git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
     else
         command git "$@"
