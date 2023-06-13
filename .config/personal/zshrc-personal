@@ -27,9 +27,6 @@ compdef dot=git
 # Use 1password cli and ssh agent
 if [[ $commands[op] ]]; then
   eval "$(op completion zsh)"; compdef _op op
-  if [[ -f ~/.1password/agent.sock ]]; then
-    export SSH_AUTH_SOCK=~/.1password/agent.sock
-  fi
   if [[ -f ~/.config/op/plugins.sh ]]; then
     source ~/.config/op/plugins.sh
   fi
