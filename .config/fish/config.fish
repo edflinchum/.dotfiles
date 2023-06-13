@@ -14,9 +14,6 @@ end
 # 1password cli
 if type -q op
     op completion fish | source
-    if test -e ~/.1password/agent.sock
-        set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
-    end
     if test -e ~/.config/op/plugins.sh
         source ~/.config/op/plugins.sh
     end
@@ -25,6 +22,7 @@ end
 # Micro
 if type -q micro
     set -gx EDITOR $(which micro)
+    set -gx VISUAL $EDITOR
 end
 
 # Workaround for git completions taking too long due to searching untracked files in entire home directory
