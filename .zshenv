@@ -1,6 +1,8 @@
 # Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+if [ -d /home/linuxbrew/.linuxbrew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+fi
 
 # Environment variables
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
