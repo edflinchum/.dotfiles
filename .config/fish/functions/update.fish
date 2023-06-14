@@ -17,7 +17,7 @@ function update --description "Package manager independent update"
         sudo apt update; and sudo apt upgrade
       end
 
-    case '*fedora'
+    case '*fedora' '*ultramarine'
       sudo dnf upgrade
 
     case '*leap'

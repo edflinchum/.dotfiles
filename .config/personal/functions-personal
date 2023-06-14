@@ -131,7 +131,7 @@ function update () {
                 then sudo nala upgrade
                 else sudo apt update && sudo apt upgrade
               fi ;;
-            fedora)
+            fedora | ultramarine)
               sudo dnf upgrade ;;
             *leap)
               sudo zypper update ;;
