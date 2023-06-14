@@ -115,3 +115,32 @@ function ex ()
 function colormap() {
     for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
+
+# Package manager independent update
+function update () {
+    if [ -e /etc/os-release ] ; then
+        source /etc/os-release
+        case $ID in
+            arch)
+              if command -v paru &>/dev/null
+                then paru -Syu --noconfirm
+                else sudo pacman -Syu
+              fi ;;
+            debian | ubuntu)
+              if command -v nala &>/dev/null
+                then sudo nala upgrade
+                else sudo apt update && sudo apt upgrade
+              fi ;;
+            fedora)
+              sudo dnf upgrade ;;
+            *leap)
+              sudo zypper update ;;
+            *tumbleweed)
+              sudo zypper dist-upgrade ;;
+            *)
+              echo "Unable to determine which package manager to use for updates" ;;
+        esac
+    else
+        echo "Unable to determine which package manager to use for updates"
+    fi
+}

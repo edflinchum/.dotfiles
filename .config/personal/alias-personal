@@ -5,7 +5,6 @@
 # misc
 alias cd..="cd .."
 alias cls="clear"
-alias gbc=git_branch_cleanup
 
 # list files
 alias ls="ls --color=auto"                                                                    # ls short listing
@@ -50,18 +49,15 @@ alias userlist="cut -d: -f1 /etc/passwd"
 alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
-# Aliases for software management
-command -v apt    &>/dev/null && alias update="sudo apt update && sudo apt upgrade"
-command -v nala   &>/dev/null && alias update="sudo nala upgrade"
-command -v dnf    &>/dev/null && alias update="sudo dnf upgrade"
-command -v zypper &>/dev/null && alias update="sudo zypper update"
-command -v pacman &>/dev/null && alias update="sudo pacman -Syu"
-command -v paru   &>/dev/null && alias update="paru -Syu --noconfirm"
+# software management
 alias upall="update && brew upgrade"
 
-# Backup dotfiles with bare git repo
+# backup dotfiles with bare git repo
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias dots="dot status"
+
+# git
+alias gbc=git_branch_cleanup
 
 # kubernetes
 alias k=kubectl
