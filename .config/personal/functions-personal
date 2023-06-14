@@ -123,7 +123,7 @@ function update () {
         case $ID in
             arch)
               if command -v paru &>/dev/null
-                then paru -Syu --noconfirm
+                then paru -Syu
                 else sudo pacman -Syu
               fi ;;
             debian | ubuntu)

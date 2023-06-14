@@ -1,23 +1,23 @@
 function update --description "Package manager independent update"
-  set -l ID (grep -s ^ID= /etc/os-release)
+  set -l ID (grep -Es ^ID= /etc/os-release | sed -e 's/ID=//g')
 
   switch $ID
 
-    case '*arch'
+    case arch
       if type -q paru
-        paru -Syu --noconfirm
+        paru -Syu
       else
         sudo pacman -Syu
       end
 
-    case '*debian' '*ubuntu'
+    case debian ubuntu
       if type -q nala
         sudo nala upgrade
       else
         sudo apt update; and sudo apt upgrade
       end
 
-    case '*fedora' '*ultramarine'
+    case fedora ultramarine
       sudo dnf upgrade
 
     case '*leap'
