@@ -91,6 +91,11 @@ GLOBALIAS_FILTER_VALUES=(
 ######################################################################
 #                        Host-Specific Config                        #
 ######################################################################
+
+if [[ $(uname -a) =~ WSL ]]; then
+  source ~/.config/personal/wsl-ssh-forwarding
+fi
+
 if [[ -f ~/.config/personal/zshrc-local ]]; then
   source ~/.config/personal/zshrc-local
 fi
