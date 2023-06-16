@@ -28,7 +28,7 @@ end
 
 # Micro
 if type -q micro
-  set -q EDITOR; or set -gx EDITOR $(which micro)
+  set -q EDITOR; or set -gx EDITOR $(command -v micro)
   set -q VISUAL; or set -gx VISUAL $EDITOR
 end
 
