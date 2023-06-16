@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-${ZSH_VERSION}"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
