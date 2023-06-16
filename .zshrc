@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="random"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -21,7 +21,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -47,7 +47,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -72,19 +72,26 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   colored-man-pages
-  fzf
   git
   globalias
-  starship
+  history-substring-search
+  sudo
 )
-# Additional plugins for work computer only
-if [[ $(hostname) = USGNOEFLINCHUM1 ]]; then
-  plugins+=(
-    aws
-    azure
-    gcloud
-    kubectl
-  )
+
+# Additional plugins that are only enabled if the programs are installed
+if [[ $commands[aws]      ]]; then plugins+=(aws)     ; fi
+if [[ $commands[az]       ]]; then plugins+=(azure)   ; fi
+if [[ $commands[docker]   ]]; then plugins+=(docker)  ;
+  zstyle ':completion:*:*:docker:*'   option-stacking yes
+  zstyle ':completion:*:*:docker-*:*' option-stacking yes
+fi
+if [[ $commands[fzf]      ]]; then plugins+=(fzf)     ; fi
+if [[ $commands[gcloud]   ]]; then plugins+=(gcloud)  ; fi
+if [[ $commands[gh]       ]]; then plugins+=(gh)      ; fi
+if [[ $commands[helm]     ]]; then plugins+=(helm)    ; fi
+if [[ $commands[kubectl]  ]]; then plugins+=(kubectl) ; fi
+if [[ $commands[starship] ]]; then plugins+=(starship);
+  unset ZSH_THEME
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -115,10 +122,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-######################################################################
-#                      Load Additional Configs                       #
-######################################################################
+# Load personal config
 if [[ -f ~/.config/personal/zshrc-personal ]]; then
   source ~/.config/personal/zshrc-personal
 fi
