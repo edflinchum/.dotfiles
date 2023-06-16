@@ -77,7 +77,6 @@ plugins=(
   colored-man-pages
   git
   globalias
-  history-substring-search
   sudo
 )
 

@@ -3,10 +3,9 @@
 ######################################################################
 
 # Print some system information when the shell is first started
-if [[ $commands[fastfetch] ]]; then
-  fastfetch
-else
-  echo $USER@$HOST  $(uname -srm)  $([[ $commands[lsb_release] ]] && lsb_release -rcs)
+if   [[ $commands[fastfetch] ]]; then fastfetch
+elif [[ $commands[neofetch]  ]]; then neofetch
+else echo $USER@$HOST  $(uname -srm)  $([[ $commands[lsb_release] ]] && lsb_release -rcs)
 fi
 
 # Use micro as default editor
@@ -48,14 +47,14 @@ elif [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlightin
 fi
 
 # Use zsh history substring search
-# if [[ -f $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
-  # source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  # # bind UP and DOWN arrow keys to history substring search
-  # bindkey "$terminfo[kcuu1]" history-substring-search-up
-  # bindkey "$terminfo[kcud1]" history-substring-search-down
-  # # bindkey '^[[A' history-substring-search-up
-  # # bindkey '^[[B' history-substring-search-down
-# fi
+if [[ -f $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  # bind UP and DOWN arrow keys to history substring search
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 
 
 ######################################################################
