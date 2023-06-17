@@ -35,4 +35,5 @@ export PATH
 
 # Environment variables
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+export LESSHISTFILE=-
 export SHOW_AWS_PROMPT=false
