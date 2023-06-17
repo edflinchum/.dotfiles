@@ -2,6 +2,15 @@
 # ~/.config/fish/config.fish
 # -------------------------------------------------------
 
+# set PATH so it includes user's private bin if it exists
+if test -d $HOME/bin
+  fish_add_path -m $HOME/bin
+end
+if test -d $HOME/.local/bin
+  fish_add_path -m $HOME/.local/bin
+end
+
+
 # Micro
 if type -q micro
   set -q EDITOR; or set -gx EDITOR $(command -v micro)
