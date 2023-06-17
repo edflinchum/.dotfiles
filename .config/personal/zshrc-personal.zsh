@@ -3,9 +3,9 @@
 ######################################################################
 
 # Print some system information when the shell is first started
-if     (( $+commands[fastfetch] )); then fastfetch
-  elif (( $+commands[neofetch]  )); then neofetch
-  else echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
+if   (( $+commands[fastfetch] )); then fastfetch
+elif (( $+commands[neofetch]  )); then neofetch
+else echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
 fi
 
 # Use micro as default editor

@@ -10,7 +10,6 @@ if test -d $HOME/.local/bin
   fish_add_path -m $HOME/.local/bin
 end
 
-
 # Micro
 if type -q micro
   set -q EDITOR; or set -gx EDITOR $(command -v micro)
