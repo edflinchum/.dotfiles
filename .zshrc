@@ -66,7 +66,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM="$HOME/.config/personal"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -81,20 +81,56 @@ plugins=(
 )
 
 # Additional plugins that are only enabled if the programs are installed
-if [[ $commands[aws]      ]]; then plugins+=(aws)     ; fi
-if [[ $commands[az]       ]]; then plugins+=(azure)   ; fi
-if [[ $commands[docker]   ]]; then plugins+=(docker)  ;
+if (( $+commands[aws] )); then
+  plugins+=(aws)
+fi
+if (( $+commands[az] )); then
+  plugins+=(azure)
+fi
+if (( $+commands[brew] )); then
+  plugins+=(brew)
+fi
+if (( $+commands[docker] )); then
+  plugins+=(docker)
   zstyle ':completion:*:*:docker:*'   option-stacking yes
   zstyle ':completion:*:*:docker-*:*' option-stacking yes
 fi
-if [[ $commands[fzf]      ]]; then plugins+=(fzf)     ; fi
-if [[ $commands[gcloud]   ]]; then plugins+=(gcloud)  ; fi
-if [[ $commands[gh]       ]]; then plugins+=(gh)      ; fi
-if [[ $commands[helm]     ]]; then plugins+=(helm)    ; fi
-if [[ $commands[kubectl]  ]]; then plugins+=(kubectl) ; fi
-if [[ $commands[starship] ]]; then plugins+=(starship);
+if (( $+commands[fzf] )); then
+  plugins+=(fzf)
+fi
+if (( $+commands[gcloud] )); then
+  plugins+=(gcloud)
+fi
+if (( $+commands[gh] )); then
+  plugins+=(gh)
+fi
+if (( $+commands[helm] )); then
+  plugins+=(helm)
+fi
+if (( $+commands[kubectl] )); then
+  plugins+=(kubectl)
+fi
+if (( $+commands[starship] )); then
+  plugins+=(starship)
   unset ZSH_THEME
 fi
+
+# Install custom plugins if they are missing
+if [ ! -d $ZSH_CUSTOM/plugins/autoupdate ]; then
+  command git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
+fi
+if [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
+  command git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+fi
+if [ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ]; then
+  command git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+fi
+
+# Load custom plugins
+plugins+=(autoupdate)
+plugins+=(zsh-autosuggestions)
+plugins+=(fast-syntax-highlighting) # Should be loaded after other plugins
+plugins+=(history-substring-search) # Builtin plugin but must be loaded after syntax highlighting
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,8 +159,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Load personal config
-if [[ -f ~/.config/personal/zshrc-personal ]]; then
-  source ~/.config/personal/zshrc-personal
-fi

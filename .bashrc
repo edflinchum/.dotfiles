@@ -120,6 +120,6 @@ fi
 ######################################################################
 #                      Load Additional Configs                       #
 ######################################################################
-if [[ -f ~/.config/personal/bashrc-personal ]]; then
-  source ~/.config/personal/bashrc-personal
+if [ -f  ~/.config/personal/bashrc-personal.bash ]; then
+  source ~/.config/personal/bashrc-personal.bash
 fi

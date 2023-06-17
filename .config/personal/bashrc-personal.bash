@@ -15,13 +15,13 @@ fi
 
 # Homebrew
 if ! type brew &>/dev/null; then
-  if [[ -x /opt/homebrew/bin/brew ]]; then
+  if   [ -x /opt/homebrew/bin/brew ]; then
     BREW_LOCATION="/opt/homebrew/bin/brew"
-  elif [[ -x /usr/local/bin/brew ]]; then
+  elif [ -x /usr/local/bin/brew ]; then
     BREW_LOCATION="/usr/local/bin/brew"
-  elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+  elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
     BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
   else
     return
@@ -31,13 +31,13 @@ if ! type brew &>/dev/null; then
 fi
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  if [ -r  "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]
   then
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
   else
     for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
     do
-      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+      [ -r "${COMPLETION}" ] && source "${COMPLETION}"
     done
   fi
 fi
@@ -58,9 +58,9 @@ fi
 ######################################################################
 
 # Load personal aliases and functions
-if [[ -f ~/.config/personal/alias-personal ]]; then
-  source ~/.config/personal/alias-personal
+if [ -f  ~/.config/personal/alias-personal.zsh ]; then
+  source ~/.config/personal/alias-personal.zsh
 fi
-if [[ -f ~/.config/personal/functions-personal ]]; then
-  source ~/.config/personal/functions-personal
+if [ -f  ~/.config/personal/functions-personal.zsh ]; then
+  source ~/.config/personal/functions-personal.zsh
 fi
