@@ -14,11 +14,9 @@ if (( ! $+commands[brew] )); then
   eval "$("$BREW_LOCATION" shellenv)"
   unset BREW_LOCATION
 fi
-
 if [ -z "$HOMEBREW_PREFIX" ]; then
   export  HOMEBREW_PREFIX="$(brew --prefix)"
 fi
-
 if [  -d  "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
@@ -34,6 +32,4 @@ fi
 export PATH
 
 # Environment variables
-export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 export LESSHISTFILE=-
-export SHOW_AWS_PROMPT=false

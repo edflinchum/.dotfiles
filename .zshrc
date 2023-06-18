@@ -83,6 +83,7 @@ plugins=(
 # Additional plugins that are only enabled if the programs are installed
 if (( $+commands[aws] )); then
   plugins+=(aws)
+  SHOW_AWS_PROMPT=false
 fi
 if (( $+commands[az] )); then
   plugins+=(azure)
