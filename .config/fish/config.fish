@@ -10,6 +10,8 @@ if test -d $HOME/.local/bin
   fish_add_path -m $HOME/.local/bin
 end
 
+# Fzf
+set -q FZF_DEFAULT_OPTS; or set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
 # Micro
 if type -q micro
