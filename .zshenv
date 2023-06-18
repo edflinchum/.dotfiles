@@ -1,23 +1,23 @@
 # Homebrew
 if (( ! $+commands[brew] )); then
-  if   [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
-    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif [ -x /opt/homebrew/bin/brew ]; then
-    BREW_LOCATION="/opt/homebrew/bin/brew"
-  elif [ -x /usr/local/bin/brew ]; then
-    BREW_LOCATION="/usr/local/bin/brew"
-  elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
-    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
+  if   test -x /home/linuxbrew/.linuxbrew/bin/brew; then
+    BREW_FILE="/home/linuxbrew/.linuxbrew/bin/brew"
+  elif test -x /opt/homebrew/bin/brew; then
+    BREW_FILE="/opt/homebrew/bin/brew"
+  elif test -x /usr/local/bin/brew; then
+    BREW_FILE="/usr/local/bin/brew"
+  elif test -x $HOME/.linuxbrew/bin/brew; then
+    BREW_FILE="$HOME/.linuxbrew/bin/brew"
   else
     return
   fi
-  eval "$("$BREW_LOCATION" shellenv)"
-  unset BREW_LOCATION
+  eval $($BREW_FILE shellenv)
+  unset BREW_FILE
 fi
 if [ -z "$HOMEBREW_PREFIX" ]; then
-  export  HOMEBREW_PREFIX="$(brew --prefix)"
+  export HOMEBREW_PREFIX="$(brew --prefix)"
 fi
-if [  -d  "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
+if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
