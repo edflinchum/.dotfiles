@@ -98,6 +98,7 @@ if (( $+commands[docker] )); then
 fi
 if (( $+commands[fzf] )); then
   plugins+=(fzf)
+  export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 fi
 if (( $+commands[gcloud] )); then
   plugins+=(gcloud)
