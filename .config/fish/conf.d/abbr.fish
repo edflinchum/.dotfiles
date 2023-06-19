@@ -2,6 +2,7 @@ abbr -a -- cd.. 'cd ..'
 abbr -a -- cls clear
 abbr -a -- cp 'cp -iv'
 abbr -a -- df 'df -hT'
+abbr -a -- dots 'dot status'
 abbr -a -- du 'du -ach | sort -h'
 abbr -a -- egrep 'egrep --color=auto'
 abbr -a -- fgrep 'fgrep --color=auto'
