@@ -11,6 +11,14 @@ function git() {
     fi
 }
 
+function dot() {
+    if test "$#" -eq 0; then
+        command git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" status
+    else
+        command git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+    fi
+}
+
 # Cleanup local git branches no longer on remote side
 function git_branch_cleanup() {
     git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done

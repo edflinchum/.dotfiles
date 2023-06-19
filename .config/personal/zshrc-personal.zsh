@@ -2,6 +2,11 @@
 #                          ZSH configuration                         #
 ######################################################################
 
+# Additional options and completions
+setopt nobeep
+setopt completealiases
+compdef dot=git
+
 # Print some system information when the shell is first started
 if   (( $+commands[fastfetch] )); then fastfetch
 elif (( $+commands[neofetch]  )); then neofetch
@@ -14,15 +19,9 @@ if (( $+commands[micro] )); then
   export VISUAL=$EDITOR
 fi
 
-# Additional options and completions
-setopt nobeep
-setopt completealiases
-compdef dot=git
-
 # Do not expand these aliases using omz globalias plugin
 GLOBALIAS_FILTER_VALUES=(
   cp
-  dot
   egrep
   fgrep
   gh

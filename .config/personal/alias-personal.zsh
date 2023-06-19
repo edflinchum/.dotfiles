@@ -52,11 +52,8 @@ alias sr="sudo reboot"
 # software management
 alias upall="update && brew upgrade"
 
-# backup dotfiles with bare git repo
-alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-alias dots="dot status"
-
 # git
+alias dots="dot status"
 alias gbc=git_branch_cleanup
 
 # kubernetes
