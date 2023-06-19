@@ -75,30 +75,33 @@ plugins=(
   git
   globalias
   sudo
+  systemadmin
 )
 
-# Plugins that are only enabled if the programs are installed
-if (( $+commands[aws] ))     ; then  plugins+=(aws)     ; SHOW_AWS_PROMPT=false; fi
-if (( $+commands[az] ))      ; then  plugins+=(azure)   ; fi
-if (( $+commands[brew] ))    ; then  plugins+=(brew)    ; fi
-if (( $+commands[docker] ))  ; then  plugins+=(docker)  ; zstyle ':completion:*:*:docker:*' option-stacking yes; zstyle ':completion:*:*:docker-*:*' option-stacking yes; fi
-if (( $+commands[fzf] ))     ; then  plugins+=(fzf)     ; FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'; fi
-if (( $+commands[gcloud] ))  ; then  plugins+=(gcloud)  ; fi
-if (( $+commands[gh] ))      ; then  plugins+=(gh)      ; fi
-if (( $+commands[helm] ))    ; then  plugins+=(helm)    ; fi
-if (( $+commands[kubectl] )) ; then  plugins+=(kubectl) ; fi
-if (( $+commands[starship] )); then  plugins+=(starship); unset ZSH_THEME; fi
+# Optional plugins that are only loaded if the program is available
+if (( $+commands[aws]      )); then  plugins+=(aws)     ; SHOW_AWS_PROMPT=false; fi
+if (( $+commands[az]       )); then  plugins+=(azure)   ; fi
+if (( $+commands[brew]     )); then  plugins+=(brew)    ; fi
+if (( $+commands[docker]   )); then  plugins+=(docker)  ; zstyle ':completion:*:*:docker:*' option-stacking yes; zstyle ':completion:*:*:docker-*:*' option-stacking yes; fi
+if (( $+commands[fzf]      )); then  plugins+=(fzf)     ; FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'; fi
+if (( $+commands[gcloud]   )); then  plugins+=(gcloud)  ; fi
+if (( $+commands[gh]       )); then  plugins+=(gh)      ; fi
+if (( $+commands[helm]     )); then  plugins+=(helm)    ; fi
+if (( $+commands[kubectl]  )); then  plugins+=(kubectl) ; fi
+if (( $+commands[starship] )); then  plugins+=(starship); fi
 
-# Load custom plugins
-plugins+=(autoupdate)
-plugins+=(zsh-autosuggestions)
-plugins+=(fast-syntax-highlighting) # Should be loaded after other plugins
-plugins+=(history-substring-search) # Builtin plugin but must be loaded after syntax highlighting
+# Load plugins from custom folder
+plugins+=(
+  autoupdate
+  zsh-autosuggestions
+  fast-syntax-highlighting # Should be loaded after other plugins
+  history-substring-search # Standard plugin that must be loaded after syntax highlighting
+)
 
-# Check for missing custom plugins and install them
-[ ! -d $ZSH_CUSTOM/plugins/autoupdate ] && command git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
-[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && command git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && command git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+# Check for missing custom plugins and install them if necessary
+[ ! -d $ZSH_CUSTOM/plugins/autoupdate               ] && git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
+[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
