@@ -4,9 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-${ZSH_VERSION}"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -41,7 +38,7 @@ zstyle ':omz:update' frequency 7
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -80,59 +77,28 @@ plugins=(
   sudo
 )
 
-# Additional plugins that are only enabled if the programs are installed
-if (( $+commands[aws] )); then
-  plugins+=(aws)
-  SHOW_AWS_PROMPT=false
-fi
-if (( $+commands[az] )); then
-  plugins+=(azure)
-fi
-if (( $+commands[brew] )); then
-  plugins+=(brew)
-fi
-if (( $+commands[docker] )); then
-  plugins+=(docker)
-  zstyle ':completion:*:*:docker:*'   option-stacking yes
-  zstyle ':completion:*:*:docker-*:*' option-stacking yes
-fi
-if (( $+commands[fzf] )); then
-  plugins+=(fzf)
-  FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
-fi
-if (( $+commands[gcloud] )); then
-  plugins+=(gcloud)
-fi
-if (( $+commands[gh] )); then
-  plugins+=(gh)
-fi
-if (( $+commands[helm] )); then
-  plugins+=(helm)
-fi
-if (( $+commands[kubectl] )); then
-  plugins+=(kubectl)
-fi
-if (( $+commands[starship] )); then
-  plugins+=(starship)
-  unset ZSH_THEME
-fi
-
-# Install custom plugins if they are missing
-if [ ! -d $ZSH_CUSTOM/plugins/autoupdate ]; then
-  command git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
-fi
-if [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
-  command git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-fi
-if [ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ]; then
-  command git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
-fi
+# Plugins that are only enabled if the programs are installed
+if (( $+commands[aws] ))     ; then  plugins+=(aws)     ; SHOW_AWS_PROMPT=false; fi
+if (( $+commands[az] ))      ; then  plugins+=(azure)   ; fi
+if (( $+commands[brew] ))    ; then  plugins+=(brew)    ; fi
+if (( $+commands[docker] ))  ; then  plugins+=(docker)  ; zstyle ':completion:*:*:docker:*' option-stacking yes; zstyle ':completion:*:*:docker-*:*' option-stacking yes; fi
+if (( $+commands[fzf] ))     ; then  plugins+=(fzf)     ; FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'; fi
+if (( $+commands[gcloud] ))  ; then  plugins+=(gcloud)  ; fi
+if (( $+commands[gh] ))      ; then  plugins+=(gh)      ; fi
+if (( $+commands[helm] ))    ; then  plugins+=(helm)    ; fi
+if (( $+commands[kubectl] )) ; then  plugins+=(kubectl) ; fi
+if (( $+commands[starship] )); then  plugins+=(starship); unset ZSH_THEME; fi
 
 # Load custom plugins
 plugins+=(autoupdate)
 plugins+=(zsh-autosuggestions)
 plugins+=(fast-syntax-highlighting) # Should be loaded after other plugins
 plugins+=(history-substring-search) # Builtin plugin but must be loaded after syntax highlighting
+
+# Check for missing custom plugins and install them
+[ ! -d $ZSH_CUSTOM/plugins/autoupdate ] && command git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
+[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && command git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && command git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
