@@ -8,6 +8,8 @@ if type micro &>/dev/null; then
   export VISUAL=$EDITOR
 fi
 
+# Environment variables
+export LESSHISTFILE=-
 
 ######################################################################
 #                        Additional features                         #
@@ -23,13 +25,12 @@ if ! type brew &>/dev/null; then
     BREW_LOCATION="/usr/local/bin/brew"
   elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
     BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
-  else
-    return
   fi
-  eval "$("$BREW_LOCATION" shellenv)"
-  unset BREW_LOCATION
+  if [ -n "$BREW_LOCATION" ]; then
+    eval $($BREW_LOCATION shellenv)
+    unset BREW_LOCATION
+  fi
 fi
-
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [ -r  "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
@@ -42,7 +43,9 @@ if type brew &>/dev/null; then
 fi
 
 # Load starship prompt
-eval "$(starship init bash)"
+if type starship &>/dev/null; then 
+  eval "$(starship init bash)"
+fi
 
 # Print some system information when the shell is first started
 if type fastfetch &>/dev/null; then
@@ -51,15 +54,14 @@ else
   echo $USER@$HOST  $(uname -srm)  $(command -v lsb_release &>/dev/null && lsb_release -rcs)
 fi
 
-
 ######################################################################
 #                              Aliases                               #
 ######################################################################
 
 # Load personal aliases and functions
-if [ -f  ~/.config/personal/alias-personal.zsh ]; then
+if [ -r  ~/.config/personal/alias-personal.zsh ]; then
   source ~/.config/personal/alias-personal.zsh
 fi
-if [ -f  ~/.config/personal/functions-personal.zsh ]; then
+if [ -r  ~/.config/personal/functions-personal.zsh ]; then
   source ~/.config/personal/functions-personal.zsh
 fi

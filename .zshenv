@@ -1,27 +1,24 @@
-# Homebrew
+# Add brew location to PATH
 if (( ! $+commands[brew] )); then
-  if   test -x /home/linuxbrew/.linuxbrew/bin/brew; then
-    BREW_FILE="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif test -x /opt/homebrew/bin/brew; then
-    BREW_FILE="/opt/homebrew/bin/brew"
-  elif test -x /usr/local/bin/brew; then
-    BREW_FILE="/usr/local/bin/brew"
-  elif test -x $HOME/.linuxbrew/bin/brew; then
-    BREW_FILE="$HOME/.linuxbrew/bin/brew"
-  else
-    return
+  if test -x "/home/linuxbrew/.linuxbrew/bin/brew"; then
+    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
+  elif test -x "/opt/homebrew/bin/brew"; then
+    BREW_LOCATION="/opt/homebrew/bin/brew"
+  elif test -x "/usr/local/bin/brew"; then
+    BREW_LOCATION="/usr/local/bin/brew"
+  elif test -x "$HOME/.linuxbrew/bin/brew"; then
+    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
   fi
-  eval $($BREW_FILE shellenv)
-  unset BREW_FILE
 fi
-if [ -z "$HOMEBREW_PREFIX" ]; then
-  export HOMEBREW_PREFIX="$(brew --prefix)"
-fi
-if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
-  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+if [ -n "$BREW_LOCATION" ]; then
+  eval $($BREW_LOCATION shellenv)
+  unset BREW_LOCATION
+  if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
+    fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+  fi
 fi
 
-# set PATH so it includes user's private bin if it exists
+# Add private bin folders to PATH
 typeset -U PATH path
 if [ -d "$HOME/bin" ]; then
   path=("$HOME/bin" "$path[@]")
@@ -33,3 +30,4 @@ export PATH
 
 # Environment variables
 export LESSHISTFILE=-
+
