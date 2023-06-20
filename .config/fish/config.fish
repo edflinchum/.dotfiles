@@ -15,7 +15,7 @@ set -q FZF_DEFAULT_OPTS; or set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse -
 
 # Micro
 if type -q micro
-  set -q EDITOR; or set -gx EDITOR $(command -v micro)
+  set -q EDITOR; or set -gx EDITOR (command -v micro)
   set -q VISUAL; or set -gx VISUAL $EDITOR
 end
 

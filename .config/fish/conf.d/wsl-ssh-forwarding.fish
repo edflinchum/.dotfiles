@@ -1,7 +1,7 @@
 # Configure ssh forwarding if using WSL
-if string match -qr WSL $(uname -a)
+if string match -qr WSL (uname -a); and type -q socat
     set -gx SSH_AUTH_SOCK $HOME/.ssh/agent.sock
-    set ALREADY_RUNNING $(ps -auxww | grep -q '[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent'; echo $status)
+    set ALREADY_RUNNING (ps -auxww | grep -q '[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent'; echo $status)
     if test $ALREADY_RUNNING != "0"
         if test -S $SSH_AUTH_SOCK
             echo "removing previous socket..."
