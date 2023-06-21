@@ -8,12 +8,12 @@
 
 format="""
 $os\
-$shlvl\
 [(\
-$shell\
 $time\
 $battery\
  )](bgcolor1)\
+$shlvl\
+$shell\
 $cmd_duration\
 $fill \
 $kubernetes\
@@ -52,7 +52,11 @@ palette = "custom1"
 # black = '#000000'
 # bgcolor1 = 'none'
 # bgcolor2 = 'none'
-bgcolor1 = '#111111'
+bgcolor1 = 'black'
+bgcolor2 = 'bright-black'
+
+[palettes.ubuntu]
+bgcolor1 = 'black'
 bgcolor2 = 'bright-black'
 ubuntu_orange = '#E95420'
 ubuntu_light_aubergine = '#77216F'
@@ -90,7 +94,7 @@ unknown_symbol = "❓ "
 empty_symbol = "❗ "
 
 [[battery.display]]
-threshold = 100
+threshold = 90
 
 [character]
 format = '$symbol '
@@ -121,7 +125,7 @@ format = 'on [$symbol($project )[\($region\)]($style dimmed)]($style) '
 symbol = ' '
 
 [hostname]
-ssh_only = false
+# ssh_only = false
 format = '[$ssh_symbol$hostname]($style bg:bgcolor2)'
 # format = '[@$ssh_symbol$hostname ]($style)'
 style = 'bright-green'
@@ -139,7 +143,7 @@ symbol = '⎈ '
 '.*cluster/(.*)' = '$1'
 
 [localip]
-ssh_only = false
+# ssh_only = false
 disabled = false
 # format = '([](bgcolor)[$localipv4]($style bg:bgcolor)[](bgcolor) )'
 format = '[ [\[](bg:bgcolor2)$localipv4[\]](bg:bgcolor2)]($style bg:bgcolor2)'
@@ -177,12 +181,12 @@ bash_indicator = ' '
 zsh_indicator = '💤'
 powershell_indicator = ' '
 unknown_indicator = ' '
-format  = '[$indicator ]($style bg:bgcolor1)'
+# format  = '[$indicator ]($style bg:bgcolor1)'
 # format  = '[$indicator]($style)'
 
 [shlvl]
 disabled = false
-# format = '[$symbol]($style)'
+# format = '[$symbol]($style) '
 # format = '[$symbol$shlvl ]($style bg:bgcolor2)'
 # symbol = ''
 # symbol = '❯'
@@ -205,7 +209,7 @@ format = '[ $time]($style bg:bgcolor1)'
 style = 'bold bright-yellow'
 
 [username]
-show_always = true
+# show_always = true
 format = '[$user[@](bg:bgcolor2)]($style bg:bgcolor2)'
 # format = '[$user]($style)'
 style_user = 'bright-yellow'
