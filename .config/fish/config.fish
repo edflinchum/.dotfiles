@@ -13,6 +13,9 @@ end
 # Fzf
 set -q FZF_DEFAULT_OPTS; or set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
+# Less
+set -q LESSHISTFILE; or set -gx LESSHISTFILE "-"
+
 # Micro
 if type -q micro
   set -q EDITOR; or set -gx EDITOR (command -v micro)
