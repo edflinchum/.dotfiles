@@ -1,4 +1,5 @@
 # Install fisher plugin manager if it is missing
-if not type -q fisher
-  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish -o $HOME/.config/fish/functions/fisher.fish
+set -l fisher_path $HOME/.config/fish/functions/fisher.fish
+if not test -e $fisher_path
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish -o $fisher_path
 end
