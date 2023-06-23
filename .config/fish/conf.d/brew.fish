@@ -1,27 +1,18 @@
 # Homebrew
 if not type -q brew
-  if test -x /home/linuxbrew/.linuxbrew/bin/brew
-    set BREW /home/linuxbrew/.linuxbrew/bin/brew
-  else if test -x /opt/homebrew/bin/brew
-    set BREW /opt/homebrew/bin/brew
-  else if test -x /usr/local/bin/brew
-    set BREW /usr/local/bin/brew
-  else if test -x $HOME/.linuxbrew/bin/brew
-    set BREW $HOME/.linuxbrew/bin/brew
+  set -l brew_paths {{/home/linuxbrew,$HOME}/.linuxbrew/, /opt/homebrew/{,s}, /usr/{,s,local/{,s}}, /{,s}}bin/brew
+  for brew_path in $brew_paths
+    if test -x $brew_path
+      $brew_path shellenv | source
+      break
+    end
   end
-end
-
-if set -q BREW
-  $BREW shellenv | source
-  set -e BREW
 end
 
 # Homebrew completions
 if test -d $HOMEBREW_PREFIX/share/fish/completions
-  and not contains $HOMEBREW_PREFIX/share/fish/completions $fish_complete_path
   set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
 end
 if test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
-  and not contains $HOMEBREW_PREFIX/share/fish/vendor_completions.d $fish_complete_path
   set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
 end
