@@ -10,9 +10,14 @@ if not type -q brew
 end
 
 # Homebrew completions
-if test -d $HOMEBREW_PREFIX/share/fish/completions
-  set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
-end
-if test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
-  set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+if type -q brew
+  if test -z $HOMEBREW_PREFIX
+    brew shellenv | source
+  end
+  if test -d $HOMEBREW_PREFIX/share/fish/completions
+    set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
+  end
+  if test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+    set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+  end
 end

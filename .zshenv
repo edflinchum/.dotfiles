@@ -10,8 +10,13 @@ if (( ! $+commands[brew] )); then
 fi
 
 # Homebrew completions
-if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
-  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+if (( $+commands[brew] )); then
+  if [ -z "$HOMEBREW_PREFIX" ]; then
+    eval $(brew shellenv)
+  fi
+  if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
+    fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+  fi
 fi
 
 # Add private bin folders to PATH
