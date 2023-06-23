@@ -9,6 +9,6 @@ if string match -qr WSL (uname -a); and type -q socat
             string match -qr systemd (ps -ch 1); and sleep 8
         end
         echo "Starting SSH-Agent relay..."
-        setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork >/dev/null 2>&1 & disown
+        setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork &>/dev/null & disown
     end
 end
