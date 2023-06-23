@@ -15,9 +15,11 @@ if type -q brew
     brew shellenv | source
   end
   if test -d $HOMEBREW_PREFIX/share/fish/completions
-    set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
+    and not contains $HOMEBREW_PREFIX/share/fish/completions $fish_complete_path
+    set -a fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
   end
   if test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
-    set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+    and not contains $HOMEBREW_PREFIX/share/fish/vendor_completions.d $fish_complete_path
+    set -a fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
   end
 end

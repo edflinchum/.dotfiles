@@ -1102,7 +1102,10 @@ complete -c git -n '__fish_git_using_command add' -l ignore-errors -d 'Ignore er
 complete -c git -n '__fish_git_using_command add' -l ignore-missing -d 'Check if any of the given files would be ignored'
 # Renames also show up as untracked + deleted, and to get git to show it as a rename _both_ need to be added.
 # However, we can't do that as it is two tokens, so we don't need renamed here.
-complete -f -c git -n '__fish_git_using_command add' -a '(__fish_git_files modified untracked deleted unmerged modified-staged-deleted)'
+### BEGIN MODIFIED LINES ### : Workaround added because `git add` completions take too long with .dotfiles due to searching untracked files in entire home directory
+# complete -f -c git -n '__fish_git_using_command add' -a '(__fish_git_files modified untracked deleted unmerged modified-staged-deleted)'
+complete -F -c git -n '__fish_git_using_command add' -a '(__fish_git_files modified untracked deleted unmerged modified-staged-deleted)'
+### END MODIFIED LINES ###
 # TODO options
 
 ### am
