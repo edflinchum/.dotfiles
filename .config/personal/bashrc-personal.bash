@@ -2,27 +2,23 @@
 #                         BASH configuration                         #
 ######################################################################
 
-# Homebrew paths
+# Homebrew
 if ! type brew &>/dev/null; then
-  if   [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
-    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif [ -x /opt/homebrew/bin/brew ]; then
-    BREW_LOCATION="/opt/homebrew/bin/brew"
-  elif [ -x /usr/local/bin/brew ]; then
-    BREW_LOCATION="/usr/local/bin/brew"
-  elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
-    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
-  fi
-  if [ -n "$BREW_LOCATION" ]; then
-    eval $($BREW_LOCATION shellenv)
-    unset BREW_LOCATION
-  fi
+  brew_paths=($(echo {{/home/linuxbrew,$HOME}/.linuxbrew/,/opt/homebrew/{,s},/usr/{,s,local/{,s}},/{,s}}bin/brew))
+  for brew_path in ${brew_paths[@]}; do
+    if test -x $brew_path; then
+      eval $($brew_path shellenv)
+      break
+    fi
+  done
 fi
 
 # Homebrew completions
 if type brew &>/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [ -r  "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
+  if [ -z "$HOMEBREW_PREFIX" ]; then
+    eval $(brew shellenv)
+  fi
+  if [ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
   else
     for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
