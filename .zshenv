@@ -1,21 +1,17 @@
-# Add brew location to PATH
+# Homebrew
 if (( ! $+commands[brew] )); then
-  if   test -x    "/home/linuxbrew/.linuxbrew/bin/brew"; then
-    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
-  elif test -x    "/opt/homebrew/bin/brew"; then
-    BREW_LOCATION="/opt/homebrew/bin/brew"
-  elif test -x    "/usr/local/bin/brew"; then
-    BREW_LOCATION="/usr/local/bin/brew"
-  elif test -x    "$HOME/.linuxbrew/bin/brew"; then
-    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
-  fi
+  brew_paths=($(echo {{/home/linuxbrew,$HOME}/.linuxbrew/,/opt/homebrew/{,s},/usr/{,s,local/{,s}},/{,s}}bin/brew))
+  for brew_path in $brew_paths; do
+    if test -x $brew_path; then
+      eval $($brew_path shellenv)
+      break
+    fi
+  done
 fi
-if [ -n "$BREW_LOCATION" ]; then
-  eval $($BREW_LOCATION shellenv)
-  unset BREW_LOCATION
-  if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
-    fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
-  fi
+
+# Homebrew completions
+if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
+  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
 # Add private bin folders to PATH
