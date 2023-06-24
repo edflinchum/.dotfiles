@@ -152,3 +152,13 @@ function update () {
         echo "Unable to determine which package manager to use for updates"
     fi
 }
+
+# A function for expanding any aliases before accepting the line as is and executing the entered command
+expand-alias-and-accept-line() {
+    globalias
+    zle .backward-delete-char
+    zle .accept-line
+}
+if typeset -f globalias &>/dev/null; then
+    zle -N accept-line expand-alias-and-accept-line
+fi
