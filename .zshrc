@@ -72,6 +72,7 @@ ZSH_CUSTOM="$HOME/.config/personal"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   colored-man-pages
+  extract
   git
   globalias
   history-substring-search
