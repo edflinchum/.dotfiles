@@ -4,7 +4,7 @@
 
 # Homebrew
 if ! type brew &>/dev/null; then
-  brew_paths=($(echo {{/home/linuxbrew,$HOME}/.linuxbrew/,/opt/homebrew/{,s},/usr/{,s,local/{,s}},/{,s}}bin/brew))
+  brew_paths=( {{/home/linuxbrew,$HOME}/.linuxbrew/,/opt/homebrew/{,s},/usr/{,s,local/{,s}},/{,s}}bin/brew )
   for brew_path in ${brew_paths[@]}; do
     if test -x $brew_path; then
       eval $($brew_path shellenv)
