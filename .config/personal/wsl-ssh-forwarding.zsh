@@ -9,6 +9,6 @@ if (( $+commands[socat] )) && [[ $(uname -a) =~ WSL ]]; then
             [[ $(ps -ch 1) =~ systemd ]] && sleep 8
         fi
         echo "Starting SSH-Agent relay..."
-        (setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork &>/dev/null &)
+        (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork &>/dev/null &)
     fi
 fi
