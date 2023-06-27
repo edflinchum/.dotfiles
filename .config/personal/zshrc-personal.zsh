@@ -18,6 +18,7 @@ setopt rcexpandparam                                            # array expansio
 setopt promptsubst                                              # enable substitution for prompt
 
 compdef dot=git
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 # Use micro as default editor
 if (( $+commands[micro] )); then
