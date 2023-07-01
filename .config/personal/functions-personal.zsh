@@ -25,16 +25,6 @@ git_branch_cleanup() {
     git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
 }
 
-# Expand aliases with globalias even when pressing ENTER
-expand-alias-and-accept-line() {
-    globalias
-    zle .backward-delete-char
-    zle .accept-line
-}
-if typeset -f globalias &>/dev/null; then
-    zle -N accept-line expand-alias-and-accept-line
-fi
-
 # Package manager independent update
 update () {
     if [ -e /etc/os-release ] ; then

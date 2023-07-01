@@ -74,7 +74,6 @@ plugins=(
   colored-man-pages
   extract
   git
-  globalias
   history-substring-search
   sudo
   systemadmin
@@ -100,9 +99,13 @@ if (( $+commands[starship] )); then plugins+=(starship); fi
 # Load custom plugins
 plugins+=(
   fast-syntax-highlighting
+  globalias
   ohmyzsh-full-autoupdate
   zsh-autosuggestions
 )
+
+# Do not expand these aliases using globalias plugin
+GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -131,6 +134,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Do not expand these aliases using globalias plugin
-GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which)
