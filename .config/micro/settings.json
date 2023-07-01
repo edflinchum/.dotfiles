@@ -2,5 +2,8 @@
     "autoclose": false,
     "clipboard": "terminal",
     "rmtrailingws": true,
+    "tabmovement": true,
+    "tabsize": 2,
+    "tabstospaces": true,
     "useprimary": false
 }
