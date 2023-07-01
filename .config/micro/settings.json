@@ -1,5 +1,6 @@
 {
     "autoclose": false,
     "clipboard": "terminal",
+    "rmtrailingws": true,
     "useprimary": false
 }
