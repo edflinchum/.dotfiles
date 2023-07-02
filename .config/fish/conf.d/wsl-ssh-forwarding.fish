@@ -1,5 +1,5 @@
 # Configure ssh forwarding if using WSL
-if type -q socat; and string match -qr WSL (uname -a)
+if type -q socat; and type -q npiperelay.exe; and string match -qr WSL (uname -a)
     set -gx SSH_AUTH_SOCK $HOME/.ssh/agent.sock
     if not string match -qr $SSH_AUTH_SOCK (ps x)
         echo "Starting SSH-Agent relay..."

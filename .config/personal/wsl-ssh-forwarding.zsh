@@ -1,5 +1,5 @@
 # Configure ssh forwarding if using WSL
-if (( $+commands[socat] )) && [[ $(uname -a) =~ WSL ]]; then
+if (( $+commands[socat] )) && (( $+commands[npiperelay.exe] )) && [[ $(uname -a) =~ WSL ]]; then
     export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
     if ! [[ $(ps x) =~ $SSH_AUTH_SOCK ]]; then
         echo "Starting SSH-Agent relay..."
