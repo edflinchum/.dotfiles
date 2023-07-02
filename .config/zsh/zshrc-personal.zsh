@@ -2,7 +2,7 @@
 #                          ZSH configuration                         #
 ######################################################################
 
-# Additional options and completions
+# Additional options, completions, and styles
 setopt appendhistory                                            # immediately append history instead of overwriting
 setopt autocd                                                   # if only directory path is entered, cd there
 setopt nobeep                                                   # no beep
@@ -18,7 +18,10 @@ setopt rcexpandparam                                            # array expansio
 setopt promptsubst                                              # enable substitution for prompt
 
 compdef dot=git
+
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Use micro as default editor
 if (( $+commands[micro] )); then
@@ -35,7 +38,10 @@ if (( $+commands[op] )); then
 fi
 
 # Print some system information when the shell is first started
-if   (( $+commands[fastfetch] )); then fastfetch
-elif (( $+commands[neofetch]  )); then neofetch
-else echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
+if (( $+commands[fastfetch] )); then
+  fastfetch
+elif (( $+commands[neofetch] )); then
+  neofetch
+else
+  echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
 fi

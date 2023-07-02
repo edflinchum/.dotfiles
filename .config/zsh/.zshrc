@@ -63,7 +63,7 @@ zstyle ':omz:update' frequency 7
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/.config/personal"
+ZSH_CUSTOM="${ZDOTDIR:-$HOME/.config/zsh}"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -80,11 +80,11 @@ plugins=(
 )
 
 # Additional plugins that are only loaded if the program is available
-if (( $+commands[aws]      )); then plugins+=(aws)     ; SHOW_AWS_PROMPT=false; fi
+if (( $+commands[aws]      )); then plugins+=(aws)     ; fi
 if (( $+commands[az]       )); then plugins+=(azure)   ; fi
 if (( $+commands[brew]     )); then plugins+=(brew)    ; fi
-if (( $+commands[docker]   )); then plugins+=(docker)  ; zstyle ':completion:*:*:docker:*' option-stacking yes; zstyle ':completion:*:*:docker-*:*' option-stacking yes; fi
-if (( $+commands[fzf]      )); then plugins+=(fzf)     ; FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'; fi
+if (( $+commands[docker]   )); then plugins+=(docker)  ; fi
+if (( $+commands[fzf]      )); then plugins+=(fzf)     ; fi
 if (( $+commands[gcloud]   )); then plugins+=(gcloud)  ; fi
 if (( $+commands[gh]       )); then plugins+=(gh)      ; fi
 if (( $+commands[helm]     )); then plugins+=(helm)    ; fi
@@ -92,20 +92,17 @@ if (( $+commands[kubectl]  )); then plugins+=(kubectl) ; fi
 if (( $+commands[starship] )); then plugins+=(starship); fi
 
 # Check for missing custom plugins and install them if necessary
-[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
-[ ! -d $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate  ] && git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
-[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions                  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+[ ! -d $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate  ] && git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate
+[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions                  $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # Load custom plugins
 plugins+=(
   fast-syntax-highlighting
-  globalias
+  globalias # customized version of standard globalias plugin
   ohmyzsh-full-autoupdate
   zsh-autosuggestions
 )
-
-# Do not expand these aliases using globalias plugin
-GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which)
 
 source $ZSH/oh-my-zsh.sh
 

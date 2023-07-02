@@ -3,6 +3,6 @@ if (( $+commands[socat] )) && (( $+commands[npiperelay.exe] )) && [[ $(uname -a)
     export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
     if ! [[ $(ps x) =~ $SSH_AUTH_SOCK ]]; then
         echo "Starting SSH-Agent relay..."
-        setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,unlink-early EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork &>/dev/null
+        (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork,unlink-early EXEC:'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent',nofork & disown) &>/dev/null
     fi
 fi

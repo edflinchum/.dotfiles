@@ -9,7 +9,8 @@ if [ -f  /etc/skel/.bashrc ]; then
   source /etc/skel/.bashrc
 fi
 
-# Load personal config
-if [ -f  ~/.config/personal/bashrc-personal.bash ]; then
-  source ~/.config/personal/bashrc-personal.bash
-fi
+# Load personal configuration
+for config_file in $HOME/.config/bash/*.bash; do
+  [ -r $config_file ] && source $config_file
+done
+unset config_file

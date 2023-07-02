@@ -44,6 +44,11 @@ if type micro &>/dev/null; then
   export VISUAL=$EDITOR
 fi
 
+# Configure ssh forwarding if using WSL
+if [ -r  ~/.config/personal/bash/wsl-ssh-forwarding.bash ]; then
+  source ~/.config/personal/bash/wsl-ssh-forwarding.bash
+fi
+
 # Load starship prompt
 if type starship &>/dev/null; then
   eval "$(starship init bash)"
