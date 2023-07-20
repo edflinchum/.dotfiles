@@ -90,19 +90,20 @@ if (( $+commands[gh]       )); then plugins+=(gh)      ; fi
 if (( $+commands[helm]     )); then plugins+=(helm)    ; fi
 if (( $+commands[kubectl]  )); then plugins+=(kubectl) ; fi
 if (( $+commands[starship] )); then plugins+=(starship); fi
+if (( $+commands[tmux]     )); then plugins+=(tmux)    ; fi
 
-# Check for missing custom plugins and install them if necessary
-[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
-[ ! -d $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate  ] && git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate
-[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions                  $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-# Load custom plugins
+# Load plugins from the $ZSH_CUSTOM folder
 plugins+=(
   fast-syntax-highlighting
-  globalias # customized version of standard globalias plugin
+  globalias # Customized copy of the built-in `globalias` plugin
   ohmyzsh-full-autoupdate
   zsh-autosuggestions
 )
+
+# Check for any missing custom plugins and install them if necessary
+[ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
+[ ! -d $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate  ] && git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate
+[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions                  $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 source $ZSH/oh-my-zsh.sh
 
