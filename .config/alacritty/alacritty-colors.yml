@@ -1971,6 +1971,6 @@ key_bindings:
         args: ["/home/ed/.config/alacritty/colorscheme_previous.py"]} }
 
 window:
-  opacity: 0.8
+  opacity: 0.925
 
-colors: *custom_1
+colors: *new_moon
