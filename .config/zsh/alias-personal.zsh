@@ -10,9 +10,9 @@ alias cls="clear"
 alias ls="ls --color=auto"                                                                    # ls short listing
 alias la="ls -AFhl --color=auto --group-directories-first"                                    # ls long listing
 alias l.="ls -A | egrep '^\.'"                                                                # ls hidden files
-alias ll="exa -aFghl --color-scale --group-directories-first --time-style=long-iso --icons"   # exa long listing
-alias lg="exa -aFGghl --color-scale --group-directories-first --time-style=long-iso --icons"  # exa grid listing
-alias lt="exa -aFT --color-scale --group-directories-first --icons"                           # exa tree listing
+alias ll="exa -aghlF --color-scale --group-directories-first --time-style=long-iso --icons"   # exa long listing
+alias lg="exa -aGghlF --color-scale --group-directories-first --time-style=long-iso --icons"  # exa grid listing
+alias lt="exa -aTF --color-scale --group-directories-first --icons"                           # exa tree listing
 
 # confirm before overwriting files
 alias cp="cp -iv"
