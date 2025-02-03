@@ -1,6 +1,35 @@
 [colors]
 draw_bold_text_with_bright_colors = false
 
+[font]
+size = 13
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_padding = true
+opacity = 1.0
+startup_mode = "Maximized"
+
+[window.padding]
+x = 10
+y = 10
+
+[keyboard]
+
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
@@ -11,31 +40,24 @@ action = "Quit"
 key = "W"
 mods = "Control|Shift"
 
-[font]
-size = 13
 
-[font.glyph_offset]
-x = 0
-y = 0
 
-[font.normal]
-family = "CaskaydiaCove Nerd Font"
-style = "Regular"
 
-[font.offset]
-x = 0
-y = 0
 
-[selection]
-save_to_clipboard = true
 
-[window]
-dynamic_padding = true
-opacity = 0.925
-startup_mode = "Maximized"
 
-[window.padding]
-x = 10
-y = 10
 
-[keyboard]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
