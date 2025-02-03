@@ -45,8 +45,8 @@ if type micro &>/dev/null; then
 fi
 
 # Configure ssh forwarding if using WSL
-if [ -r  ~/.config/personal/bash/wsl-ssh-forwarding.bash ]; then
-  source ~/.config/personal/bash/wsl-ssh-forwarding.bash
+if [ -r  ~/.config/bash/wsl-ssh-forwarding.bash ]; then
+  source ~/.config/bash/wsl-ssh-forwarding.bash
 fi
 
 # Load starship prompt
@@ -68,9 +68,9 @@ fi
 ######################################################################
 
 # Load personal aliases and functions
-if [ -r  ~/.config/personal/alias-personal.zsh ]; then
-  source ~/.config/personal/alias-personal.zsh
+if [ -r  ~/.config/zsh/alias-personal.zsh ]; then
+  source ~/.config/zsh/alias-personal.zsh
 fi
-if [ -r  ~/.config/personal/functions-personal.zsh ]; then
-  source ~/.config/personal/functions-personal.zsh
+if [ -r  ~/.config/zsh/functions-personal.zsh ]; then
+  source ~/.config/zsh/functions-personal.zsh
 fi
