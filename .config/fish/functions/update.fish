@@ -3,7 +3,7 @@ function update --description "Package manager independent update"
 
   switch $ID
 
-    case '*arch*'
+    case '*arch*' '*endeavouros*'
       if type -q paru
         paru -Syu
       else

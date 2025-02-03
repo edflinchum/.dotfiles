@@ -30,7 +30,7 @@ update () {
     if [ -e /etc/os-release ] ; then
         source /etc/os-release
         case $ID in
-            arch)
+            arch | endeavouros)
               if command -v paru &>/dev/null
                 then paru -Syu
                 else sudo pacman -Syu
