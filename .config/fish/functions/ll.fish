@@ -1,3 +1,3 @@
-function ll --wraps=exa --description 'alias ll exa -aFghl --color-scale --group-directories-first --time-style=long-iso --icons'
-  exa -aFghl --color-scale --group-directories-first --time-style=long-iso --icons $argv; 
+function ll --wraps=eza --description 'alias ll eza -aghlF --group-directories-first --time-style=long-iso --icons'
+  eza -aghlF --group-directories-first --time-style=long-iso --icons $argv;
 end

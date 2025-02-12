@@ -1,3 +1,3 @@
-function lg --wraps=exa --description 'alias lg exa -aFGghl --color-scale --group-directories-first --time-style=long-iso --icons'
-  exa -aFGghl --color-scale --group-directories-first --time-style=long-iso --icons $argv; 
+function lg --wraps=eza --description 'alias lg eza -aGghlF --group-directories-first --time-style=long-iso --icons'
+  eza -aGghlF --group-directories-first --time-style=long-iso --icons $argv;
 end

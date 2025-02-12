@@ -1,3 +1,3 @@
-function lt --wraps=exa --description 'alias lt exa -aFT --color-scale --group-directories-first --icons'
-  exa -aFT --color-scale --group-directories-first --icons $argv; 
+function lt --wraps=eza --description 'alias lt eza -aTF --group-directories-first --icons'
+  eza -aTF --group-directories-first --icons $argv;
 end
