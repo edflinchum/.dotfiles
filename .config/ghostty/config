@@ -43,4 +43,4 @@
 # resize-overlay-duration = 4s 200ms
 
 font-family = "CaskaydiaCove Nerd Font"
-theme = "Molokai"
+theme = Galaxy
