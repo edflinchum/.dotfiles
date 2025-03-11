@@ -1,9 +1,14 @@
-[credential "https://github.com"]
-	helper = 
-	helper = !$(which gh) auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !$(which gh) auth git-credential
+# For using gh and personal token
+# [credential "https://github.com"]
+# 	helper =
+# 	helper = !$(which gh) auth git-credential
+# [credential "https://gist.github.com"]
+# 	helper =
+# 	helper = !$(which gh) auth git-credential
+
+# Store machine specific settings in personal gitconfig-local
+# [include]
+# 	path = ~/.config/personal/gitconfig-local
 
 [diff]
 	colorMoved = zebra
@@ -13,7 +18,3 @@
 	defaultBranch = main
 [pull]
 	ff = only
-
-# Store machine specific settings in personal gitconfig-local
-[include]
-	path = ~/.config/personal/gitconfig-local
