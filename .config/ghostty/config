@@ -1,4 +1,5 @@
 font-family = "CaskaydiaCove Nerd Font"
 maximize = true
 theme = "Adwaita Dark"
-keybind = ctrl+shift+w=close_surface
+background-opacity = 0.9
+# keybind = ctrl+shift+w=close_surface
