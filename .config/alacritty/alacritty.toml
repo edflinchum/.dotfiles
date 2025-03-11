@@ -21,7 +21,7 @@ save_to_clipboard = true
 
 [window]
 dynamic_padding = true
-opacity = 1.0
+opacity = 0.9
 startup_mode = "Maximized"
 
 [window.padding]
@@ -39,25 +39,3 @@ mods = "Control|Shift"
 action = "Quit"
 key = "W"
 mods = "Control|Shift"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
