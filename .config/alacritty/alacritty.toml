@@ -10,7 +10,7 @@ draw_bold_text_with_bright_colors = false
 save_to_clipboard = true
 
 [font]
-size = 13
+size = 12
 
 [font.normal]
 family = "CaskaydiaMono Nerd Font"
