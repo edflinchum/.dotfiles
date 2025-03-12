@@ -1,6 +1,6 @@
 [general]
 import = [
-  "~/.config/alacritty/theme.toml",
+  "theme-current.toml",
 ]
 
 [colors]
@@ -36,5 +36,6 @@ y = 10
 [keyboard]
 bindings = [
   { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "T", mods = "Control|Shift", command = {program="bash",args=["-c","~/.config/alacritty/theme_select.sh"]} },
   { key = "W", mods = "Control|Shift", action = "Quit" },
 ]
