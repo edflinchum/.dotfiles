@@ -37,6 +37,8 @@ fi
 
 # Environment variables
 export LESSHISTFILE=-
+# Options for fzf plugin
+  FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
 # Use micro as default editor
 if type micro &>/dev/null; then
