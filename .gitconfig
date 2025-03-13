@@ -6,10 +6,6 @@
 # 	helper =
 # 	helper = !$(which gh) auth git-credential
 
-# Store machine specific settings in personal gitconfig-local
-# [include]
-# 	path = ~/.config/personal/gitconfig-local
-
 [diff]
 	colorMoved = zebra
 [fetch]
@@ -18,3 +14,7 @@
 	defaultBranch = main
 [pull]
 	ff = only
+
+# Store machine specific settings in .gitconfig-local
+[include]
+	path = ~/.gitconfig-local
