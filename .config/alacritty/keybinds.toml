@@ -1,0 +1,6 @@
+[keyboard]
+bindings = [
+  { key = "~", mods = "Control|Shift", command = { program="sh", args = [ "-c", "~/.config/alacritty/theme_select.sh" ] } },
+  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "W", mods = "Control|Shift", action = "Quit" },
+]

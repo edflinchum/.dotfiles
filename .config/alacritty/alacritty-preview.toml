@@ -1,5 +1,9 @@
 [general]
 import = [
-  "alacritty.toml",
+  "style.toml",
+  "keybinds.toml",
   "theme-preview.toml",
 ]
+
+[window]
+opacity = 1.0

@@ -1,41 +1,6 @@
 [general]
 import = [
-  "theme-current.toml",
-]
-
-[colors]
-draw_bold_text_with_bright_colors = false
-
-[selection]
-save_to_clipboard = true
-
-[font]
-size = 12
-
-[font.normal]
-family = "CaskaydiaMono Nerd Font"
-style = "Regular"
-
-[font.offset]
-x = 0
-y = 0
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[window]
-dynamic_padding = true
-opacity = 0.9
-startup_mode = "Maximized"
-
-[window.padding]
-x = 10
-y = 10
-
-[keyboard]
-bindings = [
-  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
-  { key = "T", mods = "Control|Shift", command = {program="bash",args=["-c","~/.config/alacritty/theme_select.sh"]} },
-  { key = "W", mods = "Control|Shift", action = "Quit" },
+  "style.toml",
+  "keybinds.toml",
+  "theme.toml",
 ]
