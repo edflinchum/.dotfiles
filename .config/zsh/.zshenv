@@ -15,11 +15,13 @@ fi
 
 ## Environment variables
 # Turn off less history file
-export LESSHISTFILE=-
+  LESSHISTFILE=-
 # Options for fzf plugin
   FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 # Do not expand these aliases using globalias plugin
-  GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which)
+  GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which 1 2 3 4 5 6 7 8 9)
+# Turn on micro truecolor feature
+  MICRO_TRUECOLOR=1
 # Turn off rprompt info in aws plugin
   SHOW_AWS_PROMPT=false
 # Used by Ubuntu global config
