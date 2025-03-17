@@ -1,6 +1,7 @@
 {
     "autoclose": false,
     "clipboard": "terminal",
+    "colorscheme": "cmc-16",
     "rmtrailingws": true,
     "tabmovement": true,
     "tabsize": 2,
