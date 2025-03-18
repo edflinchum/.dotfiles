@@ -1,7 +1,6 @@
 [general]
 import = [
   "style.toml",
-  "keybinds.toml",
   "theme-preview.toml",
 ]
 
