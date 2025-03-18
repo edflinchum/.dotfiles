@@ -1,6 +1,16 @@
 [keyboard]
 bindings = [
-  { key = "~", mods = "Control|Shift", command = { program="sh", args = [ "-c", "~/.config/alacritty/theme_select.sh" ] } },
+# Spawn New Instance
   { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+# Quit
   { key = "W", mods = "Control|Shift", action = "Quit" },
+# Select Theme
+  { key = "~", mods = "Control|Shift", command = { program="sh", args = [ "-c",
+          "~/.config/alacritty/theme_select.sh" ] } },
+# Increase Background Opacity
+  { key = "Up", mods = "Control|Shift", command = { program="sh", args = [ "-c",
+          "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
+# Decrease Background Opacity
+  { key = "Down", mods = "Control|Shift", command = { program="sh", args = [ "-c",
+          "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
 ]
