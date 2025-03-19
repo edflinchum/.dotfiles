@@ -1,5 +1,8 @@
 font-family = "CaskaydiaCove Nerd Font"
+
 maximize = true
 theme = "Adwaita Dark"
 background-opacity = 0.9
-# keybind = ctrl+shift+w=close_surface
+
+keybind = ctrl+shift+w=close_surface
+keybind = super+ctrl+shift+plus=equalize_splits
