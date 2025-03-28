@@ -10,9 +10,9 @@ alias cls="clear"
 alias ls="ls --color=auto"                                                      # ls short listing
 alias la="ls -AFhl --color=auto --group-directories-first"                      # ls long listing
 alias l.="ls -A | egrep '^\.'"                                                  # ls hidden files
-alias ll="eza -aghlF --group-directories-first --time-style=long-iso --icons"   # exa long listing
-alias lg="eza -aGghlF --group-directories-first --time-style=long-iso --icons"  # exa grid listing
-alias lt="eza -aTF --group-directories-first --icons"                           # exa tree listing
+alias ll="eza -aghlF --group-directories-first --time-style=long-iso --icons"   # eza long listing
+alias lg="eza -aGghlF --group-directories-first --time-style=long-iso --icons"  # eza grid listing
+alias lt="eza -aTF --group-directories-first --icons"                           # eza tree listing
 
 # confirm before overwriting files
 alias cp="cp -iv"
@@ -50,7 +50,7 @@ alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
 # software management
-alias upall="update && brew upgrade"
+# alias upall="update && brew upgrade"
 
 # git
 alias dots="dot status"

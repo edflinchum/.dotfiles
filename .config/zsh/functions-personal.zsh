@@ -54,6 +54,14 @@ update () {
     fi
 }
 
+# Update packages from all sources
+upall () {
+    update
+    if command -v flatpak  &>/dev/null; then printf "\n*** Flatpak update ***\n\n" ; flatpak update ; fi
+    if command -v pacstall &>/dev/null; then printf "\n*** Pacstall update ***\n\n"; pacstall -Up   ; fi
+    if command -v brew     &>/dev/null; then printf "\n*** Homebrew update ***\n\n"; brew upgrade   ; fi
+}
+
 # Colormap
 colormap() {
     for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
