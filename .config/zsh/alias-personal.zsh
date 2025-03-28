@@ -49,9 +49,6 @@ alias userlist="cut -d: -f1 /etc/passwd"
 alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 
-# software management
-# alias upall="update && brew upgrade"
-
 # git
 alias dots="dot status"
 alias gbc=git_branch_cleanup
@@ -65,7 +62,7 @@ alias kcu="kubectl config unset current-context"
 alias kx='f() { [ "$1" ] && kubectl config use-context $1 || kubectl config current-context ; } ; f'
 alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 || kubectl config view --minify | grep namespace | cut -d" " -f6 ; } ; f'
 
-# starship
+# starship prompt
 alias spta="starship toggle aws"
 alias sptz="starship toggle azure"
 alias sptg="starship toggle gcloud"
