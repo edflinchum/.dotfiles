@@ -36,7 +36,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Environment variables
-export LESSHISTFILE=-
+  LESSHISTFILE=-
 # Options for fzf plugin
   FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
