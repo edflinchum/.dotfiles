@@ -51,6 +51,16 @@ if type starship &>/dev/null; then
   eval "$(starship init bash)"
 fi
 
+# Load fzf; Set up fzf key bindings and fuzzy completion
+if type fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+fi
+
+# Load zoxide
+if type zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
 # Print some system information when the shell is first started
 if type fastfetch &>/dev/null; then
   fastfetch
