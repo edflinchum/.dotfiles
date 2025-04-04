@@ -1,11 +1,3 @@
-# For using gh and personal token
-# [credential "https://github.com"]
-# 	helper =
-# 	helper = !$(which gh) auth git-credential
-# [credential "https://gist.github.com"]
-# 	helper =
-# 	helper = !$(which gh) auth git-credential
-
 [diff]
 	colorMoved = zebra
 [fetch]
@@ -14,7 +6,28 @@
 	defaultBranch = main
 [pull]
 	ff = only
-
-# Store machine specific settings in .gitconfig-local
 [include]
 	path = ~/.gitconfig-local
+
+## Add local machine-specific git settings to ~/.gitconfig-local
+## as it is not stored in the .dotfiles repo
+
+## EXAMPLES:
+
+## Add default user info to ~/.gitconfig-local
+## Default user info is not added to global ~/.gitconfig
+## because I sometimes need to use 2 separate github accounts:
+## (1) personal github account for .dotfiles repo and
+## (2) work github account for all other work repos
+#  [user]
+#    name = [redacted]
+#    email = [redacted]@users.noreply.github.com
+
+## If using "gh" cli tool with personal access token
+## instead of ssh keys
+#  [credential "https://github.com"]
+#    helper =
+#    helper = !$(which gh) auth git-credential
+#  [credential "https://gist.github.com"]
+#    helper =
+#    helper = !$(which gh) auth git-credential
