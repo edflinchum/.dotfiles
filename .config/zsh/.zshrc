@@ -89,8 +89,10 @@ if (( $+commands[gcloud]   )); then plugins+=(gcloud)  ; fi
 if (( $+commands[gh]       )); then plugins+=(gh)      ; fi
 if (( $+commands[helm]     )); then plugins+=(helm)    ; fi
 if (( $+commands[kubectl]  )); then plugins+=(kubectl) ; fi
+if (( $+commands[ruby]     )); then plugins+=(ruby)    ; fi
 if (( $+commands[starship] )); then plugins+=(starship); fi
 if (( $+commands[tmux]     )); then plugins+=(tmux)    ; fi
+if (( $+commands[zoxide]   )); then plugins+=(zoxide)  ; fi
 
 # Load plugins from the $ZSH_CUSTOM folder
 plugins+=(
@@ -104,6 +106,9 @@ plugins+=(
 [ ! -d $ZSH_CUSTOM/plugins/fast-syntax-highlighting ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
 [ ! -d $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate  ] && git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git            $ZSH_CUSTOM/plugins/ohmyzsh-full-autoupdate
 [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions      ] && git clone https://github.com/zsh-users/zsh-autosuggestions                  $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+# Check for oh-my-zsh folder and install it if necessary
+[ ! -d $ZSH ] && git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH
 
 source $ZSH/oh-my-zsh.sh
 

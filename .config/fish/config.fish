@@ -32,16 +32,21 @@ if status is-interactive
     enable_transience
   end
 
-  # Fastfetch
-  if type -q fastfetch
-    fastfetch
+  # Zoxide
+  if type -q zoxide
+    zoxide init fish | source
   end
 
   # 1password cli
   if type -q op
     op completion fish | source
     if test -e ~/.config/op/plugins.sh
-        source ~/.config/op/plugins.sh
+      source ~/.config/op/plugins.sh
     end
+  end
+
+  # Fastfetch
+  if type -q fastfetch
+    fastfetch
   end
 end
