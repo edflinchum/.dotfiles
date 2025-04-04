@@ -57,9 +57,9 @@ update () {
 # Update packages from all sources
 upall () {
     update
-    if command -v flatpak  &>/dev/null; then printf "\n*** Flatpak update ***\n\n" ; flatpak update ; fi
-    if command -v pacstall &>/dev/null; then printf "\n*** Pacstall update ***\n\n"; pacstall -Up   ; fi
-    if command -v brew     &>/dev/null; then printf "\n*** Homebrew update ***\n\n"; brew upgrade   ; fi
+    if command -v flatpak  &>/dev/null; then printf "\n\n*** Flatpak update ***\n\n" ; flatpak update ; fi
+    if command -v pacstall &>/dev/null; then printf "\n\n*** Pacstall update ***\n\n"; pacstall -Up   ; fi
+    if command -v brew     &>/dev/null; then printf "\n\n*** Homebrew update ***\n\n"; brew upgrade   ; fi
 }
 
 # Colormap
