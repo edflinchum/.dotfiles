@@ -1,5 +1,5 @@
 # DiscFlyer's .dotfiles repo
-Backup of configuration files using a bare .dotfiles git repo and git work tree in $HOME  
+Backup of configuration files using a bare .dotfiles git repo and git work tree in $HOME  \
 **_Note:_** The `dot` alias is no longer needed with the git wrapper function included in these dotfiles.
 
 ## First-time Setup (One time only)
