@@ -6,11 +6,11 @@
 	defaultBranch = main
 [pull]
 	ff = only
+[status]
+	showStash = true
 [user]
 	useConfigOnly = true
 
-[include]
-	path = ~/.gitconfig-local
 # Add other global git settings including identity to ~/.gitconfig-local
 # as this file is not tracked or stored in the public .dotfiles repo.
 # This also allows me to use a different git profile for work if needed.
@@ -19,3 +19,6 @@
 # [user]
 #   name = [redacted]
 #   email = [redacted]@users.noreply.github.com
+
+[include]
+	path = ~/.gitconfig-local
