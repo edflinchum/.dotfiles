@@ -1,7 +1,7 @@
 title: Flinchum.net
 description: >-
-  DiscFlyer's .dotfiles repo
+  My .dotfiles repo
 
-repository: DiscFlyer/.dotfiles
+repository: edflinchum/.dotfiles
 
 theme: jekyll-theme-architect
