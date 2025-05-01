@@ -1,37 +1,37 @@
-# DiscFlyer's .dotfiles repo
-Backup of configuration files using a bare .dotfiles git repo and git work tree in $HOME  \
-**_Note:_** The `dot` alias is no longer needed with the git wrapper function included in these dotfiles.
+# My .dotfiles repo
+This is how I backup my configuration files using a bare git repo named `.dotfiles` with the git work-tree set to `$HOME`.
 
-## First-time Setup (One time only)
+## How to set up a new computer to use these .dotfiles
 ```sh
-git init --bare $HOME/.dotfiles
-alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-dot remote add origin git@github.com:DiscFlyer/.dotfiles.git
-```
-
-## Replicate Setup on Another Computer
-```sh
-git clone --bare https://github.com/DiscFlyer/.dotfiles.git $HOME/.dotfiles
+git clone --bare https://github.com/edflinchum/.dotfiles.git $HOME/.dotfiles
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout -f
 ```
-#### Alternate method (old)
+### Additional Configuration
+**_Note:_** The `dot` alias shown here is no longer needed with the `git` wrapper function included in this repo.
 ```sh
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/DiscFlyer/.dotfiles.git my-dotfiles-tmp
-rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
-rm --recursive my-dotfiles-tmp
+alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
-
-## Additional Configuration
-Can use `git` instead of `dot` with included git wrapper
+I only want git to track files that I explicitly add to the repo.
 ```sh
-dot remote set-url origin git@github.com:DiscFlyer/.dotfiles.git
 dot config --local status.showUntrackedFiles no
+```
+This is how to set user identity to be used with the .dotfiles repo.
+```sh
 dot config --local user.name "John Doe"
 dot config --local user.email johndoe@example.com
 ```
+This will configure git to use ssh instead of https with this repo.
+```sh
+dot remote set-url origin git@github.com:edflinchum/.dotfiles.git
+```
 
-## Example Usage
-Can use `git` instead of `dot` with included git wrapper
+## How to set up your own .dotfiles bare repo from scratch
+```sh
+git init --bare $HOME/.dotfiles
+alias dot='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dot remote add origin git@github.com:[your_github_name]/.dotfiles.git
+```
+### Example Usage
 ```sh
 dot status
 dot add .filename
