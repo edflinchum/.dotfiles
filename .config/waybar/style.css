@@ -1,0 +1,309 @@
+
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+
+/* -----------------------------------------------------------------------------
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+/* import css color definitions for current theme */
+@import url("colors.css");
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+    * {
+        border: none;
+        border-radius: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+/* Each module */
+    window > * > * > * > * {   /* includes all modules */
+        font-family: "MesloLGS Nerd Font", "DroidSansMono Nerd Font", "DejaVuSansMono Nerd Font", "RobotoMono Nerd Font", monospace, "FontAwesome";
+        font-size: 9pt;
+        font-weight: bold;
+        margin: 0px 1px;
+        padding: 0px 6px;
+    }
+/* No margins on the ends of the bar */
+    .modules-left > widget:first-child > * {
+        margin-left: 0px;
+    }
+    .modules-right > widget:last-child > * {
+        margin-right: 0px;
+    }
+/* Round the ends of each module section */
+    .modules-center > widget:last-child > *,
+    .modules-left   > widget:nth-last-child(2) > *,   /* include this line if sway/window is the last left module */
+    .modules-left   > widget:last-child > * {
+        border-radius: 0px 40px 40px 0px;
+    }
+    .modules-center > widget:first-child > *,
+    .modules-right  > widget:first-child > * {
+        border-radius: 40px 0px 0px 40px;
+    }
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    background-color: @battery;
+    color: @dark;
+}
+#clock {
+    border: 1px solid @border;
+}
+#clock.date {
+    background-color: @date;
+    color: @light;
+    margin-right: 0px;
+    border-right: none;
+}
+#clock.time {
+    background-color: @time;
+    color: @dark;
+    margin-left: 0px;
+    border-left: none;
+}
+#cpu {
+    background-color: @cpu;
+    color: @dark;
+}
+#disk {
+    background-color: @disk;
+    color: @dark;
+}
+#idle_inhibitor {
+    background-color: @idle;
+    color: @light;
+    padding: 0px 10px 0px 5px;
+    margin-right: 0px;
+}
+#language {
+    background-color: @language;
+    color: @dark;
+    min-width: 32px;
+}
+#memory {
+    background-color: @memory;
+    color: @dark;
+}
+#mode {
+    background-color: @mode;
+    color: @light;
+    font-style: italic;
+    border: 2px solid @border;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#network {
+    background-color: @network;
+    color: @dark;
+}
+#network.speed {
+    background-color: @speed;
+    color: @dark;
+    min-width: 80px;
+}
+#pulseaudio {
+    background-color: @sound;
+    color: @dark;
+}
+#pulseaudio:not(.source) {
+    margin-right: 0px;
+}
+#pulseaudio.source {
+    margin-left: 0px;
+}
+#taskbar {
+    background-color: @taskbar;
+}
+#taskbar button {
+    background-color: @taskbar;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    padding: 0px 2px;
+}
+#taskbar button.active {
+    border-color: @border;
+}
+#temperature {
+    background-color: @temp;
+    color: @dark;
+}
+#tray {
+    background-color: @tray;
+    color: @light;
+    margin-left: 0px;
+}
+window#waybar {
+    background-color: alpha(@window, 0.7);
+    border: 5px solid transparent;
+    transition-property: all;
+    transition-duration: 2s;
+}
+window#waybar.solo {
+    background-color: @window;
+    border-color: @window;
+}
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+#window {
+    color: @bright;
+    font-style: italic;
+}
+#workspaces {
+    padding: 0px;
+}
+#workspaces button {
+    background-color: @workspaces;
+    color: @bright;
+    padding: 0px 10px 0px 5px;
+    border: 1px solid @workspaces;
+}
+#workspaces button.persistent {
+    color: @dark;
+}
+#workspaces button.focused {
+    background-color: @focused;
+    color: @light;
+    font-weight: bolder;
+    border-color: @focused;
+}
+#workspaces button:hover {
+    border-color: @border;
+}
+#workspaces button.urgent {
+    color: @critical;
+}
+
+/* -----------------------------------------------------------------------------
+ * Custom Module styles
+ * -------------------------------------------------------------------------- */
+
+#custom-alsa {
+    background-color: @sound;
+    color: @dark;
+}
+#custom-media {
+    background-color: @media;
+    color: @dark;
+}
+#custom-pacman {
+    background-color: @updates;
+    color: @light;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#custom-power {
+    background-color: @power;
+    color: @light;
+    padding: 0px 12px 0px 10px;
+}
+#custom-weather {
+    background-color: @weather;
+    color: @dark;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Animations and Alerts
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+    70% { color: @dark; }
+     to { color: @dark; background-color: @warning; }
+}
+@keyframes blink-critical {
+    70% { color: @light; }
+     to { color: @light; background-color: @critical; }
+}
+@keyframes blink-notify {
+    70% { color: @dark; }
+     to { color: @dark; background-color: @light; }
+}
+
+/* Each module that should blink */
+    #battery,
+    #cpu,
+    #custom-pacman,
+    #disk,
+    #idle_inhibitor,
+    #memory,
+    #mode,
+    #pulseaudio,
+    #temperature {
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+/* Each critical module */
+    #battery.critical,
+    #cpu.critical,
+    #disk.critical,
+    #memory.critical,
+    #temperature.critical {
+        color: @critical;
+    }
+
+/* Each critical that should blink */
+    #battery.critical.discharging,
+    #cpu.critical,
+    #disk.critical,
+    #memory.critical,
+    #mode,
+    #temperature.critical {
+        animation-name: blink-critical;
+        animation-duration: 2s;
+    }
+
+/* Each warning module*/
+    #battery.warning,
+    #bluetooth.disabled,
+    #cpu.warning,
+    #custom-pacman,
+    #disk.warning,
+    #idle_inhibitor.activated,
+    #memory.warning,
+    #network.disconnected,
+    #pulseaudio.muted:not(.source) {
+        color: @warning;
+    }
+
+/* Each warning that should blink */
+    #battery.warning.discharging,
+    #cpu.warning,
+    #disk.warning,
+    #memory.warning {
+        animation-name: blink-warning;
+        animation-duration: 3s;
+    }
+
+/* Each module that should flash when activated */
+    #custom-pacman,
+    #idle_inhibitor.activated,
+    #pulseaudio.muted:not(.source) {
+        animation-name: blink-notify;
+        animation-duration: 0.3s;
+        animation-iteration-count: 6;
+    }
