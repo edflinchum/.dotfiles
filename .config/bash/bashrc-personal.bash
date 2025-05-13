@@ -37,6 +37,9 @@ fi
 
 # Environment variables
   LESSHISTFILE=-
+  HISTSIZE=50000
+  HISTFILE=$HOME/.config/bash/.bash_history
+
 # Options for fzf plugin
   FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
@@ -75,9 +78,9 @@ fi
 ######################################################################
 
 # Load personal aliases and functions
-if [ -r  ~/.config/zsh/alias-personal.zsh ]; then
-  source ~/.config/zsh/alias-personal.zsh
+if [ -r  $HOME/.config/zsh/alias-personal.zsh ]; then
+  source $HOME/.config/zsh/alias-personal.zsh
 fi
-if [ -r  ~/.config/zsh/functions-personal.zsh ]; then
-  source ~/.config/zsh/functions-personal.zsh
+if [ -r  $HOME/.config/zsh/functions-personal.zsh ]; then
+  source $HOME/.config/zsh/functions-personal.zsh
 fi
