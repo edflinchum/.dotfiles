@@ -26,6 +26,8 @@ fi
   SHOW_AWS_PROMPT=false
 # Used by Ubuntu global config
   skip_global_compinit=1
+# Set starship config file location
+  export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 ## Add private bin folders to PATH
 typeset -U PATH path FPATH fpath

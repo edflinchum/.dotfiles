@@ -23,6 +23,9 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
+HISTSIZE=50000
+HISTFILE=$ZDOTDIR/.zsh_history
+
 # Use micro as default editor
 if (( $+commands[micro] )); then
   export EDITOR=$(command -v micro)
@@ -40,8 +43,6 @@ fi
 # Print some system information when the shell is first started
 if (( $+commands[fastfetch] )); then
   fastfetch
-elif (( $+commands[neofetch] )); then
-  neofetch
 else
   echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
 fi
