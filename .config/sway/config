@@ -230,9 +230,11 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-bar {
-    swaybar_command waybar
-}
+
+# bar {
+#     swaybar_command waybar
+# }
+exec waybar -c ~/.config/sway/waybar/config.jsonc -s ~/.config/sway/waybar/style.css
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*

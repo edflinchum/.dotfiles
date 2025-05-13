@@ -308,7 +308,7 @@
         },
         "escape": true,
         "on-click": "playerctl play-pause",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+        "exec": "$HOME/.config/sway/waybar/mediaplayer.py 2> /dev/null"
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/pacman": {
@@ -330,7 +330,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 900,
-        "exec": "$HOME/.config/waybar/weather.py",
+        "exec": "$HOME/.config/sway/waybar/weather.py",
         "return-type": "json"
     }
 }
