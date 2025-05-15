@@ -28,6 +28,7 @@ end
 if status is-interactive
   # Starship
   if type -q starship
+    set -q STARSHIP_CONFIG; or set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
     starship init fish | source
     enable_transience
   end

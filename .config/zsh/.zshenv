@@ -15,7 +15,7 @@ fi
 
 ## Environment variables
 # Turn off less history file
-  LESSHISTFILE=-
+  export LESSHISTFILE=-
 # Options for fzf plugin
   FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 # Do not expand these aliases using globalias plugin
@@ -27,7 +27,7 @@ fi
 # Used by Ubuntu global config
   skip_global_compinit=1
 # Set starship config file location
-  export STARSHIP_CONFIG=~/.config/starship/starship.toml
+  export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 ## Add private bin folders to PATH
 typeset -U PATH path FPATH fpath

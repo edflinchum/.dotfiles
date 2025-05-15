@@ -52,6 +52,7 @@ fi
 # Load starship prompt
 if type starship &>/dev/null; then
   eval "$(starship init bash)"
+  export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 fi
 
 # Load fzf; Set up fzf key bindings and fuzzy completion
