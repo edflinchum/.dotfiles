@@ -5,12 +5,15 @@ bindings = [
 # Quit
   { key = "W", mods = "Control|Shift", action = "Quit" },
 # Select Theme
-  { key = "~", mods = "Control|Shift", command = { program="sh", args = [ "-c",
-          "~/.config/alacritty/theme_select.sh" ] } },
+  { key = "T", mods = "Control|Shift", command = { program="sh", args = [ "-c", "~/.config/alacritty/theme_select.sh" ] } },
+# Reset Config
+  { key = "R", mods = "Control|Shift", command = { program="alacritty", args = [ "msg", "config", "--reset" ] } },
+# Set Background Window Opacity to Opaque
+  { key = "B", mods = "Control|Shift", command = { program="alacritty", args = [ "msg", "config", "window.opacity=1.0" ] } },
 # Increase Background Opacity
   { key = "Up", mods = "Control|Shift", command = { program="sh", args = [ "-c",
-          "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
+    "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
 # Decrease Background Opacity
   { key = "Down", mods = "Control|Shift", command = { program="sh", args = [ "-c",
-          "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
+    "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml" ] } },
 ]
