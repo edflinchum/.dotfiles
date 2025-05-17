@@ -4,27 +4,33 @@ alacritty \
   --config-file ~/.config/alacritty/alacritty-theme-preview.toml \
   --working-directory ~/.config/alacritty \
   --command sh -c '
-    ls $ALACRITTY_THEME_PATH |
-    fzf \
-      --cycle --layout=reverse --border --preview-window=wrap,60% \
-      --preview """
-#########################################################################################
-ln -sf $ALACRITTY_THEME_PATH/{} theme-preview.toml
-echo PREVIEW OF ALACRITTY THEME: {}
-echo
-  #########################################################################################
-  #  This portion of the preview window is borrowed from the `print_colors.sh` script at  #
-  #  https://github.com/alacritty/alacritty-theme                                         #
-  #########################################################################################
-printf \"|039| \033[39mDefault \033[m  |049| \033[49mDefault \033[m  |037| \033[37mLight gray \033[m     |047| \033[47mLight gray \033[m\n\"
-printf \"|030| \033[30mBlack \033[m    |040| \033[40mBlack \033[m    |090| \033[90mDark gray \033[m      |100| \033[100mDark gray \033[m\n\"
-printf \"|031| \033[31mRed \033[m      |041| \033[41mRed \033[m      |091| \033[91mLight red \033[m      |101| \033[101mLight red \033[m\n\"
-printf \"|032| \033[32mGreen \033[m    |042| \033[42mGreen \033[m    |092| \033[92mLight green \033[m    |102| \033[102mLight green \033[m\n\"
-printf \"|033| \033[33mYellow \033[m   |043| \033[43mYellow \033[m   |093| \033[93mLight yellow \033[m   |103| \033[103mLight yellow \033[m\n\"
-printf \"|034| \033[34mBlue \033[m     |044| \033[44mBlue \033[m     |094| \033[94mLight blue \033[m     |104| \033[104mLight blue \033[m\n\"
-printf \"|035| \033[35mMagenta \033[m  |045| \033[45mMagenta \033[m  |095| \033[95mLight magenta \033[m  |105| \033[105mLight magenta \033[m\n\"
-printf \"|036| \033[36mCyan \033[m     |046| \033[46mCyan \033[m     |096| \033[96mLight cyan \033[m     |106| \033[106mLight cyan \033[m\n\"
-#########################################################################################
-""" |
-    xargs -I {} ln -sf $ALACRITTY_THEME_PATH/{} theme.toml
+    load_themes () {
+      if [ -d alacritty-theme ]; then
+        echo Updating theme list...
+        command git -C alacritty-theme pull
+      else
+        echo Installing themes...
+        git clone https://github.com/alacritty/alacritty-theme
+        echo
+        echo Theme package has been loaded for the first time.
+        echo Live theme reloading will not occur until a theme is selected and the terminal is restarted.
+      fi
+    }
+
+    select_theme () {
+      echo Select a new theme...
+      ls alacritty-theme/themes |
+      fzf --cycle --layout=reverse --border --height=60% --preview-window=wrap,60% --preview "\
+        ln -sf alacritty-theme/themes/{} theme-preview.toml
+        echo ALACRITTY THEME: {}
+        echo
+        alacritty-theme/print_colors.sh
+      " | xargs -I {} ln -sf alacritty-theme/themes/{} theme.toml
+    }
+
+    echo ALACRITTY THEME SELECTOR
+    echo
+    load_themes
+    echo
+    select_theme
   '
