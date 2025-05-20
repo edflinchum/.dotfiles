@@ -15,30 +15,47 @@ mods = "Control|Shift"
 action = "Quit"
 
 
-# Disable transparency for current window
-[[keyboard.bindings]]
-key = "T"
-mods = "Control|Shift"
-[keyboard.bindings.command]
-  program="alacritty"
-  args = [
-    "msg",
-    "config",
-    "window.opacity=1.0"
-  ]
-
-
 # Reset config
 [[keyboard.bindings]]
 key = "R"
 mods = "Control|Shift"
 [keyboard.bindings.command]
-  program = "alacritty"
-  args = [
-    "msg",
-    "config",
-    "--reset"
-  ]
+program = "alacritty"
+args = [
+  "msg",
+  "config",
+  "--reset"
+]
+
+
+# Select Theme
+[[keyboard.bindings]]
+key = "T"
+mods = "Alt|Shift"
+[keyboard.bindings.command]
+program = "alacritty"
+args = [
+  "msg", "create-window",
+  "--working-directory", ".config/alacritty",
+  "--option", "window.opacity=1",
+  "--command", "sh", "-c",
+  """
+    printf "ALACRITTY THEME SELECTOR\n\n"
+    printf "Updating themes...\n\n"
+      if [ -d alacritty-theme ]; then
+        command git -C alacritty-theme pull
+      else
+        git clone https://github.com/alacritty/alacritty-theme
+      fi
+    printf "\nSelect a new theme...\n"
+      ls alacritty-theme/themes | fzf --preview '
+        alacritty msg config "$(cat alacritty-theme/themes/{})"
+        printf "ALACRITTY THEME: {}\n\n"
+        alacritty-theme/print_colors.sh
+      ' | xargs -I {} cp -f alacritty-theme/themes/{} theme.toml
+    alacritty msg config "$(cat theme.toml)" --window-id -1
+  """
+]
 
 
 # Increase default background opacity
@@ -46,11 +63,11 @@ mods = "Control|Shift"
 key = "Up"
 mods = "Control|Shift"
 [keyboard.bindings.command]
-  program = "sh"
-  args = [
-    "-c",
-    "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
-  ]
+program = "sh"
+args = [
+  "-c",
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+]
 
 
 # Decrease default background opacity
@@ -59,90 +76,45 @@ key = "Down"
 mods = "Control|Shift"
 [keyboard.bindings.command]
 program = "sh"
-  args = [
-    "-c",
-    "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
-  ]
+args = [
+  "-c",
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+]
+
+
+# Disable transparency for current window
+[[keyboard.bindings]]
+key = "T"
+mods = "Control|Shift"
+[keyboard.bindings.command]
+program="alacritty"
+args = [
+  "msg",
+  "config",
+  "window.opacity=1"
+]
 
 
 # Set background opacity for current window
+[[keyboard.bindings]]
+key = "O"
+mods = "Alt|Shift"
+[keyboard.bindings.command]
+program = "alacritty"
+args = [
+  "msg", "create-window",
+  "--command", "sh", "-c",
+  """
+    printf "ALACRITTY OPACITY SELECTOR\n\n\nSelect opacity...\n"
+    seq -f %g 1 -0.025 0 | fzf --preview "alacritty msg config window.opacity={} --window-id -1"
+  """
+]
+
+
+# Set background opacity for current window (alternate)
 # [[keyboard.bindings]]
-# key = "Y"
-# mods = "Control|Shift"
+# key = "O"
+# mods = "Alt|Shift"
 # chars = """
 #   seq -f %g 1 -0.025 0 | fzf --preview 'alacritty msg config window.opacity={}' &>/dev/null
 # """
-
-# Clear screen first
-# [[keyboard.bindings]]
-# key = "Y"
-# mods = "Control|Shift"
-# chars = "\u000c"
-
-# Set background opacity for current window
-[[keyboard.bindings]]
-key = "Y"
-mods = "Control|Shift"
-[keyboard.bindings.command]
-  program = "sh"
-  args = [
-    "-c",
-    """
-      alacritty msg create-window --command sh -c '
-        printf "ALACRITTY OPACITY SELECTOR\n\n\nSelect opacity...\n"
-        seq -f %g 1 -0.025 0 | fzf --preview "alacritty msg config window.opacity={} -w -1"
-      '
-    """
-  ]
-
-
-# Select Theme
-[[keyboard.bindings]]
-key = "~"
-mods = "Control|Shift"
-[keyboard.bindings.command]
-  program = "sh"
-  args = [
-    "-c",
-    """
-      alacritty \
-        --config-file ~/.config/alacritty/alacritty-theme-preview.toml \
-        --working-directory ~/.config/alacritty \
-        --command sh -c '
-          load_themes () {
-            if [ -d alacritty-theme ]; then
-              echo Updating theme list...
-              command git -C alacritty-theme pull
-            else
-              echo Installing themes...
-              git clone https://github.com/alacritty/alacritty-theme
-              echo
-              echo Theme package has been loaded for the first time.
-              echo Live theme reloading will not occur until a theme is selected and the terminal is restarted.
-            fi
-          }
-          select_theme () {
-            echo Select a new theme...
-            ls alacritty-theme/themes |
-            fzf \
-              --cycle \
-              --layout=reverse \
-              --border \
-              --height=60% \
-              --preview-window=wrap,60% \
-              --preview "
-                ln -sf alacritty-theme/themes/{} theme-preview.toml
-                echo ALACRITTY THEME: {}
-                echo
-                alacritty-theme/print_colors.sh
-              " |
-            xargs -I {} ln -sf alacritty-theme/themes/{} theme.toml
-          }
-          echo ALACRITTY THEME SELECTOR
-          echo
-          load_themes
-          echo
-          select_theme
-        '
-    """
-  ]

@@ -1,8 +1,0 @@
-[general]
-import = [
-  "style.toml",
-  "theme-preview.toml",
-]
-
-[window]
-opacity = 1.0

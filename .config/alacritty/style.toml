@@ -11,4 +11,5 @@ draw_bold_text_with_bright_colors = true
 startup_mode = "Maximized"
 dynamic_padding = true
 padding = { x = 10, y = 10 }
+blur = true
 opacity = 0.8
