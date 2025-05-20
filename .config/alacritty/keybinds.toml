@@ -1,4 +1,6 @@
-### Alacritty keyboard bindings
+# -----------------------------------------------------------------------------
+# Alacritty key bindings
+# -----------------------------------------------------------------------------
 
 # Open new window
 [[keyboard.bindings]]
@@ -7,6 +9,7 @@ mods = "Control|Shift"
 action = "SpawnNewInstance"
 # action = "CreateNewWindow"
 
+# -----------------------------------------------------------------------------
 
 # Close current window
 [[keyboard.bindings]]
@@ -14,32 +17,46 @@ key = "W"
 mods = "Control|Shift"
 action = "Quit"
 
+# -----------------------------------------------------------------------------
 
-# Reset config
+# Increase default background opacity
 [[keyboard.bindings]]
-key = "R"
+key = "Up"
 mods = "Control|Shift"
 [keyboard.bindings.command]
-program = "alacritty"
+program = "sh"
 args = [
-  "msg",
-  "config",
-  "--reset"
+  "-c",
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
 ]
 
+# -----------------------------------------------------------------------------
+
+# Decrease default background opacity
+[[keyboard.bindings]]
+key = "Down"
+mods = "Control|Shift"
+[keyboard.bindings.command]
+program = "sh"
+args = [
+  "-c",
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+]
+
+# -----------------------------------------------------------------------------
 
 # Select Theme
 [[keyboard.bindings]]
 key = "T"
-mods = "Alt|Shift"
+mods = "Control|Shift"
 [keyboard.bindings.command]
 program = "alacritty"
 args = [
   "msg", "create-window",
   "--working-directory", ".config/alacritty",
-  "--option", "window.opacity=1",
   "--command", "sh", "-c",
   """
+    alacritty msg config "window.opacity=1"
     printf "ALACRITTY THEME SELECTOR\n\n"
     printf "Updating themes...\n\n"
       if [ -d alacritty-theme ]; then
@@ -57,35 +74,26 @@ args = [
   """
 ]
 
+# -----------------------------------------------------------------------------
 
-# Increase default background opacity
+# Reset config for current window
 [[keyboard.bindings]]
-key = "Up"
-mods = "Control|Shift"
+key = "R"
+mods = "Alt|Shift"
 [keyboard.bindings.command]
-program = "sh"
+program = "alacritty"
 args = [
-  "-c",
-  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+  "msg",
+  "config",
+  "--reset"
 ]
 
-
-# Decrease default background opacity
-[[keyboard.bindings]]
-key = "Down"
-mods = "Control|Shift"
-[keyboard.bindings.command]
-program = "sh"
-args = [
-  "-c",
-  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
-]
-
+# -----------------------------------------------------------------------------
 
 # Disable transparency for current window
 [[keyboard.bindings]]
 key = "T"
-mods = "Control|Shift"
+mods = "Alt|Shift"
 [keyboard.bindings.command]
 program="alacritty"
 args = [
@@ -94,27 +102,29 @@ args = [
   "window.opacity=1"
 ]
 
+# -----------------------------------------------------------------------------
 
 # Set background opacity for current window
 [[keyboard.bindings]]
 key = "O"
 mods = "Alt|Shift"
-[keyboard.bindings.command]
-program = "alacritty"
-args = [
-  "msg", "create-window",
-  "--command", "sh", "-c",
-  """
-    printf "ALACRITTY OPACITY SELECTOR\n\n\nSelect opacity...\n"
-    seq -f %g 1 -0.025 0 | fzf --preview "alacritty msg config window.opacity={} --window-id -1"
-  """
-]
-
+chars = """
+  seq -f %g 1 -0.025 0 | fzf --preview 'echo Setting opacity level to {}; alacritty msg config window.opacity={}' &>/dev/null
+"""
 
 # Set background opacity for current window (alternate)
 # [[keyboard.bindings]]
 # key = "O"
 # mods = "Alt|Shift"
-# chars = """
-#   seq -f %g 1 -0.025 0 | fzf --preview 'alacritty msg config window.opacity={}' &>/dev/null
-# """
+# [keyboard.bindings.command]
+# program = "alacritty"
+# args = [
+#   "msg", "create-window",
+#   "--command", "sh", "-c",
+#   """
+#     printf "ALACRITTY OPACITY SELECTOR\n\n\nSelect opacity...\n"
+#     seq -f %g 1 -0.025 0 | fzf --preview "alacritty msg config window.opacity={} --window-id -1"
+#   """
+# ]
+
+# -----------------------------------------------------------------------------
