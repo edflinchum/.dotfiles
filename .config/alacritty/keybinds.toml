@@ -27,7 +27,7 @@ mods = "Control|Shift"
 program = "sh"
 args = [
   "-c",
-  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2<1) {$1.($2+0.025)} else {$1.$2}/e' $HOME/.config/alacritty/style.toml"
 ]
 
 # -----------------------------------------------------------------------------
@@ -40,7 +40,7 @@ mods = "Control|Shift"
 program = "sh"
 args = [
   "-c",
-  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' ~/.config/alacritty/style.toml"
+  "perl -i -pe 's/(opacity = )([0-1]?.?[0-9]+)/if ($2>0) {$1.($2-0.025)} else {$1.$2}/e' $HOME/.config/alacritty/style.toml"
 ]
 
 # -----------------------------------------------------------------------------
@@ -52,24 +52,24 @@ mods = "Control|Shift"
 [keyboard.bindings.command]
 program = "alacritty"
 args = [
-  "--working-directory", ".config/alacritty",
   "--command", "sh", "-c",
   """
     alacritty msg config "window.opacity=1"
+    cd "$HOME/.config/alacritty" || exit
     printf "ALACRITTY THEME SELECTOR\n\n"
     printf "Updating themes...\n\n"
-      if [ -d alacritty-theme ]; then
-        command git -C alacritty-theme pull
-      else
-        git clone https://github.com/alacritty/alacritty-theme
-      fi
+    if [ -d alacritty-theme ]; then
+      command git -C alacritty-theme pull
+    else
+      command git clone https://github.com/alacritty/alacritty-theme
+    fi
     printf "\nSelect a new theme...\n"
-      ls alacritty-theme/themes |
-      fzf --cycle --layout=reverse --border --height=60% --preview-window=wrap,60% --preview '
-        alacritty msg config "$(cat alacritty-theme/themes/{})"
-        printf "ALACRITTY THEME: {}\n\n"
-        alacritty-theme/print_colors.sh
-      ' | xargs -I {} cp -f alacritty-theme/themes/{} theme.toml
+    ls alacritty-theme/themes |
+    fzf --cycle --layout=reverse --border --height=60% --preview-window=wrap,60% --preview '
+      alacritty msg config "$(cat alacritty-theme/themes/{})"
+      printf "ALACRITTY THEME: {}\n\n"
+      alacritty-theme/print_colors.sh
+    ' | xargs -I {} cp -f alacritty-theme/themes/{} theme.toml
     touch alacritty.toml
   """
 ]
