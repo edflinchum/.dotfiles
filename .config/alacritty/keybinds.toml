@@ -47,12 +47,11 @@ args = [
 
 # Select Theme
 [[keyboard.bindings]]
-key = "T"
+key = "~"
 mods = "Control|Shift"
 [keyboard.bindings.command]
 program = "alacritty"
 args = [
-  "msg", "create-window",
   "--working-directory", ".config/alacritty",
   "--command", "sh", "-c",
   """
@@ -65,12 +64,13 @@ args = [
         git clone https://github.com/alacritty/alacritty-theme
       fi
     printf "\nSelect a new theme...\n"
-      ls alacritty-theme/themes | fzf --preview '
+      ls alacritty-theme/themes |
+      fzf --cycle --layout=reverse --border --height=60% --preview-window=wrap,60% --preview '
         alacritty msg config "$(cat alacritty-theme/themes/{})"
         printf "ALACRITTY THEME: {}\n\n"
         alacritty-theme/print_colors.sh
       ' | xargs -I {} cp -f alacritty-theme/themes/{} theme.toml
-    alacritty msg config "$(cat theme.toml)" --window-id -1
+    touch alacritty.toml
   """
 ]
 
