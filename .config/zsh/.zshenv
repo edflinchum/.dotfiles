@@ -15,21 +15,21 @@ fi
 
 ## Environment variables
 # Turn off less history file
-  export LESSHISTFILE=-
+export LESSHISTFILE=-
 # Options for fzf plugin
-  FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
+export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 # Do not expand these aliases using globalias plugin
-  GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which 1 2 3 4 5 6 7 8 9)
+export GLOBALIAS_FILTER_VALUES=(cp egrep fgrep gh grep lg ll ls lt mv rm which 1 2 3 4 5 6 7 8 9)
 # Turn on micro truecolor feature
-  MICRO_TRUECOLOR=1
+export MICRO_TRUECOLOR=1
 # Turn off rprompt info in aws plugin
-  SHOW_AWS_PROMPT=false
+export SHOW_AWS_PROMPT=false
 # Used by Ubuntu global config
-  skip_global_compinit=1
+export skip_global_compinit=1
 # Set starship config file location
-  export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
-## Add private bin folders to PATH
+## Add folders to PATH
 typeset -U PATH path FPATH fpath
 path=( $HOME{/.local,}/bin(/N) $path[@] )
 export PATH
