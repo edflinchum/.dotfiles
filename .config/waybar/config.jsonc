@@ -238,7 +238,7 @@
         //     "8": [],
         //     "9": []
         },
-        "format": "{icon}", // options: {value}{icon}{name}{index}
+        "format": "{id} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
             "1": "",
             "2": "",
