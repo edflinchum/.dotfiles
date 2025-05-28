@@ -23,15 +23,6 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
-HISTSIZE=50000
-HISTFILE=$ZDOTDIR/.zsh_history
-
-# Use micro as default editor
-if (( $+commands[micro] )); then
-  export EDITOR=$(command -v micro)
-  export VISUAL=$EDITOR
-fi
-
 # Use 1password cli and plugins
 if (( $+commands[op] )); then
   eval "$(op completion zsh)"; compdef _op op
