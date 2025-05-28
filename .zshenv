@@ -1,5 +1,5 @@
 # Set custom location
-export ZDOTDIR=$HOME/.config/zsh
+ZDOTDIR=$HOME/.config/zsh
 
 # Load personal configuration
 if [ -r  $ZDOTDIR/.zshenv ]; then
