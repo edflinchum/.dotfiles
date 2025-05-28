@@ -231,10 +231,10 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 
-# bar {
-#     swaybar_command waybar
-# }
-exec waybar -c ~/.config/waybar/config-sway.jsonc -s ~/.config/waybar/style-sway.css
+bar {
+    swaybar_command waybar
+}
+# exec waybar -c ~/.config/waybar/config-sway.jsonc -s ~/.config/waybar/style-sway.css
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
