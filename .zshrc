@@ -65,6 +65,9 @@ zstyle ':omz:update' frequency 7
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="${ZDOTDIR:-$HOME/.config/zsh}"
 
+ZSH_CACHE_DIR="$ZSH/cache"
+ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/

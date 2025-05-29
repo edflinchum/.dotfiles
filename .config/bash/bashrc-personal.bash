@@ -36,15 +36,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Environment variables
-  LESSHISTFILE=-
-  HISTSIZE=50000
-  HISTFILE=$HOME/.config/bash/.bash_history
+  export LESSHISTFILE=-
 
 # Options for fzf plugin
-  FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
+  export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
 
 # Use micro as default editor
 if type micro &>/dev/null; then
+  MICRO_TRUECOLOR=1
   export EDITOR=$(command -v micro)
   export VISUAL=$EDITOR
 fi
@@ -68,8 +67,6 @@ fi
 # Print some system information when the shell is first started
 if type fastfetch &>/dev/null; then
   fastfetch
-elif type neofetch &>/dev/null; then
-  neofetch
 else
   echo $USER@$HOST  $(uname -srm)  $(command -v lsb_release &>/dev/null && lsb_release -rcs)
 fi
