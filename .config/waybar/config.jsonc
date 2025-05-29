@@ -13,7 +13,7 @@
 
     "layer": "top",          // Waybar at top layer
     "position": "top",       // Waybar position (top|bottom|left|right)
-    "height": 26,            // Waybar height (to be removed for auto height)
+    // "height": 26,            // Waybar height (to be removed for auto height)
     // "width": 1280,           // Waybar width
 
     // Choose the order of the modules
@@ -348,12 +348,13 @@
             "spotify": "",
             "Lollypop": "",
             "chromium": "",
+            "google-chrome-stable": "",
             "default": "" //  ♪ 
         },
         "escape": true,
         "on-click": "playerctl play-pause",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+        // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/pacman": {
         "format": " {}",
@@ -374,7 +375,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 900,
-        "exec": "$HOME/.config/waybar/weather.py",
+        "exec": "$HOME/.config/waybar/scripts/weather.py",
         "return-type": "json"
     }
 }
