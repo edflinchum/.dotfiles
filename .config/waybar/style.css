@@ -32,7 +32,7 @@
 
 /* Each module */
     window > * > * > * > * {   /* includes all modules */
-        font-family: "FontAwesome", "monospace";
+        font-family: Noto Sans Mono, Adwaita Mono, JetBrainsMono Nerd Font, CaskaydiaMono Nerd Font, monospace;
         font-size: 9pt;
         font-weight: bold;
         margin: 0px 1px;
@@ -180,7 +180,7 @@ window#waybar.hidden {
     padding: 0px 10px 0px 5px;
     border: 1px solid @workspaces;
 }
-#workspaces button.persistent {
+#workspaces button.empty {
     color: @dark;
 }
 #workspaces button.active, #workspaces button.focused {

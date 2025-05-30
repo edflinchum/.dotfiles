@@ -44,7 +44,7 @@
     "clock#date": {
         "format": " {:%m/%d}", // Icon: calendar-alt
         "format-alt": " {:%a %b %d}",
-        "tooltip-format": "{:<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {

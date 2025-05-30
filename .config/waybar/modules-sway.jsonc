@@ -20,8 +20,7 @@
         "all-outputs": false,
         "disable-scroll": false,
         "persistent-workspaces": {
-            // "1": [],
-            // "2": []
+            "1": []
         },
         "format": "{value} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
