@@ -63,8 +63,7 @@ zstyle ':omz:update' frequency 7
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="${ZDOTDIR:-$HOME/.config/zsh}"
-
+ZSH_CUSTOM="$HOME/.config/zsh"
 ZSH_CACHE_DIR="$ZSH/cache"
 ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
 
