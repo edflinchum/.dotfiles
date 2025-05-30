@@ -1,0 +1,194 @@
+// -------------------------------------------------------------------------
+// Common Modules
+// -------------------------------------------------------------------------
+
+{
+    "backlight": {
+        "device": "intel_backlight", //"device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""],
+        //"format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format-charging": " {capacity}%", // Icon:  bolt
+        //"format-charging": "{capacity}% ",
+        //"format-plugged": "{capacity}% ",
+        "format-discharging": "{icon} {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        // "format-icons": ["", "", "", "", ""],
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format": "{icon}",
+        "format-alt": "bluetooth: {status}",
+        "interval": 30,
+        "format-icons": {
+             "enabled": "",
+             "disabled": ""
+        },
+        "on-click-right": "blueberry",
+        "tooltip-format": "{status}",
+        "tooltip": true
+   },
+    "clock#date": {
+        "format": " {:%m/%d}", // Icon: calendar-alt
+        "format-alt": " {:%a %b %d}",
+        "tooltip-format": "{:<big>%Y %B</big>}\n<tt><small>{calendar}</small></tt>",
+        "tooltip": true
+    },
+    "clock#time": {
+        "interval": 1,
+        "format": " {:%I:%M}",
+        "format-alt": " {:%H:%M}",  // Alt Icon: ·
+        "tooltip-format": "{:%r}",
+        "tooltip": true
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%", // Icon:  microchip, 
+        "states": {
+          "warning": 60,
+          "critical": 90
+        }
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_free}%",
+        "path": "/",
+        "states": {
+            "warning": 85,
+            "critical": 95
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+            // Alt Icons:    
+        }
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {percentage}%", // Icon: memory 
+        "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "network": {
+        "interval": 1,
+        "format-icons": {
+            "wifi": ["睊", "直" ,""],
+            "ethernet": [""],
+            "disconnected": [""] // Icon: , ⚠ 
+        },
+        //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
+        // Icons:     
+        "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "format-ethernet": "{icon} {ifname}",
+        "format-disconnected": "{icon} Disconnected",
+        "format-alt": "{icon} {ipaddr}",
+        "tooltip-format": "{icon} {ipaddr}/{cidr}",
+        "tooltip": true
+    },
+    "network#speed": {
+        "interval": 1,
+        "format-alt": " {bandwidthDownBits}",
+        // "format-alt": " {bandwidthUpBits}",
+        "format": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
+        "tooltip": true
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-muted": " MUTED", //alt icon:  
+        "format-icons": {
+            "headphone": "", //
+            "hands-free": "",
+            "headset": "", // 
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "pulseaudio#source": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%"
+    },
+    "temperature": {
+        // "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
+        "critical-threshold": 70,
+        "interval": 5,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "", // Icon: temperature-empty
+            "", // Icon: temperature-quarter
+            "", // Icon: temperature-half
+            "", // Icon: temperature-three-quarters
+            ""  // Icon: temperature-full
+        ]
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 4
+    },
+    "wlr/taskbar": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "icon-size": 18,
+        // "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "active-first": false
+    }
+}

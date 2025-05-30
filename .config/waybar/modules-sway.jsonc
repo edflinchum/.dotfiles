@@ -1,0 +1,43 @@
+// -------------------------------------------------------------------------
+// Sway Window Manager Modules
+// -------------------------------------------------------------------------
+
+{
+    "sway/language": {
+        "format": " {}",
+        "tooltip": true
+    },
+    "sway/mode": {
+        "format": "{}", // Icon: expand-arrows-alt  
+        "tooltip": false
+    },
+    "sway/window": {
+        "format": "{}",
+        // "max-length": 50,
+        "tooltip": false
+    },
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": false,
+        "persistent-workspaces": {
+            // "1": [],
+            // "2": []
+        },
+        "format": "{value} {icon}", // options: {value}{icon}{name}{index}
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+            // other icons:                   華         "  ﱘ         
+        }
+    }
+}

@@ -183,13 +183,7 @@ window#waybar.hidden {
 #workspaces button.persistent {
     color: @dark;
 }
-#workspaces button.active {
-    background-color: @focused;
-    color: @light;
-    font-weight: bolder;
-    border-color: @focused;
-}
-#workspaces button.focused {
+#workspaces button.active, #workspaces button.focused {
     background-color: @focused;
     color: @light;
     font-weight: bolder;
@@ -197,6 +191,7 @@ window#waybar.hidden {
 }
 #workspaces button:hover {
     border-color: @border;
+    color: @dark;
 }
 #workspaces button.urgent {
     color: @critical;
