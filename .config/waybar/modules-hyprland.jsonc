@@ -14,11 +14,14 @@
     "hyprland/window": {
         "format": "{}",
         // "max-length": 50,
+        "separate-outputs": true,
 	    "tooltip": false
     },
     "hyprland/workspaces": {
         "all-outputs": false,
         "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
         "persistent-workspaces": {
             // "1": [],
             // "2": []

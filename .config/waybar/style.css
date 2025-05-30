@@ -32,7 +32,7 @@
 
 /* Each module */
     window > * > * > * > * {   /* includes all modules */
-        font-family: "JetBrainsMono Nerd Font", "CaskaydiaMono Nerd Font", monospace, "FontAwesome";
+        font-family: "FontAwesome", "monospace";
         font-size: 9pt;
         font-weight: bold;
         margin: 0px 1px;
