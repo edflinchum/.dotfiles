@@ -175,6 +175,10 @@ window#waybar.hidden {
     padding: 0px;
 }
 #workspaces button {
+    box-shadow: none;  /* Remove predefined box-shadow */
+    text-shadow: none; /* Remove predefined text-shadow */
+    background: none;  /* Remove predefined background color (white) */
+    transition: none;  /* Disable predefined animations */
     background-color: @workspaces;
     color: @bright;
     padding: 0px 10px 0px 5px;
@@ -183,15 +187,16 @@ window#waybar.hidden {
 #workspaces button.empty {
     color: @dark;
 }
-#workspaces button.active, #workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
     background-color: @focused;
     color: @light;
-    font-weight: bolder;
     border-color: @focused;
 }
-#workspaces button:hover {
+#workspaces button:hover,
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
     border-color: @border;
-    color: @dark;
 }
 #workspaces button.urgent {
     color: @critical;
