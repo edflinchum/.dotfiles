@@ -24,26 +24,28 @@
     ],
     "modules-right": [
         "custom/media",
-        "network#speed",
-        "network",
-        "memory",
-        "cpu",
-        "temperature",
-        "disk",
-        "hyprland/language", "sway/language",
-        "battery",
-        "pulseaudio",
-        "pulseaudio#source",
         "custom/weather",
-        "idle_inhibitor",
         "custom/pacman",
+        "idle_inhibitor",
         "tray",
-        "custom/power"
+        // "network#speed",
+        // "network",
+        // "memory",
+        // "cpu",
+        // "temperature",
+        // "disk",
+        // "hyprland/language", "sway/language",
+        // "battery",
+        // "pulseaudio",
+        // "pulseaudio#source",
+        "group/group-hardware",
+        "custom/powermenu"
     ],
 
     "include": [
         "$HOME/.config/waybar/modules-common.jsonc",
         "$HOME/.config/waybar/modules-custom.jsonc",
+        "$HOME/.config/waybar/modules-group.jsonc",
         "$HOME/.config/waybar/modules-hyprland.jsonc",
         "$HOME/.config/waybar/modules-sway.jsonc"
     ]

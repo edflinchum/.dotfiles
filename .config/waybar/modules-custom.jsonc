@@ -12,6 +12,11 @@
         "interval": 10,
         "tooltip": false
     },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    },
     "custom/media": {
         "format": "{icon} <span style='italic'>{text}</span>",
         "return-type": "json",
@@ -40,8 +45,23 @@
     },
     "custom/power": {
         "format": "",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    },
+    "custom/powermenu": {
+        "format": "",
         "on-click": "wlogout",
         "tooltip": false
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "reboot"
     },
     "custom/weather": {
         "format": "{}",
