@@ -13,7 +13,7 @@
         "tooltip": false
     },
     "custom/media": {
-        "format": "{icon} <span style='italic'>{}</span>",
+        "format": "{icon} <span style='italic'>{text}</span>",
         "return-type": "json",
         // "max-length": 60,
         "format-icons": {
