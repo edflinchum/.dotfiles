@@ -43,13 +43,8 @@
         "signal": 8,
         "tooltip": false
     },
-    "custom/power": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "shutdown now"
-    },
     "custom/powermenu": {
-        "format": "",
+        "format": "",
         "on-click": "wlogout",
         "tooltip": false
     },
@@ -62,6 +57,11 @@
         "format": "󰜉",
         "tooltip": false,
         "on-click": "reboot"
+    },
+    "custom/shutdown": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "shutdown now"
     },
     "custom/weather": {
         "format": "{}",

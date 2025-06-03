@@ -41,11 +41,13 @@
     margin-right: 0px;
 }
 /* Round the ends of each module section */
+.modules-center #workspaces button:last-child,     /* include this line if "/workspaces" is the only "center" module */
 .modules-center > widget:last-child > *,
-.modules-left   > widget:nth-last-child(2) > *,   /* include this line if "window" is the last left module */
+.modules-left   > widget:nth-last-child(2) > *,    /* include this line if "/window" is the last "left" module to round the previous module */
 .modules-left   > widget:last-child > * {
     border-radius: 0px 40px 40px 0px;
 }
+.modules-center #workspaces button:first-child,    /* include this line if "/workspaces" is the only "center" module */
 .modules-center > widget:first-child > *,
 .modules-right  > widget:first-child > * {
     border-radius: 40px 0px 0px 40px;
@@ -69,15 +71,13 @@
     background-color: @date;
     color: @light;
     margin-right: 0px;
-    border-right: none;
-    padding: 0px 6px;
+    /* border-right: none; */
 }
 #clock.time {
     background-color: @time;
     color: @dark;
     margin-left: 0px;
-    border-left: none;
-    padding: 0px 6px;
+    /* border-left: none; */
 }
 #cpu {
     background-color: @cpu;
@@ -92,8 +92,6 @@
 #idle_inhibitor {
     background-color: @idle;
     color: @light;
-    padding: 0px 10px 0px 5px;
-    margin-right: 0px;
     padding: 0px 6px;
 }
 #language {
@@ -161,7 +159,6 @@
 #tray {
     background-color: @tray;
     color: @light;
-    margin-left: 0px;
     padding: 0px 6px;
 }
 window#waybar {
@@ -185,9 +182,6 @@ window#waybar.hidden {
     font-style: italic;
     padding: 0px 6px;
 }
-#workspaces {
-    padding: 0px;
-}
 #workspaces button {
     box-shadow: none;  /* Remove predefined box-shadow */
     text-shadow: none; /* Remove predefined text-shadow */
@@ -207,9 +201,7 @@ window#waybar.hidden {
     color: @light;
     border-color: @focused;
 }
-#workspaces button:hover,
-#workspaces button.focused:hover,
-#workspaces button.active:hover {
+#workspaces button:hover {
     border-color: @border;
 }
 #workspaces button.urgent {
@@ -229,22 +221,24 @@ window#waybar.hidden {
     background-color: @media;
     color: @dark;
     padding: 0px 6px;
+    /* border-radius: 40px; */
 }
 #custom-pacman {
     background-color: @updates;
     color: @light;
-    margin-left: 0px;
-    margin-right: 0px;
     padding: 0px 6px;
 }
-#custom-quit,
 #custom-lock,
+#custom-quit,
 #custom-reboot,
-#custom-power,
+#custom-shutdown,
 #custom-powermenu {
     background-color: @power;
     color: @light;
-    padding: 0px 12px 0px 10px;
+    padding: 0px 12px 0px 8px;
+}
+#custom-powermenu {
+    border: 1px solid @light;
 }
 #custom-weather {
     background-color: @weather;

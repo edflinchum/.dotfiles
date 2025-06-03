@@ -13,33 +13,26 @@
     "height": 30,
 
     "modules-left": [
-    	"hyprland/workspaces", "sway/workspaces",
+        "group/group-power",
+        "hyprland/submap",
+        "sway/mode",
+        "group/group-hardware",
         "wlr/taskbar",
-        "hyprland/window", "sway/window"
+        "hyprland/window",
+        "sway/window"
     ],
     "modules-center": [
-        "clock#date",
-        "hyprland/submap", "sway/mode",
-        "clock#time"
+        "hyprland/workspaces",
+        "sway/workspaces"
     ],
     "modules-right": [
         "custom/media",
         "custom/weather",
-        "custom/pacman",
         "idle_inhibitor",
+        "custom/pacman",
         "tray",
-        // "network#speed",
-        // "network",
-        // "memory",
-        // "cpu",
-        // "temperature",
-        // "disk",
-        // "hyprland/language", "sway/language",
-        // "battery",
-        // "pulseaudio",
-        // "pulseaudio#source",
-        "group/group-hardware",
-        "custom/powermenu"
+        "clock#date",
+        "clock#time"
     ],
 
     "include": [
