@@ -13,10 +13,9 @@
     "height": 30,
 
     "modules-left": [
-        "group/group-power",
         "hyprland/submap",
         "sway/mode",
-        "group/group-hardware",
+        "group/group-info",
         "wlr/taskbar",
         "hyprland/window",
         "sway/window"
@@ -28,11 +27,12 @@
     "modules-right": [
         "custom/media",
         "custom/weather",
-        "idle_inhibitor",
         "custom/pacman",
+        "idle_inhibitor",
         "tray",
         "clock#date",
-        "clock#time"
+        "clock#time",
+        "group/group-power"
     ],
 
     "include": [

@@ -132,9 +132,9 @@
     },
     "network#speed": {
         "interval": 1,
-        "format-alt": " {bandwidthDownBits}",
+        "format": " {bandwidthDownBits}",
         // "format-alt": " {bandwidthUpBits}",
-        "format": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },

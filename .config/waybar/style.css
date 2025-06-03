@@ -40,19 +40,22 @@
 .modules-right > widget:last-child > * {
     margin-right: 0px;
 }
+
 /* Round the ends of each module section */
-.modules-center #workspaces button:last-child,     /* include this line if "/workspaces" is the only "center" module */
+.modules-center #workspaces button:last-child,
 .modules-center > widget:last-child > *,
-.modules-left   > widget:nth-last-child(2) > *,    /* include this line if "/window" is the last "left" module to round the previous module */
+.modules-left   > widget:nth-last-child(2) > *,    /* use this when `window` is the last module on the left side */
 .modules-left   > widget:last-child > * {
     border-radius: 0px 40px 40px 0px;
 }
-.modules-center #workspaces button:first-child,    /* include this line if "/workspaces" is the only "center" module */
+.modules-center #workspaces button:first-child,
 .modules-center > widget:first-child > *,
 .modules-right  > widget:first-child > * {
     border-radius: 40px 0px 0px 40px;
 }
-
+.modules-center #workspaces button:only-child {
+    border-radius: 40px;
+}
 
 /* -----------------------------------------------------------------------------
  * Module styles
@@ -236,6 +239,12 @@ window#waybar.hidden {
     background-color: @power;
     color: @light;
     padding: 0px 12px 0px 8px;
+}
+#custom-infomenu {
+    background-color: @taskbar;
+    color: @light;
+    border: 1px solid @light;
+    padding: 0px 6px;
 }
 #custom-powermenu {
     border: 1px solid @light;

@@ -12,6 +12,11 @@
         "interval": 10,
         "tooltip": false
     },
+    "custom/infomenu": {
+        "format": "❯",
+        // "format": "❮",
+        "tooltip": false
+    },
     "custom/lock": {
         "format": "󰍁",
         "tooltip": false,
@@ -45,8 +50,8 @@
     },
     "custom/powermenu": {
         "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "wlogout"
     },
     "custom/quit": {
         "format": "󰗼",
