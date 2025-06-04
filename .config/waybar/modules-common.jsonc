@@ -81,7 +81,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": " {percentage}%", // Icon: memory 
+        "format": " {percentage}%", // Icon: memory  
         "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
         "states": {
             "warning": 70,

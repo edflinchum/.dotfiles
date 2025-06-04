@@ -24,7 +24,7 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: Noto Sans Mono, Adwaita Mono, JetBrainsMono Nerd Font, CaskaydiaMono Nerd Font, monospace;
+    font-family: monospace;
     font-size: 9pt;
     font-weight: bold;
     min-height: 0px;
@@ -42,7 +42,8 @@
 }
 
 /* Round the ends of each module section */
-.modules-left   > widget:nth-last-child(2) > *,     /* use this when `window` is the last module on the left side */
+    /* use the below line when `window` is the last module on the left side to round the prior module */
+.modules-left   > widget:nth-last-child(2) > *,
 .modules-left   > widget:last-child > *,
 .modules-center > widget:last-child > *,
 .modules-center #workspaces button:last-child {
@@ -232,7 +233,10 @@ window#waybar.hidden {
  * -------------------------------------------------------------------------- */
 
 .children-info > *,
-#custom-menu-info {
+#custom-menu-language,
+#custom-menu-network,
+#custom-menu-system,
+#custom-menu-volume {
     background-color: @taskbar;
     border: 2px solid transparent;
     color: @light;
@@ -247,8 +251,11 @@ window#waybar.hidden {
 }
 .children-info  > *:hover,
 .children-power > *:hover,
-#custom-menu-info:hover,
-#custom-menu-power:hover {
+#custom-menu-language:hover,
+#custom-menu-network:hover,
+#custom-menu-power:hover,
+#custom-menu-system:hover,
+#custom-menu-volume:hover {
     border-color: @border;
 }
 

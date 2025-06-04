@@ -10,12 +10,15 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    "height": 32,
+    // "height": 32,
 
     "modules-left": [
         "hyprland/submap",
         "sway/mode",
-        "group/group-info",
+        "group/group-volume",
+        "group/group-language",
+        "group/group-system",
+        "group/group-network",
         "wlr/taskbar",
         "hyprland/window",
         "sway/window"
