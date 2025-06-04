@@ -132,14 +132,6 @@
     color: @dark;
     padding: 0px 6px;
 }
-#pulseaudio:not(.source) {
-    margin-right: 0px;
-    padding: 0px 6px;
-}
-#pulseaudio.source {
-    margin-left: 0px;
-    padding: 0px 6px;
-}
 #taskbar {
     background-color: @taskbar;
     padding: 0px 6px;
