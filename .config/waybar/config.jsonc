@@ -10,7 +10,7 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    "height": 30,
+    "height": 32,
 
     "modules-left": [
         "hyprland/submap",
@@ -27,11 +27,11 @@
     "modules-right": [
         "custom/media",
         "custom/weather",
+        "clock#date",
+        "clock#time",
         "custom/pacman",
         "idle_inhibitor",
         "tray",
-        "clock#date",
-        "clock#time",
         "group/group-power"
     ],
 

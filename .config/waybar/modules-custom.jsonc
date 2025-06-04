@@ -12,14 +12,10 @@
         "interval": 10,
         "tooltip": false
     },
-    "custom/infomenu": {
-        "format": "❯",
-        // "format": "❮",
-        "tooltip": false
-    },
     "custom/lock": {
         "format": "󰍁",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Lock",
         "on-click": "hyprlock"
     },
     "custom/media": {
@@ -28,15 +24,24 @@
         // "max-length": 60,
         "format-icons": {
             "spotify": "",
-            "Lollypop": "",
             "chromium": "",
             "google-chrome-stable": "",
-            "default": "" //  ♪ 
+            "default": "" //   ♪   
         },
         "escape": true,
         "on-click": "playerctl play-pause",
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
         // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/menu-info": {
+        "format": "",        //   
+        "tooltip": false
+    },
+    "custom/menu-power": {
+        "format": "",        //         
+        "tooltip": true,
+        "tooltip-format": "Logout Menu",
+        "on-click": "wlogout"
     },
     "custom/pacman": {
         "format": " {}",
@@ -48,24 +53,22 @@
         "signal": 8,
         "tooltip": false
     },
-    "custom/powermenu": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "wlogout"
-    },
     "custom/quit": {
         "format": "󰗼",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Logout",
         "on-click": "hyprctl dispatch exit"
     },
     "custom/reboot": {
         "format": "󰜉",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Reboot",
         "on-click": "reboot"
     },
     "custom/shutdown": {
         "format": "",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Shutdown",
         "on-click": "shutdown now"
     },
     "custom/weather": {

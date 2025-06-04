@@ -19,14 +19,19 @@
     "sway/workspaces": {
         "all-outputs": false,
         "disable-scroll": false,
+        "on-scroll-up": "swaymsg workspace prev",
+        "on-scroll-down": "swaymsg workspace next",
         "persistent-workspaces": {
-            "1": []
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
         },
         "format": "{value} {icon}", // options: {value}{icon}{name}{index}
         "format-icons": {
             "1": "",
             "2": "",
-            "3": "",
+            "3": "🖹",
             "4": "",
             "5": "",
             "6": "",
@@ -34,9 +39,9 @@
             "8": "",
             "9": "",
             "urgent": "",
-            "focused": "",
+            // "focused": "",
             "default": ""
-            // other icons:                   華         "  ﱘ         
+            // other icons:                   華         "  ﱘ             󰨞
         }
     }
 }

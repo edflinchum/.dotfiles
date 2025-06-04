@@ -64,7 +64,7 @@
     },
     "disk": {
         "interval": 30,
-        "format": " {percentage_free}%",
+        "format": " {percentage_free}%", // 
         "path": "/",
         "states": {
             "warning": 85,
@@ -132,9 +132,9 @@
     },
     "network#speed": {
         "interval": 1,
-        "format": " {bandwidthDownBits}",
+        "format": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
+        "format-alt": " {bandwidthDownBits}",
         // "format-alt": " {bandwidthUpBits}",
-        "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },
