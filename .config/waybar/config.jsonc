@@ -13,9 +13,9 @@
     "height": 32,
 
     "modules-left": [
-        "group/group-power",
         "hyprland/submap",
         "sway/mode",
+        "group/group-power",
         "group/group-volume",
         "group/group-language",
         "group/group-system",
@@ -31,11 +31,11 @@
     "modules-right": [
         "custom/media",
         "custom/weather",
-        "clock#date",
-        "clock#time",
         "custom/pacman",
         "idle_inhibitor",
-        "tray"
+        "tray",
+        "clock#date",
+        "clock#time"
     ],
 
     "include": [

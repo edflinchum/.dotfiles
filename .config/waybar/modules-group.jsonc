@@ -56,10 +56,10 @@
         },
         "modules": [
             "custom/menu-power",
-            "custom/shutdown",
-            "custom/reboot",
+            "custom/quit",
             "custom/lock",
-            "custom/quit"
+            "custom/reboot",
+            "custom/shutdown"
         ]
     },
     "group/group-volume": {

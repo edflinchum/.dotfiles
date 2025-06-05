@@ -64,7 +64,7 @@ label.module:hover,
     border-top-left-radius: 32px;
     border-bottom-left-radius: 32px;
 }
-.modules-left   > widget:nth-last-child(2) > *,
+.modules-left   > widget:nth-last-child(2) > *,  /* Use when window is the last left module */
 .modules-left   > widget:last-child > *,
 .modules-center > widget:last-child > *,
 .modules-center #workspaces button:last-child {
@@ -130,14 +130,14 @@ label.module:hover,
 }
 #taskbar {
     background-color: @taskbar;
-    margin: 0px 1px;
 }
 #taskbar button {
     border-radius: 32px;
     padding: 0px 3px;
 }
 #taskbar button.active {
-    background-color: @focused;
+    background-color: @light;
+    border-color: @border;
 }
 #temperature {
     background-color: @temp;
@@ -177,6 +177,7 @@ window#waybar.hidden {
 #workspaces button.focused,
 #workspaces button.active {
     background-color: @focused;
+    border-color: @border;
     color: @light;
 }
 #workspaces button.urgent {
@@ -185,7 +186,7 @@ window#waybar.hidden {
 
 
 /* -----------------------------------------------------------------------------
- * Custom Module styles
+ * Custom and Group Module styles
  * -------------------------------------------------------------------------- */
 
 #custom-alsa {
@@ -196,6 +197,13 @@ window#waybar.hidden {
     background-color: @media;
     color: @dark;
 }
+#custom-menu-language,
+#custom-menu-network,
+#custom-menu-system,
+#custom-menu-volume {
+    background-color: @taskbar;
+    color: @light;
+}
 #custom-pacman {
     background-color: @updates;
     color: @light;
@@ -203,19 +211,6 @@ window#waybar.hidden {
 #custom-weather {
     background-color: @weather;
     color: @dark;
-}
-
-
-/* -----------------------------------------------------------------------------
- * Group Module styles
- * -------------------------------------------------------------------------- */
-
-#custom-menu-language,
-#custom-menu-network,
-#custom-menu-system,
-#custom-menu-volume {
-    background-color: @taskbar;
-    color: @light;
 }
 #group-power label.module {
     background-color: @power;
