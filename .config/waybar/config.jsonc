@@ -10,7 +10,7 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    // "height": 32,
+    "height": 32,
 
     "modules-left": [
         "hyprland/submap",
