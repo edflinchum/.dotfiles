@@ -42,17 +42,16 @@
 }
 
 /* Round the ends of each module section */
-    /* use the below line when `window` is the last module on the left side to round the prior module */
+.modules-right  > widget:first-child > *,
+.modules-center > widget:first-child > *,
+.modules-center #workspaces button:first-child {
+    border-radius: 32px 0px 0px 32px;
+}
 .modules-left   > widget:nth-last-child(2) > *,
 .modules-left   > widget:last-child > *,
 .modules-center > widget:last-child > *,
 .modules-center #workspaces button:last-child {
     border-radius: 0px 32px 32px 0px;
-}
-.modules-right  > widget:first-child > *,
-.modules-center > widget:first-child > *,
-.modules-center #workspaces button:first-child {
-    border-radius: 32px 0px 0px 32px;
 }
 .modules-center #workspaces button:only-child {
     border-radius: 32px;
@@ -176,13 +175,11 @@ window#waybar.hidden {
     font-style: italic;
     padding: 0px 6px;
 }
-#workspaces > * {
+#workspaces button {
     background: none;  /* Remove predefined background color (white) */
     box-shadow: none;  /* Remove predefined box-shadow */
     text-shadow: none; /* Remove predefined text-shadow */
     transition: none;  /* Disable predefined animations */
-}
-#workspaces button {
     background-color: @workspaces;
     border: 2px solid transparent;
     color: @bright;
@@ -231,7 +228,6 @@ window#waybar.hidden {
 /* -----------------------------------------------------------------------------
  * Group Module styles
  * -------------------------------------------------------------------------- */
-
 .children-info > *,
 #custom-menu-language,
 #custom-menu-network,
@@ -277,67 +273,67 @@ window#waybar.hidden {
 }
 
 /* Each module that should blink */
-    #battery,
-    #cpu,
-    #custom-pacman,
-    #disk,
-    #idle_inhibitor,
-    #memory,
-    #mode,
-    #pulseaudio,
-    #temperature {
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
+#battery,
+#cpu,
+#custom-pacman,
+#disk,
+#idle_inhibitor,
+#memory,
+#mode,
+#pulseaudio,
+#temperature {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
 /* Each critical module */
-    #battery.critical,
-    #cpu.critical,
-    #disk.critical,
-    #memory.critical,
-    #temperature.critical {
-        color: @critical;
-    }
+#battery.critical,
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#temperature.critical {
+    color: @critical;
+}
 
 /* Each critical that should blink */
-    #battery.critical.discharging,
-    #cpu.critical,
-    #disk.critical,
-    #memory.critical,
-    #mode,
-    #temperature.critical {
-        animation-name: blink-critical;
-        animation-duration: 2s;
-    }
+#battery.critical.discharging,
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#mode,
+#temperature.critical {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
 
 /* Each warning module*/
-    #battery.warning,
-    #bluetooth.disabled,
-    #cpu.warning,
-    #custom-pacman,
-    #disk.warning,
-    #idle_inhibitor.activated,
-    #memory.warning,
-    #network.disconnected,
-    #pulseaudio.muted:not(.source) {
-        color: @warning;
-    }
+#battery.warning,
+#bluetooth.disabled,
+#cpu.warning,
+#custom-pacman,
+#disk.warning,
+#idle_inhibitor.activated,
+#memory.warning,
+#network.disconnected,
+#pulseaudio.muted:not(.source) {
+    color: @warning;
+}
 
 /* Each warning that should blink */
-    #battery.warning.discharging,
-    #cpu.warning,
-    #disk.warning,
-    #memory.warning {
-        animation-name: blink-warning;
-        animation-duration: 3s;
-    }
+#battery.warning.discharging,
+#cpu.warning,
+#disk.warning,
+#memory.warning {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
 
 /* Each module that should flash when activated */
-    #custom-pacman,
-    #idle_inhibitor.activated,
-    #pulseaudio.muted:not(.source) {
-        animation-name: blink-notify;
-        animation-duration: 0.3s;
-        animation-iteration-count: 6;
-    }
+#custom-pacman,
+#idle_inhibitor.activated,
+#pulseaudio.muted:not(.source) {
+    animation-name: blink-notify;
+    animation-duration: 0.3s;
+    animation-iteration-count: 6;
+}
