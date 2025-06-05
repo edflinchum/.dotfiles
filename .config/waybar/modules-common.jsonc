@@ -182,13 +182,15 @@
         "spacing": 4
     },
     "wlr/taskbar": {
+        "active-first": false,
         "all-outputs": false,
         "format": "{icon}",
         "icon-size": 18,
         // "icon-theme": "Numix-Circle",
-        "tooltip-format": "{title}",
+        // "ignore-list": ["Alacritty"]
         "on-click": "activate",
         "on-click-middle": "close",
-        "active-first": false
+        // "sort-by-app-id": true,
+        "tooltip-format": "{title}"
     }
 }

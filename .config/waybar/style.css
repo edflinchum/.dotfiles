@@ -32,8 +32,115 @@
     margin: 0px;
     padding: 0px;
 }
+button,
+label.module,
+#tray * {
+    border: 2px solid transparent;
+    padding: 0px 6px;
+}
+button:hover,
+label.module:hover,
+#tray *:hover {
+    border-color: @border;
+}
 
-/* Bar style */
+/* No margins on the ends of the bar */
+.modules-left > widget:first-child > * {
+    margin-left: 0px;
+}
+.modules-right > widget:last-child > * {
+    margin-right: 0px;
+}
+
+/* Round the ends of each module section */
+.modules-right  > widget:first-child > *,
+.modules-center > widget:first-child > *,
+.modules-center #workspaces button:first-child {
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.modules-left   > widget:nth-last-child(2) > *,
+.modules-left   > widget:last-child > *,
+.modules-center > widget:last-child > *,
+.modules-center #workspaces button:last-child {
+    border-top-right-radius : 32px;
+    border-bottom-right-radius : 32px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Common Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    background-color: @battery;
+    color: @dark;
+}
+#clock.date {
+    background-color: @date;
+    color: @light;
+}
+#clock.time {
+    background-color: @time;
+    color: @dark;
+}
+#cpu {
+    background-color: @cpu;
+    color: @dark;
+}
+#disk {
+    background-color: @disk;
+    color: @dark;
+}
+#idle_inhibitor {
+    background-color: @idle;
+    color: @light;
+    padding: 0px 12px 0px 6px;
+}
+#language {
+    background-color: @language;
+    color: @dark;
+}
+#memory {
+    background-color: @memory;
+    color: @dark;
+}
+#mode {
+    background-color: @mode;
+    color: @light;
+    font-style: italic;
+}
+#network {
+    background-color: @network;
+    color: @dark;
+}
+#network.speed {
+    background-color: @speed;
+    color: @dark;
+    min-width: 80px;
+}
+#pulseaudio {
+    background-color: @sound;
+    color: @dark;
+}
+#taskbar {
+    background-color: @taskbar;
+    margin: 0px 1px;
+}
+#taskbar button {
+    border-radius: 32px;
+    padding: 0px 3px;
+}
+#taskbar button.active {
+    border-color: @light;
+}
+#temperature {
+    background-color: @temp;
+    color: @dark;
+}
+#tray {
+    background-color: @tray;
+}
 window#waybar {
     background-color: alpha(@window, 0.7);
     transition-duration: 2s;
@@ -49,162 +156,6 @@ window#waybar.empty {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/* No margins on the ends of the bar */
-.modules-left > widget:first-child > * {
-    margin-left: 0px;
-}
-.modules-right > widget:last-child > * {
-    margin-right: 0px;
-}
-
-/* Round the ends of each module section */
-.modules-right  > widget:first-child > *,
-.modules-center > widget:first-child > *,
-.modules-center #workspaces button:first-child {
-    border-radius: 32px 0px 0px 32px;
-}
-.modules-left   > widget:nth-last-child(2) > *,
-.modules-left   > widget:last-child > *,
-.modules-center > widget:last-child > *,
-.modules-center #workspaces button:last-child {
-    border-radius: 0px 32px 32px 0px;
-}
-.modules-center #workspaces button:only-child {
-    border-radius: 32px;
-}
-
-
-/* -----------------------------------------------------------------------------
- * Group Module styles
- * -------------------------------------------------------------------------- */
-
-.children-info > *,
-#custom-menu-language,
-#custom-menu-network,
-#custom-menu-system,
-#custom-menu-volume {
-    background-color: @taskbar;
-    border: 2px solid transparent;
-    color: @light;
-    padding: 0px 6px;
-}
-.children-power > *,
-#custom-menu-power {
-    background-color: @power;
-    border: 2px solid transparent;
-    color: @light;
-    padding: 0px 12px 0px 10px;
-}
-.children-info  > *:hover,
-.children-power > *:hover,
-#custom-menu-language:hover,
-#custom-menu-network:hover,
-#custom-menu-power:hover,
-#custom-menu-system:hover,
-#custom-menu-volume:hover {
-    border-color: @border;
-}
-
-
-/* -----------------------------------------------------------------------------
- * Common Module styles
- * -------------------------------------------------------------------------- */
-
-#battery {
-    background-color: @battery;
-    color: @dark;
-    padding: 0px 6px;
-}
-#clock {
-    border: 2px solid @border;
-    padding: 0px 6px;
-}
-#clock.date {
-    background-color: @date;
-    border-right: none;
-    color: @light;
-    margin-right: 0px;
-}
-#clock.time {
-    background-color: @time;
-    border-left: none;
-    color: @dark;
-    margin-left: 0px;
-}
-#cpu {
-    background-color: @cpu;
-    color: @dark;
-    padding: 0px 6px;
-}
-#disk {
-    background-color: @disk;
-    color: @dark;
-    padding: 0px 6px;
-}
-#idle_inhibitor {
-    background-color: @idle;
-    color: @light;
-    padding: 0px 10px 0px 6px;
-}
-#language {
-    background-color: @language;
-    color: @dark;
-    padding: 0px 6px;
-}
-#memory {
-    background-color: @memory;
-    color: @dark;
-    padding: 0px 6px;
-}
-#mode {
-    background-color: @mode;
-    border: 2px solid @border;
-    color: @light;
-    font-style: italic;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 0px 6px;
-}
-#network {
-    background-color: @network;
-    color: @dark;
-    padding: 0px 6px;
-}
-#network.speed {
-    background-color: @speed;
-    color: @dark;
-    min-width: 80px;
-    padding: 0px 6px;
-}
-#pulseaudio {
-    background-color: @sound;
-    color: @dark;
-    padding: 0px 6px;
-}
-#taskbar {
-    background-color: @taskbar;
-    padding: 0px 6px;
-}
-#taskbar button {
-    background-color: @taskbar;
-    border: 2px solid transparent;
-    border-radius: 32px;
-    padding: 0px 3px;
-}
-#taskbar button.active {
-    border-color: @border;
-}
-#temperature {
-    background-color: @temp;
-    color: @dark;
-    padding: 0px 6px;
-}
-#tray {
-    background-color: @tray;
-    color: @light;
-    padding: 0px 6px;
-}
 #window {
     color: @bright;
     font-style: italic;
@@ -216,7 +167,6 @@ window#waybar.hidden {
     text-shadow: none; /* Remove predefined text-shadow */
     transition: none;  /* Disable predefined animations */
     background-color: @workspaces;
-    border: 2px solid transparent;
     color: @bright;
     padding: 0px 10px 0px 6px;
 }
@@ -227,9 +177,6 @@ window#waybar.hidden {
 #workspaces button.active {
     background-color: @focused;
     color: @light;
-}
-#workspaces button:hover {
-    border-color: @border;
 }
 #workspaces button.urgent {
     color: @critical;
@@ -243,22 +190,36 @@ window#waybar.hidden {
 #custom-alsa {
     background-color: @sound;
     color: @dark;
-    padding: 0px 6px;
 }
 #custom-media {
     background-color: @media;
     color: @dark;
-    padding: 0px 6px;
 }
 #custom-pacman {
     background-color: @updates;
     color: @light;
-    padding: 0px 6px;
 }
 #custom-weather {
     background-color: @weather;
     color: @dark;
-    padding: 0px 6px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Group Module styles
+ * -------------------------------------------------------------------------- */
+
+#custom-menu-language,
+#custom-menu-network,
+#custom-menu-system,
+#custom-menu-volume {
+    background-color: @taskbar;
+    color: @light;
+}
+#group-power label.module {
+    background-color: @power;
+    color: @light;
+    padding: 0px 12px 0px 10px;
 }
 
 
