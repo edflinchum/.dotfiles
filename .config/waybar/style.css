@@ -33,6 +33,23 @@
     padding: 0px;
 }
 
+/* Bar style */
+window#waybar {
+    background-color: alpha(@window, 0.7);
+    transition-duration: 2s;
+    transition-property: all;
+}
+window#waybar.solo {
+    background-color: @window;
+    border-color: @window;
+}
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
 /* No margins on the ends of the bar */
 .modules-left > widget:first-child > * {
     margin-left: 0px;
@@ -56,6 +73,39 @@
 .modules-center #workspaces button:only-child {
     border-radius: 32px;
 }
+
+
+/* -----------------------------------------------------------------------------
+ * Group Module styles
+ * -------------------------------------------------------------------------- */
+
+.children-info > *,
+#custom-menu-language,
+#custom-menu-network,
+#custom-menu-system,
+#custom-menu-volume {
+    background-color: @taskbar;
+    border: 2px solid transparent;
+    color: @light;
+    padding: 0px 6px;
+}
+.children-power > *,
+#custom-menu-power {
+    background-color: @power;
+    border: 2px solid transparent;
+    color: @light;
+    padding: 0px 12px 0px 10px;
+}
+.children-info  > *:hover,
+.children-power > *:hover,
+#custom-menu-language:hover,
+#custom-menu-network:hover,
+#custom-menu-power:hover,
+#custom-menu-system:hover,
+#custom-menu-volume:hover {
+    border-color: @border;
+}
+
 
 /* -----------------------------------------------------------------------------
  * Common Module styles
@@ -155,21 +205,6 @@
     color: @light;
     padding: 0px 6px;
 }
-window#waybar {
-    background-color: alpha(@window, 0.7);
-    transition-duration: 2s;
-    transition-property: all;
-}
-window#waybar.solo {
-    background-color: @window;
-    border-color: @window;
-}
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.hidden {
-    opacity: 0.2;
-}
 #window {
     color: @bright;
     font-style: italic;
@@ -200,6 +235,7 @@ window#waybar.hidden {
     color: @critical;
 }
 
+
 /* -----------------------------------------------------------------------------
  * Custom Module styles
  * -------------------------------------------------------------------------- */
@@ -225,36 +261,6 @@ window#waybar.hidden {
     padding: 0px 6px;
 }
 
-/* -----------------------------------------------------------------------------
- * Group Module styles
- * -------------------------------------------------------------------------- */
-
-.children-info > *,
-#custom-menu-language,
-#custom-menu-network,
-#custom-menu-system,
-#custom-menu-volume {
-    background-color: @taskbar;
-    border: 2px solid transparent;
-    color: @light;
-    padding: 0px 6px;
-}
-.children-power > *,
-#custom-menu-power {
-    background-color: @power;
-    border: 2px solid transparent;
-    color: @light;
-    padding: 0px 12px 0px 10px;
-}
-.children-info  > *:hover,
-.children-power > *:hover,
-#custom-menu-language:hover,
-#custom-menu-network:hover,
-#custom-menu-power:hover,
-#custom-menu-system:hover,
-#custom-menu-volume:hover {
-    border-color: @border;
-}
 
 /* -----------------------------------------------------------------------------
  * Animations and Alerts
