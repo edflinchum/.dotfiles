@@ -13,6 +13,7 @@
     "height": 32,
 
     "modules-left": [
+        "group/group-power",
         "hyprland/submap",
         "sway/mode",
         "group/group-volume",
@@ -34,8 +35,7 @@
         "clock#time",
         "custom/pacman",
         "idle_inhibitor",
-        "tray",
-        "group/group-power"
+        "tray"
     ],
 
     "include": [

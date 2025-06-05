@@ -1,3 +1,7 @@
+// -------------------------------------------------------------------------
+// Group Modules
+// -------------------------------------------------------------------------
+
 {
     "group/group-info": {
         "orientation": "inherit",
@@ -43,6 +47,21 @@
             "network#speed"
         ]
     },
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-power",
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-power",
+            "custom/shutdown",
+            "custom/reboot",
+            "custom/lock",
+            "custom/quit"
+        ]
+    },
     "group/group-volume": {
         "orientation": "inherit",
         "drawer": {
@@ -72,21 +91,6 @@
             "temperature",
             "cpu",
             "memory"
-        ]
-    },
-    "group/group-power": {
-        "orientation": "inherit",
-        "drawer": {
-            "children-class": "children-power",
-            "transition-duration": 500,
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/menu-power",
-            "custom/shutdown",
-            "custom/reboot",
-            "custom/lock",
-            "custom/quit"
         ]
     }
 }

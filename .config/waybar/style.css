@@ -35,7 +35,12 @@
 button,
 label.module,
 #tray * {
+    -gtk-icon-shadow: none;
+    background: none;
     border: 2px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
     padding: 0px 6px;
 }
 button:hover,
@@ -132,7 +137,7 @@ label.module:hover,
     padding: 0px 3px;
 }
 #taskbar button.active {
-    border-color: @light;
+    background-color: @focused;
 }
 #temperature {
     background-color: @temp;
@@ -162,10 +167,6 @@ window#waybar.hidden {
     padding: 0px 6px;
 }
 #workspaces button {
-    background: none;  /* Remove predefined background color (white) */
-    box-shadow: none;  /* Remove predefined box-shadow */
-    text-shadow: none; /* Remove predefined text-shadow */
-    transition: none;  /* Disable predefined animations */
     background-color: @workspaces;
     color: @bright;
     padding: 0px 10px 0px 6px;
