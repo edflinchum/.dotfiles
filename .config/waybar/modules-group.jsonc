@@ -1,0 +1,92 @@
+{
+    "group/group-info": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-info",
+            "group/group-network",
+            "group/group-system",
+            "group/group-language",
+            "group/group-volume"
+        ]
+    },
+    "group/group-language": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-language",
+            "hyprland/language",
+            "sway/language"
+        ]
+    },
+    "group/group-network": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-network",
+            "network",
+            "network#speed"
+        ]
+    },
+    "group/group-volume": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-volume",
+            "pulseaudio",
+            "pulseaudio#source"
+        ]
+    },
+    "group/group-system": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-system",
+            "battery",
+            "disk",
+            "temperature",
+            "cpu",
+            "memory"
+        ]
+    },
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-power",
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-power",
+            "custom/shutdown",
+            "custom/reboot",
+            "custom/lock",
+            "custom/quit"
+        ]
+    }
+}
