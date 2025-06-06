@@ -61,7 +61,7 @@ label.module,
     border-top-left-radius: 32px;
 }
 
-.modules-left>widget:nth-last-child(2)>*,
+.modules-left>widget:nth-last-child(2) *:last-child,
 /* Use `nth-last-child(2)` when `window` is the last left module to round the prior module */
 .modules-left>widget:last-child>*,
 .modules-center>widget:last-child>*,
@@ -104,7 +104,7 @@ label.module,
 #custom-menu-network,
 #custom-menu-system,
 #custom-menu-volume {
-    background-color: @taskbar;
+    background-color: @tray;
     color: @light;
 }
 
@@ -177,7 +177,6 @@ label.module,
 }
 
 #taskbar button.active {
-    background-color: @focused;
     border-color: @light;
 }
 

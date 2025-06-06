@@ -15,27 +15,27 @@
     "modules-left": [
         "hyprland/submap",
         "sway/mode",
-        "group/group-power",
-        "group/group-volume",
-        "group/group-language",
-        "group/group-system",
-        "group/group-network",
+        "hyprland/workspaces",
+        "sway/workspaces",
         "wlr/taskbar",
         "hyprland/window",
         "sway/window"
     ],
     "modules-center": [
-        "hyprland/workspaces",
-        "sway/workspaces"
+        "clock#date",
+        "custom/weather",
+        "clock#time",
+        "custom/media"
     ],
     "modules-right": [
-        "custom/media",
-        "custom/weather",
         "custom/pacman",
         "idle_inhibitor",
+        "group/group-network",
+        "group/group-system",
+        "group/group-language",
+        "group/group-volume",
         "tray",
-        "clock#date",
-        "clock#time"
+        "group/group-power"
     ],
 
     "include": [
