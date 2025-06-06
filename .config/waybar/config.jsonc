@@ -29,12 +29,12 @@
     ],
     "modules-right": [
         "custom/pacman",
-        "idle_inhibitor",
+        "tray",
         "group/group-network",
         "group/group-system",
         "group/group-language",
         "group/group-volume",
-        "tray",
+        "idle_inhibitor",
         "group/group-power"
     ],
 
