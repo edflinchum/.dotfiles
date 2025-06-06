@@ -39,10 +39,10 @@
     ],
 
     "include": [
-        "$HOME/.config/waybar/modules-common.jsonc",
-        "$HOME/.config/waybar/modules-custom.jsonc",
-        "$HOME/.config/waybar/modules-group.jsonc",
-        "$HOME/.config/waybar/modules-hyprland.jsonc",
-        "$HOME/.config/waybar/modules-sway.jsonc"
+        "$HOME/.config/waybar/modules/modules-common.jsonc",
+        "$HOME/.config/waybar/modules/modules-custom.jsonc",
+        "$HOME/.config/waybar/modules/modules-group.jsonc",
+        "$HOME/.config/waybar/modules/modules-hyprland.jsonc",
+        "$HOME/.config/waybar/modules/modules-sway.jsonc"
     ]
 }
