@@ -21,12 +21,14 @@
         "hyprland/window",
         "sway/window"
     ],
+
     "modules-center": [
         "clock#date",
-        "clock#time",
-        "custom/media"
+        "clock#time"
     ],
+
     "modules-right": [
+        "custom/media",
         "custom/weather",
         "custom/pacman",
         "idle_inhibitor",
