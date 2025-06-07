@@ -23,18 +23,18 @@
     ],
     "modules-center": [
         "clock#date",
-        "custom/weather",
         "clock#time",
         "custom/media"
     ],
     "modules-right": [
+        "custom/weather",
         "custom/pacman",
+        "idle_inhibitor",
         "tray",
         "group/group-network",
         "group/group-system",
         "group/group-language",
         "group/group-volume",
-        "idle_inhibitor",
         "group/group-power"
     ],
 

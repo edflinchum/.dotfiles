@@ -49,7 +49,7 @@
     },
     "clock#time": {
         "interval": 1,
-        "format": " {:%I:%M}",
+        "format": " {:%I:%M %p}",
         "format-alt": " {:%H:%M}",  // Alt Icon: ·
         "tooltip-format": "{:%r}",
         "tooltip": true
