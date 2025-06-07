@@ -142,7 +142,8 @@ label.module {
     color: @dark;
 }
 
-#mode {
+#mode,
+#submap {
     background-color: @mode;
     color: @light;
     font-style: italic;
