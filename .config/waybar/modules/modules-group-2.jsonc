@@ -9,7 +9,7 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-info",
@@ -25,12 +25,11 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-language",
             "hyprland/language",
-            "niri/language",
             "sway/language"
         ]
     },
@@ -40,12 +39,12 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-network",
-            "network#speed",
-            "network"
+            "network",
+            "network#speed"
         ]
     },
     "group/group-power": {
@@ -53,7 +52,7 @@
         "drawer": {
             "children-class": "children-power",
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-power",
@@ -69,7 +68,7 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-volume",
@@ -83,15 +82,15 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-system",
-            "memory",
-            "cpu",
-            "temperature",
+            "battery",
             "disk",
-            "battery"
+            "temperature",
+            "cpu",
+            "memory"
         ]
     }
 }

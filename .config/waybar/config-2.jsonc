@@ -15,37 +15,35 @@
     "modules-left": [
         "hyprland/submap",
         "sway/mode",
-        "hyprland/workspaces",
-        "niri/workspaces",
-        "sway/workspaces",
+        "group/group-power",
+        "group/group-volume",
+        "group/group-language",
+        "group/group-system",
+        "group/group-network",
         "wlr/taskbar",
         "hyprland/window",
         "niri/window",
         "sway/window"
     ],
-
     "modules-center": [
-        "clock#date",
-        "clock#time"
+        "hyprland/workspaces",
+        "niri/workspaces",
+        "sway/workspaces"
     ],
-
     "modules-right": [
         "custom/media",
         "custom/weather",
         "custom/pacman",
         "idle_inhibitor",
         "tray",
-        "group/group-network",
-        "group/group-system",
-        "group/group-language",
-        "group/group-volume",
-        "group/group-power"
+        "clock#date",
+        "clock#time"
     ],
 
     "include": [
         "$HOME/.config/waybar/modules/modules-common.jsonc",
         "$HOME/.config/waybar/modules/modules-custom.jsonc",
-        "$HOME/.config/waybar/modules/modules-group.jsonc",
+        "$HOME/.config/waybar/modules/modules-group-2.jsonc",
         "$HOME/.config/waybar/modules/modules-hyprland.jsonc",
         "$HOME/.config/waybar/modules/modules-niri.jsonc",
         "$HOME/.config/waybar/modules/modules-sway.jsonc"
