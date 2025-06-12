@@ -16,7 +16,8 @@
         "format": "󰍁",
         "tooltip": true,
         "tooltip-format": "Lock",
-        "on-click": "hyprlock"
+        // "on-click": "hyprlock"
+        "on-click": "loginctl lock-session"
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -79,7 +80,8 @@
         "format": "󰗼",
         "tooltip": true,
         "tooltip-format": "Logout",
-        "on-click": "hyprctl dispatch exit"
+        // "on-click": "hyprctl dispatch exit"
+        "on-click": "loginctl terminate-user $USER"
     },
     "custom/reboot": {
         "format": "󰜉",
