@@ -14,14 +14,14 @@
 
     "modules-left": [
         "hyprland/submap",
-        "sway/mode",
+        // "sway/mode",
+        // "niri/workspaces",
+        // "sway/workspaces",
         "hyprland/workspaces",
-        "niri/workspaces",
-        "sway/workspaces",
         "wlr/taskbar",
-        "hyprland/window",
-        "niri/window",
-        "sway/window"
+        // "niri/window",
+        // "sway/window",
+        "hyprland/window"
     ],
 
     "modules-center": [
@@ -46,8 +46,8 @@
         "$HOME/.config/waybar/modules/modules-common.jsonc",
         "$HOME/.config/waybar/modules/modules-custom.jsonc",
         "$HOME/.config/waybar/modules/modules-group.jsonc",
-        "$HOME/.config/waybar/modules/modules-hyprland.jsonc",
-        "$HOME/.config/waybar/modules/modules-niri.jsonc",
-        "$HOME/.config/waybar/modules/modules-sway.jsonc"
+        // "$HOME/.config/waybar/modules/modules-niri.jsonc",
+        // "$HOME/.config/waybar/modules/modules-sway.jsonc",
+        "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
     ]
 }

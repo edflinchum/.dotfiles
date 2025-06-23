@@ -29,9 +29,9 @@
         },
         "modules": [
             "custom/menu-language",
-            "hyprland/language",
-            "niri/language",
-            "sway/language"
+            // "niri/language",
+            // "sway/language",
+            "hyprland/language"
         ]
     },
     "group/group-network": {
