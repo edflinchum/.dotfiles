@@ -8,3 +8,6 @@ import = [
   "style.toml",
   "theme.toml",
 ]
+
+[terminal]
+shell = { program = "zellij", args = [ "-l", "welcome" ] }
