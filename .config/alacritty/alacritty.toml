@@ -6,8 +6,5 @@
 import = [
   "keybinds.toml",
   "style.toml",
-  "theme.toml",
+  "theme.toml"
 ]
-
-[terminal]
-shell = { program = "zellij", args = [ "-l", "welcome" ] }

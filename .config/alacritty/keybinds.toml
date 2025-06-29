@@ -19,6 +19,21 @@ action = "Quit"
 
 # -----------------------------------------------------------------------------
 
+# Launch zellij
+[[keyboard.bindings]]
+key = "Z"
+mods = "Control|Shift"
+[keyboard.bindings.command]
+program = "alacritty"
+args = [
+  "--command",
+  "zellij",
+  "-l",
+  "welcome"
+]
+
+# -----------------------------------------------------------------------------
+
 # Increase default background opacity
 [[keyboard.bindings]]
 key = "Up"
@@ -52,7 +67,9 @@ mods = "Control|Shift"
 [keyboard.bindings.command]
 program = "alacritty"
 args = [
-  "--command", "sh", "-c",
+  "--command",
+  "sh",
+  "-c",
   """
     alacritty msg config "window.opacity=1"
     cd "$HOME/.config/alacritty" || exit
