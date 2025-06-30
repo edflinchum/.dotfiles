@@ -27,7 +27,6 @@
         "format-icons": {
             "spotify": "",
             "chromium": "",
-            "google-chrome-stable": "",
             "default": "" //   ♪   
         },
         "escape": true,
