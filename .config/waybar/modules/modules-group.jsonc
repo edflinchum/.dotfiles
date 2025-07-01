@@ -1,7 +1,6 @@
 // -------------------------------------------------------------------------
 // Group Modules
 // -------------------------------------------------------------------------
-
 {
     "group/group-info": {
         "orientation": "inherit",
@@ -73,8 +72,9 @@
         },
         "modules": [
             "custom/menu-volume",
-            "pulseaudio",
-            "pulseaudio#source"
+            "wireplumber"
+            // "pulseaudio",
+            // "pulseaudio#source"
         ]
     },
     "group/group-system": {

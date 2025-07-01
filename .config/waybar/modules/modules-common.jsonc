@@ -1,12 +1,14 @@
 // -------------------------------------------------------------------------
 // Common Modules
 // -------------------------------------------------------------------------
-
 {
     "backlight": {
         "device": "intel_backlight", //"device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""],
+        "format-icons": [
+            "",
+            ""
+        ],
         //"format-icons": ["", ""],
         "on-scroll-down": "light -A 1",
         "on-scroll-up": "light -U 1"
@@ -18,15 +20,36 @@
             "warning": 30,
             "critical": 15
         },
-        "format-charging": " {capacity}%", // Icon:  bolt
+        // "format-charging": " {capacity}%", // Icon:  bolt
         //"format-charging": "{capacity}% ",
         //"format-plugged": "{capacity}% ",
-        "format-discharging": "{icon} {capacity}%",
-        "format-alt": "{icon} {time}",
+        // "format-discharging": "{icon} {capacity}%",
+        // "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         // "format-icons": ["", "", "", "", ""],
-        "format-icons": ["", "", "", "", ""],
+        // "format-icons": [
+        //     "",
+        //     "",
+        //     "",
+        //     "",
+        //     ""
+        // ],
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰂄",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
         "tooltip": false
     },
     "bluetooth": {
@@ -34,37 +57,41 @@
         "format-alt": "bluetooth: {status}",
         "interval": 30,
         "format-icons": {
-             "enabled": "",
-             "disabled": ""
+            "enabled": "",
+            "disabled": ""
         },
         "on-click-right": "blueberry",
         "tooltip-format": "{status}",
         "tooltip": true
-   },
+    },
+    "clock": {
+        "format": "{:%b %e    %I:%M %p}",
+        "tooltip-format": "<big>{:%A, %B %d}</big>\n<tt><small>{calendar}</small></tt>"
+    },
     "clock#date": {
-        "format": " {:%a %b %d}",
-        "format-alt": " {:%m/%d}", // Icon: calendar-alt
+        "format": "  {:%a %b %d}",
+        "format-alt": "  {:%m/%d}", // Icon: calendar-alt
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
         "interval": 1,
-        "format": " {:%I:%M %p}",
-        "format-alt": " {:%H:%M}",  // Alt Icon: ·
+        "format": "  {:%I:%M %p}",
+        "format-alt": "  {:%H:%M}", // Alt Icon: ·
         "tooltip-format": "{:%r}",
         "tooltip": true
     },
     "cpu": {
         "interval": 5,
-        "format": " {usage}%", // Icon:  microchip, 
+        "format": "  {usage}%", // Icon:  microchip, 
         "states": {
-          "warning": 60,
-          "critical": 90
+            "warning": 60,
+            "critical": 90
         }
     },
     "disk": {
         "interval": 30,
-        "format": " {percentage_free}%", // 
+        "format": "  {percentage_free}%", // 
         "path": "/",
         "states": {
             "warning": 85,
@@ -81,7 +108,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": " {percentage}%", // Icon: memory  
+        "format": "  {percentage}%", // Icon: memory  
         "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
         "states": {
             "warning": 70,
@@ -117,12 +144,23 @@
     "network": {
         "interval": 1,
         "format-icons": {
-            "wifi": ["睊", "直" ,""],
-            "ethernet": [""],
-            "disconnected": [""] // Icon: , ⚠ 
+            "wifi": [
+                "睊",
+                "直",
+                ""
+            ],
+            "ethernet": [
+                ""
+            ],
+            "disconnected": [
+                ""
+            ] // Icon: , ⚠ 
         },
         //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
         // Icons:     
+        // "format-wifi": "󰖩 {essid}",
+        // "format-ethernet": "󰈀 Connected",
+        // "format-disconnected": "󰖪 Disconnected",
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
@@ -150,7 +188,12 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", "", ""]
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol"
@@ -174,12 +217,21 @@
             "", // Icon: temperature-quarter
             "", // Icon: temperature-half
             "", // Icon: temperature-three-quarters
-            ""  // Icon: temperature-full
+            "" // Icon: temperature-full
         ]
     },
     "tray": {
         // "icon-size": 18,
-        "spacing": 4
+        "spacing": 6
+    },
+    "wireplumber": {
+        "format": "{icon}   {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "wlr/taskbar": {
         "active-first": false,
@@ -187,7 +239,7 @@
         "format": "{icon}",
         // "icon-size": 18,
         // "icon-theme": "Numix-Circle",
-        // "ignore-list": ["Alacritty"]
+        "ignore-list": ["Alacritty"],
         "on-click": "activate",
         "on-click-middle": "close",
         // "sort-by-app-id": true,

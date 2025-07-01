@@ -1,0 +1,124 @@
+/*
+ * Material 3 Expressive - Waybar CSS
+ */
+
+* {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#custom-launcher,
+#custom-playerctl,
+#custom-power,
+#custom-weather,
+#custom-updates,
+#group-system,
+#tray {
+    background-color: #E8DEF8; /* Material 3 Surface Container */
+    color: #211F26; /* Material 3 On Surface */
+    padding: 8px 16px;
+    margin: 4px 0;
+    border-radius: 24px;
+}
+
+/* Style for the group module container */
+#group-system {
+    border-radius: 24px 8px 8px 24px;
+}
+
+/* Style for the drawer that holds the children */
+.system-drawer {
+    background-color: #E8DEF8;
+    border-radius: 16px;
+    margin-top: 4px;
+    padding: 4px;
+}
+
+/* Remove individual styling when modules are inside the drawer */
+.system-drawer > * {
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 4px 12px;
+}
+
+#workspaces button {
+    color: #4A4458; /* Material 3 On Surface Variant */
+    background-color: transparent;
+    border-radius: 16px;
+    padding: 2px 8px;
+    margin: 0 4px;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    font-size: 18px; /* <-- Increased font size for icons */
+}
+
+#workspaces button.active {
+    background-color: #6750A4; /* Material 3 Primary */
+    color: #FFFFFF; /* Material 3 On Primary */
+    padding: 4px 16px;
+}
+
+#workspaces button:hover:not(.active) {
+    background-color: #CAC4D0; /* Material 3 On Surface Variant */
+    color: #211F26;
+}
+
+#window {
+    font-weight: 700;
+    color: #E8DEF8; /* A contrasting color for the window title */
+    padding: 8px 20px;
+}
+
+#custom-playerctl {
+    background-color: #D0BCFF; /* Material 3 Secondary Container */
+    color: #251949; /* Material 3 On Secondary Container */
+    border-radius: 12px;
+}
+
+#custom-weather {
+    border-radius: 24px 8px 8px 24px;
+}
+
+#custom-updates {
+    color: #251949;
+    background-color: #D0BCFF;
+    border-radius: 0;
+}
+
+#clock {
+    background-color: #6750A4; /* Material 3 Primary */
+    color: #FFFFFF; /* Material 3 On Primary */
+    border-radius: 8px 0 0 8px;
+}
+
+#custom-power {
+    background-color: #B3261E; /* Material 3 Error */
+    color: #FFFFFF; /* Material 3 On Error */
+    border-radius: 0 24px 24px 0;
+    margin-right: 8px;
+    padding: 8px 20px;
+}
+
+#custom-launcher {
+    background-color: #D0BCFF; /* Material 3 Secondary Container */
+    color: #251949; /* Material 3 On Secondary Container */
+    border-radius: 24px 8px 8px 24px;
+    margin-left: 8px;
+    padding: 8px 20px;
+}
+
+#tray {
+    border-radius: 8px;
+}

@@ -23,28 +23,17 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: 'Adwaita Sans', sans-serif, 'Symbols Nerd Fonts';
-    font-size: 16px;
-    font-weight: 700;
-    /* font-family: monospace; */
-    /* font-size: 9pt; */
-    /* font-weight: bold; */
+    font-family: monospace;
+    font-size: 9pt;
+    font-weight: bold;
     margin: 0px;
     min-height: 0px;
     min-width: 0px;
     padding: 0px;
 }
 
-/* .top_bar * {
-    font-family: 'Adwaita Sans', sans-serif, 'Symbols Nerd Fonts';
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 0;
-} */
-
-.bottom_bar button,
-.bottom_bar label.module {
+button,
+label.module {
     background: none;
     -gtk-icon-shadow: none;
     border: 2px solid transparent;
@@ -55,25 +44,25 @@
 }
 
 /* No margins on the ends of the bar */
-.bottom_bar .modules-left>widget:first-child * {
+.modules-left>widget:first-child>* {
     margin-left: 0px;
 }
 
-.bottom_bar .modules-right>widget:last-child * {
+.modules-right>widget:last-child>* {
     margin-right: 0px;
 }
 
 /* Round the ends of each module section */
-.bottom_bar .modules-center>widget:first-child *:first-child,
-.bottom_bar .modules-right>widget:first-child *:first-child {
+.modules-center>widget:first-child *:first-child,
+.modules-right>widget:first-child *:first-child {
     border-bottom-left-radius: 32px;
     border-top-left-radius: 32px;
 }
 
+.modules-center>widget:last-child>*:last-child,
+.modules-left>widget:last-child>*:last-child,
 /* when #window is last module, round next-to-last module */
-/* .bottom_bar .modules-left>widget:nth-last-child(2) *:last-child, */
-.bottom_bar .modules-center>widget:last-child *:last-child,
-.bottom_bar .modules-left>widget:last-child *:last-child {
+.modules-left>widget:nth-last-child(2)>*:last-child {
     border-bottom-right-radius: 32px;
     border-top-right-radius: 32px;
 }
@@ -103,12 +92,6 @@
     color: @dark;
 }
 
-#custom-launcher {
-    background-color: @tray;
-    color: @light;
-    padding: 0px 12px 0px 6px;
-}
-
 #custom-media {
     background-color: @media;
     color: @dark;
@@ -118,18 +101,13 @@
 #custom-menu-network,
 #custom-menu-system,
 #custom-menu-volume {
-    background-color: @taskbar;
-    /* background-color: @tray; */
+    background-color: @tray;
     color: @light;
 }
 
 #custom-pacman {
     background-color: @updates;
     color: @light;
-}
-
-#custom-power {
-    padding: 0px 12px 0px 10px;
 }
 
 #custom-weather {
@@ -168,8 +146,7 @@
 #submap {
     background-color: @mode;
     color: @light;
-    /* font-style: italic; */
-    padding: 0px 6px;
+    font-style: italic;
 }
 
 #network {
@@ -183,20 +160,18 @@
     min-width: 80px;
 }
 
-#pulseaudio,
-#wireplumber {
+#pulseaudio {
     background-color: @sound;
     color: @dark;
 }
 
 #taskbar {
     background-color: @taskbar;
-    padding: 0px 6px;
 }
 
 #taskbar button {
     border-radius: 32px;
-    padding: 0px 6px;
+    padding: 0px 3px;
 }
 
 #taskbar button.active {
@@ -214,74 +189,49 @@
 
 #tray * {
     border: 2px solid transparent;
-    padding: 0px 6px;
+    padding: 0px 3px;
 }
 
-window.bottom_bar#waybar {
-    background-color: alpha(@window, 0.5);
+window#waybar {
+    background-color: alpha(@window, 0.7);
     transition-duration: 2s;
     transition-property: all;
 }
 
-window.bottom_bar#waybar.solo {
+window#waybar.solo {
     background-color: @window;
     border-color: @window;
 }
 
-window.bottom_bar#waybar.empty {
+window#waybar.empty {
     background-color: transparent;
 }
 
-window.bottom_bar#waybar.hidden {
+window#waybar.hidden {
     opacity: 0.2;
 }
 
-window.top_bar#waybar {
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #e0e0e0;
-}
-
 #window {
-    color: @light;
-    /* font-style: italic; */
+    color: @bright;
+    font-style: italic;
     padding: 0px 6px;
 }
 
-.bottom_bar #workspaces button {
+#workspaces button {
     background-color: @workspaces;
     color: @bright;
     padding: 0px 10px 0px 6px;
 }
 
-.bottom_bar #workspaces button.empty {
+#workspaces button.empty {
     color: @dark;
 }
 
-.bottom_bar #workspaces button.focused,
-.bottom_bar #workspaces button.active {
+#workspaces button.focused,
+#workspaces button.active {
     background-color: @focused;
     border-color: @light;
     color: @light;
-}
-
-.top_bar #workspaces {
-    padding-left: 2px;
-}
-
-.top_bar #workspaces button {
-    border-radius: 16px;
-    color: #b0b0b0;
-    padding: 2px 6px;
-}
-
-.top_bar #workspaces button.focused,
-.top_bar #workspaces button.active {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
-}
-
-.top_bar #workspaces button.active:hover {
-    color: black;
 }
 
 #workspaces button.urgent {
