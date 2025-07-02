@@ -1,0 +1,34 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+{
+    "name": "top_bar",
+    "height": 38,
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/pacman",
+        "idle_inhibitor",
+        "custom/power"
+    ],
+    "include": [
+        "$HOME/.config/waybar/modules/modules-common.jsonc",
+        "$HOME/.config/waybar/modules/modules-custom.jsonc",
+        "$HOME/.config/waybar/modules/modules-group.jsonc",
+        "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
+    ]
+}

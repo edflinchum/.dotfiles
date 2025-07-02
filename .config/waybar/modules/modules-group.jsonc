@@ -24,7 +24,7 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-language",
@@ -39,12 +39,12 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-network",
-            "network#speed",
-            "network"
+            "network",
+            "network#speed"
         ]
     },
     "group/group-power": {
@@ -52,14 +52,14 @@
         "drawer": {
             "children-class": "children-power",
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-power",
-            "custom/quit",
-            "custom/lock",
+            "custom/shutdown",
             "custom/reboot",
-            "custom/shutdown"
+            "custom/quit",
+            "custom/lock"
         ]
     },
     "group/group-volume": {
@@ -68,7 +68,7 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-volume",
@@ -83,15 +83,15 @@
             "children-class": "children-info",
             "click-to-reveal": true,
             "transition-duration": 500,
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },
         "modules": [
             "custom/menu-system",
-            "memory",
-            "cpu",
-            "temperature",
+            "battery",
             "disk",
-            "battery"
+            "temperature",
+            "cpu",
+            "memory"
         ]
     }
 }

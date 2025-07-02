@@ -1,0 +1,38 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+{
+    "name": "bottom_bar",
+    "height": 38,
+    "layer": "top",
+    "output": "DP-1",
+    "position": "bottom",
+    "reload_style_on_change": true,
+    "modules-left": [
+        "group/group-power",
+        "group/group-volume",
+        "group/group-language",
+        "group/group-system",
+        "group/group-network",
+        "custom/media",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "clock#date",
+        "clock#time"
+    ],
+    "include": [
+        "$HOME/.config/waybar/modules/modules-common.jsonc",
+        "$HOME/.config/waybar/modules/modules-custom.jsonc",
+        "$HOME/.config/waybar/modules/modules-group.jsonc",
+        "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
+    ]
+}

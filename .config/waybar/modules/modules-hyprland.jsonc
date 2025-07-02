@@ -14,7 +14,7 @@
         "format": "{}",
         // "max-length": 50,
         "icon": true,
-        "separate-outputs": true,
+        "separate-outputs": false,
         "swap-icon-label": false,
         "tooltip": false
     },

@@ -7,59 +7,9 @@
 // =============================================================================
 [
     {
-        "name": "top_bar",
-        "height": 32,
-        "layer": "top",
-        "position": "top",
-        "reload_style_on_change": true,
-        "modules-left": [
-            "hyprland/workspaces",
-            "hyprland/submap"
-        ],
-        "modules-center": [
-            "clock"
-        ],
-        "modules-right": [
-            "custom/power"
-        ],
-        "include": [
-            "$HOME/.config/waybar/modules/modules-common.jsonc",
-            "$HOME/.config/waybar/modules/modules-custom.jsonc",
-            "$HOME/.config/waybar/modules/modules-group.jsonc",
-            "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
-        ]
+        "include": "$HOME/.config/waybar/configs/config-top.jsonc"
     },
     {
-        "name": "bottom_bar",
-        "height": 38,
-        "layer": "top",
-        "output": "DP-1",
-        "position": "bottom",
-        "reload_style_on_change": true,
-        "modules-left": [
-            "custom/launcher",
-            "wlr/taskbar",
-            "custom/media"
-        ],
-        "modules-center": [
-            "hyprland/window"
-        ],
-        "modules-right": [
-            "custom/weather",
-            "group/group-network",
-            "group/group-system",
-            "group/group-language",
-            "group/group-volume",
-            "custom/pacman",
-            "idle_inhibitor",
-            "tray",
-            "group/group-power"
-        ],
-        "include": [
-            "$HOME/.config/waybar/modules/modules-common.jsonc",
-            "$HOME/.config/waybar/modules/modules-custom.jsonc",
-            "$HOME/.config/waybar/modules/modules-group.jsonc",
-            "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
-        ]
+        "include": "$HOME/.config/waybar/configs/config-bottom.jsonc"
     }
 ]
