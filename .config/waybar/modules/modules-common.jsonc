@@ -180,7 +180,7 @@
         "scroll-step": 1,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": " MUTED", //alt icon:  
+        "format-muted": "  MUTED", //alt icon:  󰝟 
         "format-icons": {
             "headphone": "", //
             "hands-free": "",
@@ -221,17 +221,18 @@
         ]
     },
     "tray": {
-        // "icon-size": 18,
-        "spacing": 6
+        "icon-size": 18,
+        "spacing": 12
     },
     "wireplumber": {
         "format": "{icon}   {volume}%",
-        "format-muted": "󰝟",
+        "format-muted": "  MUTED",
         "format-icons": [
             "",
             "",
             ""
-        ]
+        ],
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "wlr/taskbar": {
         "active-first": false,
@@ -239,7 +240,9 @@
         "format": "{icon}",
         // "icon-size": 18,
         // "icon-theme": "Numix-Circle",
-        "ignore-list": ["Alacritty"],
+        "ignore-list": [
+            "Alacritty"
+        ],
         "on-click": "activate",
         "on-click-middle": "close",
         // "sort-by-app-id": true,

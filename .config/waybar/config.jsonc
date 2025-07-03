@@ -11,5 +11,8 @@
     },
     {
         "include": "$HOME/.config/waybar/configs/config-bottom.jsonc"
+    },
+    {
+        "include": "$HOME/.config/waybar/configs/config-top-secondary.jsonc"
     }
 ]
