@@ -18,11 +18,11 @@
         "group/group-language",
         "group/group-system",
         "group/group-network",
-        "custom/media",
-        "wlr/taskbar"
+        "wlr/taskbar",
+        "hyprland/window#empty"
     ],
     "modules-center": [
-        "hyprland/window"
+        "custom/media"
     ],
     "modules-right": [
         "custom/weather",

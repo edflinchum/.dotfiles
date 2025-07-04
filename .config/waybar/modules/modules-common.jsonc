@@ -101,9 +101,9 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
-            // Alt Icons:    
+            "activated": "",
+            "deactivated": ""
+            // Alt Icons:              
         }
     },
     "memory": {
@@ -236,13 +236,13 @@
     },
     "wlr/taskbar": {
         "active-first": false,
-        "all-outputs": false,
+        "all-outputs": true,
         "format": "{icon}",
-        // "icon-size": 18,
+        "icon-size": 18,
         // "icon-theme": "Numix-Circle",
-        "ignore-list": [
-            "Alacritty"
-        ],
+        // "ignore-list": [
+        //     "Alacritty"
+        // ],
         "on-click": "activate",
         "on-click-middle": "close",
         // "sort-by-app-id": true,

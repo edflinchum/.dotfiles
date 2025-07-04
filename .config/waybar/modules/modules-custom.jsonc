@@ -31,7 +31,7 @@
         "format-icons": {
             "spotify": " ",
             "chromium": " ",
-            "default": " " //   ♪   
+            "default": "  " //   ♪   
         },
         "escape": true,
         "on-click": "playerctl play-pause",
@@ -54,7 +54,7 @@
         "tooltip-format": "Network"
     },
     "custom/menu-power": {
-        "format": "", //            
+        "format": "", //              
         "tooltip": true,
         "tooltip-format": "Logout Menu",
         "on-click": "wlogout"

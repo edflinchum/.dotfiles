@@ -7,18 +7,10 @@
  * =========================================================================== */
 
 
-/* -----------------------------------------------------------------------------
- * Colors
- * -------------------------------------------------------------------------- */
-
 /* import css color definitions for current theme */
 @import url("colors/colors.css");
 @define-color top-background alpha(#303030, 0.95);
 
-
-/* -----------------------------------------------------------------------------
- * Styles
- * -------------------------------------------------------------------------- */
 
 /* Default styles */
 * {
@@ -32,9 +24,7 @@
     min-width: 0px;
     padding: 0px;
 }
-
 box.module>*,
-/* button, */
 label.module {
     background: none;
     -gtk-icon-shadow: none;
@@ -43,27 +33,18 @@ label.module {
     transition: none;
     padding: 0px 6px;
 }
-
 .bottombar box.module>*,
-/* .bottombar button, */
 .bottombar label.module {
     border: 2px solid transparent;
 }
-
-.top box.module>*,
-/* .top button, */
+box.module>*,
 .top label.module {
     border-radius: 38px;
 }
 
 /* No margins on the ends of the bar */
-.modules-left>widget:first-child>* {
-    margin-left: 0px;
-}
-
-.modules-right>widget:last-child>* {
-    margin-right: 0px;
-}
+.modules-left>widget:first-child>* { margin-left:  0px; }
+.modules-right>widget:last-child>* { margin-right: 0px; }
 
 /* Round the ends of each module section */
 .modules-center>widget:first-child>*,
@@ -71,296 +52,91 @@ label.module {
     border-bottom-left-radius: 38px;
     border-top-left-radius: 38px;
 }
-
 /* when #window is the last module, round the next-to-last module */
-/* .modules-left>widget:nth-last-child(2)>*, */
+.modules-left>widget:nth-last-child(2)>*,
 .modules-center>widget:last-child>*,
 .modules-left>widget:last-child>* {
     border-bottom-right-radius: 38px;
     border-top-right-radius: 38px;
 }
 
-window#waybar {
-    transition-duration: 2s;
-    transition-property: all;
-}
-
-window#waybar.bottombar {
-    background-color: alpha(@window, 0.5);
-}
-
-window#waybar.top {
-    background-color: @top-background;
-    color: #e0e0e0;
-}
-
-window#waybar.bottombar.solo {
-    background-color: @window;
-    border-color: @window;
-}
-
-window#waybar.top.solo {
-    /* background-color: black; */
-    background-color: @top-background;
-}
-
+window#waybar                { transition-duration: 2s; transition-property: all; }
+window#waybar.bottombar      { background-color: alpha(@window, 0.5);             }
+window#waybar.bottombar.solo { background-color: @window;  border-color: @window; }
+window#waybar.top            { background-color: @top-background; color: #e0e0e0; }
+window#waybar.top.solo       { background-color: @top-background;                 }
 window#waybar.empty #window,
-window#waybar.empty {
-    background-color: transparent;
-}
+window#waybar.empty          { background-color: transparent; }
+window#waybar.hidden         { opacity: 0.2; }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
+.bottombar #workspaces button          { background-color: @workspaces; color: @bright; padding: 0px 10px 0px 6px; }
+.bottombar #workspaces button.focused,
+.bottombar #workspaces button.active   { background-color: @focused; border-color: @light; color: @light; }
+.bottombar #workspaces button.empty    { color: @dark; }
+.top       #workspaces button          { color: #b0b0b0; padding: 0px 12px; }
+.top       #workspaces button.focused,
+.top       #workspaces button.active   { background-color: alpha(white, 0.15); color: white; }
+           #workspaces button.urgent   { color: @critical; }
 
-
-/* -----------------------------------------------------------------------------
- * Modules
- * -------------------------------------------------------------------------- */
-
-#battery {
-    background-color: @battery;
-    color: @dark;
-}
-
-#clock.date {
-    background-color: @date;
-    color: @light;
-}
-
-#clock.time {
-    background-color: @time;
-    color: @dark;
-}
-
-#cpu {
-    background-color: @cpu;
-    color: @dark;
-}
-
-#custom-alsa {
-    background-color: @sound;
-    color: @dark;
-}
-
-.bottombar #custom-launcher {
-    background-color: @tray;
-    color: @light;
-}
-
-#custom-launcher {
-    padding: 0px 12px 0px 6px;
-}
-
-#custom-media {
-    background-color: @media;
-    color: @dark;
-}
-
+.bottombar #custom-launcher { background-color: @tray;     color: @light; }
+.bottombar #custom-pacman   { background-color: @updates;  color: @light; }
+.bottombar #idle_inhibitor  { background-color: @idle;     color: @light; }
+.bottombar #tray            { background-color: @tray;                      border: 2px solid transparent; }
+.bottombar #window          {                              color: @light; }
+#group-power label.module   { background-color: @power;    color: @light;   padding: 0px 18px 0px 12px; }
+#battery                    { background-color: @battery;  color: @dark;  }
+#clock.date                 { background-color: @date;     color: @light; }
+#clock.time                 { background-color: @time;     color: @dark;  }
+#cpu                        { background-color: @cpu;      color: @dark;  }
+/* #custom-media               { background-color: @media;    color: @dark;  } */
+#custom-media               { background-color: inherit;   color: @light; }
+#custom-weather             { background-color: @weather;  color: @dark;  }
+#disk                       { background-color: @disk;     color: @dark;  }
+#language                   { background-color: @language; color: @dark;  }
+#memory                     { background-color: @memory;   color: @dark;  }
+#network                    { background-color: @network;  color: @dark;  }
+#network.speed              { background-color: @speed;    color: @dark;    min-width: 80px; }
+#mode, #submap              { background-color: @mode;     color: @light; }
+#temperature                { background-color: @temp;     color: @dark;  }
+#taskbar                    { background-color: @taskbar;                 }
+#taskbar button.active      { border-color: @light;                       }
+#custom-alsa,
+#pulseaudio,
+#wireplumber                { background-color: @sound;    color: @dark;  }
 #custom-menu-language,
 #custom-menu-network,
 #custom-menu-system,
-#custom-menu-volume {
-    background-color: @taskbar;
-    color: @light;
-}
+#custom-menu-volume         { background-color: @taskbar;  color: @light; }
+#custom-launcher            { padding: 0px 12px 0px 6px;                  }
+#custom-power               { padding: 0px 12px 0px 10px;                 }
+#idle_inhibitor             { padding: 0px 18px 0px 12px;                 }
+#tray *                     { padding: 0px 12px;                          }
 
-.bottombar #custom-pacman {
-    background-color: @updates;
-    color: @light;
-}
-
-#custom-power {
-    padding: 0px 12px 0px 10px;
-}
-
-#custom-weather {
-    background-color: @weather;
-    color: @dark;
-}
-
-#disk {
-    background-color: @disk;
-    color: @dark;
-}
-
-#group-power label.module {
-    background-color: @power;
-    color: @light;
-    padding: 0px 18px 0px 12px;
-}
-
-.bottombar #idle_inhibitor {
-    background-color: @idle;
-    color: @light;
-}
-
-#idle_inhibitor {
-    padding: 0px 18px 0px 12px;
-}
-
-#language {
-    background-color: @language;
-    color: @dark;
-}
-
-#memory {
-    background-color: @memory;
-    color: @dark;
-}
-
-#mode,
-#submap {
-    background-color: @mode;
-    color: @light;
-    /* font-style: italic; */
-    padding: 0px 6px;
-}
-
-#network {
-    background-color: @network;
-    color: @dark;
-}
-
-#network.speed {
-    background-color: @speed;
-    color: @dark;
-    min-width: 80px;
-}
-
-#pulseaudio,
-#wireplumber {
-    background-color: @sound;
-    color: @dark;
-}
-
-#taskbar {
-    background-color: @taskbar;
-}
-
-#taskbar button {
-    border-radius: 38px;
-}
-
-#taskbar button.active {
-    border-color: @light;
-}
-
-#temperature {
-    background-color: @temp;
-    color: @dark;
-}
-
-.bottombar #tray {
-    background-color: @tray;
-    border: 2px solid transparent;
-}
-
-#tray * {
-    padding: 0px 12px;
-}
-
-.bottombar #window {
-    color: @light;
-    /* font-style: italic; */
-    /* padding: 0px 6px; */
-}
-
-.bottombar #workspaces button {
-    background-color: @workspaces;
-    color: @bright;
-    padding: 0px 10px 0px 6px;
-}
-
-.bottombar #workspaces button.empty {
-    color: @dark;
-}
-
-.bottombar #workspaces button.focused,
-.bottombar #workspaces button.active {
-    background-color: @focused;
-    border-color: @light;
-    color: @light;
-}
-
-.top #workspaces button {
-    border-radius: 38px;
-    color: #b0b0b0;
-    padding: 0px 12px;
-}
-
-.top #workspaces button.focused,
-.top #workspaces button.active {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
-}
-
-#workspaces button.urgent {
-    color: @critical;
-}
-
-
-/* -----------------------------------------------------------------------------
-* Animations
-* --------------------------------------------------------------------------- */
 
 /* Hover effect */
-
-#tray>*:hover,
+.bottombar box.module>*:hover,
+.bottombar label.module:hover {
+    border-color: @border;
+}
+.top box.module>*:hover,
 .top label.module:hover {
     transition: background-color 0.3s;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: alpha(white, 0.1);
 }
-
 #workspaces button:hover {
     background-color: white;
 }
-
 #workspaces button.focused:hover,
 #workspaces button.active:hover {
     background-color: white;
     color: @top-background;
 }
 
-.bottombar label.module:hover,
-#taskbar button:hover {
-    border-color: @border;
-}
 
 /* Blink effect */
-
-@keyframes blink-warning {
-    70% {
-        color: @dark;
-    }
-
-    to {
-        background-color: @warning;
-        color: @dark;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-        color: @light;
-    }
-
-    to {
-        background-color: @critical;
-        color: @light;
-    }
-}
-
-@keyframes blink-notify {
-    70% {
-        color: @dark;
-    }
-
-    to {
-        background-color: @light;
-        color: @dark;
-    }
-}
+@keyframes blink-warning  {  70%  { color: @dark;  }  to  { background-color: @warning;  color: @dark;  }  }
+@keyframes blink-critical {  70%  { color: @light; }  to  { background-color: @critical; color: @light; }  }
+@keyframes blink-notify   {  70%  { color: @dark;  }  to  { background-color: @light;    color: @dark;  }  }
 
 /* Each module that should blink */
 #battery,

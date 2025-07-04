@@ -7,12 +7,12 @@
 // =============================================================================
 [
     {
-        "include": "$HOME/.config/waybar/configs/config-top.jsonc"
+        "include": "$HOME/.config/waybar/configs/hypr-top-primary.jsonc"
     },
     {
-        "include": "$HOME/.config/waybar/configs/config-bottom.jsonc"
+        "include": "$HOME/.config/waybar/configs/hypr-top-secondary.jsonc"
     },
     {
-        "include": "$HOME/.config/waybar/configs/config-top-secondary.jsonc"
+        "include": "$HOME/.config/waybar/configs/hypr-bottom-primary.jsonc"
     }
 ]
