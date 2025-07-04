@@ -7,17 +7,17 @@
 // =============================================================================
 {
     "name": "bottombar",
-    "height": 38,
+    "height": 42,
     "layer": "top",
     "output": "DP-1",
     "position": "bottom",
     "reload_style_on_change": true,
     "modules-left": [
-        "group/group-power",
-        "group/group-volume",
-        "group/group-language",
-        "group/group-system",
-        "group/group-network",
+        "group/group-power-left",
+        "group/group-volume-left",
+        "group/group-language-left",
+        "group/group-system-left",
+        "group/group-network-left",
         "wlr/taskbar",
         "hyprland/window#empty"
     ],

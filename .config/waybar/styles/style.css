@@ -9,7 +9,6 @@
 
 /* import css color definitions for current theme */
 @import url("colors/colors.css");
-@define-color top-background alpha(#303030, 0.95);
 
 
 /* Default styles */
@@ -26,20 +25,20 @@
 }
 box.module>*,
 label.module {
-    background: none;
     -gtk-icon-shadow: none;
+    background: none;
     box-shadow: none;
     text-shadow: none;
     transition: none;
-    padding: 0px 6px;
+    padding: 2px 12px;
+}
+box.module>*,
+.top label.module {
+    border-radius: 32px;
 }
 .bottombar box.module>*,
 .bottombar label.module {
     border: 2px solid transparent;
-}
-box.module>*,
-.top label.module {
-    border-radius: 38px;
 }
 
 /* No margins on the ends of the bar */
@@ -49,68 +48,70 @@ box.module>*,
 /* Round the ends of each module section */
 .modules-center>widget:first-child>*,
 .modules-right>widget:first-child>* {
-    border-bottom-left-radius: 38px;
-    border-top-left-radius: 38px;
+    border-bottom-left-radius: 32px;
+    border-top-left-radius: 32px;
 }
 /* when #window is the last module, round the next-to-last module */
 .modules-left>widget:nth-last-child(2)>*,
 .modules-center>widget:last-child>*,
 .modules-left>widget:last-child>* {
-    border-bottom-right-radius: 38px;
-    border-top-right-radius: 38px;
+    border-bottom-right-radius: 32px;
+    border-top-right-radius: 32px;
 }
 
 window#waybar                { transition-duration: 2s; transition-property: all; }
-window#waybar.bottombar      { background-color: alpha(@window, 0.5);             }
-window#waybar.bottombar.solo { background-color: @window;  border-color: @window; }
-window#waybar.top            { background-color: @top-background; color: #e0e0e0; }
-window#waybar.top.solo       { background-color: @top-background;                 }
+window#waybar.bottombar      { background-color: alpha(@window, 0.5); }
+window#waybar.bottombar.solo { background-color: @window; }
+window#waybar.top            { background-color: alpha(black, 0.5); color: #e0e0e0; }
+window#waybar.top.solo       { background-color: black; }
 window#waybar.empty #window,
 window#waybar.empty          { background-color: transparent; }
 window#waybar.hidden         { opacity: 0.2; }
 
-.bottombar #workspaces button          { background-color: @workspaces; color: @bright; padding: 0px 10px 0px 6px; }
+.bottombar #workspaces button                      { background-color: @workspaces; color: @bright; padding: 0px 10px 0px 6px; }
 .bottombar #workspaces button.focused,
-.bottombar #workspaces button.active   { background-color: @focused; border-color: @light; color: @light; }
-.bottombar #workspaces button.empty    { color: @dark; }
-.top       #workspaces button          { color: #b0b0b0; padding: 0px 12px; }
-.top       #workspaces button.focused,
-.top       #workspaces button.active   { background-color: alpha(white, 0.15); color: white; }
-           #workspaces button.urgent   { color: @critical; }
+.bottombar #workspaces button.active               { background-color: @focused; border-color: @light; color: @light; }
+.bottombar #workspaces button.empty                { color: @dark; }
+.top       #workspaces button                      { color: #b0b0b0; padding: 0px 6px; border-radius: 16px; }
+.top       #workspaces button.focused:not(:hover),
+.top       #workspaces button.active:not(:hover)   { background-color: alpha(white, 0.15); color: white; }
+           #workspaces button.urgent               { color: @critical; }
 
-.bottombar #custom-launcher { background-color: @tray;     color: @light; }
-.bottombar #custom-pacman   { background-color: @updates;  color: @light; }
-.bottombar #idle_inhibitor  { background-color: @idle;     color: @light; }
-.bottombar #tray            { background-color: @tray;                      border: 2px solid transparent; }
-.bottombar #window          {                              color: @light; }
-#group-power label.module   { background-color: @power;    color: @light;   padding: 0px 18px 0px 12px; }
-#battery                    { background-color: @battery;  color: @dark;  }
-#clock.date                 { background-color: @date;     color: @light; }
-#clock.time                 { background-color: @time;     color: @dark;  }
-#cpu                        { background-color: @cpu;      color: @dark;  }
-/* #custom-media               { background-color: @media;    color: @dark;  } */
-#custom-media               { background-color: inherit;   color: @light; }
-#custom-weather             { background-color: @weather;  color: @dark;  }
-#disk                       { background-color: @disk;     color: @dark;  }
-#language                   { background-color: @language; color: @dark;  }
-#memory                     { background-color: @memory;   color: @dark;  }
-#network                    { background-color: @network;  color: @dark;  }
-#network.speed              { background-color: @speed;    color: @dark;    min-width: 80px; }
-#mode, #submap              { background-color: @mode;     color: @light; }
-#temperature                { background-color: @temp;     color: @dark;  }
-#taskbar                    { background-color: @taskbar;                 }
-#taskbar button.active      { border-color: @light;                       }
-#custom-alsa,
-#pulseaudio,
-#wireplumber                { background-color: @sound;    color: @dark;  }
-#custom-menu-language,
-#custom-menu-network,
-#custom-menu-system,
-#custom-menu-volume         { background-color: @taskbar;  color: @light; }
-#custom-launcher            { padding: 0px 12px 0px 6px;                  }
-#custom-power               { padding: 0px 12px 0px 10px;                 }
-#idle_inhibitor             { padding: 0px 18px 0px 12px;                 }
-#tray *                     { padding: 0px 12px;                          }
+.bottombar #custom-launcher    { background-color: @tray;     color: @light; }
+.bottombar #custom-pacman      { background-color: @updates;  color: @light; }
+.bottombar #idle_inhibitor     { background-color: @idle;     color: @light; }
+.bottombar #tray               { background-color: @tray;                      border: 2px solid transparent; }
+.bottombar #window             {                              color: @light; }
+.bottombar .children-power,
+.bottombar #custom-menu-power  { background-color: @power;    color: @light;   padding: 0px 18px 0px 12px; }
+.bottombar #battery            { background-color: @battery;  color: @dark;  }
+.bottombar #clock.date         { background-color: @date;     color: @light; }
+.bottombar #clock.time         { background-color: @time;     color: @dark;  }
+.bottombar #cpu                { background-color: @cpu;      color: @dark;  }
+.bottombar #custom-media       { background-color: @media;    color: @dark;  }
+.bottombar #custom-media       { background-color: inherit;   color: @light; }  /* override for center placement */
+.bottombar #custom-weather     { background-color: @weather;  color: @dark;  }
+.bottombar #disk               { background-color: @disk;     color: @dark;  }
+.bottombar #language           { background-color: @language; color: @dark;  }
+.bottombar #memory             { background-color: @memory;   color: @dark;  }
+.bottombar #network            { background-color: @network;  color: @dark;  }
+.bottombar #network.speed      { background-color: @speed;    color: @dark;    min-width: 80px; }
+.bottombar #mode, #submap      { background-color: @mode;     color: @light; }
+.bottombar #temperature        { background-color: @temp;     color: @dark;  }
+.bottombar #taskbar            { background-color: @taskbar;                 }
+.bottombar #taskbar button     { padding: 0px 6px;                           }
+.bottombar #taskbar button.active:not(:hover) {        border-color: @light; }
+.bottombar #custom-alsa,
+.bottombar #pulseaudio,
+.bottombar #wireplumber        { background-color: @sound;    color: @dark;  }
+.bottombar #custom-menu-language,
+.bottombar #custom-menu-network,
+.bottombar #custom-menu-system,
+.bottombar #custom-menu-volume { background-color: @taskbar; color: @light;  }
+#custom-launcher               { padding: 0px 12px 0px 6px;                  }
+#custom-power                  { padding: 0px 12px 0px 10px;                 }
+#idle_inhibitor                { padding: 0px 18px 0px 12px;                 }
+#tray *                        { padding: 0px 12px;                          }
 
 
 /* Hover effect */
@@ -120,16 +121,13 @@ window#waybar.hidden         { opacity: 0.2; }
 }
 .top box.module>*:hover,
 .top label.module:hover {
+    background-color: alpha(white, 0.15);
     transition: background-color 0.3s;
-    background-color: alpha(white, 0.1);
 }
-#workspaces button:hover {
+.bottombar #taskbar button:hover,
+.top #workspaces button:hover {
     background-color: white;
-}
-#workspaces button.focused:hover,
-#workspaces button.active:hover {
-    background-color: white;
-    color: @top-background;
+    color: #1e1e1e;
 }
 
 

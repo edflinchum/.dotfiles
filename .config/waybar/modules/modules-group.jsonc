@@ -18,7 +18,7 @@
             "group/group-volume"
         ]
     },
-    "group/group-language": {
+    "group/group-language-left": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-info",
@@ -28,12 +28,23 @@
         },
         "modules": [
             "custom/menu-language",
-            // "niri/language",
-            // "sway/language",
             "hyprland/language"
         ]
     },
-    "group/group-network": {
+    "group/group-language-right": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-language",
+            "hyprland/language"
+        ]
+    },
+    "group/group-network-left": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-info",
@@ -47,7 +58,21 @@
             "network#speed"
         ]
     },
-    "group/group-power": {
+    "group/group-network-right": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-network",
+            "network#speed",
+            "network"
+        ]
+    },
+    "group/group-power-left": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-power",
@@ -62,7 +87,22 @@
             "custom/lock"
         ]
     },
-    "group/group-volume": {
+    "group/group-power-right": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-power",
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-power",
+            "custom/lock",
+            "custom/quit",
+            "custom/reboot",
+            "custom/shutdown"
+        ]
+    },
+    "group/group-volume-left": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-info",
@@ -72,12 +112,27 @@
         },
         "modules": [
             "custom/menu-volume",
-            "wireplumber"
-            // "pulseaudio",
-            // "pulseaudio#source"
+            // "wireplumber"
+            "pulseaudio",
+            "pulseaudio#source"
         ]
     },
-    "group/group-system": {
+    "group/group-volume-right": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-volume",
+            "wireplumber"
+            // "pulseaudio#source",
+            // "pulseaudio"
+        ]
+    },
+    "group/group-system-left": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-info",
@@ -92,6 +147,23 @@
             "temperature",
             "cpu",
             "memory"
+        ]
+    },
+    "group/group-system-right": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-system",
+            "memory",
+            "cpu",
+            "temperature",
+            "disk",
+            "battery"
         ]
     }
 }

@@ -178,9 +178,9 @@
     },
     "pulseaudio": {
         "scroll-step": 1,
-        "format": "{icon} {volume}%",
+        "format": "{icon}   {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": "  MUTED", //alt icon:  󰝟 
+        "format-muted": "   MUTED", //alt icon:  󰝟 
         "format-icons": {
             "headphone": "", //
             "hands-free": "",
@@ -221,12 +221,12 @@
         ]
     },
     "tray": {
-        "icon-size": 18,
-        "spacing": 12
+        "icon-size": 18
+        // "spacing": 16
     },
     "wireplumber": {
         "format": "{icon}   {volume}%",
-        "format-muted": "  MUTED",
+        "format-muted": "   MUTED",
         "format-icons": [
             "",
             "",
