@@ -47,7 +47,7 @@ if status is-interactive
   end
 
   # Fastfetch
-  if type -q fastfetch
-    fastfetch
-  end
+  # if type -q fastfetch
+  #   fastfetch
+  # end
 end

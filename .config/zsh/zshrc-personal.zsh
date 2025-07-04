@@ -32,8 +32,8 @@ if (( $+commands[op] )); then
 fi
 
 # Print some system information when the shell is first started
-if (( $+commands[fastfetch] )); then
-  fastfetch
-else
-  echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
-fi
+# if (( $+commands[fastfetch] )); then
+#   fastfetch
+# else
+#   echo $USER@$HOST  $(uname -srm)  $((( $+commands[lsb_release] )) && lsb_release -rcs)
+# fi

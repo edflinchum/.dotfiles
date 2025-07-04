@@ -65,11 +65,11 @@ if type zoxide &>/dev/null; then
 fi
 
 # Print some system information when the shell is first started
-if type fastfetch &>/dev/null; then
-  fastfetch
-else
-  echo $USER@$HOST  $(uname -srm)  $(command -v lsb_release &>/dev/null && lsb_release -rcs)
-fi
+# if type fastfetch &>/dev/null; then
+#   fastfetch
+# else
+#   echo $USER@$HOST  $(uname -srm)  $(command -v lsb_release &>/dev/null && lsb_release -rcs)
+# fi
 
 ######################################################################
 #                              Aliases                               #
