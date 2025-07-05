@@ -67,52 +67,51 @@ window#waybar.empty #window,
 window#waybar.empty          { background-color: transparent; }
 window#waybar.hidden         { opacity: 0.2; }
 
-.bottombar #workspaces button                      { background-color: @workspaces; color: @bright; padding: 0px 10px 0px 6px; }
+.bottombar #workspaces button                      { background-color: @workspaces; color: @bright; }
 .bottombar #workspaces button.focused,
 .bottombar #workspaces button.active               { background-color: @focused; border-color: @light; color: @light; }
 .bottombar #workspaces button.empty                { color: @dark; }
-.top       #workspaces button                      { color: #b0b0b0; padding: 0px 6px; border-radius: 16px; }
+.top       #workspaces button                      { color: #b0b0b0; }
 .top       #workspaces button.focused:not(:hover),
 .top       #workspaces button.active:not(:hover)   { background-color: alpha(white, 0.15); color: white; }
-           #workspaces button.urgent               { color: @critical; }
+           #workspaces button.urgent               { color: red; }
 
-.bottombar #custom-launcher    { background-color: @tray;     color: @light; }
-.bottombar #custom-pacman      { background-color: @updates;  color: @light; }
-.bottombar #idle_inhibitor     { background-color: @idle;     color: @light; }
-.bottombar #tray               { background-color: @tray;                      border: 2px solid transparent; }
-.bottombar #window             {                              color: @light; }
-.bottombar .children-power,
-.bottombar #custom-menu-power  { background-color: @power;    color: @light;   padding: 0px 18px 0px 12px; }
-.bottombar #battery            { background-color: @battery;  color: @dark;  }
-.bottombar #clock.date         { background-color: @date;     color: @light; }
-.bottombar #clock.time         { background-color: @time;     color: @dark;  }
-.bottombar #cpu                { background-color: @cpu;      color: @dark;  }
-.bottombar #custom-media       { background-color: @media;    color: @dark;  }
-.bottombar #custom-media       { background-color: inherit;   color: @light; }  /* override for center placement */
-.bottombar #custom-weather     { background-color: @weather;  color: @dark;  }
-.bottombar #disk               { background-color: @disk;     color: @dark;  }
-.bottombar #language           { background-color: @language; color: @dark;  }
-.bottombar #memory             { background-color: @memory;   color: @dark;  }
-.bottombar #network            { background-color: @network;  color: @dark;  }
-.bottombar #network.speed      { background-color: @speed;    color: @dark;    min-width: 80px; }
-.bottombar #mode, #submap      { background-color: @mode;     color: @light; }
-.bottombar #temperature        { background-color: @temp;     color: @dark;  }
-.bottombar #taskbar            { background-color: @taskbar;                 }
-.bottombar #taskbar button     { padding: 0px 6px;                           }
-.bottombar #taskbar button.active:not(:hover) {        border-color: @light; }
-.bottombar #custom-alsa,
-.bottombar #pulseaudio,
-.bottombar #wireplumber        { background-color: @sound;    color: @dark;  }
-.bottombar #custom-launcher,
+.bottombar #battery                           { background-color: @battery;  color: @dark;  }
+.bottombar #clock.date                        { background-color: @date;     color: @light; }
+.bottombar #clock.time                        { background-color: @time;     color: @dark;  }
+.bottombar #cpu                               { background-color: @cpu;      color: @dark;  }
+.bottombar #custom-alsa                       { background-color: @sound;    color: @dark;  }
+.bottombar #custom-launcher                   { background-color: @taskbar;  color: @light; }
+.bottombar #custom-media                      { background-color: @media;    color: @dark;  }
 .bottombar #custom-menu-info,
 .bottombar #custom-menu-language,
 .bottombar #custom-menu-network,
 .bottombar #custom-menu-system,
-.bottombar #custom-menu-volume { background-color: @taskbar; color: @light;  }
-#custom-launcher               { padding: 0px 18px 0px 12px;                 }
-#custom-power                  { padding: 0px 18px 0px 15px;                 }
-#idle_inhibitor                { padding: 0px 18px 0px 12px;                 }
-#tray *                        { padding: 0px 12px;                          }
+.bottombar #custom-menu-volume                { background-color: @taskbar;  color: @light; }
+.bottombar #custom-pacman                     { background-color: @updates;  color: @light; }
+.bottombar #custom-weather                    { background-color: @weather;  color: @dark;  }
+.bottombar #disk                              { background-color: @disk;     color: @dark;  }
+.bottombar #idle_inhibitor                    { background-color: @idle;     color: @light; }
+.bottombar #language                          { background-color: @language; color: @dark;  }
+.bottombar #memory                            { background-color: @memory;   color: @dark;  }
+.bottombar #network                           { background-color: @network;  color: @dark;  }
+.bottombar #network.speed                     { background-color: @speed;    color: @dark;    min-width: 80px; }
+.bottombar #mode                              { background-color: @mode;     color: @light; }
+.bottombar #pulseaudio                        { background-color: @sound;    color: @dark;  }
+.bottombar #submap                            { background-color: @mode;     color: @light; }
+.bottombar #temperature                       { background-color: @temp;     color: @dark;  }
+.bottombar #taskbar                           { background-color: @taskbar;                 }
+.bottombar #taskbar button                    { padding: 0px 6px;                           }
+.bottombar #taskbar button.active:not(:hover) { border-color: @light;                       }
+.bottombar #tray                              { background-color: @tray; border: 2px solid transparent; }
+.bottombar #window                            {                              color: @light; }
+.bottombar #wireplumber                       { background-color: @sound;    color: @dark;  }
+
+#custom-menu-power, .children-power           { padding: 0px 18px 0px 12px;                 }
+#custom-launcher                              { padding: 0px 18px 0px 12px;                 }
+#custom-power                                 { padding: 0px 18px 0px 15px;                 }
+#idle_inhibitor                               { padding: 0px 18px 0px 12px;                 }
+#tray *                                       { padding: 0px 12px;                          }
 
 
 /* Hover effect */
@@ -133,9 +132,9 @@ window#waybar.hidden         { opacity: 0.2; }
 
 
 /* Blink effect */
-@keyframes blink-warning  {  70%  { color: @dark;  }  to  { background-color: @warning;  color: @dark;  }  }
-@keyframes blink-critical {  70%  { color: @light; }  to  { background-color: @critical; color: @light; }  }
-@keyframes blink-notify   {  70%  { color: @dark;  }  to  { background-color: @light;    color: @dark;  }  }
+@keyframes blink-warning  {  70%  { color: black; }  to  { background-color: yellow;  color: black; }  }
+@keyframes blink-critical {  70%  { color: white; }  to  { background-color: red;     color: white; }  }
+@keyframes blink-notify   {  70%  { color: black; }  to  { background-color: white;   color: black; }  }
 
 /* Each module that should blink */
 #battery,
@@ -146,8 +145,10 @@ window#waybar.hidden         { opacity: 0.2; }
 #memory,
 #mode,
 #pulseaudio,
+#submap,
 #temperature,
-#wireplumber {
+#wireplumber,
+#workspaces {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -159,7 +160,7 @@ window#waybar.hidden         { opacity: 0.2; }
 #disk.critical,
 #memory.critical,
 #temperature.critical {
-    color: @critical;
+    color: red;
 }
 
 /* Each critical that should blink */
@@ -168,9 +169,10 @@ window#waybar.hidden         { opacity: 0.2; }
 #disk.critical,
 #memory.critical,
 #mode,
+#submap,
 #temperature.critical {
     animation-name: blink-critical;
-    animation-duration: 2s;
+    animation-duration: 0.5s;
 }
 
 /* Each warning module*/
@@ -184,7 +186,7 @@ window#waybar.hidden         { opacity: 0.2; }
 #network.disconnected,
 #pulseaudio.muted:not(.source),
 #wireplumber.muted {
-    color: @warning;
+    color: yellow;
 }
 
 /* Each warning that should blink */
@@ -200,8 +202,9 @@ window#waybar.hidden         { opacity: 0.2; }
 #custom-pacman,
 #idle_inhibitor.activated,
 #pulseaudio.muted:not(.source),
-#wireplumber.muted {
+#wireplumber.muted,
+#workspaces button.urgent {
     animation-name: blink-notify;
-    animation-duration: 0.3s;
-    animation-iteration-count: 6;
+    animation-duration: 0.5s;
+    animation-iteration-count: 10;
 }

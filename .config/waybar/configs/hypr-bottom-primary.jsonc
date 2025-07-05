@@ -13,13 +13,21 @@
     "position": "bottom",
     "reload_style_on_change": true,
     "modules-left": [
-        "group/group-power-left",
         "custom/launcher",
-        "group/group-info-left",
+        // "group/group-info-left",
         "wlr/taskbar",
         "hyprland/window#empty"
     ],
     "modules-center": [
+        "wireplumber",
+        "hyprland/language",
+        "battery",
+        "disk",
+        "temperature",
+        "cpu",
+        "memory",
+        "network",
+        "network#speed",
         "custom/media"
     ],
     "modules-right": [
