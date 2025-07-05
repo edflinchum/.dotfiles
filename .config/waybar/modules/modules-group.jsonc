@@ -12,10 +12,20 @@
         },
         "modules": [
             "custom/menu-info",
-            "group/group-volume-left",
-            "group/group-language-left",
-            "group/group-system-left",
-            "group/group-network-left"
+            // "group/group-volume-left",
+            // "group/group-language-left",
+            // "group/group-system-left",
+            // "group/group-network-left"
+            "pulseaudio",
+            "pulseaudio#source",
+            "hyprland/language",
+            "battery",
+            "disk",
+            "temperature",
+            "cpu",
+            "memory",
+            "network",
+            "network#speed"
         ]
     },
     "group/group-info-right": {
@@ -28,10 +38,20 @@
         },
         "modules": [
             "custom/menu-info",
-            "group/group-network-right",
-            "group/group-system-right",
-            "group/group-language-right",
-            "group/group-volume-right"
+            // "group/group-network-right",
+            // "group/group-system-right",
+            // "group/group-language-right",
+            // "group/group-volume-right"
+            "network#speed",
+            "network",
+            "memory",
+            "cpu",
+            "temperature",
+            "disk",
+            "battery",
+            "hyprland/language",
+            "pulseaudio#source",
+            "pulseaudio"
         ]
     },
     "group/group-language-left": {
