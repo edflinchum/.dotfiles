@@ -16,8 +16,9 @@
             // "group/group-language-left",
             // "group/group-system-left",
             // "group/group-network-left"
-            "pulseaudio",
-            "pulseaudio#source",
+            // "pulseaudio",
+            // "pulseaudio#source",
+            "wireplumber",
             "hyprland/language",
             "battery",
             "disk",
@@ -50,8 +51,9 @@
             "disk",
             "battery",
             "hyprland/language",
-            "pulseaudio#source",
-            "pulseaudio"
+            // "pulseaudio#source",
+            // "pulseaudio"
+            "wireplumber"
         ]
     },
     "group/group-language-left": {
