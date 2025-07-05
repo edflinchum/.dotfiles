@@ -84,6 +84,8 @@
     "cpu": {
         "interval": 5,
         "format": "  {usage}%", // Icon:  microchip, 
+        // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+        // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
         "states": {
             "warning": 60,
             "critical": 90
@@ -108,7 +110,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": "  {percentage}%", // Icon: memory  
+        "format": "  {percentage}%", // Icon: memory   
         "tooltip-format": "{used:0.2f}G / {total:0.2f}G",
         "states": {
             "warning": 70,
@@ -161,6 +163,9 @@
         // "format-wifi": "󰖩 {essid}",
         // "format-ethernet": "󰈀 Connected",
         // "format-disconnected": "󰖪 Disconnected",
+        // "format-wifi": "󰤢 ",
+        // "format-ethernet": "󰈀 ",
+        // "format-disconnected": "󰤠 ",
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
