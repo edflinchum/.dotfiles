@@ -13,10 +13,9 @@
     "position": "top",
     "reload_style_on_change": true,
     "modules-left": [
-        "custom/launcher",
+        "hyprland/submap",
         "hyprland/workspaces",
-        "hyprland/window",
-        "hyprland/submap"
+        "hyprland/window"
     ],
     "modules-center": [
         "clock"

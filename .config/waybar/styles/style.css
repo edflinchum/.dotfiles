@@ -46,15 +46,14 @@ box.module>*,
 .modules-right>widget:last-child>* { margin-right: 0px; }
 
 /* Round the ends of each module section */
-.modules-center>widget:first-child>*,
-.modules-right>widget:first-child>* {
+.bottombar .modules-center>widget:first-child>*,
+.bottombar .modules-right>widget:first-child>* {
     border-bottom-left-radius: 32px;
     border-top-left-radius: 32px;
 }
-/* when #window is the last module, round the next-to-last module */
-.modules-left>widget:nth-last-child(2)>*,
-.modules-center>widget:last-child>*,
-.modules-left>widget:last-child>* {
+.bottombar .modules-left>widget:nth-last-child(2)>*,  /* when #window is the last module, round the next-to-last module */
+.bottombar .modules-center>widget:last-child>*,
+.bottombar .modules-left>widget:last-child>* {
     border-bottom-right-radius: 32px;
     border-top-right-radius: 32px;
 }
@@ -104,12 +103,14 @@ window#waybar.hidden         { opacity: 0.2; }
 .bottombar #custom-alsa,
 .bottombar #pulseaudio,
 .bottombar #wireplumber        { background-color: @sound;    color: @dark;  }
+.bottombar #custom-launcher,
+.bottombar #custom-menu-info,
 .bottombar #custom-menu-language,
 .bottombar #custom-menu-network,
 .bottombar #custom-menu-system,
 .bottombar #custom-menu-volume { background-color: @taskbar; color: @light;  }
-#custom-launcher               { padding: 0px 12px 0px 6px;                  }
-#custom-power                  { padding: 0px 12px 0px 10px;                 }
+#custom-launcher               { padding: 0px 18px 0px 12px;                 }
+#custom-power                  { padding: 0px 18px 0px 15px;                 }
 #idle_inhibitor                { padding: 0px 18px 0px 12px;                 }
 #tray *                        { padding: 0px 12px;                          }
 

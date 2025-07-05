@@ -39,7 +39,7 @@
         // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/menu-info": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Status and Settings"
     },
@@ -54,7 +54,7 @@
         "tooltip-format": "Network"
     },
     "custom/menu-power": {
-        "format": "", //              
+        "format": "", //                
         "tooltip": true,
         "tooltip-format": "Logout Menu",
         "on-click": "wlogout"

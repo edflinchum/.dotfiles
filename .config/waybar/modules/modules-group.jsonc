@@ -2,7 +2,23 @@
 // Group Modules
 // -------------------------------------------------------------------------
 {
-    "group/group-info": {
+    "group/group-info-left": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-info",
+            "group/group-volume-left",
+            "group/group-language-left",
+            "group/group-system-left",
+            "group/group-network-left"
+        ]
+    },
+    "group/group-info-right": {
         "orientation": "inherit",
         "drawer": {
             "children-class": "children-info",
@@ -12,10 +28,10 @@
         },
         "modules": [
             "custom/menu-info",
-            "group/group-network",
-            "group/group-system",
-            "group/group-language",
-            "group/group-volume"
+            "group/group-network-right",
+            "group/group-system-right",
+            "group/group-language-right",
+            "group/group-volume-right"
         ]
     },
     "group/group-language-left": {
@@ -127,9 +143,9 @@
         },
         "modules": [
             "custom/menu-volume",
-            "wireplumber"
-            // "pulseaudio#source",
-            // "pulseaudio"
+            // "wireplumber"
+            "pulseaudio#source",
+            "pulseaudio"
         ]
     },
     "group/group-system-left": {
