@@ -5,6 +5,7 @@ abbr -a -- df 'df -hT'
 abbr -a -- dots 'dot status'
 abbr -a -- du 'du -ach | sort -h'
 abbr -a -- egrep 'egrep --color=auto'
+abbr -a -- f 'fastfetch'
 abbr -a -- fgrep 'fgrep --color=auto'
 abbr -a -- free 'free -mt'
 abbr -a -- gbc git_branch_cleanup

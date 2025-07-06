@@ -66,3 +66,6 @@ alias kn='f() { [ "$1" ] && kubectl config set-context --current --namespace $1 
 alias spta="starship toggle aws"
 alias sptz="starship toggle azure"
 alias sptg="starship toggle gcloud"
+
+# fastfetch
+alias f="fastfetch"
