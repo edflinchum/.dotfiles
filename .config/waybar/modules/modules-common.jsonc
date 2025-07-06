@@ -82,10 +82,10 @@
         "tooltip": true
     },
     "cpu": {
-        "interval": 5,
+        "interval": 1,
         "format": "  {usage}%", // Icon:  microchip, 
         // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-        // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+        // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
         "states": {
             "warning": 60,
             "critical": 90
@@ -167,17 +167,18 @@
         // "format-ethernet": "󰈀 ",
         // "format-disconnected": "󰤠 ",
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        // "format-ethernet": "{icon} {ipaddr}",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
         "format-alt": "{icon} {ipaddr}",
-        "tooltip-format": "{icon} {ipaddr}/{cidr}",
+        "tooltip-format": "{icon} {ipaddr}/{cidr} ({ifname})",
         "tooltip": true
     },
     "network#speed": {
         "interval": 1,
-        "format": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
-        "format-alt": " {bandwidthDownBits}",
+        "format": " {bandwidthDownBits}",
         // "format-alt": " {bandwidthUpBits}",
+        "format-alt": "<span size='smaller'> {bandwidthUpBits}\n {bandwidthDownBits}</span>",
         "tooltip-format": " {bandwidthUpBits}\n {bandwidthDownBits}",
         "tooltip": true
     },
@@ -235,6 +236,7 @@
         "format-icons": [
             "",
             "",
+            "",
             ""
         ],
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
