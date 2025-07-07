@@ -13,21 +13,21 @@
     "hyprland/window": {
         "format": "{}",
         "icon": false,
-        "separate-outputs": true,
+        "separate-outputs": false,
         "swap-icon-label": false,
         "tooltip": false
     },
     "hyprland/window#empty": {
         "format": "",
         "icon": false,
-        "separate-outputs": true,
+        "separate-outputs": false,
         "swap-icon-label": false,
         "tooltip": false
     },
     "hyprland/workspaces": {
         "on-click": "activate",
         "format": "{name}",
-        "all-outputs": false,
+        "all-outputs": true,
         "disable-scroll": false,
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",

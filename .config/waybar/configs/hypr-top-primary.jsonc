@@ -21,6 +21,7 @@
         "clock"
     ],
     "modules-right": [
+        "custom/media",
         "custom/pacman",
         "tray",
         "idle_inhibitor",

@@ -13,27 +13,31 @@
     "position": "bottom",
     "reload_style_on_change": true,
     "modules-left": [
+        "hyprland/submap",
+        "hyprland/workspaces",
         "custom/launcher",
-        // "group/group-info-left",
-        "wlr/taskbar",
-        "hyprland/window#empty"
+        "group/group-info-left",
+        "wlr/taskbar"
     ],
     "modules-center": [
-        "wireplumber",
-        "hyprland/language",
-        "battery",
-        "disk",
-        "temperature",
-        "cpu",
-        "memory",
-        "network",
-        "network#speed",
-        "custom/media"
+        "hyprland/window"
+        // "wireplumber",
+        // "hyprland/language",
+        // "battery",
+        // "disk",
+        // "temperature",
+        // "cpu",
+        // "memory",
+        // "network",
+        // "network#speed",
+        // "custom/media"
     ],
     "modules-right": [
+        "custom/media",
         "custom/weather",
         "clock#date",
-        "clock#time"
+        "clock#time",
+        "group/group-power-right"
     ],
     "include": [
         "$HOME/.config/waybar/modules/modules-common.jsonc",

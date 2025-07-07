@@ -239,7 +239,8 @@
             "",
             ""
         ],
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pwvucontrol"
     },
     "wlr/taskbar": {
         "active-first": false,

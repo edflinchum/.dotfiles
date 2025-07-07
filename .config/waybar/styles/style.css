@@ -30,16 +30,17 @@ label.module {
     box-shadow: none;
     text-shadow: none;
     transition: none;
+    border: 2px solid transparent;
     padding: 2px 12px;
 }
-box.module>*,
-.top label.module {
+.topbar box.module>*,
+.topbar label.module {
     border-radius: 32px;
 }
-.bottombar box.module>*,
+/* .bottombar box.module>*,
 .bottombar label.module {
     border: 2px solid transparent;
-}
+} */
 
 /* No margins on the ends of the bar */
 .modules-left>widget:first-child>* { margin-left:  0px; }
@@ -61,19 +62,21 @@ box.module>*,
 window#waybar                { transition-duration: 2s; transition-property: all; }
 window#waybar.bottombar      { background-color: alpha(@window, 0.5); }
 window#waybar.bottombar.solo { background-color: @window; }
-window#waybar.top            { background-color: alpha(black, 0.5); color: #e0e0e0; }
-window#waybar.top.solo       { background-color: black; }
+window#waybar.topbar         { background-color: alpha(black, 0.5); color: #e0e0e0; }
+window#waybar.topbar.solo    { background-color: black; }
 window#waybar.empty #window,
 window#waybar.empty          { background-color: transparent; }
 window#waybar.hidden         { opacity: 0.2; }
 
 .bottombar #workspaces button                      { background-color: @workspaces; color: @bright; }
 .bottombar #workspaces button.focused,
-.bottombar #workspaces button.active               { background-color: @focused; border-color: @light; color: @light; }
+.bottombar #workspaces button.active               { background-color: @focused; color: @light; }
+.bottombar #workspaces button.focused:not(:hover),
+.bottombar #workspaces button.active:not(:hover)   { border-color: @light; }
 .bottombar #workspaces button.empty                { color: @dark; }
-.top       #workspaces button                      { color: #b0b0b0; }
-.top       #workspaces button.focused:not(:hover),
-.top       #workspaces button.active:not(:hover)   { background-color: alpha(white, 0.15); color: white; }
+.topbar    #workspaces button                      { color: #b0b0b0; }
+.topbar    #workspaces button.focused:not(:hover),
+.topbar    #workspaces button.active:not(:hover)   { background-color: alpha(white, 0.15); color: white; }
            #workspaces button.urgent               { color: red; }
 
 .bottombar #battery                           { background-color: @battery;  color: @dark;  }
@@ -83,6 +86,8 @@ window#waybar.hidden         { opacity: 0.2; }
 .bottombar #custom-alsa                       { background-color: @sound;    color: @dark;  }
 .bottombar #custom-launcher                   { background-color: @taskbar;  color: @light; }
 .bottombar #custom-media                      { background-color: @media;    color: @dark;  }
+.bottombar #custom-menu-power,
+.bottombar .children-power                    { background-color: @power;    color: @light; }
 .bottombar #custom-menu-info,
 .bottombar #custom-menu-language,
 .bottombar #custom-menu-network,
@@ -101,7 +106,7 @@ window#waybar.hidden         { opacity: 0.2; }
 .bottombar #submap                            { background-color: @mode;     color: @light; }
 .bottombar #temperature                       { background-color: @temp;     color: @dark;  }
 .bottombar #taskbar                           { background-color: @taskbar;                 }
-.bottombar #taskbar button                    { padding: 0px 6px;                           }
+.bottombar #taskbar button                    { padding: 0px 6px; border-radius: 32px;      }
 .bottombar #taskbar button.active:not(:hover) { border-color: @light;                       }
 .bottombar #tray                              { background-color: @tray; border: 2px solid transparent; }
 .bottombar #window                            {                              color: @light; }
@@ -119,13 +124,13 @@ window#waybar.hidden         { opacity: 0.2; }
 .bottombar label.module:hover {
     border-color: @border;
 }
-.top box.module>*:hover,
-.top label.module:hover {
+.topbar box.module>*:hover,
+.topbar label.module:hover {
     background-color: alpha(white, 0.15);
     transition: background-color 0.3s;
 }
 .bottombar #taskbar button:hover,
-.top #workspaces button:hover {
+.topbar #workspaces button:hover {
     background-color: white;
     color: #1e1e1e;
 }
