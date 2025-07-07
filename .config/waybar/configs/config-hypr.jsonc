@@ -1,0 +1,37 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+[
+    {
+        "name": "bar1",
+        "height": 42,
+        "layer": "top",
+        "output": "DP-1",
+        "position": "top",
+        "reload_style_on_change": true,
+        "include": "$HOME/.config/waybar/configs/hypr-bar1.jsonc"
+    },
+    // {
+    //     "name": "bar1",
+    //     "height": 42,
+    //     "layer": "top",
+    //     "output": "!DP-1",
+    //     "position": "top",
+    //     "reload_style_on_change": true,
+    //     "include": "$HOME/.config/waybar/configs/hypr-bar1-minimal.jsonc"
+    // },
+    {
+        "name": "bar2",
+        "height": 42,
+        "layer": "top",
+        "output": "DP-1",
+        "position": "bottom",
+        "reload_style_on_change": true,
+        "start_hidden": true,
+        "include": "$HOME/.config/waybar/configs/hypr-bar2.jsonc"
+    }
+]

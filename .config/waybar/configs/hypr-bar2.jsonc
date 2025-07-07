@@ -1,0 +1,45 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+{
+    "modules-left": [
+        "hyprland/submap",
+        "hyprland/workspaces",
+        "custom/launcher",
+        "group/group-info-left-hypr",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "hyprland/window"
+        // "wireplumber",
+        // "hyprland/language",
+        // "battery",
+        // "disk",
+        // "temperature",
+        // "cpu",
+        // "memory",
+        // "network",
+        // "network#speed",
+        // "custom/media"
+    ],
+    "modules-right": [
+        "custom/media",
+        "custom/weather",
+        "clock#date",
+        "clock#time",
+        "custom/pacman",
+        "tray",
+        "idle_inhibitor",
+        "group/group-power-right"
+    ],
+    "include": [
+        "$HOME/.config/waybar/modules/modules-common.jsonc",
+        "$HOME/.config/waybar/modules/modules-custom.jsonc",
+        "$HOME/.config/waybar/modules/modules-group.jsonc",
+        "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
+    ]
+}

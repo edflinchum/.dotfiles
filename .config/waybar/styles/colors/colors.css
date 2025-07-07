@@ -11,7 +11,7 @@
   *   -Uncomment the desired theme below to set waybar color definitions
   * -------------------------------------------------------------------------- */
 
-/* @import url("gruvbox.css"); */
-/* @import url("nord.css"); */
-@import url("rigel.css");
-@import url("gnome.css");
+/* @import "gruvbox.css"; */
+/* @import "nord.css"; */
+@import "rigel.css";
+/* @import "gnome.css"; */

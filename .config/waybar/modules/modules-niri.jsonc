@@ -29,7 +29,86 @@
             // "urgent": "",
             // "focused": "",
             "default": ""
-            // other icons:                   華         "  ﱘ             󰨞
         }
+    },
+    "group/group-language-left-niri": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-language",
+            "niri/language"
+        ]
+    },
+    "group/group-info-left-niri": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-info",
+            // "group/group-volume-left",
+            // "group/group-language-left",
+            // "group/group-system-left",
+            // "group/group-network-left"
+            // "pulseaudio",
+            // "pulseaudio#source",
+            "wireplumber",
+            "niri/language",
+            "battery",
+            "disk",
+            "temperature",
+            "cpu",
+            "memory",
+            "network",
+            "network#speed"
+        ]
+    },
+    "group/group-info-right-niri": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-info",
+            // "group/group-network-right",
+            // "group/group-system-right",
+            // "group/group-language-right",
+            // "group/group-volume-right"
+            "network#speed",
+            "network",
+            "memory",
+            "cpu",
+            "temperature",
+            "disk",
+            "battery",
+            "niri/language",
+            // "pulseaudio#source",
+            // "pulseaudio"
+            "wireplumber"
+        ]
+    },
+    "group/group-language-right-niri": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-language",
+            "niri/language"
+        ]
     }
 }

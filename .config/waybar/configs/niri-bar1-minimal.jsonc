@@ -6,31 +6,20 @@
 //
 // =============================================================================
 {
-    "name": "topbar",
-    "height": 42,
-    "layer": "top",
-    "output": "DP-1",
-    "position": "top",
-    "reload_style_on_change": true,
     "modules-left": [
-        "hyprland/submap",
-        "hyprland/workspaces",
-        "hyprland/window"
+        "niri/workspaces",
+        "niri/window#empty"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "custom/media",
-        "custom/pacman",
-        "tray",
-        "idle_inhibitor",
         "custom/power"
     ],
     "include": [
         "$HOME/.config/waybar/modules/modules-common.jsonc",
         "$HOME/.config/waybar/modules/modules-custom.jsonc",
         "$HOME/.config/waybar/modules/modules-group.jsonc",
-        "$HOME/.config/waybar/modules/modules-hyprland.jsonc"
+        "$HOME/.config/waybar/modules/modules-niri.jsonc"
     ]
 }

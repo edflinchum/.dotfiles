@@ -35,17 +35,101 @@
             "*": 1
             // "DP-1": [1], "DP-2": [6]
         }
+        //  "format": "{id} {icon}",
+        //  "format": "{icon} {windows}",
+        //  "format": "{icon}",
+        //  "format-icons": {
+        //     other icons:                   華            ﱘ            󰨞 
+        //     "1": "", "2": "", "3": "🖹", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "",
+        //     "1": "󰎤", "2": "󰎧", "3": "󰎪", "4": "󰎭", "5": "󰎱", "6": "󰎳", "7": "󰎶", "8": "󰎹", "9": "󰎼", "10": "󰽽",
+        //     "1": "󰲠", "2": "󰲢", "3": "󰲤", "4": "󰲦", "5": "󰲨", "6": "󰲪", "7": "󰲬", "8": "󰲮", "9": "󰲰", "10": "󰿬",
+        //     "1": "1","2": "2","3": "3","4": "4","5": "5","6": "6","7": "7","8": "8","9": "9",
+        //     "urgent": "",
+        //     "active": "",
+        //     "default": ""
+        //     "urgent": "󱨇",
+        //     "default": "󰎡"
+        //     "default": "",
+        //     "active": "󱓻"
+    },
+    "group/group-info-left-hypr": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-info",
+            // "group/group-volume-left",
+            // "group/group-language-left",
+            // "group/group-system-left",
+            // "group/group-network-left"
+            // "pulseaudio",
+            // "pulseaudio#source",
+            "wireplumber",
+            "hyprland/language",
+            "battery",
+            "disk",
+            "temperature",
+            "cpu",
+            "memory",
+            "network",
+            "network#speed"
+        ]
+    },
+    "group/group-info-right-hypr": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-info",
+            // "group/group-network-right",
+            // "group/group-system-right",
+            // "group/group-language-right",
+            // "group/group-volume-right"
+            "network#speed",
+            "network",
+            "memory",
+            "cpu",
+            "temperature",
+            "disk",
+            "battery",
+            "hyprland/language",
+            // "pulseaudio#source",
+            // "pulseaudio"
+            "wireplumber"
+        ]
+    },
+    "group/group-language-left-hypr": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/menu-language",
+            "hyprland/language"
+        ]
+    },
+    "group/group-language-right-hypr": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "children-info",
+            "click-to-reveal": true,
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/menu-language",
+            "hyprland/language"
+        ]
     }
 }
-//  "format": "{id} {icon}",
-//  "format": "{icon} {windows}",
-//  "format-icons": {
-//     other icons:                   華            ﱘ            󰨞 
-//     "1": "", "2": "", "3": "🖹", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "",
-//     "1": "󰎤", "2": "󰎧", "3": "󰎪", "4": "󰎭", "5": "󰎱", "6": "󰎳", "7": "󰎶", "8": "󰎹", "9": "󰎼", "10": "󰽽",
-//     "1": "󰲠", "2": "󰲢", "3": "󰲤", "4": "󰲦", "5": "󰲨", "6": "󰲪", "7": "󰲬", "8": "󰲮", "9": "󰲰", "10": "󰿬",
-//     "urgent": "",
-//     "active": "",
-//     "default": ""
-//     "urgent": "󱨇",
-//     "default": "󰎡"

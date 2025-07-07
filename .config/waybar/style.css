@@ -5,4 +5,4 @@
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
  * =========================================================================== */
-@import url("styles/style.css");
+@import "styles/style.css";
