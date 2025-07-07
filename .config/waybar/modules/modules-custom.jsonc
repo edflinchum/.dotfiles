@@ -72,10 +72,9 @@
     "custom/pacman": {
         "format": "  {}",
         "interval": 3600, // run once every hour
-        "exec": "(checkupdates; paru -Qu) | wc -l", // show # of updates available
-        "exec-if": "[ $((checkupdates; paru -Qu) | wc -l) -gt 0 ]", // only show if updates are needed
+        "exec": "(checkupdates || (sleep 15;checkupdates); paru -Qu) | wc -l", // show # of updates available
+        "exec-if": "[ $((checkupdates || (sleep 10;checkupdates); paru -Qu) | wc -l) -gt 0 ]", // only show if updates are needed
         "on-click": "alacritty -e paru -Syu --noconfirm; pkill -SIGRTMIN+8 waybar", // update system
-        "on-click-right": "alacritty -e paru -Syu --noconfirm; pkill -SIGRTMIN+8 waybar", // update system with terminal
         "signal": 8,
         "tooltip": false
     },
