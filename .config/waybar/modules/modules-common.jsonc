@@ -65,25 +65,25 @@
         "tooltip": true
     },
     "clock": {
-        "format": "{:%b %e    %I:%M %p}",
+        "format": "{:%b %d  %I:%M %p}",
         "tooltip-format": "<big>{:%A, %B %d}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "clock#date": {
-        "format": "  {:%a %b %d}",
-        "format-alt": "  {:%m/%d}", // Icon: calendar-alt
+        "format": " {:%a %b %d}",
+        "format-alt": " {:%m/%d}", // Icon: calendar-alt
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "tooltip": true
     },
     "clock#time": {
         "interval": 1,
-        "format": "  {:%I:%M %p}",
-        "format-alt": "  {:%H:%M}", // Alt Icon: ·
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%H:%M}", // Alt Icon: ·
         "tooltip-format": "{:%r}",
         "tooltip": true
     },
     "cpu": {
         "interval": 1,
-        "format": "  {usage}%", // Icon:  microchip, 
+        "format": " {usage}%", // Icon:  microchip, 
         // "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
         // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
         "states": {
@@ -93,7 +93,7 @@
     },
     "disk": {
         "interval": 30,
-        "format": "  {percentage_free}%", // 
+        "format": " {percentage_free}%", // 
         "path": "/",
         "states": {
             "warning": 85,
@@ -184,9 +184,9 @@
     },
     "pulseaudio": {
         "scroll-step": 1,
-        "format": "{icon}   {volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": "   MUTED", //alt icon:  󰝟 
+        "format-muted": " MUTED", //alt icon:  󰝟 
         "format-icons": {
             "headphone": "", //
             "hands-free": "",

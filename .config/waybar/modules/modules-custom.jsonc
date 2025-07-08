@@ -29,9 +29,9 @@
         "return-type": "json",
         // "max-length": 60,
         "format-icons": {
-            "spotify": " ",
-            "chromium": " ",
-            "default": "  " //   ♪   
+            "spotify": "",
+            "chromium": "",
+            "default": "" //   ♪   
         },
         "escape": true,
         "on-click": "playerctl play-pause",
@@ -44,12 +44,12 @@
         "tooltip-format": "Status and Settings"
     },
     "custom/menu-language": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Language"
     },
     "custom/menu-network": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Network"
     },
@@ -60,17 +60,17 @@
         "on-click": "wlogout"
     },
     "custom/menu-system": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "System"
     },
     "custom/menu-volume": {
-        "format": " ",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Volume"
     },
     "custom/pacman": {
-        "format": "  {}",
+        "format": " {}",
         "interval": 3600, // run once every hour
         "exec": "(checkupdates || (sleep 15;checkupdates); paru -Qu) | wc -l", // show # of updates available
         "exec-if": "[ $((checkupdates || (sleep 10;checkupdates); paru -Qu) | wc -l) -gt 0 ]", // only show if updates are needed
