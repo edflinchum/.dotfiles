@@ -178,6 +178,7 @@ disabled = false
 fish_indicator = '🐟'
 bash_indicator = ' '
 # zsh_indicator = '🚀'
+# zsh_indicator = '🇿'
 zsh_indicator = '💤'
 powershell_indicator = ' '
 unknown_indicator = ' '
