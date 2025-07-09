@@ -13,44 +13,84 @@
         "on-scroll-down": "light -A 1",
         "on-scroll-up": "light -U 1"
     },
+    // "battery": {
+    //     "bat": "BAT0",
+    //     "states": {
+    //         // "good": 95,
+    //         "warning": 30,
+    //         "critical": 15
+    //     },
+    //     "format-charging": " {capacity}%", // Icon:  bolt
+    //     "format-charging": "{capacity}% ",
+    //     "format-plugged": "{capacity}% ",
+    //     "format-discharging": "{icon} {capacity}%",
+    //     "format-alt": "{icon} {time}",
+    //     "format-good": "", // An empty format will hide the module
+    //     "format-full": "",
+    //     "format-icons": ["", "", "", "", ""],
+    //     "format-icons": [
+    //         "",
+    //         "",
+    //         "",
+    //         "",
+    //         ""
+    //     ],
+    //     "format": "{icon}",
+    //     "format-charging": "󰂄",
+    //     "format-plugged": "󰂄",
+    //     "format-icons": [
+    //         "󰁺",
+    //         "󰁻",
+    //         "󰁼",
+    //         "󰁽",
+    //         "󰁾",
+    //         "󰁿",
+    //         "󰂀",
+    //         "󰂁",
+    //         "󰂂",
+    //         "󰁹"
+    //     ],
+    //     "tooltip": false
+    // },
     "battery": {
-        "bat": "BAT0",
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
+        "format": "{icon} {capacity}%",
+        "format-discharging": "{icon}",
+        "format-charging": "{icon}",
+        "format-plugged": "",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
         },
-        // "format-charging": " {capacity}%", // Icon:  bolt
-        //"format-charging": "{capacity}% ",
-        //"format-plugged": "{capacity}% ",
-        // "format-discharging": "{icon} {capacity}%",
-        // "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        // "format-icons": ["", "", "", "", ""],
-        // "format-icons": [
-        //     "",
-        //     "",
-        //     "",
-        //     "",
-        //     ""
-        // ],
-        "format": "{icon}",
-        "format-charging": "󰂄",
-        "format-plugged": "󰂄",
-        "format-icons": [
-            "󰁺",
-            "󰁻",
-            "󰁼",
-            "󰁽",
-            "󰁾",
-            "󰁿",
-            "󰂀",
-            "󰂁",
-            "󰂂",
-            "󰁹"
-        ],
-        "tooltip": false
+        // "format-full": "Charged ",
+        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 10
+        }
     },
     "bluetooth": {
         "format": "{icon}",
@@ -58,9 +98,9 @@
         "interval": 30,
         "format-icons": {
             "enabled": "",
-            "disabled": ""
+            "disabled": "󰂲"
         },
-        "on-click-right": "blueberry",
+        "on-click": "blueberry",
         "tooltip-format": "{status}",
         "tooltip": true
     },
@@ -147,16 +187,23 @@
         "interval": 1,
         "format-icons": {
             "wifi": [
-                "睊",
-                "直",
-                ""
+                //     "睊",
+                //     "直",
+                //     ""
+                "󰤯",
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
             ],
             "ethernet": [
                 ""
             ],
             "disconnected": [
-                ""
-            ] // Icon: , ⚠ 
+                // ""
+                // Icon: , ⚠ 
+                "󰖪"
+            ]
         },
         //"format": "{icon} {ifname}: {ipaddr}/{cidr}",
         // Icons:     
@@ -166,8 +213,16 @@
         // "format-wifi": "󰤢 ",
         // "format-ethernet": "󰈀 ",
         // "format-disconnected": "󰤠 ",
+        // "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        // "format" : "{icon}",
+        // "format-wifi" : "{icon}",
+        // "format-ethernet" : "󰀂",
+        // "format-disconnected" : "󰖪",
+        // "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        // "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        // "tooltip-format-disconnected": "Disconnected",
+        // "nospacing": 1,
         "format-wifi": "{icon} {essid} ({signalStrength}%)",
-        // "format-ethernet": "{icon} {ipaddr}",
         "format-ethernet": "{icon} {ifname}",
         "format-disconnected": "{icon} Disconnected",
         "format-alt": "{icon} {ipaddr}",
