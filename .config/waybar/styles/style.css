@@ -7,7 +7,7 @@
  * =========================================================================== */
 
 
-/* import css color definitions for current theme */
+/* import css color definitions */
 @import "colors/colors.css";
 
 
@@ -39,16 +39,17 @@ label.module {
     transition: none;
 }
 
+/* No margins on the ends of the bar */
+.modules-left>widget:first-child>* { margin-left:  0px; }
+.modules-right>widget:last-child>* { margin-right: 0px; }
+
+/* Round all modules for bar1 */
 .bar1 box.module>*,
 .bar1 label.module {
     border-radius: 32px;
 }
 
-/* No margins on the ends of the bar */
-.modules-left>widget:first-child>* { margin-left:  0px; }
-.modules-right>widget:last-child>* { margin-right: 0px; }
-
-/* Round the ends of each module section */
+/* Round the ends of each module section for bar2 */
 .bar2 .modules-center>widget:first-child>*,
 .bar2 .modules-right>widget:first-child>* {
     border-bottom-left-radius: 32px;
@@ -62,6 +63,7 @@ label.module {
     border-top-right-radius: 32px;
 }
 
+/* Full bar styles */
 window#waybar                { transition-duration: 2s; transition-property: all; }
 window#waybar.bar2           { background-color: alpha(@window, 0.5); }
 window#waybar.bar2.solo      { background-color: @window; }
@@ -71,55 +73,56 @@ window#waybar.empty #window,
 window#waybar.empty          { background-color: transparent; }
 window#waybar.hidden         { opacity: 0.2; }
 
-.bar2 #battery                               { background-color: @battery;  color: @dark;  }
-.bar2 #clock.date                            { background-color: @date;     color: @light; }
-.bar2 #clock.time                            { background-color: @time;     color: @dark;  }
-.bar2 #cpu                                   { background-color: @cpu;      color: @dark;  }
-.bar2 #custom-alsa                           { background-color: @sound;    color: @dark;  }
-.bar2 #custom-launcher                       { background-color: @taskbar;  color: @light; }
-.bar2 #custom-media                          { background-color: @media;    color: @dark;  }
-.bar2 #custom-menu-power,
-.bar2 .children-power                        { background-color: @power;    color: @light; }
-.bar2 #custom-menu-info,
-.bar2 #custom-menu-language,
-.bar2 #custom-menu-network,
-.bar2 #custom-menu-system,
-.bar2 #custom-menu-volume                    { background-color: @taskbar;  color: @light; }
-.bar2 #custom-pacman                         { background-color: @updates;  color: @light; }
-.bar2 #custom-weather                        { background-color: @weather;  color: @dark;  }
-.bar2 #disk                                  { background-color: @disk;     color: @dark;  }
-.bar2 #idle_inhibitor                        { background-color: @idle;     color: @light; }
-.bar2 #language                              { background-color: @language; color: @dark;  }
-.bar2 #memory                                { background-color: @memory;   color: @dark;  }
-.bar2 #network                               { background-color: @network;  color: @dark;  }
-.bar2 #network.speed                         { background-color: @speed;    color: @dark;  min-width: 80px; }
-.bar2 #mode                                  { background-color: @mode;     color: @light; }
-.bar2 #pulseaudio                            { background-color: @sound;    color: @dark;  }
-.bar2 #submap                                { background-color: @mode;     color: @light; }
-.bar2 #temperature                           { background-color: @temp;     color: @dark;  }
-.bar2 #taskbar                               { background-color: @taskbar;                 }
-.bar2 #taskbar button                        { border-radius: 32px; padding: 0px;          }
-.bar2 #taskbar button.active:not(:hover),
-.bar2 #taskbar button.focused:not(:hover)    { border-color: @light;                       }
-.bar2 #tray                                  { background-color: @tray;                    }
-.bar2 #window                                {                              color: @light; }
-.bar2 #wireplumber                           { background-color: @sound;    color: @dark;  }
-
+/* Module styles for bar1 */
 .bar1 #workspaces button                     { color: #b0b0b0; }
 .bar1 #workspaces button.active:not(:hover),
 .bar1 #workspaces button.focused:not(:hover) { background-color: alpha(white, 0.15); color: white; }
 .bar1 #workspaces button.urgent              { color: red; }
 
+/* Module styles for bar2*/
+.bar2 #battery                               { background-color: @battery;    color: @dark;   }
+.bar2 #clock.date                            { background-color: @date;       color: @light;  }
+.bar2 #clock.time                            { background-color: @time;       color: @dark;   }
+.bar2 #cpu                                   { background-color: @cpu;        color: @dark;   }
+.bar2 #custom-alsa                           { background-color: @sound;      color: @dark;   }
+.bar2 #custom-launcher                       { background-color: @taskbar;    color: @light;  }
+.bar2 #custom-media                          { background-color: @media;      color: @dark;   }
+.bar2 #custom-menu-power,
+.bar2 .children-power                        { background-color: @power;      color: @light;  }
+.bar2 #custom-menu-info,
+.bar2 #custom-menu-language,
+.bar2 #custom-menu-network,
+.bar2 #custom-menu-system,
+.bar2 #custom-menu-volume                    { background-color: @taskbar;    color: @light;  }
+.bar2 #custom-pacman                         { background-color: @updates;    color: @light;  }
+.bar2 #custom-weather                        { background-color: @weather;    color: @dark;   }
+.bar2 #disk                                  { background-color: @disk;       color: @dark;   }
+.bar2 #idle_inhibitor                        { background-color: @idle;       color: @light;  }
+.bar2 #language                              { background-color: @language;   color: @dark;   }
+.bar2 #memory                                { background-color: @memory;     color: @dark;   }
+.bar2 #network                               { background-color: @network;    color: @dark;   }
+.bar2 #network.speed                         { background-color: @speed;      color: @dark;   min-width: 80px; }
+.bar2 #mode                                  { background-color: @mode;       color: @light;  }
+.bar2 #pulseaudio                            { background-color: @sound;      color: @dark;   }
+.bar2 #submap                                { background-color: @mode;       color: @light;  }
+.bar2 #temperature                           { background-color: @temp;       color: @dark;   }
+.bar2 #taskbar                               { background-color: @taskbar;                    }
+.bar2 #taskbar button                        { border-radius: 32px; padding: 0px;             }
+.bar2 #taskbar button.active:not(:hover),
+.bar2 #taskbar button.focused:not(:hover)    { border-color: @light;                          }
+.bar2 #tray                                  { background-color: @tray;                       }
+.bar2 #window                                {                                color: @light;  }
+.bar2 #wireplumber                           { background-color: @sound;      color: @dark;   }
 .bar2 #workspaces button                     { background-color: @workspaces; color: @bright; }
 .bar2 #workspaces button.active,
-.bar2 #workspaces button.focused             { background-color: @focused; color: @light; }
+.bar2 #workspaces button.focused             { background-color: @focused;    color: @light;  }
 .bar2 #workspaces button.active:not(:hover),
 .bar2 #workspaces button.focused:not(:hover) { border-color: @light; }
-.bar2 #workspaces button.empty               { color: @dark; }
-.bar2 #workspaces button.urgent              { color: @critical; }
+.bar2 #workspaces button.empty               { color: @dark;         }
+.bar2 #workspaces button.urgent              { color: @critical;     }
 
 
-/* Hover effect */
+/* Hover styles */
 .bar1 box.module>*:hover,
 .bar1 image:hover,
 .bar1 label.module:hover {
