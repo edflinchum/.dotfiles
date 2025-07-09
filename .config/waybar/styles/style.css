@@ -79,7 +79,7 @@ window#waybar.hidden         { opacity: 0.2; }
 .bar1 #workspaces button.focused:not(:hover) { background-color: alpha(white, 0.15); color: white; }
 .bar1 #workspaces button.urgent              { color: red; }
 
-/* Module styles for bar2*/
+/* Module styles for bar2 */
 .bar2 #battery                               { background-color: @battery;    color: @dark;   }
 .bar2 #clock.date                            { background-color: @date;       color: @light;  }
 .bar2 #clock.time                            { background-color: @time;       color: @dark;   }
