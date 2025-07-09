@@ -9,9 +9,11 @@
 
 [font.normal]
 style = "Regular"
+# family = "AdwaitaMono Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
 family = "CaskaydiaMono Nerd Font"
 # family = "JetBrainsMono Nerd Font"
-# family = "Adwaita Mono"
+# family = "RobotoMono Nerd Font"
 
 [colors]
 draw_bold_text_with_bright_colors = true
