@@ -1,33 +1,16 @@
-# width=600
-# height=350
-# location=center
-# show=drun
-# prompt=Search...
-# filter_rate=100
-# allow_markup=true
-# no_actions=true
-# halign=fill
-# orientation=vertical
-# content_halign=fill
-# insensitive=true
-# allow_images=true
-# image_size=40
-# gtk_dark=true
-
-
-
-[config]
-allow_images=true
-# width=500
+width=480
+height=620
+location=center
 show=drun
-prompt=Search
-# height=400
-always_parse_args=true
-show_all=true
-# term=kitty
-hide_scroll=true
-print_command=true
+matching=fuzzy
+prompt=Search...
+filter_rate=100
+allow_markup=true
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
 insensitive=true
-columns=1
-
-# Same as the original source, no modifications made
+allow_images=true
+image_size=28
+gtk_dark=false
