@@ -5,6 +5,7 @@ skip_global_compinit=1
 
 export LESSHISTFILE=-
 export FZF_DEFAULT_OPTS='--cycle --layout=reverse --border --height=40% --preview-window=wrap --marker="*"'
+export HYPRSHOT_DIR=$HOME/Pictures/Screenshots
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 if (( $+commands[micro] )); then
