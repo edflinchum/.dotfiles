@@ -1,8 +1,8 @@
+# font-family = "AdwaitaMono Nerd Font"
 font-family = "CaskaydiaCove Nerd Font"
 
 maximize = true
-theme = "Adwaita Dark"
-background-opacity = 0.9
+theme = "SeaShells"
+background-opacity = 0.8
 
 # keybind = ctrl+shift+w=close_surface
-# keybind = super+ctrl+shift+plus=equalize_splits
