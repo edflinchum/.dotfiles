@@ -6,15 +6,15 @@
 //
 // =============================================================================
 [
-    {
-        "name": "bar1",
-        "height": 42,
-        "layer": "top",
-        "output": "DP-1",
-        "position": "top",
-        "reload_style_on_change": true,
-        "include": "$HOME/.config/waybar/configs/niri-bar1.jsonc"
-    },
+    // {
+    //     "name": "bar1",
+    //     "height": 42,
+    //     "layer": "top",
+    //     "output": "DP-1",
+    //     "position": "top",
+    //     "reload_style_on_change": true,
+    //     "include": "$HOME/.config/waybar/configs/niri-bar1.jsonc"
+    // },
     // {
     //     "name": "bar1",
     //     "height": 42,
@@ -29,9 +29,10 @@
         "height": 42,
         "layer": "top",
         "output": "DP-1",
-        "position": "bottom",
+        // "position": "bottom",
+        "position": "top",
         "reload_style_on_change": true,
-        "start_hidden": true,
+        // "start_hidden": true,
         "include": "$HOME/.config/waybar/configs/niri-bar2.jsonc"
     }
 ]
